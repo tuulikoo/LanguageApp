@@ -28,7 +28,7 @@ export default function Login() {
           // Redirect to dashboard page after successful login
 
           router.push("/dashboard");
-          
+
         } else {
           setLoginError("Invalid username or password");
         }
@@ -56,8 +56,8 @@ export default function Login() {
             <div>{styles.formError}{formik.errors.password}</div>
           )}
         </div>
-        {loginError && <div>{loginError}</div>}
-        <button type="submit">Login</button>
+        {loginError && <div>{styles.loginError}{loginError}</div>}
+        <button type="submit">{styles.loginButton}Login</button>
       </form>
     </div>
   );
