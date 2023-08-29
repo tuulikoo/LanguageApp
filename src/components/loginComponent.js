@@ -28,6 +28,7 @@ export default function Login() {
           // Redirect to dashboard page after successful login
 
           router.push("/dashboard");
+          
         } else {
           setLoginError("Invalid username or password");
         }
