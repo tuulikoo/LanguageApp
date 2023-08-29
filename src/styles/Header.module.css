@@ -1,0 +1,19 @@
+
+.header-container {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.header-heading {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.custom-navbar {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.custom-navbar .nav {
+    justify-content: space-evenly;
+}
