@@ -1,98 +1,62 @@
 import { useState } from "react";
-import * as Yup from "yup";
+import { useFormik } from "formik";
+import * as yup from "yup";
 import axios from "axios";
 import { useRouter } from "next/router";
-import Link from "next/link";
-import {useUser} from "../utils/userContext";
-import { useContext } from "react";
 
 
-const validationSchema = Yup.object().shape({
-    username: Yup.string().required("Username is required").min(4, "Username is too short - should be 4 chars minimum."),
-    password: Yup.string().required("Password is required").min(8, "Password is too short - should be 8 chars minimum."),
+const validationSchema = yup.object().shape({
+  username: yup.string().required("Username is required"),
+  password: yup.string().required("Password is required"),
 });
 
-const LoginPage = () => {
+export default function Login() {
+  const router = useRouter();
+  const [loginError, setLoginError] = useState("");
 
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [loading, setLoading] = useState(false);
-    const [loginStatus, setLoginStatus] = useState(false);
-    const [error, setError] = useState("");
-    const [setUser, setToken] = useContext(UserContext);                                                                    
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+      password: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: async (values) => {
+      try {
+        const response = await axios.post("/api/login", values);
+        if (response.status === 200) {
+          // Redirect to dashboard page after successful login
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        try {
-            await validationSchema.validate({ username, password });
-
-            try {
-                const { data } = await axios.post("/api/login", { username, password });
-                if (data.message === "Login successful") {
-                    setUser({ username: username });
-                    setToken(data.token);
-                    setLoginStatus('Logged in successfully');
-
-                    setTimeout(() => {
-                        router.replace("/");
-                    }, 2000);
-                }
-            } catch (error) {
-                setLoginStatus('Login failed');
-                setError(error.response.data.message);
-            }
-        } catch (error) {
-            setError(error.message);
+          router.push("/dashboard");
+        } else {
+          setLoginError("Invalid username or password");
         }
-        setLoading(false);
+      } catch (error) {
+        setLoginError("An error occurred during login");
+      }
+    },
+  });
 
-
-        const handleMouseEnter = () => {
-            setIsHover(true);
-        };
-
-        return (
-            <div
-                className={styles.wrapper}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={() => setIsHover(false)}
-                id={isHover === true ? styles.blur : null}
-            >
-                <form onSubmit={handleSubmit}>
-                    <label>
-                        <input
-                            type="text"
-                            value={username}
-                            placeholder="username"
-                            onChange={(e) => setUsername(e.target.value)}
-                        />
-                    </label>
-                    {errors.username && <p>{errors.username}</p>}
-                    <label>
-                        <input
-                            type="password"
-                            value={password}
-                            placeholder="password"
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </label>
-                    {errors.password && <p>{errors.password}</p>}
-                    <button type="submit">Log in</button>
-                    {loginStatus && <p>{loginStatus}</p>}
-                </form>
-                <div className={styles.signUpLink}>
-                    <Link title="Sign up"
-                        href="/signup">
-                        <p className={styles.signUpLinkText}>Sign up</p>
-                    </Link>
-                </div>
-            </div>
-        );
-    };
-};
-
-export default LoginPage;
-
-
-
+  return (
+    <div>
+      <h1>Login</h1>
+      <form onSubmit={formik.handleSubmit}>
+        <div>
+          <label>Email:</label>
+          <input type="username" {...formik.getFieldProps("username")} />
+          {formik.touched.username && formik.errors.username && (
+            <div>{formik.errors.username}</div>
+          )}
+        </div>
+        <div>
+          <label>Password:</label>
+          <input type="password" {...formik.getFieldProps("password")} />
+          {formik.touched.password && formik.errors.password && (
+            <div>{formik.errors.password}</div>
+          )}
+        </div>
+        {loginError && <div>{loginError}</div>}
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  );
+}

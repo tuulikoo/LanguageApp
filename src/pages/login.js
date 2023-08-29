@@ -1,22 +1,15 @@
-import { useState } from "react";
-import FormComponent from "../components/loginComponent";
+import LoginPage from "@/components/loginComponent";
 
-const login = () => {
 
-    const [formdata, setFormdata] = useState({});
-    const [loading, setLoading] = useState(false);
-    const [success, setSuccess] = useState(false);
-    const handleFormData = (data) => {
-        setFormdata(data);
-    };
-
+const Login = () => {
     return (
-        <div className="login">
-            <h1>Login</h1>
-            <FormComponent onSubmit={handleFormData} />
-        </div>
+        <>
+        <LoginPage /></>
+
     );
 };
-export default login;
 
+        
+export default Login;
 
+                                                                    
