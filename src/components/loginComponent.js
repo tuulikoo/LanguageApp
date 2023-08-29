@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import axios from "axios";
 import { useRouter } from "next/router";
+import styles from "../styles/login.module.scss";
 
 
 const validationSchema = yup.object().shape({
@@ -41,17 +42,17 @@ export default function Login() {
       <h1>Login</h1>
       <form onSubmit={formik.handleSubmit}>
         <div>
-          <label>Email:</label>
+          <label>Username:</label>
           <input type="username" {...formik.getFieldProps("username")} />
-          {formik.touched.username && formik.errors.username && (
-            <div>{formik.errors.username}</div>
+          {formik.touched.username && formik.errors.username && ( 
+            <div>{styles.formError}{formik.errors.username}</div>
           )}
         </div>
         <div>
           <label>Password:</label>
           <input type="password" {...formik.getFieldProps("password")} />
           {formik.touched.password && formik.errors.password && (
-            <div>{formik.errors.password}</div>
+            <div>{styles.formError}{formik.errors.password}</div>
           )}
         </div>
         {loginError && <div>{loginError}</div>}
