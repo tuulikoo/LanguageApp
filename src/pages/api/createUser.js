@@ -1,3 +1,5 @@
+//server side create user 
+
 import prisma from '../../utils/prisma';
 import {generateToken} from '../../utils/jwt';
 
@@ -6,7 +8,7 @@ export default async (req, res) => {
 
     try {
         const user = await prisma.user.findUnique({
-            where: {uswername},
+            where: {username},
         });
         if (user) {
             return res.status(400).json({message: 'Username already exists'});
