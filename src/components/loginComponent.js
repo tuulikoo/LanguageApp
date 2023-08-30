@@ -1,64 +1,67 @@
 import { useState } from "react";
-import { useFormik } from "formik";
-import * as yup from "yup";
+import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useRouter } from "next/router";
 import styles from "../styles/login.module.scss";
 
 
-const validationSchema = yup.object().shape({
-  username: yup.string().required("Username is required"),
-  password: yup.string().required("Password is required"),
-});
 
 export default function Login() {
-  const router = useRouter();
-  const [loginError, setLoginError] = useState("");
+    const router = useRouter();
+    const [loginError, setLoginError] = useState("");
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isSubmitting },
+    } = useForm();
 
-  const formik = useFormik({
-    initialValues: {
-      username: "",
-      password: "",
-    },
-    validationSchema: validationSchema,
-    onSubmit: async (values) => {
-      try {
-        const response = await axios.post("/api/login", values);
-        if (response.status === 200) {
-          // Redirect to dashboard page after successful login
-
-          router.push("/dashboard");
-
-        } else {
-          setLoginError("Invalid username or password");
+    const onSubmit = async (values) => {
+        try {
+            const response = await axios.post("/api/login", values);
+            if (response.status === 200) {
+                // Redirect to dashboard page after successful login
+                router.push("/dashboard");
+            } else {
+                setLoginError("Invalid username or password");
+            }
+        } catch (error) {
+            setLoginError("An error occurred during login");
         }
-      } catch (error) {
-        setLoginError("An error occurred during login");
-      }
-    },
-  });
+    };
 
-  return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={formik.handleSubmit}>
+    return (
         <div>
-          <label>Username:</label>
-          <input type="username" {...formik.getFieldProps("username")} />
-          {formik.touched.username && formik.errors.username && ( 
-            <div>{styles.formError}{formik.errors.username}</div>
-          )}
+            <h1>Login</h1>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div>
+                    <label>Username:</label>
+                    <input
+                        type="text"
+                        {...register("username", { required: "Username is required" })}
+                        className={styles.formControl}
+                    />
+                    {errors.username && (
+                        <div className={styles.formError}>{errors.username.message}</div>
+                    )}
+                </div>
+                <div>
+                    <label>Password:</label>
+                    <input
+                        type="password"
+                        {...register("password", { required: "Password is required" })}
+                        className={styles.formControl}
+                    />
+                    {errors.password && (
+                        <div className={styles.formError}>{errors.password.message}</div>
+                    )}
+                </div>
+                {loginError && (
+                    <div className={styles.loginError}>{loginError}</div>
+                )}
+                <button type="submit" className={styles.loginButton} disabled={isSubmitting}>
+                    Login
+                </button>
+            </form>
         </div>
-        <div>
-          <label>Password:</label>
-          <input type="password" {...formik.getFieldProps("password")} />
-          {formik.touched.password && formik.errors.password && (
-            <div>{styles.formError}{formik.errors.password}</div>
-          )}
-        </div>
-        {loginError && <div>{styles.loginError}{loginError}</div>}
-        <button type="submit">{styles.loginButton}Login</button>
-      </form>
-    </div>
-  );
+    );
 }
