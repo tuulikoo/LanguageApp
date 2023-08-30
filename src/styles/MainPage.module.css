@@ -11,6 +11,7 @@
     color: #ffffff;
     margin: auto;
     border: 1px solid rgba(63, 118, 224, 0.58);
+    text-decoration: none;
 }
 .navbar{
     display: flex;
@@ -46,36 +47,39 @@
 
 /*========== HERO ==============*/
 .hero_container{
-    width: 100vw;
-    height: 700px;
     position: relative;
+    max-height: 500px;
+    object-fit: cover;
 }
 .hero_img{
-    position: absolute;
-    top:50px;
-    right:0;
-    width: 350px;
-}
-.hero_img2{
-    position: absolute;
-    top:150px;
-    left:200px;
-    width: 350px;
-}
-.hero_img3{
-    position: absolute;
-    top:300px;
-    right:450px;
-    width: 350px;
+    /*width:100vw;*/
+    height: 500px;
+    opacity: 0.6;
+    object-fit: contain;
 }
 .hero_title{
     position: absolute;
     top:45px;
-    left:35%;
+    right:15%;
     color: rgba(39, 70, 134, 0.58);
     font-size: 70px;
 }
-
+.hero_button{
+    position: absolute;
+    bottom: 60px;
+    right: 30%;
+    background-color: white;
+    border: 1px solid rgba(63, 118, 224, 0.58);
+    color: rgba(63, 118, 224, 0.58);
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 25px;
+}
+.hero_button:hover, .hero_button:focus{
+    cursor:pointer;
+    color:  #1db91d;
+    border: 3px solid #1db91d;
+}
 /*levels*/
 .levels_container, .carousel_container{
     width: 100vw;
@@ -94,8 +98,7 @@
 }
  /*=======  Footer   ========*/
 .footer {
-    padding-top: 60px;
-    padding-bottom: 60px;
+
     background-color: rgba(63, 118, 224, 0.58);
     color: white;
     font-size: 20px;
@@ -103,7 +106,10 @@
 }
 
 .footer_container{
-    align-items: flex-start;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0px 50px;
 }
 
 .logo {
@@ -203,7 +209,7 @@
     border-radius: 4px;
 }
 
-.hero_btn {
+.subscribe_btn {
     display: flex;
     justify-content: center;
     vertical-align: middle;
@@ -211,9 +217,6 @@
     background-color: rgba(63, 118, 224, 0.58);
     width: 175px;
     height: 50px;
-
-    /*margin-left: 12px;*/
-    /*margin-top: 20px;*/
     margin-right: 10px;
     font-weight: 700;
     font-size: 16px;
@@ -221,9 +224,10 @@
     align-items: center;
     text-align: center;
     letter-spacing: 0.06em;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
     padding: 10px 32px;
-    border-radius: 4px;
+    border-radius: 5px;
+    border: 1px solid rgba(63, 118, 224, 0.58);
 }
 
 /* ===END FOOTER ===*/
