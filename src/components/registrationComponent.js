@@ -14,6 +14,8 @@ function RegistrationForm() {
         const saveUser = async () => {
             setLoading(true);
             try {
+                //TODO: create registration api
+                
                 const response = await axios.post("/api/register", data);
                 console.log(response);
             } catch (error) {
