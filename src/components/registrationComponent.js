@@ -1,5 +1,7 @@
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 function RegistrationForm() {
     const {
@@ -9,21 +11,28 @@ function RegistrationForm() {
     } = useForm();
 
     const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState(false);
+    const router = useRouter();
 
-    const onSubmit = (data) => {
-        const saveUser = async () => {
+    const onSubmit = async (data) => {
+        try {
             setLoading(true);
-            try {
-                //TODO: create registration api
-                
-                const response = await axios.post("/api/register", data);
-                console.log(response);
-            } catch (error) {
-                console.error(error);
+            const response = await axios.post("/api/createUser", data);
+            if (response.status === 200) {
+                setSuccess("User created successfully");
+            } else {
+                setError("Something went wrong");
             }
-        };
-        setLoading(false);
+        } catch (error) {
+            setError(error.response.data.message);
+        }
+        finally {
+            setLoading(false);
+            router.push("/dashboard");
+        }
     };
+
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -81,7 +90,11 @@ function RegistrationForm() {
                 {errors.password && <p>{errors.password.message}</p>}
             </div>
 
-            <button type="submit">Register</button>
+            <button type="submit" disabled={loading}>
+                {loading ? "Loading..." : "Register"}
+            </button>
+            {success && <p>{styles.successMessage}{success}</p>}
+            {error && <p>{styles.errorMessage}{error}</p>}
         </form>
     );
 }
