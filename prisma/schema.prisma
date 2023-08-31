@@ -3,8 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider = "mariadb"
+  url      = env("localhost:3306")
 }
 //user model with email, name, password, points, level, createdAt, updatedAt fields
 // points and level are set to 0 by default 
