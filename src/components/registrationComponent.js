@@ -21,6 +21,9 @@ function RegistrationForm() {
             const response = await axios.post("/api/createUser", data);
             if (response.status === 200) {
                 setSuccess("User created successfully");
+                setTimeout(() => {
+                    router.push("/dashboard");
+                }, 2000);
             } else {
                 setError("Something went wrong");
             }
@@ -29,7 +32,6 @@ function RegistrationForm() {
         }
         finally {
             setLoading(false);
-            router.push("/dashboard");
         }
     };
 
