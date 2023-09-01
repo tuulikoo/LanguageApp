@@ -1,0 +1,25 @@
+/* src/styles/UserPage.module.css */
+.welcome-page {
+    display: flex;
+    justify-content: center;
+
+    height: 100vh;
+}
+
+@font-face {
+    font-family: 'Karmatic Arcade Font';
+    src: url('../../public/fonts/ka1.ttf') format('truetype'),
+    url('../../public/fonts/ka1.ttf') format('truetype'); /* Use 'truetype' for .ttf files */
+    font-weight: normal;
+    font-style: normal;
+}
+
+.centered-heading {
+    text-align: center;
+    font-family: 'Karmatic Arcade Font', sans-serif;
+    margin-top: 5%;
+}
+
+.page-title {
+    font-size: 24px;
+}

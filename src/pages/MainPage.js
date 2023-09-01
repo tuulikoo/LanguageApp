@@ -27,7 +27,11 @@ const MainPage = () => {
                   🄷🄾🄼🄴
                 </Link>
               </Nav.Link>
-
+              <Nav.Link className="nav-item">
+                <Link className={styles.nav_link} href={"/UserPage"}>
+                  Userpage
+                </Link>
+              </Nav.Link>
               <Nav.Link className="nav-item">
                 <Link href={"/Login"}>🄻🄾🄶🄸🄽</Link>
               </Nav.Link>

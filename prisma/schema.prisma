@@ -13,6 +13,7 @@ model User {
   email     String   @unique
   name      String?
   password  String
+<<<<<<< Updated upstream
   points   Int      @default(0)
   level     Int      @default(0)
   createdAt DateTime @default(now())
@@ -24,3 +25,6 @@ model User {
 
 
 
+=======
+}
+>>>>>>> Stashed changes

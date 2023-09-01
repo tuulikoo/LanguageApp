@@ -21,6 +21,7 @@ export default function Login() {
             if (response.status === 200) {
                 // Redirect to dashboard page after successful login
                 router.push("/dashboard");
+
             } else {
                 setLoginError("Invalid username or password");
             }

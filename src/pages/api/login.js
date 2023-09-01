@@ -21,7 +21,9 @@ const loginController = async (req, res) => {
       const payload = {
         id: user.id,
         username: user.username,
+
       };
+      console.log(password, username);
       // jwt token
       const token = generateToken(payload);
 
