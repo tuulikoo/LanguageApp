@@ -23,7 +23,6 @@ const loginController = async (req, res) => {
         username: user.username,
 
       };
-      console.log(password, username);
       // jwt token
       const token = generateToken(payload);
 

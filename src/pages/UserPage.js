@@ -1,37 +1,14 @@
-// src/pages/UserPage.js or src/pages/UserPage.tsx
+import React from 'react';
 import Head from 'next/head';
-import { useState } from 'react';
-import styles from '@/styles/UserPage.module.css';
+import UpdateDetailsComponent from '@/components/updateDetailsComponent'; // Import the component
 
 function UserPage() {
-    //const [username, setUsername] = useState('');
-
-    // Simulate authentication logic (replace this with your actual logic)
-    // const token = localStorage.getItem('token');
-    // if (!token) {
-    //   router.push('/login'); // Redirect to login if not authenticated
-    // } else {
-    //   const decoded = verifyToken(token);
-    //   if (decoded) {
-    //     setUsername(decoded.username);
-    //   } else {
-    //     router.push('/login'); // Redirect to login if token is invalid
-    //   }
-    // }
-
-    // For testing purposes, set a username without authentication
-
-
     return (
-        <div className={styles['welcome-page']}>
+        <div>
             <Head>
                 <title>Welcome Page</title>
             </Head>
-            <div className={styles['centered-heading']}>
-                <h1 className={styles['page-title']}>
-                    Welcome to your own page Tester
-                </h1>
-            </div>
+            <UpdateDetailsComponent /> {/* Use the imported component */}
         </div>
     );
 }
