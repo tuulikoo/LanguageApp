@@ -1,26 +1,19 @@
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["mongodb"]
 }
 
 datasource db {
-  provider = "mariadb"
-  url      = env("localhost:3306")
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
 }
-//user model with email, name, password, points, level, createdAt, updatedAt fields
-// points and level are set to 0 by default 
+
 model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  name      String?
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  firstName String
+  lastName  String
+  username  String @unique
+  email     String @unique
   password  String
-  points   Int      @default(0)
-  level     Int      @default(0)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  }
-
-
-  
-
-
+}
 
