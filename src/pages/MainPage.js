@@ -8,8 +8,8 @@ const MainPage = () => {
       <div className={styles.navbar_container}>
         <nav className={styles.navbar}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <a
-            href="./Header.js"
+          //<a
+            href="./MainPage.js"
             className={styles.logo_link}
             title="click going to the main page"
           >
@@ -28,8 +28,14 @@ const MainPage = () => {
                 </Link>
               </Nav.Link>
 
-              <Nav.Link as="login" className="nav-item">
+              <Nav.Link className="nav-item">
                 <Link href={"/Login"}>🄻🄾🄶🄸🄽</Link>
+              </Nav.Link>
+              <Nav.Link className="nav-item">
+                <Link href={"/Registration"}>🅁🄴🄶🄸🅂🅃🄴🅁</Link>
+              </Nav.Link>
+              <Nav.Link className="nav-item">
+                <Link href={"/Level1"}>🄻🄴🅅🄴🄻 1</Link>
               </Nav.Link>
             </ul>
           </div>

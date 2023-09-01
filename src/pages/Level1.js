@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Tab2 = () => {
+const Level1 = () => {
     return <div>Tab 2 content</div>;
 };
 
-export default Tab2;
+export default Level1;
