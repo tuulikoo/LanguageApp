@@ -1,6 +1,8 @@
 import {createContext, useContext, useEffect, useState} from 'react';
 import axios from 'axios';
 
+
+
 const UserContext = createContext();
 
 export const useUser = () => {
@@ -11,6 +13,11 @@ export const UserProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [token, setTokens] = useState(null);
     const [loading, setLoading] = useState(true);
+
+    // Tuuli: Function to update user data
+    const updateUser = (newUserData) => {
+        setUser(newUserData);
+    };
 
     // check if token is valid and set user get token from utils/jwt.js
     const setToken = (newToken) => {
@@ -46,7 +53,7 @@ export const UserProvider = ({children}) => {
         fetchUser();
     }, []);
     return (
-        <UserContext.Provider value={{user, setUser, token, setToken, isLoading: loading}}>
+        <UserContext.Provider value={{user, updateUser, setUser, token, setToken, isLoading: loading}}>
             {children}
         </UserContext.Provider>
     );

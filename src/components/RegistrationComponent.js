@@ -2,6 +2,7 @@ import { set, useForm } from "react-hook-form";
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
+import {styles} from "next/dist/client/components/react-dev-overlay/internal/components/Toast";
 
 function RegistrationForm() {
     const {
@@ -22,7 +23,7 @@ function RegistrationForm() {
             if (response.status === 200) {
                 setSuccess("User created successfully");
                 setTimeout(() => {
-                    router.push("/dashboard");
+                    router.push("/Login");
                 }, 2000);
             } else {
                 setError("Something went wrong");

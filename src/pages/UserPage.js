@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
-import UpdateDetailsComponent from '@/components/updateDetailsComponent'; // Import the component
+import UpdateDetailsComponent from '@/components/UpdateDetailsComponent'; // Import the component
+import UserPointsComponent from '@/components/UserPointsComponent';
 
 function UserPage() {
     return (
@@ -8,7 +9,9 @@ function UserPage() {
             <Head>
                 <title>Welcome Page</title>
             </Head>
-            <UpdateDetailsComponent /> {/* Use the imported component */}
+            <UpdateDetailsComponent />
+            <UserPointsComponent />
+
         </div>
     );
 }
