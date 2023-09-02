@@ -1,0 +1,37 @@
+.hero_container{
+    position: relative;
+    width: 100vw;
+    max-height: 700px;
+    object-fit: cover;
+    margin-bottom: 45px;
+}
+.hero_img{
+    width:500px;
+    opacity: 0.4;
+    object-fit: contain;
+}
+.hero_title{
+    position: absolute;
+    top:0px;
+    right:10%;
+    color: rgba(63, 118, 224, 0.78);
+    font-size: 70px;
+}
+.hero_button{
+    position: absolute;
+    bottom: 0%;
+    right:30%;
+    background-color: white;
+    border: 1px solid rgba(63, 118, 224, 0.58);
+    color: rgba(63, 118, 224, 0.58);
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 25px;
+    -moz-box-shadow: 0px 0px 61px -1px rgba(96,96,219,1);
+    box-shadow: 0px 0px 61px -1px rgba(96,96,219,1);
+}
+.hero_button:hover, .hero_button:focus{
+    cursor:pointer;
+    color:  #1db91d;
+    border: 3px solid transparent;
+}

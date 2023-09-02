@@ -1,0 +1,20 @@
+import styles from "@/styles/Hero.module.css";
+
+const Hero=()=>{
+    return(
+    <div className={styles.hero_container}>
+        <img
+            src="https://wallpaperaccess.com/full/759396.jpg"
+            className={styles.hero_img}
+        />
+        <h1 className={styles.hero_title}>
+            🄻 🄴 🄰 🅁 🄽 🄸 🄽 🄶 <br />
+            <span> 🄸🅂&ensp;🄿 🄾 🅆 🄴 🅁</span>
+        </h1>
+        <a href="MainPage.js" className={styles.hero_button}>
+            START
+        </a>
+    </div>
+    )
+}
+export default Hero;
