@@ -1,0 +1,35 @@
+.carousel_container{
+    text-align: center;
+    color: rgba(39, 70, 134, 0.58);
+}
+.container{
+    width: 100vw;
+    display: inline-flex;
+    justify-content: center;
+}
+.mySwiper{
+    width: 90vw;
+    background: rgba(63, 118, 224, 0.1);
+    padding-top: 60px;
+    margin-bottom: 40px;
+}
+
+.swipItem{
+    display: inline-flex;
+    height: 200px;
+}
+.imgBox{
+    width: 25vw;
+}
+.imageUrl{
+    object-fit: cover;
+    border-radius: 25%;
+}
+.detail{
+    text-align: center;
+    width: 45vw;
+    padding: 0px 25px;
+}
+.selected{
+    width: 90vw;
+}
