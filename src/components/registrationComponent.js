@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import styles from "../styles/RegistrationForm.module.scss";
+import Image from "next/image";
 
 function RegistrationForm() {
     const {
@@ -27,6 +28,10 @@ function RegistrationForm() {
     const router = useRouter();
 
     const onSubmit = async (data) => {
+        if (selectedAvatar) {
+            data.avatarId = selectedAvatar.id;
+        }
+
         try {
             setApiFeedback(null);
             setLoading(true);
@@ -34,7 +39,7 @@ function RegistrationForm() {
             if (response.status === 200) {
                 setApiFeedback({
                     type: "success",
-                    message: "User created successfully",
+                    message: "Käyttäjä luotu onnistuneesti!",
                 });
                 setTimeout(() => {
                     router.push("/Login");
@@ -48,43 +53,46 @@ function RegistrationForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form className={styles.formWrapper} onSubmit={handleSubmit(onSubmit)}>
             {[
                 {
-                    label: "Username",
+                    label: "Käyttäjänimi",
                     type: "text",
                     id: "username",
-                    validation: { required: "Username is required" },
+                    validation: { required: "Käyttäjänimi tarvitaan" },
                 },
                 {
-                    label: "Email",
+                    label: "Sähköposti",
                     type: "email",
                     id: "email",
                     validation: {
-                        required: "Email is required",
+                        required: "Sähköpostiosoite tarvitaan",
                         pattern: {
                             value: /\S+@\S+\.\S+/,
-                            message: "Invalid email address",
+                            message: "Sähköpostiosoite ei ole oikeassa muodossa",
                         },
                     },
                 },
                 {
-                    label: "First Name",
+                    label: "Etunimesi",
                     type: "text",
                     id: "firstName",
-                    validation: { required: "First Name is required" },
+                    validation: { required: "Etunimi tarvitaan" },
                 },
                 {
-                    label: "Last Name",
+                    label: "Sukunimesi",
                     type: "text",
                     id: "lastName",
-                    validation: { required: "Last Name is required" },
+                    validation: { required: "Sukunimi tarvitaan" },
                 },
                 {
-                    label: "Password",
+                    label: "Salasana",
                     type: "password",
                     id: "password",
-                    validation: { required: "Password is required" },
+                    validation: {
+                        required: "Salasana tarvitaan",
+                        minLength: { 8: "Salasanan pitää olla vähintään 8 merkkiä" },
+                    },
                 },
             ].map((field) => (
                 <div key={field.id}>
@@ -99,15 +107,14 @@ function RegistrationForm() {
                     )}
                 </div>
             ))}
-
-            <button type="button" onClick={() => setIsModalOpen(true)}>
-                Select Avatar
-            </button>
-
+            <input
+                type="hidden"
+                {...register("avatarId")}
+                value={selectedAvatar ? selectedAvatar.id : ""}
+            />
             {isModalOpen && (
                 <div className={styles.modalOverlay}>
                     <div className={styles.modalContent}>
-                        <h2>Select an Avatar</h2>
                         <div className={styles.avatarsGrid}>
                             {avatars.map((avatar) => (
                                 <div
@@ -116,29 +123,35 @@ function RegistrationForm() {
                                         setSelectedAvatar(avatar);
                                         setIsModalOpen(false);
                                     }}
+
                                 >
                                     <img
                                         src={avatar.src}
                                         alt="Avatar"
-                                        className={
-                                            selectedAvatar === avatar ? styles.selectedAvatar : ""
-                                        }
+                                        className={`${styles.avatarImage} ${selectedAvatar === avatar ? styles.selectedAvatar : ""
+                                            }`}
                                     />
                                 </div>
                             ))}
                         </div>
-                        <button onClick={() => setIsModalOpen(false)}>Close</button>
+                        <button className={styles.closeModalButton} onClick={() => setIsModalOpen(false)}>Close</button>
                     </div>
                 </div>
             )}
+            <div className={styles.avatarButtoncontainer}>
+                <button
+                    className={styles.newUserButton}
+                    type="submit"
+                    disabled={loading}
+                >
+                    {loading ? "Ladataan..." : "Uusi käyttäjä"}
+                </button>
+                <button className={styles.selectAvatarButton} type="button" onClick={() => setIsModalOpen(true)}>
+                    {selectedAvatar ? "Vaihda Kaveria" : "Valitse Kaverisi"}
+                </button>
 
-            <button
-                className={styles.newUserButton}
-                type="submit"
-                disabled={loading}
-            >
-                {loading ? "Loading..." : "New User"}
-            </button>
+            </div>
+
 
             {apiFeedback && (
                 <p
