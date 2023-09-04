@@ -3,52 +3,66 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useRouter } from "next/router";
 import styles from "../styles/login.module.scss";
-
-
+import {useEffect} from "react";
 
 export default function Login() {
     const router = useRouter();
     const [loginError, setLoginError] = useState("");
+    const [loginAttempts, setLoginAttempts] =useState(0)
+
     const {
         register,
         handleSubmit,
         formState: { errors, isSubmitting },
     } = useForm();
 
-    const onSubmit = async (values) => {
+    const onSubmit = async (data) => {
         try {
-            const response = await axios.post("/api/login", values);
+            const response = await axios.post("/api/login", data);
             if (response.status === 200) {
-                // Redirect to dashboard page after successful login
+                setLoginError("");
+                setLoginAttempts(0);
                 router.push("/dashboard");
             } else {
-                setLoginError("Invalid username or password");
+                setLoginError("Väärä käyttäjänimi tai salasana");
+                setLoginAttempts(prev => prev +1);
             }
         } catch (error) {
-            setLoginError("An error occurred during login");
+            setLoginError("Väärä käyttäjänimi tai salasana");
+            setLoginAttempts(prev => prev +1);
         }
     };
+    useEffect (() => {
+        if (loginAttempts >=5){
+        const timer =setTimeout(() => {
+            setLoginError("");
+        }, 6000);
+        return () => clearTimeout(timer);
+        }
+    }, [loginAttempts]);
 
     return (
-        <div>
-            <h1>Login</h1>
+        <div className={styles.loginContainer}>
+            <h2>Kirjaudu sisään</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div>
-                    <label>Username:</label>
+                <div className={styles.inputGroup}>
+                    <label htmlFor="username">Käyttäjänimi</label>
                     <input
                         type="text"
-                        {...register("username", { required: "Username is required" })}
+                        id="username"
+                        {...register("username", { required: "Syötä Käyttäjänimi" })}
                         className={styles.formControl}
                     />
                     {errors.username && (
                         <div className={styles.formError}>{errors.username.message}</div>
                     )}
                 </div>
-                <div>
-                    <label>Password:</label>
+                <div className={styles.inputGroup}>
+                    <label htmlFor="password">Salasana</label>
                     <input
                         type="password"
-                        {...register("password", { required: "Password is required" })}
+                        id="password"
+                        {...register("password", { required: "Syötä salasanasi" })}
                         className={styles.formControl}
                     />
                     {errors.password && (
@@ -56,12 +70,15 @@ export default function Login() {
                     )}
                 </div>
                 {loginError && (
-                    <div className={styles.loginError}>{loginError}</div>
+                    <div className={styles.loginError}>
+                    {loginAttempts >=5 ? "Oletko unohtanut salasanasi" : loginError}
+                    </div>
                 )}
                 <button type="submit" className={styles.loginButton} disabled={isSubmitting}>
-                    Login
+                    Kirjaudu
                 </button>
             </form>
         </div>
     );
 }
+

@@ -51,7 +51,7 @@ function RegistrationForm() {
             setLoading(false);
         }
     };
-
+//TODO: errormessage if no avatar selected
     return (
         <form className={styles.formWrapper} onSubmit={handleSubmit(onSubmit)}>
             {[
@@ -109,6 +109,7 @@ function RegistrationForm() {
             ))}
             <input
                 type="hidden"
+                validation={{ required: "Valitse avatar" }}
                 {...register("avatarId")}
                 value={selectedAvatar ? selectedAvatar.id : ""}
             />
