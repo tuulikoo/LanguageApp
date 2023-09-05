@@ -25,6 +25,8 @@ function RegistrationForm() {
     ];
 
 
+
+
     const router = useRouter();
 
     const onSubmit = async (data) => {

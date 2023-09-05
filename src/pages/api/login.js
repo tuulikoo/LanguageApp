@@ -24,11 +24,17 @@ const loginController = async (req, res) => {
 
             // Generate JWT token
             const token = generateToken(payload);
+            
+            // Set the JWT token as an httpOnly cookie
+            res.setHeader('Set-Cookie', [
+                `token=${token}; HttpOnly; Path=/; Max-Age=${60 * 60 * 24 * 7}`, // 1 week duration
+               
+            ]);
 
             // Exclude password from the returned user data
             const { password, ...userData } = user;
 
-            res.status(200).json({ message: "Login successful", token, user: userData });
+            res.status(200).json({ message: "Login successful", user: userData });
         } else {
             res.status(401).json({ message: "Invalid username or password" });
         }

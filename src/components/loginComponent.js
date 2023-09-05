@@ -1,10 +1,9 @@
-
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useRouter } from "next/router";
 import styles from "../styles/login.module.scss";
-import { useUser } from "../utils/userContext";  // Import useUser hook
+import { useUser } from "../utils/userContext";
 
 const MAX_LOGIN_ATTEMPTS = 5;
 const ERROR_MESSAGE = "Väärä käyttäjänimi tai salasana";
@@ -18,7 +17,7 @@ export default function Login() {
     const [loginAttempts, setLoginAttempts] = useState(0);
     const [successMessage, setSuccessMessage] = useState("");
 
-    const { setUser, setToken } = useUser(); // Use the context values
+    const { setUser } = useUser();
     const router = useRouter();
 
     const handleLoginError = () => {
@@ -26,16 +25,15 @@ export default function Login() {
         setLoginError(ERROR_MESSAGE);
         setLoginAttempts((prev) => prev + 1);
     }
+
     const onSubmit = async (data) => {
         try {
             const response = await axios.post("/api/login", data);
 
             if (response.status === 200) {
-                const { token, user } = response.data;
-                localStorage.setItem("token", token);
-                setUser(user);
-                setToken(token);
-                router.push("/"); // Redirect to some route after successful login
+                const { user } = response.data;
+                setUser(user); // set user data in the context
+                router.push("/Dashboard");
             } else {
                 handleLoginError();
             }

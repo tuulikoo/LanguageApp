@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import jwt from 'jsonwebtoken';
 
 const prisma = new PrismaClient();
 
@@ -7,17 +8,25 @@ export default async function handle(req, res) {
         return res.status(405).end();
     }
 
-    const { userId } = req.query;
+    // Authenticate user using the JWT from the httpOnly cookie
+    const token = req.cookies.token; // Get token from cookies
 
-    if (!userId) {
-        return res.status(400).json({ error: 'User ID is required' });
+    if (!token) {
+        return res.status(401).json({ error: 'Authentication required' });
+    }
+
+    let decoded;
+    try {
+        decoded = jwt.verify(token, process.env.JWT_SECRET); // Verify the token
+    } catch (error) {
+        return res.status(401).json({ error: 'Invalid token' });
     }
 
     try {
-        // Find the user without returning the password
+        // Find the user based on the JWT's decoded data (which ideally should contain the user ID or username)
         const user = await prisma.user.findUnique({
             where: {
-                id: userId
+                id: decoded.id  // Assuming your JWT payload contains the user ID
             },
             select: {
                 id: true,
