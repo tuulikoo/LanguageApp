@@ -13,7 +13,7 @@ function TuuliTesti() {
 
     return (
         <div>
-            <h1>Welcome, {user.firstName}!</h1>
+            <h1>Moro, {user.firstName}!</h1>
             <p>Username: {user.username}</p>
             <p>Email: {user.email}</p>
         </div>
