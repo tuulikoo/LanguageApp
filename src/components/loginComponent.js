@@ -1,45 +1,53 @@
-import { useState } from "react";
+
+import { useState, useEffect, useContext } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useRouter } from "next/router";
 import styles from "../styles/login.module.scss";
-import {useEffect} from "react";
+import { useUser } from "../utils/userContext";  // Import useUser hook
+
+const MAX_LOGIN_ATTEMPTS = 5;
+const ERROR_MESSAGE = "Väärä käyttäjänimi tai salasana";
+const TIMEOUT_DURATION = 6000;
 
 export default function Login() {
-    const router = useRouter();
+    const { register, handleSubmit, formState } = useForm();
+    const { errors, isSubmitting } = formState;
+
     const [loginError, setLoginError] = useState("");
-    const [loginAttempts, setLoginAttempts] =useState(0)
-    const [token, setToken] = useState(null);
+    const [loginAttempts, setLoginAttempts] = useState(0);
+    const [successMessage, setSuccessMessage] = useState("");
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors, isSubmitting },
-    } = useForm();
+    const { setUser, setToken } = useUser(); // Use the context values
+    const router = useRouter();
 
+    const handleLoginError = () => {
+        setSuccessMessage("");
+        setLoginError(ERROR_MESSAGE);
+        setLoginAttempts((prev) => prev + 1);
+    }
     const onSubmit = async (data) => {
         try {
             const response = await axios.post("/api/login", data);
+
             if (response.status === 200) {
-                localStorage.setItem("token", response.data.token);
-                setLoginError("");
-                setLoginAttempts(0);
-                // router.push("/dashboard");
+                const { token, user } = response.data;
+                localStorage.setItem("token", token);
+                setUser(user);
+                setToken(token);
+                router.push("/"); // Redirect to some route after successful login
             } else {
-                setLoginError("Väärä käyttäjänimi tai salasana");
-                setLoginAttempts(prev => prev +1);
+                handleLoginError();
             }
-        } catch (error) {
-            setLoginError("Väärä käyttäjänimi tai salasana");
-            setLoginAttempts(prev => prev +1);
+        } catch {
+            handleLoginError();
         }
     };
-    useEffect (() => {
-        if (loginAttempts >=5){
-        const timer =setTimeout(() => {
-            setLoginError("");
-        }, 6000);
-        return () => clearTimeout(timer);
+
+    useEffect(() => {
+        if (loginAttempts >= MAX_LOGIN_ATTEMPTS) {
+            const timer = setTimeout(() => setLoginError(""), TIMEOUT_DURATION);
+            return () => clearTimeout(timer);
         }
     }, [loginAttempts]);
 
@@ -47,35 +55,37 @@ export default function Login() {
         <div className={styles.loginContainer}>
             <h2>Kirjaudu sisään</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div className={styles.inputGroup}>
-                    <label htmlFor="username">Käyttäjänimi</label>
-                    <input
-                        type="text"
-                        id="username"
-                        {...register("username", { required: "Syötä Käyttäjänimi" })}
-                        className={styles.formControl}
-                    />
-                    {errors.username && (
-                        <div className={styles.formError}>{errors.username.message}</div>
-                    )}
-                </div>
-                <div className={styles.inputGroup}>
-                    <label htmlFor="password">Salasana</label>
-                    <input
-                        type="password"
-                        id="password"
-                        {...register("password", { required: "Syötä salasanasi" })}
-                        className={styles.formControl}
-                    />
-                    {errors.password && (
-                        <div className={styles.formError}>{errors.password.message}</div>
-                    )}
-                </div>
+                {/* Username Input */}
+                <InputField
+                    type="text"
+                    label="Käyttäjänimi"
+                    register={register("username", { required: "Syötä Käyttäjänimi" })}
+                    error={errors.username}
+                />
+
+                {/* Password Input */}
+                <InputField
+                    type="password"
+                    label="Salasana"
+                    register={register("password", { required: "Syötä salasanasi" })}
+                    error={errors.password}
+                />
+
+                {/* Login Error Display */}
                 {loginError && (
                     <div className={styles.loginError}>
-                    {loginAttempts >=5 ? "Oletko unohtanut salasanasi ?" : loginError}
+                        {loginAttempts >= MAX_LOGIN_ATTEMPTS ? "Oletko unohtanut salasanasi?" : loginError}
+                    </div>
+
+                )}
+                {successMessage && (
+                    <div className={styles.loginSuccess}>
+                        {successMessage}
                     </div>
                 )}
+
+
+                {/* Login Button */}
                 <button type="submit" className={styles.loginButton} disabled={isSubmitting}>
                     Kirjaudu
                 </button>
@@ -84,3 +94,12 @@ export default function Login() {
     );
 }
 
+function InputField({ type, label, register, error }) {
+    return (
+        <div className={styles.inputGroup}>
+            <label>{label}</label>
+            <input type={type} {...register} className={styles.formControl} />
+            {error && <div className={styles.formError}>{error.message}</div>}
+        </div>
+    );
+}

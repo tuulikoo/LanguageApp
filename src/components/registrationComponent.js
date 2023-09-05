@@ -18,12 +18,12 @@ function RegistrationForm() {
 
     // Avatars for the modal
     const avatars = [
-        { id: 1, src: "avatars/small_giraffe.png" },
-        //TODO: Add more avatars
-        // { id: 2, src: "/avatars/avatar2.png" },
-        // { id: 3, src: "/avatars/avatar3.png" },
-        // { id: 4, src: "/avatars/avatar4.png" }
+        { id: 1, src: "avatars/avatar1.png" },
+        { id: 2, src: "avatars/avatar2.png" },
+        { id: 3, src: "avatars/avatar3.png" },
+        { id: 4, src: "avatars/avatar4.png" },
     ];
+
 
     const router = useRouter();
 
@@ -51,7 +51,7 @@ function RegistrationForm() {
             setLoading(false);
         }
     };
-//TODO: errormessage if no avatar selected
+    //TODO: errormessage if no avatar selected
     return (
         <form className={styles.formWrapper} onSubmit={handleSubmit(onSubmit)}>
             {[
@@ -161,5 +161,6 @@ function RegistrationForm() {
             )}
         </form>
     );
+
 }
 export default RegistrationForm;
