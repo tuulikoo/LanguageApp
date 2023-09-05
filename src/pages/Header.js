@@ -24,7 +24,9 @@ const Header = () => {
                                 🄷🄾🄼🄴
                             </a>
                         </li>
-
+                        <li className={styles.nav_item}>
+                            <a href={"/Userpage"} className={styles.nav_link}>Userpage</a>
+                        </li>
                         <li className={styles.nav_item}>
                             <a href={"/Login"} className={styles.nav_link}>🄻🄾🄶🄸🄽</a>
                         </li>

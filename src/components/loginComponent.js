@@ -20,7 +20,7 @@ export default function Login() {
             const response = await axios.post("/api/login", values);
             if (response.status === 200) {
                 // Redirect to dashboard page after successful login
-                router.push("/dashboard");
+                router.push("/UserPage");
 
             } else {
                 setLoginError("Invalid username or password");

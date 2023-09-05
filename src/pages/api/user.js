@@ -1,18 +1,42 @@
-import { verifyToken } from "@/utils/jwt";
+import { PrismaClient } from '@prisma/client';
 
-export default async function handler(req, res) {
-  const authHeader = req.headers.authorization;
+const prisma = new PrismaClient();
 
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return res.json({ isLoggedIn: false });
+export default async function handle(req, res) {
+  if (req.method !== 'GET') {
+    return res.status(405).end();
   }
 
-  const token = authHeader.split(" ")[1];
-  const decoded = verifyToken(token);
+  const { userId } = req.query;
 
-  if (decoded) {
-    res.json({ isLoggedIn: true, user: { username: decoded.username } });
-  } else {
-    res.json({ isLoggedIn: false });
+  if (!userId) {
+    return res.status(400).json({ error: 'User ID is required' });
+  }
+
+  try {
+    // Find the user without returning the password
+    const user = await prisma.user.findUnique({
+      where: {
+        id: userId
+      },
+      select: {
+        id: true,
+        firstName: true,
+        username: true,
+        email: true,
+        avatarId: true,
+      },
+    });
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    return res.json(user);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Internal server error' });
+  } finally {
+    await prisma.$disconnect();
   }
 }
