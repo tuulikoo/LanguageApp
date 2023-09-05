@@ -9,6 +9,7 @@ export default function Login() {
     const router = useRouter();
     const [loginError, setLoginError] = useState("");
     const [loginAttempts, setLoginAttempts] =useState(0)
+    const [token, setToken] = useState(null);
 
     const {
         register,
@@ -20,9 +21,10 @@ export default function Login() {
         try {
             const response = await axios.post("/api/login", data);
             if (response.status === 200) {
+                localStorage.setItem("token", response.data.token);
                 setLoginError("");
                 setLoginAttempts(0);
-                router.push("/dashboard");
+                // router.push("/dashboard");
             } else {
                 setLoginError("Väärä käyttäjänimi tai salasana");
                 setLoginAttempts(prev => prev +1);
@@ -71,7 +73,7 @@ export default function Login() {
                 </div>
                 {loginError && (
                     <div className={styles.loginError}>
-                    {loginAttempts >=5 ? "Oletko unohtanut salasanasi" : loginError}
+                    {loginAttempts >=5 ? "Oletko unohtanut salasanasi ?" : loginError}
                     </div>
                 )}
                 <button type="submit" className={styles.loginButton} disabled={isSubmitting}>

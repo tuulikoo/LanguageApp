@@ -80,12 +80,6 @@ function RegistrationForm() {
                     validation: { required: "Etunimi tarvitaan" },
                 },
                 {
-                    label: "Sukunimesi",
-                    type: "text",
-                    id: "lastName",
-                    validation: { required: "Sukunimi tarvitaan" },
-                },
-                {
                     label: "Salasana",
                     type: "password",
                     id: "password",
