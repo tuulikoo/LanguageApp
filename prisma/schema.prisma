@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  previewFeatures = ["mongodb"]
 }
 
 datasource db {
@@ -11,9 +10,8 @@ datasource db {
 model User {
   id        String @id @default(auto()) @map("_id") @db.ObjectId
   firstName String
-  lastName  String
   username  String @unique
   email     String @unique
   password  String
-}
-
+  avatarId  Int
+} 

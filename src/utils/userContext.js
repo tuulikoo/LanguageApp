@@ -1,4 +1,4 @@
-import {createContext, useContext, useEffect, useState} from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 
 const UserContext = createContext();
@@ -7,47 +7,40 @@ export const useUser = () => {
     return useContext(UserContext);
 };
 
-export const UserProvider = ({children}) => {
+export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [token, setTokens] = useState(null);
+    const [token, setToken] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    // check if token is valid and set user get token from utils/jwt.js
-    const setToken = (newToken) => {
-        if (newToken) {
-            localStorage.setItem('token', newToken);
-            axios.defaults.headers.common.Authorization = `Bearer ${newToken}`;
-        }
-        setTokens(newToken);
-    };
-
     useEffect(() => {
-        const fetchUser = async () => {
-            const storedToken = localStorage.getItem('token');
-            if (storedToken) {
-                setToken(storedToken);
-                try {
-                    const response = await axios.get('/api/user', {
-                        headers: {
-                            Authorization: `Bearer ${storedToken}`,
-                        },
-                    });
-
+        const storedToken = localStorage.getItem('token');
+        if (storedToken) {
+            axios.defaults.headers.common['Authorization'] = `Bearer ${storedToken}`;
+            axios.get('/api/user')
+                .then(response => {
                     if (response.data.user) {
                         setUser(response.data.user);
+                        setToken(storedToken); // We know the token is valid
                     }
-                } catch (error) {
+                    setLoading(false);
+                })
+                .catch(error => {
+                    setLoading(false);
+                    localStorage.removeItem('token'); // Invalid token, remove it
                     console.error('Error fetching user:', error);
-                }
-            }
+                });
+        } else {
             setLoading(false);
-        };
-
-        fetchUser();
+        }
     }, []);
-    return (
-        <UserContext.Provider value={{user, setUser, token, setToken, isLoading: loading}}>
-            {children}
-        </UserContext.Provider>
-    );
+
+    const value = {
+        user,
+        setUser,
+        token,
+        setToken,
+        loading
+    };
+
+    return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
