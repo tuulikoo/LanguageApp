@@ -1,7 +1,7 @@
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import {Carousel} from "react-responsive-carousel";
+import { Carousel } from "react-responsive-carousel";
 import items from "./Items.json";
 import styles from "../styles/Carousel.module.css";
+
 
 export default function ResponsiveCarousel() {
     return (
@@ -17,10 +17,10 @@ export default function ResponsiveCarousel() {
                     dynamicHeight={false}
                     className={styles.mySwiper}
                 >
-                    {items.map(({id, imageUrl, title, text}) => (
+                    {items.map(({ id, imageUrl, title, text }) => (
                         <div key={id} className={styles.swipItem}>
                             <div className={styles.imgBox}>
-                                <img src={imageUrl} alt="slides"/>
+                                <img src={imageUrl} alt="slides" />
                             </div>
                             <div className={styles.detail}>
                                 <h2>{title}</h2>

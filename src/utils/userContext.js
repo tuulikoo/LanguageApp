@@ -9,37 +9,36 @@ export const useUser = () => {
 
 export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [token, setToken] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const storedToken = localStorage.getItem('token');
-        if (storedToken) {
-            axios.defaults.headers.common['Authorization'] = `Bearer ${storedToken}`;
-            axios.get('/api/user')
-                .then(response => {
-                    if (response.data.user) {
-                        setUser(response.data.user);
-                        setToken(storedToken); // We know the token is valid
-                    }
-                    setLoading(false);
-                })
-                .catch(error => {
-                    setLoading(false);
-                    localStorage.removeItem('token'); // Invalid token, remove it
-                    console.error('Error fetching user:', error);
-                });
-        } else {
-            setLoading(false);
+// logout function to call logout api endpoint
+    const logout = async () => {
+        try {
+            await axios.post('/api/logout');
+            setUser(null);
+        } catch (error) {
+            console.error('Error during logout:', error);
         }
+    };
+
+    useEffect(() => {
+        axios.get('/api/user')
+            .then(response => {
+                setUser(response.data);
+                setLoading(false);
+            })
+            .catch(error => {
+                setLoading(false);
+                console.error('Error fetching user:', error);
+            });
     }, []);
+
 
     const value = {
         user,
         setUser,
-        token,
-        setToken,
-        loading
+        loading,
+        logout
     };
 
     return <UserContext.Provider value={value}>{children}</UserContext.Provider>;

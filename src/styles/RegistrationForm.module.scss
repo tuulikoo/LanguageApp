@@ -1,0 +1,152 @@
+.formWrapper {
+  max-width: 400px;
+  margin: 40px auto; 
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0px 4px 12px rgba(13, 4, 5, 0.1);
+
+  label {
+    display: block;
+    margin-top: 10px;
+    font-weight: 600;
+    color: #555;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border 0.2s;
+
+    &:focus {
+      border-color: #007BFF;
+    }
+  }
+
+  .inputError {
+    color: red;
+    font-size: 0.85em;
+    margin-top: 5px;
+  }
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: #fff;
+  padding: 30px;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 8px;
+
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1,5px;
+    position: relative;
+    } 
+   }
+
+
+
+.avatarsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.avatarImage {
+  width: 70%;
+  border-radius: 50%;
+  cursor: pointer;
+  filter: grayscale(5%) opacity(0.8);
+  transition: 
+    transform 0.4s cubic-bezier(0.300, 0.2, 0.355, 1), 
+    filter 0.3s ease; 
+
+  &:hover {
+    transform: scale(1.23);
+    filter: grayscale(0%) opacity(1); 
+  } 
+}
+.selectedAvatar {
+  border: 3px solid #007BFF;
+  border-radius: 50%;
+}
+
+.avatarButtoncontainer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.newUserButton,
+.selectAvatarButton,
+.closeModalButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.newUserButton {
+  background-color: #007BFF;
+  color: #fff;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+
+  &:disabled {
+    background-color: #b3c2d1;
+    cursor: not-allowed;
+  }
+}
+
+.selectAvatarButton {
+  background-color: #00bfa5;
+  color: #fff;
+
+  &:hover {
+    background-color: #009580;
+  }
+}
+
+.closeModalButton {
+  background-color: #f44336;
+  color: #fff;
+  margin-top: 20px;
+
+  &:hover {
+    background-color: #d32f2f;
+  }
+}
+
+.successMessage {
+  color: #4caf50;
+}
+
+.errorMessage {
+  color: #f44336;
+}
+
+
+
+
