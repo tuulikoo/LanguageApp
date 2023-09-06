@@ -1,12 +1,11 @@
-import { useUser } from '../utils/userContext';
+import { useUser } from '@/utils/userContext';
 import {styles} from "next/dist/client/components/react-dev-overlay/internal/components/Toast";
 
 function UpdateDetailsComponent() {
-    const { user } = useUser();
+    const {user} = useUser();
 
     if (!user) {
-        console.log("If user is not available in the context, you can handle it here.");
-        // For example, you can display a loading message or redirect the user.
+        console.log("user is not available in the context");
         return (
             <div className={styles['welcome-page']}>
                 <p>User not available in Context..</p>
@@ -16,8 +15,6 @@ function UpdateDetailsComponent() {
 
     return (
         <div className={styles['welcome-page']}>
-            {/* ... */}
-            {user && (
                 <div>
                     <h2 className={styles['page-title2']}>
                         Etunimesi on {user.firstName}
@@ -25,9 +22,7 @@ function UpdateDetailsComponent() {
                     <h2 className={styles['page-title2']}>
                         Sukunimesi on {user.lastName}
                     </h2>
-                    <h2 className={styles['page-title2']}>
-                    Testing
-                </h2>
+                    {/*
                     <div className={styles['centered-text']}>
                         <button className={styles['action-button']} onClick={() => toggleVisibility(setUsernameRowVisible)}>
                             Adjust your settings here
@@ -115,6 +110,7 @@ function UpdateDetailsComponent() {
                 </div>
             )}
             {/* ... */}
+        </div>
         </div>
     );
 }
