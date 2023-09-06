@@ -2,16 +2,16 @@ import { useUser } from '@/utils/userContext';
 import {styles} from "next/dist/client/components/react-dev-overlay/internal/components/Toast";
 
 function UpdateDetailsComponent() {
-    const {user} = useUser();
+    const { user, loading } = useUser();
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
     if (!user) {
-        console.log("user is not available in the context");
-        return (
-            <div className={styles['welcome-page']}>
-                <p>User not available in Context..</p>
-            </div>
-        );
+        return <div>kirjaudu sisaan nahdaksesi profiili</div>;
     }
+
 
     return (
         <div className={styles['welcome-page']}>
