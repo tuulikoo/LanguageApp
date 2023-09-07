@@ -4,6 +4,7 @@ import UpdateDetailsComponent from '@/components/UpdateDetailsComponent'; // Imp
 import UserPointsComponent from '@/components/UserPointsComponent';
 import {UserProvider} from "@/utils/userContext";
 
+
 function UserPage() {
     return (
         <UserProvider>
