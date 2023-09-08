@@ -12,14 +12,14 @@ function UpdateDetailsComponent({ setUser }) {
     const [isEmailRowVisible, setEmailRowVisible] = useState(false);
     const [isFirstNameRowVisible, setFirstNameRowVisible] = useState(false);
     const [isAvatarRowVisible, setAvatarRowVisible] = useState(false);
-
+    const [selectedAvatarId, setSelectedAvatarId] = useState(null);
     const [newPassword, setNewPassword] = useState('');
     const [newEmail, setNewEmail] = useState('');
     const [newFirstName, setNewFirstName] = useState('');
     const [newUserName, setNewUserName] = useState('');
-    const [selectedAvatarId, setSelectedAvatarId] = useState( '');
-    const [userAvatar, setUserAvatar] = useState(null);
+    const [newAvatar, setNewAvatar] = useState( '');
     const { user, loading } = useUser();
+    const [avatarHovered, setAvatarHovered] = useState(false);
 
     const avatars = [
         { id: 1, src: "avatars/avatar1.png" },
@@ -54,8 +54,11 @@ function UpdateDetailsComponent({ setUser }) {
 
     const fetchUserData = async () => {
         try {
-            const response = await axios.get('/api/user'); // Replace with the correct API endpoint for fetching user data
+            const response = await axios.get('/api/user');
             setUser(response.data);
+
+            // Set the selectedAvatarId based on user's avatarId
+            setNewAvatar(response.data.avatarId);
         } catch (error) {
             console.error('Error fetching user data:', error);
         }
@@ -83,91 +86,119 @@ function UpdateDetailsComponent({ setUser }) {
                 <h2>emailisi on {user.email}</h2>
                 <h2>salasanasi on {user.password}</h2>
                 <h2>Avatarisi on numero {user.avatarId}</h2>
-
+                <img
+                    src={`avatars/avatar${user.avatarId}.png`}
+                    alt={`${user.username} Avatar`}
+                    className={`${styles.avatar} ${avatarHovered ? styles.avatarHovered : ''}`}
+                />
             </div>
-            <div>
-                <button className={styles.adjustButton} onClick={() => toggleVisibility(setUpdateRowVisible)}>
-                    Adjust your settings here
-                </button>
-                {isUpdateRowVisible && (
-                    <div id = "updateBox" className = {styles.updateBox}>
-                        <div className="update-section">
-                            <button className={styles.showButton}onClick={() => toggleVisibility(setUsernameRowVisible)}>
-                                Update Username
-                            </button>
-                            {isUsernameRowVisible && (
-                                <div>
-                                    <input id = "text"
-                                        type="text"
-                                        placeholder="Enter new username"
-                                        value={newUserName}
-                                        onChange={(e) => setNewUserName(e.target.value)}
-                                    />
-                                    <button className={styles.saveButton} onClick={() => updateUserDetails("/api/updateUsername", { userId: user.id, newUserName })}>
-                                        Save
-                                    </button>
-                                </div>
-                            )}
-                        </div>
-                        <div className="update-section">
-                            <button className={styles.showButton} onClick={() => toggleVisibility(setPasswordRowVisible)}>
-                                Update Password
-                            </button>
-                            {isPasswordRowVisible && (
-                                <div>
-                                    <input id = "password"
-                                        type="password"
-                                        placeholder="Enter new password"
-                                        value={newPassword}
-                                        onChange={(e) => setNewPassword(e.target.value)}
-                                    />
-                                    <button className={styles.saveButton} onClick={() => updateUserDetails("/api/updatePassword", { userId: user.id, newPassword })}>
-                                        Save
-                                    </button>
-                                </div>
-                            )}
-                        </div>
-                        <div className="update-section">
-                            <button className={styles.showButton}onClick={() => toggleVisibility(setEmailRowVisible)}>
-                                Update Email
-                            </button>
-                            {isEmailRowVisible && (
-                                <div>
-                                    <input id = "email"
-                                        type="email"
-                                        placeholder="Enter new email"
-                                        value={newEmail}
-                                        onChange={(e) => setNewEmail(e.target.value)}
-                                    />
-                                    <button className={styles.saveButton} onClick={() => updateUserDetails("/api/updateEmail", { userId: user.id, newEmail })}>
-                                        Save
-                                    </button>
-                                </div>
-                            )}
-                        </div>
-                        <div className="update-section">
-                            <button className={styles.showButton}onClick={() => toggleVisibility(setFirstNameRowVisible)}>
-                                Update First Name
-                            </button>
-                            {isFirstNameRowVisible && (
-                                <div>
-                                    <input id = "text"
-                                        type="text"
-                                        placeholder="Enter new first name"
-                                        value={newFirstName}
-                                        onChange={(e) => setNewFirstName(e.target.value)}
-                                    />
-                                    <button className={styles.saveButton}onClick={() => updateUserDetails("/api/updateFirstName", { userId: user.id, newFirstName })}>
-                                        Save
-                                    </button>
-                                </div>
-                            )}
-                        </div>
+            <button id="adjust" className={styles.adjustButton} onClick={() => toggleVisibility(setUpdateRowVisible)}>
+                Adjust your settings here
+            </button>
+            {isUpdateRowVisible && (
+                <div id="updateBox" className={styles.updateBox}>
+                    <div className="update-section">
+                        <button id="username" className={styles.showButton} onClick={() => toggleVisibility(setUsernameRowVisible)}>
+                            Update Username
+                        </button>
+                        {isUsernameRowVisible && (
+                            <div>
+                                <input
+                                    id="text"
+                                    type="text"
+                                    placeholder="Enter new username"
+                                    value={newUserName}
+                                    onChange={(e) => setNewUserName(e.target.value)}
+                                />
+                                <button className={styles.saveButton} onClick={() => updateUserDetails("/api/updateUsername", { userId: user.id, newUserName })}>
+                                    Save
+                                </button>
+                            </div>
+                        )}
                     </div>
-                )}
-            </div>
+                    <div className="update-section">
+                        <button id="password" className={styles.showButton} onClick={() => toggleVisibility(setPasswordRowVisible)}>
+                            Update Password
+                        </button>
+                        {isPasswordRowVisible && (
+                            <div>
+                                <input
+                                    id="newpassword"
+                                    type="password"
+                                    placeholder="Enter new password"
+                                    value={newPassword}
+                                    onChange={(e) => setNewPassword(e.target.value)}
+                                />
+                                <button className={styles.saveButton} onClick={() => updateUserDetails("/api/updatePassword", { userId: user.id, newPassword })}>
+                                    Save
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                    <div className="update-section">
+                        <button id="email" className={styles.showButton} onClick={() => toggleVisibility(setEmailRowVisible)}>
+                            Päivitä sähköpostiosoitteesi
+                        </button>
+                        {isEmailRowVisible && (
+                            <div>
+                                <input
+                                    id="email"
+                                    type="email"
+                                    placeholder="Enter new email"
+                                    value={newEmail}
+                                    onChange={(e) => setNewEmail(e.target.value)}
+                                />
+                                <button id="saveEmail" className={styles.saveButton} onClick={() => updateUserDetails("/api/updateEmail", { userId: user.id, newEmail })}>
+                                    Save
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                    <div className="update-section">
+                        <button id="firstname" className={styles.showButton} onClick={() => toggleVisibility(setFirstNameRowVisible)}>
+                            Muuta etunimesi
+                        </button>
+                        {isFirstNameRowVisible && (
+                            <div>
+                                <input
+                                    id="text"
+                                    type="text"
+                                    placeholder="Enter new first name"
+                                    value={newFirstName}
+                                    onChange={(e) => setNewFirstName(e.target.value)}
+                                />
+                                <button className={styles.saveButton} onClick={() => updateUserDetails("/api/updateFirstName", { userId: user.id, newFirstName })}>
+                                    Tallenna
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                    <div className="update-section">
+                        <button id="avatarupdate" className={styles.showButton} onClick={() => toggleVisibility(setAvatarRowVisible)}>
+                            Valitse uusi kaveri
+                        </button>
+                        {isAvatarRowVisible && (
+                            <div className={styles.avatarsGrid}>
+                                {avatars.map((avatar) => (
+                                    <div key={avatar.id}>
+                                        <img
+                                            src={avatar.src}
+                                            alt="Avatar"
+                                            className={`${styles.avatarImage} ${selectedAvatarId === avatar.id ? styles.selectedAvatar : ''}`} // Use selectedAvatarId here
+                                            onClick={() => setSelectedAvatarId(avatar.id)}
+                                        />
+                                    </div>
+                                ))}
+                                <button className={styles.saveButton} onClick={() => updateUserDetails("/api/updateAvatar", { userId: user.id, newAvatarId: selectedAvatarId })}>
+                                    Save
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
         </div>
-    );
+);
 }
 
 export default function UpdateDetails() {
@@ -179,4 +210,3 @@ export default function UpdateDetails() {
         </UserProvider>
     );
 }
-
