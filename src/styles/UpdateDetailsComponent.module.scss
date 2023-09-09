@@ -1,23 +1,51 @@
+@font-face {
+    font-family: 'Karma Future';
+    src: url('../../public/fonts/Karma Future.otf') format('opentype'); /* Path to Karma Future font */
+}
+
+@font-face {
+    font-family: 'Karma Suture';
+    src: url('../../public/fonts/Karma Suture.otf') format('opentype'); /* Path to Karma Suture font */
+}
+.container {
+    font-family: 'Karma Suture', sans-serif; /* Specify the font stack */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
 
 .currentDetails {
     border: 2px solid #2196F3;
     padding: 20px;
     margin-bottom: 20px;
-    background-color: #F5F5F5;
+    background-color: #E6E6FA;
     border-radius: 10px;
+    width: 70%;
+    max-width: 800px;
+    margin-top:30px;
 }
 
 .currentDetails h2 {
     font-size: 18px;
     color: #333;
 }
+.welcome {
+    font-family: 'Karma Future', sans-serif;
+    font-size: 36px;
+}
 
 
 .updateBox {
+    margin: 10px;
+    font-family: 'Karma Suture', sans-serif;
     border: 2px solid #4CAF50;
     padding: 20px;
     background-color: #E0F2F1;
     border-radius: 10px;
+    width: 70%;
+    max-width: 800px;
 }
 
 .update-section {
@@ -25,6 +53,8 @@
 }
 
 .adjustButton {
+    font-family: 'Karma Suture', sans-serif;
+    color: black;
     background-color: #4CAF50;
     color: #fff;
     border: none;
@@ -32,24 +62,29 @@
     cursor: pointer;
     border-radius: 7px;
     font-size: 18px;
+    border: 2px solid darkblue;
 }
 .showButton {
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
+    margin: 5px;
+    font-family: 'Karma Suture', sans-serif;
+    background-color: yellow;
+    color: black;
+    border: solid 2px black;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
     font-size: 16px;
 }
 .saveButton {
-    background-color: #4CAF50;
-    color: green;
-    border: none;
+    font-family: 'Karma Suture', sans-serif;
+    margin: 3px;
+    background-color: #E6E6FA;
+    color: black;
+    border: solid 1px darkblue;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .saveButton:hover, .adjustButton:hover, .showButton:hover {
@@ -60,10 +95,21 @@
 {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 2px solid darkblue;
     border-radius: 5px;
     margin-top: 5px;
     margin-bottom: 10px;
+}
+
+.inputField {
+    width: 80%;
+    padding: 8px; /* Increase padding for height */
+    border: 2px solid #ccc; /* Add a border */
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-family: 'Karma Future', sans-serif; /* Use Karma Future font */
+    font-size: 16px; /* Increase font size */
 }
 .avatarsOn {
     display: flex;
@@ -85,12 +131,6 @@
     border-color: #4caf50;
 }
 
-.avatarContainer {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
 .avatar {
     width: 40px;
     height: 40px;
@@ -100,57 +140,20 @@
     transition: transform 0.5s ease-in-out;
 }
 
-
-.avatarButton {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    margin: 0;
-    display: inline-block;
-}
 .avatarHovered{
     transform: scale(1.4);
 }
-.modalOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-}
 
-.modalContent {
-    background-color: #fff;
-    padding: 30px;
-    width: 80%;
-    max-width: 500px;
-    border-radius: 8px;
-
-    h2 {
-        font-size: 1.5em;
-        margin-bottom: 20px;
-        text-align: center;
-        text-transform: uppercase;
-        letter-spacing: 1,5px;
-        position: relative;
-    }
-}
-
-
-
-.avatarsGrid {
+.avatarContainer {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns as needed */
+    gap: 1px; /* Reduce the gap between avatars */
+    margin-top: 10px; /* Add margin to the top if needed */
 }
+
 .avatarImage {
-    width: 70%;
+    width: 100px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
     border-radius: 50%;
     cursor: pointer;
     filter: grayscale(5%) opacity(0.8);
@@ -159,67 +162,28 @@
             filter 0.3s ease;
 
     &:hover {
-        transform: scale(1.23);
+        transform: scale(1.2); /* Adjust the scale factor as needed */
         filter: grayscale(0%) opacity(1);
     }
 }
+
 .selectedAvatar {
     border: 3px solid #007BFF;
     border-radius: 50%;
 }
 
-.avatarButtoncontainer {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.avatarsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns as needed */
+    gap: 20px;
 }
 
-.newUserButton,
-.selectAvatarButton,
-.closeModalButton {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s;
+.selectedAvatar {
+    border: 3px solid #007BFF;
+    border-radius: 50%;
 }
-
-.newUserButton {
-    background-color: #007BFF;
-    color: #fff;
-
-    &:hover {
-        background-color: #0056b3;
-    }
-
-    &:disabled {
-        background-color: #b3c2d1;
-        cursor: not-allowed;
+@media (min-width: 768px) {
+    .updateBox, .currentDetails {
+        width: 50%;
     }
 }
-
-.selectAvatarButton {
-    background-color: #00bfa5;
-    color: #fff;
-
-    &:hover {
-        background-color: #009580;
-    }
-}
-
-.closeModalButton {
-    background-color: #f44336;
-    color: #fff;
-    margin-top: 20px;
-
-    &:hover {
-        background-color: #d32f2f;
-    }
-}
-
-
-
-
-
-/* You can add more specific styles as needed */

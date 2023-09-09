@@ -5,6 +5,7 @@ import axios from 'axios';
 
 
 
+
 function UpdateDetailsComponent({ setUser }) {
     const [isUpdateRowVisible, setUpdateRowVisible] = useState(false);
     const [isUsernameRowVisible, setUsernameRowVisible] = useState(false);
@@ -79,31 +80,33 @@ function UpdateDetailsComponent({ setUser }) {
 
 
     return (
-        <div>
+            <div id="section-container" className={styles.container}>
             <div id = "currentDetails" className ={styles.currentDetails}>
-                <h2>Etunimesi on {user.firstName}</h2>
-                <h2>käyttiksesi on {user.username}</h2>
-                <h2>emailisi on {user.email}</h2>
-                <h2>salasanasi on {user.password}</h2>
-                <h2>Avatarisi on numero {user.avatarId}</h2>
-                <img
+                <h1 className={styles.welcome}>Tervetuloa omalle sivullesi {user.username}</h1>
+                <p>Tästä voit tarkistaa omat tietosi ja tehdä niihin muutoksia:</p>
+                <h3>Etunimesi on {user.firstName}</h3>
+                <h3>käyttiksesi on {user.username}</h3>
+                <h3>emailisi on {user.email}</h3>
+                <h3>Avatarisi on  <img
                     src={`avatars/avatar${user.avatarId}.png`}
                     alt={`${user.username} Avatar`}
                     className={`${styles.avatar} ${avatarHovered ? styles.avatarHovered : ''}`}
-                />
+                /></h3>
+
             </div>
             <button id="adjust" className={styles.adjustButton} onClick={() => toggleVisibility(setUpdateRowVisible)}>
-                Adjust your settings here
+                Tee tietoihisi muutoksia
             </button>
             {isUpdateRowVisible && (
                 <div id="updateBox" className={styles.updateBox}>
                     <div className="update-section">
                         <button id="username" className={styles.showButton} onClick={() => toggleVisibility(setUsernameRowVisible)}>
-                            Update Username
+                            Päivitä käyttäjänimesi
                         </button>
                         {isUsernameRowVisible && (
                             <div>
                                 <input
+                                    className={styles.inputField}
                                     id="text"
                                     type="text"
                                     placeholder="Enter new username"
@@ -111,18 +114,19 @@ function UpdateDetailsComponent({ setUser }) {
                                     onChange={(e) => setNewUserName(e.target.value)}
                                 />
                                 <button className={styles.saveButton} onClick={() => updateUserDetails("/api/updateUsername", { userId: user.id, newUserName })}>
-                                    Save
+                                    Tallenna
                                 </button>
                             </div>
                         )}
                     </div>
                     <div className="update-section">
                         <button id="password" className={styles.showButton} onClick={() => toggleVisibility(setPasswordRowVisible)}>
-                            Update Password
+                            Muuta salasanaa
                         </button>
                         {isPasswordRowVisible && (
                             <div>
                                 <input
+                                    className={styles.inputField}
                                     id="newpassword"
                                     type="password"
                                     placeholder="Enter new password"
@@ -130,7 +134,7 @@ function UpdateDetailsComponent({ setUser }) {
                                     onChange={(e) => setNewPassword(e.target.value)}
                                 />
                                 <button className={styles.saveButton} onClick={() => updateUserDetails("/api/updatePassword", { userId: user.id, newPassword })}>
-                                    Save
+                                    Tallenna
                                 </button>
                             </div>
                         )}
@@ -142,6 +146,7 @@ function UpdateDetailsComponent({ setUser }) {
                         {isEmailRowVisible && (
                             <div>
                                 <input
+                                    className={styles.inputField}
                                     id="email"
                                     type="email"
                                     placeholder="Enter new email"
@@ -149,7 +154,7 @@ function UpdateDetailsComponent({ setUser }) {
                                     onChange={(e) => setNewEmail(e.target.value)}
                                 />
                                 <button id="saveEmail" className={styles.saveButton} onClick={() => updateUserDetails("/api/updateEmail", { userId: user.id, newEmail })}>
-                                    Save
+                                    Tallenna
                                 </button>
                             </div>
                         )}
@@ -161,6 +166,7 @@ function UpdateDetailsComponent({ setUser }) {
                         {isFirstNameRowVisible && (
                             <div>
                                 <input
+                                    className={styles.inputField}
                                     id="text"
                                     type="text"
                                     placeholder="Enter new first name"
@@ -173,24 +179,24 @@ function UpdateDetailsComponent({ setUser }) {
                             </div>
                         )}
                     </div>
-                    <div className="update-section">
+                    <div className={styles['update-section']}>
                         <button id="avatarupdate" className={styles.showButton} onClick={() => toggleVisibility(setAvatarRowVisible)}>
                             Valitse uusi kaveri
                         </button>
                         {isAvatarRowVisible && (
-                            <div className={styles.avatarsGrid}>
+                            <div className={styles.avatarContainer}>
                                 {avatars.map((avatar) => (
                                     <div key={avatar.id}>
                                         <img
                                             src={avatar.src}
                                             alt="Avatar"
-                                            className={`${styles.avatarImage} ${selectedAvatarId === avatar.id ? styles.selectedAvatar : ''}`} // Use selectedAvatarId here
+                                            className={`${styles.avatarImage} ${selectedAvatarId === avatar.id ? styles.selectedAvatar : ''}`}
                                             onClick={() => setSelectedAvatarId(avatar.id)}
                                         />
                                     </div>
                                 ))}
                                 <button className={styles.saveButton} onClick={() => updateUserDetails("/api/updateAvatar", { userId: user.id, newAvatarId: selectedAvatarId })}>
-                                    Save
+                                    Tallenna
                                 </button>
                             </div>
                         )}
