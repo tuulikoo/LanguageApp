@@ -33,7 +33,7 @@ export default function Login() {
             if (response.status === 200) {
                 const { user } = response.data;
                 setUser(user); // set user data in the context
-                router.push("/UserPage");
+                router.push("/MainPage");
             } else {
                 handleLoginError();
             }

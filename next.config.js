@@ -6,7 +6,8 @@ module.exports = {
             { source: '/login', destination: '/Login' },
             { source: '/registration', destination: '/Registration' },
             { source: '/userpage', destination: '/UserPage' },
-            { source: '/level1', destination: '/Level1' }
+            { source: '/level1', destination: '/Level1' },
+            { source: '/MainPage', destination: '/MainPage' }
         ];
     },
 };
