@@ -13,10 +13,13 @@ function Navbar() {
         router.push('/Login');
     };
 
+    // Determine the target URL for the "avatar-image" link based on user authentication
+    const avatarLinkUrl = user ? '/UserPage' : '/Login';
+
     return (
         <div className={styles.navbar}>
             <div className={styles.navItems}>
-                <button className={styles.navButton}>Etusivu</button>
+                <button className={styles.navButton} onClick={() => router.push('/MainPage')}>Etusivu</button>
 
                 {loading ? null : !user ? (
                     <>
@@ -32,28 +35,23 @@ function Navbar() {
             </div>
 
             <div className={styles.avatarContainer}>
-                {loading ? null : user ? (
+                {loading ? null : (
                     <button
                         onMouseEnter={() => setAvatarHovered(true)}
                         onMouseLeave={() => setAvatarHovered(false)}
-                        onClick={() => router.push('/Dashboard')}
+                        onClick={() => router.push(avatarLinkUrl)}
                         className={styles.avatarButton}
                     >
                         <img
-                            src={`avatars/avatar${user.avatarId}.png`}
-                            alt={`${user.username} Avatar`}
+                            src={user ? `avatars/avatar${user.avatarId}.png` : 'avatars/default.png'}
+                            alt={user ? `${user.username} Avatar` : 'Default Avatar'}
                             className={`${styles.avatar} ${avatarHovered ? styles.avatarHovered : ''}`}
                         />
                     </button>
-                ) : (
-                    <img src="avatars/default.png" alt="Default Avatar" className={styles.avatar} />
                 )}
             </div>
         </div>
     );
-
 }
 
 export default Navbar;
-
-

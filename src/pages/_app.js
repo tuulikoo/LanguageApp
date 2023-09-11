@@ -5,13 +5,12 @@ import { UserProvider } from "../utils/userContext";
 function MyApp({ Component, pageProps }) {
     return (
         <UserProvider>
-        <>
-            <Navbar />
-            <Component {...pageProps} />
-        </>
+            <>
+                <Navbar />
+                <Component {...pageProps} />
+            </>
         </UserProvider>
     );
 }
 
 export default MyApp;
-

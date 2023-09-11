@@ -49,4 +49,3 @@ export default async function handle(req, res) {
         await prisma.$disconnect();
     }
 }
-

@@ -1,0 +1,60 @@
+/* UserPointsComponent.module.css */
+
+.userPointsContainer {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+}
+
+.userPointsHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.pointsVisual {
+    display: flex;
+    align-items: center;
+}
+
+.starIcon {
+    font-size: 24px;
+    margin: 0 10px;
+    color: #fdd835; /* Yellow color for stars */
+}
+
+.pointsCount {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.motivationMessage {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.practiceButton,
+.rewardsButton {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff; /* Blue color for buttons */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.practiceButton:hover,
+.rewardsButton:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}

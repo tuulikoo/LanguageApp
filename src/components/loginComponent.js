@@ -33,7 +33,7 @@ export default function Login() {
             if (response.status === 200) {
                 const { user } = response.data;
                 setUser(user); // set user data in the context
-                router.push("/Dashboard");
+                router.push("/MainPage");
             } else {
                 handleLoginError();
             }
@@ -57,6 +57,7 @@ export default function Login() {
                 <InputField
                     type="text"
                     label="Käyttäjänimi"
+                    id="login_username"
                     register={register("username", { required: "Syötä Käyttäjänimi" })}
                     error={errors.username}
                 />
@@ -65,6 +66,7 @@ export default function Login() {
                 <InputField
                     type="password"
                     label="Salasana"
+                    id="login_password"
                     register={register("password", { required: "Syötä salasanasi" })}
                     error={errors.password}
                 />
@@ -84,7 +86,7 @@ export default function Login() {
 
 
                 {/* Login Button */}
-                <button type="submit" className={styles.loginButton} disabled={isSubmitting}>
+                <button id = "login_loginButton" type="submit" className={styles.loginButton} disabled={isSubmitting}>
                     Kirjaudu
                 </button>
             </form>
@@ -92,11 +94,11 @@ export default function Login() {
     );
 }
 
-function InputField({ type, label, register, error }) {
+function InputField({ type, label, register, error, id }) {
     return (
         <div className={styles.inputGroup}>
             <label>{label}</label>
-            <input type={type} {...register} className={styles.formControl} />
+            <input type={type} {...register} id={id} className={styles.formControl} />
             {error && <div className={styles.formError}>{error.message}</div>}
         </div>
     );

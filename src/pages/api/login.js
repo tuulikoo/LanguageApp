@@ -24,11 +24,11 @@ const loginController = async (req, res) => {
 
             // Generate JWT token
             const token = generateToken(payload);
-            
+
             // Set the JWT token as an httpOnly cookie
             res.setHeader('Set-Cookie', [
                 `token=${token}; HttpOnly; Path=/; Max-Age=${60 * 60 * 24 * 7}`, // 1 week duration
-               
+
             ]);
 
             // Exclude password from the returned user data
@@ -47,4 +47,3 @@ const loginController = async (req, res) => {
 };
 
 export default loginController;
-

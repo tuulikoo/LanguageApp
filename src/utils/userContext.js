@@ -21,17 +21,17 @@ export const UserProvider = ({ children }) => {
         }
     };
 
-useEffect(() => {
-    axios.get('/api/user')
-        .then(response => {
-            setUser(response.data);
-            setLoading(false);
-        })
-        .catch(error => {
-            setLoading(false);
-            console.error('Error fetching user:', error);
-        });
-}, []);
+    useEffect(() => {
+        axios.get('/api/user')
+            .then(response => {
+                setUser(response.data);
+                setLoading(false);
+            })
+            .catch(error => {
+                setLoading(false);
+                console.error('Error fetching user:', error);
+            });
+    }, []);
 
 
     const value = {
@@ -43,4 +43,3 @@ useEffect(() => {
 
     return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
-
