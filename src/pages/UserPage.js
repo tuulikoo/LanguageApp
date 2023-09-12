@@ -15,9 +15,11 @@ function UserPage() {
                 <div className={styles.updateDetails}>
                     <UpdateDetailsComponent />
                 </div>
-                <div className={styles.userPoints}>
-                    <UserPointsComponent />
-                </div>
+                {/*
+<div className={styles.userPoints}>
+    <UserPointsComponent />
+</div>
+*/}
             </div>
         </UserProvider>
     );
