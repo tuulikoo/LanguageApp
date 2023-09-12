@@ -148,8 +148,6 @@ function RegistrationForm() {
                 </button>
 
             </div>
-
-
             {apiFeedback && (
                 <p
                     className={
