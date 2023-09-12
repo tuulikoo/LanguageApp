@@ -33,7 +33,7 @@ const ExerciseComponent = ({ correctWord }) => {
                 <img src="images/audio.png" alt="Play Audio" />
             </button>
             <form onSubmit={handleSubmit}>
-                <input
+                <input className={styles.input}
                     value={inputWord}
                     onChange={(e) => setInputWord(e.target.value)}
                     placeholder="Kirjoita kuulemasi sana tähän"

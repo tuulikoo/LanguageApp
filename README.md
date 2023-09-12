@@ -14,7 +14,7 @@ ensimmäisen vieraan kielen opiskelua koulussa.
 
 ## running mimic3 server 
 ```
-cd src/utils/mimic3
+cd mimic3
 ./install.sh
 source .venv/bin/activate
 mimic3-server
