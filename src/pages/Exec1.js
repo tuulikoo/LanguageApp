@@ -1,11 +1,11 @@
-import ExerciseComponent from "@/components/ExecComponent";
+import ExerciseComponent from "@/components/ExecComponent"
 
 
 export default function Exec1() {
 
     return (
         <div>
-            <ExerciseComponent correctWord="hello Tuuli" />
+            <ExerciseComponent correctWord="Привет, мир" />
         </div>
     )
 }
