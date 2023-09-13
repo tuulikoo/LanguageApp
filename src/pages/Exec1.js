@@ -5,7 +5,7 @@ export default function Exec1() {
 
     return (
         <div>
-            <ExerciseComponent correctWord="Horse" />
+            <ExerciseComponent />
         </div>
     )
 }

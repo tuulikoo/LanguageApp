@@ -1,11 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import TextTospeech from '../utils/wordlists/TextTospeech.json';
 import { convertTextToSpeech } from '../utils/mimicApi';
 import styles from '../styles/Exec.module.scss';
 
-const ExerciseComponent = ({ correctWord }) => {
+const ExerciseComponent = ({ userLevel = "listening1.1" }) => { // Defaulting to "listening1.1"
     const [inputWord, setInputWord] = useState('');
     const [audioURL, setAudioURL] = useState(null);
     const [result, setResult] = useState(null);
+    const [correctWord, setCorrectWord] = useState('');
+
+    useEffect(() => {
+        const wordsForLevel = TextTospeech[userLevel];
+        const randomIndex = Math.floor(Math.random() * wordsForLevel.length);
+        setCorrectWord(wordsForLevel[randomIndex]);
+    }, [userLevel]);
 
     const playAudio = async () => {
         try {
@@ -47,3 +55,4 @@ const ExerciseComponent = ({ correctWord }) => {
 };
 
 export default ExerciseComponent;
+
