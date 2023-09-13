@@ -17,3 +17,4 @@ model User {
   userPoints Int @default(0)
   lastLevel Double @default(0)
 } 
+
