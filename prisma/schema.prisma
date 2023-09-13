@@ -14,7 +14,7 @@ model User {
   email     String @unique
   password  String
   avatarId  Int
-  userPoints Int @default(0)
-  lastLevel Double @default(0)
+  userPoints Int @default(1)
+  lastLevel Int @default(1)
 } 
 
