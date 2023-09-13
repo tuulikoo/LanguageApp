@@ -1,40 +1,31 @@
 {
-    "listening1.1":[apple,banana,orange,pear,grape,peach,plum,kiwi,lemon,watermelon,
-            strawberry,blueberry,raspberry,blackberry,avocado,grapefruit,
-            pineapple,apricot,nectarine,coconut],
+    "listening1.1": ["apple", "banana", "orange", "pear", "grape", "kiwi", "lemon", "plum", "peach", "watermelon",
+                     "blueberry", "strawberry", "raspberry", "blackberry", "avocado", "grapefruit", "pineapple", "apricot", "nectarine", "coconut"],
 
-    "listening1.2":[cat,horse,mouse,elephant,monkey,snake,spider,ant,bee,mosquito,
-            fly,cockroach,grasshopper,cricket,beetle,dragonfly,centipede,
-            caterpillar,scorpion,snail,squirrel,chipmunk,hamster,guinea pig,
-            rabbit,parrot,canary,owl,peacock,swan,duck,goose,rooster],
+    "listening1.2": ["cat", "dog", "mouse", "horse", "monkey", "elephant", "snake", "bee", "ant", "spider",
+                     "fly", "mosquito", "cockroach", "grasshopper", "cricket", "beetle", "dragonfly", "centipede", "caterpillar", "scorpion"],
 
-    "lisenning1.3":[pencil,pen,eraser,sharpener,ruler,notebook,book,desk,chair,
-            blackboard,whiteboard,computer,calculator,backpack,glue,
-            tape,scissors,crayon,marker],
+    "listening1.3": ["pencil", "pen", "book", "ruler", "eraser", "desk", "chair", "sharpener", "notebook", "backpack",
+                     "blackboard", "whiteboard", "computer", "calculator", "tape", "glue", "scissors", "crayon", "marker", "printer"],
 
-    "listening1.4":[father,mother,grandfather,grandmother,brother,sister,uncle,
-            aunt,cousin,husband,wife,son,daughter,nephew,niece,
-            grandson,granddaughter,stepfather,stepmother],
+    "listening1.4": ["father", "mother", "brother", "sister", "uncle", "aunt", "son", "daughter", "nephew", "niece",
+                     "grandfather", "grandmother", "cousin", "husband", "wife", "stepfather", "stepmother", "grandson", "granddaughter", "half-brother"],
 
-    "listening1.5":[doctor,teacher,student,engineer,lawyer,secretary,accountant,
-                    cook,waiter,waitress,actor,actress,artist,writer,driver,
-                    musician,athlete,scientist,photographer],
-    
-    "listening1.6":[monday,tuesday,wednesday,thursday,friday,saturday,sunday,
-                    january,february,march,april,may,june,july,august,
-                    september,october,november,december],
-    "listening1.7":[morning,afternoon,evening,night,noon,day,week,month,year,
-                    decade,century,millennium,summer,winter,spring,fall,
-                    autumn,season],
-    "listening1.8":[breakfast,lunch,dinner,snack,appetizer,main course,dessert],
+    "listening1.5": ["doctor", "teacher", "student", "engineer", "driver", "cook", "waiter", "waitress", "actor", "actress",
+                     "lawyer", "secretary", "accountant", "artist", "writer", "musician", "athlete", "scientist", "photographer", "architect"],
 
-    "listening1.9":[black,yellow,red,blue,green,white,orange,purple,brown,gray,
-                    pink,beige,cream,light,light blue,light green,light yellow,
-                    light orange,light pink,light purple,light brown,light gray,
-                    dark,dark blue,dark green,dark yellow,dark orange,dark pink,
-                    dark purple,dark brown,dark gray],
-    "listening2.0":[big,small,short,tall,thin,fat,heavy,light,fast,slow,old,
-                    young,hot,cold,cool,warm,beautiful,ugly,pretty,ugly,rich,
-                    poor,expensive,cheap,good,bad,delicious,disgusting,funny,
-                    boring,interesting,exciting,scary,quiet,loud,soft,hard]
+    "listening1.6": ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday", "january", "february", "march",
+                     "april", "may", "june", "july", "august", "september", "october", "november", "december", "weekend"],
+
+    "listening1.7": ["morning", "noon", "night", "day", "week", "month", "year", "afternoon", "evening", "summer",
+                     "winter", "spring", "fall", "season", "decade", "century", "millennium", "autumn", "sunset", "sunrise"],
+
+    "listening1.8": ["breakfast", "lunch", "dinner", "snack", "dessert", "appetizer", "main course", "starter", "beverage", "cuisine",
+                     "vegetarian", "vegan", "buffet", "brunch", "cafeteria", "delicacy", "gourmet", "fast-food", "takeout", "leftovers"],
+
+    "listening1.9": ["red", "blue", "green", "yellow", "black", "white", "pink", "brown", "gray", "purple",
+                     "orange", "beige", "cream", "light", "dark", "turquoise", "violet", "indigo", "gold", "silver"],
+
+    "listening2.0": ["big", "small", "fast", "slow", "hot", "cold", "old", "young", "good", "bad",
+                     "beautiful", "ugly", "rich", "poor", "heavy", "light", "hard", "soft", "noisy", "quiet"]
 }

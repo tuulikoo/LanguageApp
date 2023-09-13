@@ -5,11 +5,11 @@ const DEFAULT_VOICE = 'uk/apope_low';
 export const convertTextToSpeech = async (text, options = {}) => {
     const params = new URLSearchParams({
         text,
-        voice: 'en_UK/apope_low' || DEFAULT_VOICE,
-        noiseScale: options.noiseScale || 0.667,
+        voice: 'en_US/ljspeech' || DEFAULT_VOICE,
+        noiseScale: options.noiseScale || 0.222,
         noiseW: options.noiseW || 0.3,
-        lengthScale: options.lengthScale || 1,
-        ssml: options.ssml || false
+        lengthScale: options.lengthScale || 1.1,
+        ssml: options.ssml || true,
     });
 
     const response = await fetch(`${MIMIC_SERVER_URL}?${params.toString()}`);
