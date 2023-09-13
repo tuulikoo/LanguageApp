@@ -106,16 +106,16 @@ const NextButton = ({ currentIndex, wordListLength, onNext }) => (
 );
 
 function getWordListForPoints(points) {
-    if (points <= 19) return "listening1.1";
-    if (points <= 39) return "listening1.2";
-    if (points <= 59) return "listening1.3";
-    if (points <= 79) return "listening1.4";
-    if (points <= 99) return "listening1.5";
-    if (points <= 119) return "listening1.6";
-    if (points <= 139) return "listening1.7";
-    if (points <= 159) return "listening1.8";
-    if (points <= 179) return "listening1.9";
+    let key;
 
+    if (points <= 19) key = "listening1.1";
+    else if (points <= 39) key = "listening1.2";
+    else if (points <= 59) key = "listening1.3";
+
+    const currentWordList = wordList[key] || [];
+    const randomIndex = Math.floor(Math.random() * currentWordList.length);
+
+    return { key, randomIndex };
 }
 
 export default ExerciseComponent;
