@@ -107,7 +107,7 @@ const NextButton = ({ currentIndex, wordListLength, onNext }) => (
 
 function getWordListForPoints(points) {
     if (points < 19) return "listening1.1";
-    if (points > 40) return "listening1.2";
+    if (points > 20) return "listening1.2";
     return "listening2.0";
 }
 
