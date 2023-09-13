@@ -15,5 +15,6 @@ model User {
   password  String
   avatarId  Int
   userPoints Int @default(0)
-  userLevel Int @default(0)
-}
+  lastLevel Double @default(0)
+} 
+
