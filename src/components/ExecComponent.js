@@ -41,7 +41,7 @@ const ExerciseComponent = ({ correctWord }) => {
                 <button className={styles.submitButton} type="submit">
                 </button>
             </form>
-            {result && <p className={`${styles.result} ${result === 'Correct!' ? styles.correct : ''}`}>{result}</p>}
+            {result && <p className={`${styles.result} ${result === 'Oikein!' ? styles.correct : ''}`}>{result}</p>}
         </div>
     );
 };
