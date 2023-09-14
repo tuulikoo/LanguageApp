@@ -1,135 +1,89 @@
-import React, { useState, useCallback, useEffect, useRef,useMemo } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { useUser } from '../utils/userContext';
 import wordList from '../utils/wordlists/wordList.json';
 import { convertTextToSpeech } from '../utils/mimicApi';
 import styles from '../styles/Exec.module.scss';
-import debounce from 'lodash.debounce';
 
-const POINT_LEVELS = [
-    { threshold: 10, key: "listening1.1" },
-    { threshold: 20, key: "listening1.2" },
-    { threshold: 30, key: "listening1.3" },
-    { threshold: 40, key: "listening1.4" },
-    { threshold: 50, key: "listening1.5" },
-    { threshold: 60, key: "listening1.6" },
-    { threshold: 70, key: "listening1.7" },
-    { threshold: 80, key: "listening1.8" },
-    { threshold: 90, key: "listening1.9" },
-    { threshold: 100, key: "listening2.0" },
-];
 
 const getWordListKey = (points) => {
-    for (let level of POINT_LEVELS) {
-        if (points <= level.threshold) {
-            return level.key;
-        }
-    }
-    return POINT_LEVELS[POINT_LEVELS.length - 1].key; 
+    if (points <= 10) return "listening1.1";
+    if (points <= 20) return "listening1.2";
+    if (points <= 30) return "listening1.3";
+    if (points <= 40) return "listening1.4";
+    if (points <= 50) return "listening1.5";
+    if (points <= 60) return "listening1.6";
+    if (points <= 70) return "listening1.7";
+    if (points <= 80) return "listening1.8";
+    if (points <= 90) return "listening1.9";
+    if (points <= 100) return "listening2.0";
 };
 
-
-const SYNC_INTERVAL = 3000;
-
 const ExerciseComponent = () => {
-    const { user, refetchUser } = useUser(); 
+    const { user } = useUser();
     const userPoints = user ? user.userPoints : 0;
-    const [localPoints, setLocalPoints] = useState(0);
-    const totalPoints = userPoints + localPoints;
+    const currentWordListKey = useMemo(() => getWordListKey(userPoints), [userPoints]);
+    const currentWordList = useMemo(() => wordList[currentWordListKey] || [], [currentWordListKey]);
 
-    const currentWordList = useMemo(() => {
-        const key = getWordListKey(totalPoints);
-        return wordList[key] || [];
-    }, [totalPoints]);
-
-    const [inputWord, setInputWord] = useState('');
-    const [result, setResult] = useState(null);
-    const [currentIndex, setCurrentIndex] = useState(() => Math.floor(Math.random() * currentWordList.length));
-
-    useEffect(() => {
-        const initialPoints = parseInt(localStorage.getItem('accumulatedPoints'), 10) || 0;
-        setLocalPoints(initialPoints);
-    }, []);
+    const [state, setState] = useState({
+        inputWord: '',
+        audioURL: null,
+        result: null,
+        currentIndex: Math.floor(Math.random() * currentWordList.length),
+        userPoints: userPoints
+    });
 
     const updateUserPoints = useCallback(async () => {
-    if (!user?.id) return;
-    const newTotalPoints = userPoints + localPoints;
+        const newPoints = state.userPoints + 1;
+        try {
+            const response = await fetch('/api/updatePoints', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ userId: user.id, newPoints })
+            });
 
-    try {
-        const response = await fetch('/api/updatePoints', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ userId: user.id, additionalPoints: localPoints })
-        });
-
-        const responseData = await response.json();
-        
-        if (response.ok) { 
-            if (responseData.updatedTotalPoints !== newTotalPoints) {
-                console.warn('Point discrepancy detected between client and server.');
-               // addd loading spinner if discrepancy 
+            if (response.ok) {
+                const data = await response.json();
+                setState(prev => ({ ...prev, userPoints: data.updatedPoints }));
+            } else {
+                throw new Error('Failed to update points');
             }
-            localStorage.setItem('accumulatedPoints', '0');
-            setLocalPoints(0);
-        } else {
-            console.error('Server responded with a non-ok status when updating points.');
+        } catch (error) {
+            console.error('Error:', error.message);
         }
-    } catch (error) {
-        console.error('Error:', error.message);
-    }
-}, [user, localPoints, userPoints]);
-    const debouncedUpdateUserPoints = useMemo(() => {
-        return debounce(updateUserPoints, SYNC_INTERVAL);
-    }, [updateUserPoints]);
-
-    const handleCorrectAnswer = useCallback(() => {
-        setLocalPoints(prev => {
-            const updatedPoints = prev + 1;
-            localStorage.setItem('accumulatedPoints', updatedPoints.toString());
-            debouncedUpdateUserPoints();
-            return updatedPoints;
-        });
-    }, [debouncedUpdateUserPoints]);
+    }, [state.userPoints, user?.id]);
 
     const playAudio = useCallback(async () => {
-        const audioBlob = await convertTextToSpeech(currentWordList[currentIndex]);
+        const audioBlob = await convertTextToSpeech(currentWordList[state.currentIndex]);
         const objectURL = URL.createObjectURL(audioBlob);
+        setState(prev => ({ ...prev, audioURL: objectURL }));
         new Audio(objectURL).play();
-    }, [currentIndex, currentWordList]);
+    }, [state.currentIndex, currentWordList]);
 
- 
-const handleSubmit = useCallback((e) => {
+    const handleSubmit = useCallback(async (e) => {
         e.preventDefault();
-
-        const currentWord = currentWordList[currentIndex];
-        if (!currentWord) return;  // Guard clause to handle out-of-bounds index
-
-        if (inputWord.toLowerCase() === currentWord.toLowerCase()) {
-            handleCorrectAnswer();
-            setInputWord('');
-            setResult('Oikein!');
-            setCurrentIndex(prev => (prev + 1) % currentWordList.length);
+        if (state.inputWord.toLowerCase() === currentWordList[state.currentIndex].toLowerCase()) {
+            await updateUserPoints();
+            setState(prev => ({
+                ...prev,
+                result: 'Oikein!',
+                currentIndex: Math.floor(Math.random() * currentWordList.length),
+                inputWord: ''
+            }));
         } else {
-            setInputWord('');
-            setResult('väärin, yritä uudelleen!');
+            setState(prev => ({ ...prev, result: 'väärin, yritä uudelleen!', inputWord: '' }));
         }
-    }, [inputWord, currentWordList, handleCorrectAnswer]);
-    const handleNext = useCallback(() => {
-        setCurrentIndex((prev) => (prev + 1) % currentWordList.length);
-    }, [currentWordList]);
+    }, [state.inputWord, state.currentIndex, currentWordList, updateUserPoints]);
 
-  return (
+    return (
         <div className={styles.container}>
             <AudioButton onPlay={playAudio} />
-            <ExerciseForm 
-                inputWord={inputWord} 
-                onInputChange={setInputWord} 
-                onSubmit={handleSubmit} 
-            />
-            <ResultDisplay result={result} />
-            <NextButton onNext={() => setCurrentIndex(prev => (prev + 1) % currentWordList.length)} />
+            <ExerciseForm inputWord={state.inputWord} onInputChange={(val) => setState(prev => ({ ...prev, inputWord: val }))} onSubmit={handleSubmit} />
+            <ResultDisplay result={state.result} />
+            {state.currentIndex < currentWordList.length - 1 && <NextButton onNext={() => setState(prev => ({ ...prev, currentIndex: Math.floor(Math.random() * currentWordList.length) }))} />}
         </div>
     );
 };
+
 const AudioButton = ({ onPlay }) => (
     <button className={styles.audioButton} onClick={onPlay}>
         <img src="images/audio.png" alt="Play Audio" />
@@ -157,6 +111,7 @@ const ResultDisplay = ({ result }) => (
 const NextButton = ({ onNext }) => <button onClick={onNext}>Seuraava</button>;
 
 export default ExerciseComponent;
+
 
 
 
