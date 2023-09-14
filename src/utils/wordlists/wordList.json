@@ -1,12 +1,12 @@
 {
-    "listening1.1": ["apple", "banana", "orange", "pear", "grape", "kiwi", "lemon", "plum", "peach", "watermelon",
+    "listening1.1": ["apple", "banana", "orange", "pear", "kiwi", "lemon", "plum", "watermelon",
                      "blueberry", "strawberry", "raspberry", "blackberry", "avocado", "grapefruit", "pineapple", "apricot", "nectarine", "coconut"],
 
     "listening1.2": ["cat", "dog", "mouse", "horse", "monkey", "elephant", "snake", "bee", "ant", "spider",
                      "fly", "mosquito", "cockroach", "grasshopper", "cricket", "beetle", "dragonfly", "centipede", "caterpillar", "scorpion"],
 
     "listening1.3": ["pencil", "pen", "book", "ruler", "eraser", "desk", "chair", "sharpener", "notebook", "backpack",
-                     "blackboard", "whiteboard", "computer", "calculator", "tape", "glue", "scissors", "crayon", "marker", "printer"],
+                     "blackboard", "whiteboard", "computer", "calculator", "tape", "scissors", "crayon", "marker", "printer"],
 
     "listening1.4": ["father", "mother", "brother", "sister", "uncle", "aunt", "son", "daughter", "nephew", "niece",
                      "grandfather", "grandmother", "cousin", "husband", "wife", "stepfather", "stepmother", "grandson", "granddaughter", "half-brother"],
@@ -26,6 +26,6 @@
     "listening1.9": ["red", "blue", "green", "yellow", "black", "white", "pink", "brown", "gray", "purple",
                      "orange", "beige", "cream", "light", "dark", "turquoise", "violet", "indigo", "gold", "silver"],
 
-    "listening2.0": ["big", "small", "fast", "slow", "hot", "cold", "old", "young", "good", "bad",
+    "listening2.0": ["small", "fast", "slow", "cold", "old", "young", "good", "bad",
                      "beautiful", "ugly", "rich", "poor", "heavy", "light", "hard", "soft", "noisy", "quiet"]
 }
