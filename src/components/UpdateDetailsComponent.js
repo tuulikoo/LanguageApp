@@ -104,6 +104,10 @@ function UpdateDetailsComponent({ setUser }) {
         <div id="section-container" className={styles.container}>
             <div id="currentDetails" className={styles.currentDetails}>
                 <h1 className={styles.welcome}>Tervetuloa omalle sivullesi {user.username}</h1>
+                <br />
+                <h2 className={styles.welcome}>Pisteesi on {user.userPoints}</h2>
+                <h2 className={styles.welcome}>Olet tasolla {user.lastLevel}</h2>
+                <br />
                 <p>Tästä voit tarkistaa omat tietosi ja tehdä niihin muutoksia:</p>
                 <h3>Etunimesi on {user.firstName}</h3>
                 <h3>käyttiksesi on {user.username}</h3>
@@ -225,9 +229,8 @@ function UpdateDetailsComponent({ setUser }) {
                                         <img
                                             src={avatar.src}
                                             alt="Avatar"
-                                            className={`${styles.avatarImage} ${
-                                                selectedAvatarId === avatar.id ? styles.selectedAvatar : ''
-                                            }`}
+                                            className={`${styles.avatarImage} ${selectedAvatarId === avatar.id ? styles.selectedAvatar : ''
+                                                }`}
                                             onClick={() => setSelectedAvatarId(avatar.id)}
                                         />
                                     </div>

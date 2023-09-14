@@ -34,6 +34,8 @@ export default async function handle(req, res) {
                 username: true,
                 email: true,
                 avatarId: true,
+                userPoints: true,
+                lastLevel: true,
             },
         });
 

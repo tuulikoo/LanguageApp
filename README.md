@@ -10,3 +10,12 @@ eivät osaa vierasta kieltä. Siksi opetus tapahtuu suomen kielellä, toisin kui
 muissa suosituissa sovelluksissa. LanguageApp sopii siksi erinomaisesti myös niille aikuisille, ketkä
 eivät pysty opiskelemaan uutta kieltä englanniksi. Sovelluksen käyttö lapsilla voidaan yhdistää osaksi
 ensimmäisen vieraan kielen opiskelua koulussa.
+
+
+## running mimic3 server 
+```
+cd mimic3
+./install.sh
+source .venv/bin/activate
+mimic3-server
+```
