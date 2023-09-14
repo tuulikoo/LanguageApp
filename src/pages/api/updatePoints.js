@@ -7,19 +7,21 @@ export default async function handler(req, res) {
         return res.status(405).end();
     }
 
-    const { userId, newPoints } = req.body;
+    const { userId, additionalPoints } = req.body;
 
     try {
-        const updatedUser = await prisma.user.update({
-            where: { id: userId },
-            data: { userPoints: newPoints }
-        });
+        const user = await prisma.user.findUnique({ where: { id: userId } });
 
-        if (!updatedUser) {
-            throw new Error('User not found or failed to update points');
+        if (!user) {
+            throw new Error('User not found');
         }
 
-        return res.status(200).json({ updatedPoints: updatedUser.userPoints });
+        const updatedUser = await prisma.user.update({
+            where: { id: userId },
+            data: { userPoints: user.userPoints + additionalPoints } // Sum the current user points and the new points.
+        });
+
+        return res.status(200).json({ updatedTotalPoints: updatedUser.userPoints }); // Rename key to updatedTotalPoints
     } catch (error) {
         return res.status(500).json({ error: 'Internal Server Error' });
     } finally {

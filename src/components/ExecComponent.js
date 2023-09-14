@@ -51,33 +51,32 @@ const ExerciseComponent = () => {
     }, []);
 
     const updateUserPoints = useCallback(async () => {
-        if (!user?.id) return;
-        const newTotalPoints = userPoints + localPoints;
+    if (!user?.id) return;
+    const newTotalPoints = userPoints + localPoints;
 
-        try {
-            const response = await fetch('/api/updatePoints', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userId: user.id, newPoints: localPoints })
-            });
+    try {
+        const response = await fetch('/api/updatePoints', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ userId: user.id, additionalPoints: localPoints })
+        });
 
-            const responseData = await response.json();
-            
-            if (response.ok) {
-                if (responseData.updatedTotalPoints !== newTotalPoints) {
-                    refetchUser();
-                }
-                localStorage.setItem('accumulatedPoints', '0');
-                setLocalPoints(0);
-            } else {
-                console.error('Server responded with a non-ok status when updating points.');
+        const responseData = await response.json();
+        
+        if (response.ok) { 
+            if (responseData.updatedTotalPoints !== newTotalPoints) {
+                console.warn('Point discrepancy detected between client and server.');
+               // addd loading spinner if discrepancy 
             }
-
-        } catch (error) {
-            console.error('Error:', error.message);
+            localStorage.setItem('accumulatedPoints', '0');
+            setLocalPoints(0);
+        } else {
+            console.error('Server responded with a non-ok status when updating points.');
         }
-    }, [user, localPoints, refetchUser, userPoints]);
-
+    } catch (error) {
+        console.error('Error:', error.message);
+    }
+}, [user, localPoints, userPoints]);
     const debouncedUpdateUserPoints = useMemo(() => {
         return debounce(updateUserPoints, SYNC_INTERVAL);
     }, [updateUserPoints]);
