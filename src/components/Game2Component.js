@@ -1,21 +1,22 @@
-import React, {useCallback, useMemo, useState} from 'react';
-import {useUser} from '@/utils/userContext';
+import React, { useCallback, useMemo, useState } from 'react';
+import { useUser } from '@/utils/userContext';
 import wordList from '../utils/wordlists/wordList.json';
-import {convertTextToSpeech} from '@/utils/mimicApi';
+import { convertTextToSpeech } from '@/utils/mimicApi';
 import styles from '../styles/Exec.module.scss';
 import CircularProgress from '@mui/material/CircularProgress';
+import { useEffect } from 'react';
 
 const POINT_LEVELS = [
-    {threshold: 10, key: "listening1.1"},
-    {threshold: 20, key: "listening1.2"},
-    {threshold: 30, key: "listening1.3"},
-    {threshold: 40, key: "listening1.4"},
-    {threshold: 50, key: "listening1.5"},
-    {threshold: 60, key: "listening1.6"},
-    {threshold: 70, key: "listening1.7"},
-    {threshold: 80, key: "listening1.8"},
-    {threshold: 90, key: "listening1.9"},
-    {threshold: 100, key: "listening2.0"},
+    { threshold: 10, key: "listening1.1" },
+    { threshold: 20, key: "listening1.2" },
+    { threshold: 30, key: "listening1.3" },
+    { threshold: 40, key: "listening1.4" },
+    { threshold: 50, key: "listening1.5" },
+    { threshold: 60, key: "listening1.6" },
+    { threshold: 70, key: "listening1.7" },
+    { threshold: 80, key: "listening1.8" },
+    { threshold: 90, key: "listening1.9" },
+    { threshold: 100, key: "listening2.0" },
 ];
 
 const getWordListKey = (points) => {
@@ -26,7 +27,7 @@ const getWordListKey = (points) => {
     }
 };
 const ExerciseComponent = () => {
-    const {user} = useUser();
+    const { user } = useUser();
     const initialUserPoints = user ? user.userPoints : 0;
     const [userPointsState, setUserPointsState] = useState(initialUserPoints);
 
@@ -39,7 +40,7 @@ const ExerciseComponent = () => {
     const [currentIndex, setCurrentIndex] = useState(Math.floor(Math.random() * currentWordList.length));
     const [isLoading, setIsLoading] = useState(false);
     const [showCorrect, setShowCorrect] = useState(false);
-    const [lastIndex, setLastIndex] = useState(null);
+    const [remainingWords, setRemainingWords] = useState(currentWordList);
 
 
     const updateUserPoints = useCallback(async () => {
@@ -48,8 +49,8 @@ const ExerciseComponent = () => {
         try {
             const response = await fetch('/api/updatePoints', {
                 method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({userId: user.id, newPoints: pointsToAdd})
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ userId: user.id, newPoints: pointsToAdd })
             });
 
             if (response.ok) {
@@ -71,13 +72,32 @@ const ExerciseComponent = () => {
         new Audio(objectURL).play();
     }, [currentIndex, currentWordList]);
 
-    const getNewRandomIndex = useCallback(() => {
-        let newIndex;
-        do {
-            newIndex = Math.floor(Math.random() * currentWordList.length);
-        } while (newIndex === lastIndex && currentWordList.length > 1);
-        return newIndex;
-    }, [lastIndex, currentWordList]);
+    useEffect(() => {
+        updateUserPoints();
+        setRemainingWords(currentWordList);
+    }, [currentWordList, updateUserPoints]);
+
+    const getNextWordIndex = useCallback(() => {
+        if (remainingWords.length === 0) {
+            setRemainingWords(currentWordList);
+        }
+
+        const randomIndex = Math.floor(Math.random() * remainingWords.length);
+        const newWord = remainingWords[randomIndex];
+
+        setRemainingWords(prevWords => prevWords.filter(word => word !== newWord));
+
+        return currentWordList.indexOf(newWord);
+    }, [remainingWords, currentWordList]);
+
+
+    const setNextWord = useCallback(() => {
+        const newIndex = getNextWordIndex();
+        setCurrentIndex(newIndex);
+        if (getNextWordIndex === currentWordList.length) {
+            setCurrentIndex(0);
+        }
+    }, [getNextWordIndex, currentWordList]);
 
     const handleCorrectAnswer = useCallback(() => {
         setShowCorrect(true);
@@ -85,12 +105,9 @@ const ExerciseComponent = () => {
         setTimeout(() => {
             setShowCorrect(false);
             setInputWord('');
-            const newIndex = getNewRandomIndex();
-            setCurrentIndex(newIndex);
-            setLastIndex(newIndex);
-        }, 2000); // Show "Oikein!" for 2 seconds
-    }, [getNewRandomIndex]);
-
+            setNextWord();
+        }, 2000);
+    }, [setNextWord]);
 
     const handleSubmit = useCallback(async (e) => {
         e.preventDefault();
@@ -105,27 +122,26 @@ const ExerciseComponent = () => {
 
     return (
         <div className={styles.container}>
-            {isLoading ? <CircularProgress/> :
+            {isLoading ? <CircularProgress /> :
                 <>
                     {showCorrect ? <div className={styles.correctMessage}>Oikein!</div> :
                         <>
-                            <AudioButton onPlay={playAudio}/>
-                            <ExerciseForm inputWord={inputWord} onInputChange={setInputWord} onSubmit={handleSubmit}/>
-                            <ResultDisplay result={result}/>
-                            {currentIndex < currentWordList.length - 1 && <NextButton
-                                onNext={() => setCurrentIndex(Math.floor(Math.random() * currentWordList.length))}/>}
+                            <AudioButton onPlay={playAudio} />
+                            <ExerciseForm inputWord={inputWord} onInputChange={setInputWord} onSubmit={handleSubmit} />
+                            <ResultDisplay result={result} />
+                            <NextButton onNext={setNextWord} />
                         </>}
                 </>}
         </div>
     );
 };
-const AudioButton = ({onPlay}) => (
+const AudioButton = ({ onPlay }) => (
     <button className={styles.audioButton} onClick={onPlay}>
-        <img src="images/audio.png" alt="Play Audio"/>
+        <img src="images/audio.png" alt="Play Audio" />
     </button>
 );
 
-const ExerciseForm = ({inputWord, onInputChange, onSubmit}) => (
+const ExerciseForm = ({ inputWord, onInputChange, onSubmit }) => (
     <form onSubmit={onSubmit}>
         <input
             className={styles.input}
@@ -137,13 +153,13 @@ const ExerciseForm = ({inputWord, onInputChange, onSubmit}) => (
     </form>
 );
 
-const ResultDisplay = ({result}) => (
+const ResultDisplay = ({ result }) => (
     result && (
         <p className={`${styles.result} ${result === 'Oikein!' ? styles.correct : ''}`}>{result}</p>
     )
 );
 
-const NextButton = ({onNext}) => <button className={styles.seuraavaButton} onClick={onNext}>Seuraava</button>;
+const NextButton = ({ onNext }) => <button className={styles.seuraavaButton} onClick={onNext}>Seuraava</button>;
 
 
 export default ExerciseComponent;
