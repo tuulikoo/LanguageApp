@@ -5,6 +5,7 @@ import UserPointsComponent from '@/components/UserPointsComponent';
 import { UserProvider } from '@/utils/userContext';
 import styles from '../styles/UserPage.module.css';
 
+import Game4 from "@/components/game4";
 function UserPage() {
     return (
         <UserProvider>
@@ -15,6 +16,7 @@ function UserPage() {
                 <div className={styles.updateDetails}>
                     <UpdateDetailsComponent />
                 </div>
+
                 {/*
 <div className={styles.userPoints}>
     <UserPointsComponent />

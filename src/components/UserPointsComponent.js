@@ -10,7 +10,6 @@ function UserPointsComponent() {
         // Function to fetch user points from your database
         const fetchUserPoints = async () => {
             try {
-                // Replace '/api/getUserPoints' with your actual API endpoint
                 const response = await axios.get('/api/getUserPoints');
 
                 if (response.status === 200) {
