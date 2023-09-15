@@ -40,6 +40,8 @@ const ExerciseComponent = () => {
     const [currentIndex, setCurrentIndex] = useState(Math.floor(Math.random() * currentWordList.length));
     const [isLoading, setIsLoading] = useState(false);
     const [showCorrect, setShowCorrect] = useState(false);
+    const [lastIndex, setLastIndex] = useState(null);
+
 
     const updateUserPoints = useCallback(async () => {
         const pointsToAdd = 1;
@@ -70,15 +72,26 @@ const ExerciseComponent = () => {
         new Audio(objectURL).play();
     }, [currentIndex, currentWordList]);
 
-  const handleCorrectAnswer = useCallback(() => {
+    const getNewRandomIndex = useCallback(() => {
+        let newIndex;
+        do {
+            newIndex = Math.floor(Math.random() * currentWordList.length);
+        } while (newIndex === lastIndex && currentWordList.length > 1);
+        return newIndex;
+    }, [lastIndex, currentWordList]);
+    
+    const handleCorrectAnswer = useCallback(() => {
         setShowCorrect(true);
         setResult(null);
         setTimeout(() => {
             setShowCorrect(false);
             setInputWord('');
-            setCurrentIndex(Math.floor(Math.random() * currentWordList.length));
+            const newIndex = getNewRandomIndex();
+            setCurrentIndex(newIndex);
+            setLastIndex(newIndex);
         }, 2000); // Show "Oikein!" for 2 seconds
-    }, [currentWordList]);
+    }, [getNewRandomIndex, currentWordList]);
+    
 
     const handleSubmit = useCallback(async (e) => {
         e.preventDefault();
@@ -94,15 +107,15 @@ const ExerciseComponent = () => {
     return (
         <div className={styles.container}>
             {isLoading ? <CircularProgress /> :
-            <>
-            {showCorrect ? <div className={styles.correctMessage}>Oikein!</div> :
-            <>
-                <AudioButton onPlay={playAudio} />
-                <ExerciseForm inputWord={inputWord} onInputChange={setInputWord} onSubmit={handleSubmit} />
-                <ResultDisplay result={result} />
-                {currentIndex < currentWordList.length - 1 && <NextButton onNext={() => setCurrentIndex(Math.floor(Math.random() * currentWordList.length))} />}
-            </>}
-            </>}
+                    <>
+                            {showCorrect ? <div className={styles.correctMessage}>Oikein!</div> :
+                                    <>
+                                        <AudioButton onPlay={playAudio} />
+                                        <ExerciseForm inputWord={inputWord} onInputChange={setInputWord} onSubmit={handleSubmit} />
+                                        <ResultDisplay result={result} />
+                                        {currentIndex < currentWordList.length - 1 && <NextButton onNext={() => setCurrentIndex(Math.floor(Math.random() * currentWordList.length))} />}
+                                    </>}
+                    </>}
         </div>
     );
 };
@@ -130,7 +143,8 @@ const ResultDisplay = ({ result }) => (
     )
 );
 
-const NextButton = ({ onNext }) => <button onClick={onNext}>Seuraava</button>;
+const NextButton = ({ onNext }) => <button className={styles.seuraavaButton} onClick={onNext}>Seuraava</button>;
+
 
 export default ExerciseComponent;
 
