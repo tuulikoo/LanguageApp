@@ -3,6 +3,8 @@ import { useUser } from '../utils/userContext';
 import wordList from '../utils/wordlists/wordList.json';
 import { convertTextToSpeech } from '../utils/mimicApi';
 import styles from '../styles/Exec.module.scss';
+import debounce from 'lodash.debounce';
+import { useEffect } from 'react';
 
 
 const getWordListKey = (points) => {
@@ -33,24 +35,46 @@ const ExerciseComponent = () => {
     });
 
     const updateUserPoints = useCallback(async () => {
-        const newPoints = state.userPoints + 1;
         try {
-            const response = await fetch('/api/updatePoints', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userId: user.id, newPoints })
-            });
+            // Move the points computation inside the setState function to get the most recent state.
+            setState(prevState => {
+                const newPoints = prevState.userPoints + 1;
 
-            if (response.ok) {
-                const data = await response.json();
-                setState(prev => ({ ...prev, userPoints: data.updatedPoints }));
-            } else {
-                throw new Error('Failed to update points');
-            }
+                // Send updated points to the server.
+                // This is an async operation inside the setState callback.
+                // It's a bit unconventional but ensures that we're working with the most up-to-date state.
+                fetch('/api/updatePoints', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ userId: user.id, newPoints })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.updatedPoints !== undefined) {
+                            setState(prev => ({ ...prev, userPoints: data.updatedPoints }));
+                        } else {
+                            throw new Error('Failed to update points');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error.message);
+                    });
+
+                return prevState; // Return the previous state while we wait for the update to complete.
+            });
         } catch (error) {
             console.error('Error:', error.message);
         }
-    }, [state.userPoints, user?.id]);
+    }, [user?.id]);
+    const debouncedUpdateUserPoints = useMemo(() => {
+        return debounce(updateUserPoints, 1000); // 1 second delay
+    }, [updateUserPoints]);
+
+    useEffect(() => {
+        return () => {
+            debouncedUpdateUserPoints.cancel();
+        };
+    }, [debouncedUpdateUserPoints]);
 
     const playAudio = useCallback(async () => {
         const audioBlob = await convertTextToSpeech(currentWordList[state.currentIndex]);
@@ -62,7 +86,7 @@ const ExerciseComponent = () => {
     const handleSubmit = useCallback(async (e) => {
         e.preventDefault();
         if (state.inputWord.toLowerCase() === currentWordList[state.currentIndex].toLowerCase()) {
-            await updateUserPoints();
+            debouncedUpdateUserPoints();
             setState(prev => ({
                 ...prev,
                 result: 'Oikein!',
@@ -72,7 +96,9 @@ const ExerciseComponent = () => {
         } else {
             setState(prev => ({ ...prev, result: 'väärin, yritä uudelleen!', inputWord: '' }));
         }
-    }, [state.inputWord, state.currentIndex, currentWordList, updateUserPoints]);
+    }, [state.inputWord, state.currentIndex, currentWordList, debouncedUpdateUserPoints]);
+
+
 
     return (
         <div className={styles.container}>
