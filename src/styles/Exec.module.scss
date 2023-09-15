@@ -29,11 +29,6 @@
     &:hover {
         animation: scale 0.5s infinite;
     }
-
-    &.correct {
-        @apply text-green-500;
-        animation: bounce 0.5s 3 alternate;
-    }
 }
 
 .input {
@@ -69,4 +64,11 @@
         transform: scale(1);
     }
 }
+.correctMessage{
+    @apply text-green-500;
+    font-size: 2rem;
+    animation: bounce 1s;
+    animation: scale 0.5s infinite;
+}
+
 

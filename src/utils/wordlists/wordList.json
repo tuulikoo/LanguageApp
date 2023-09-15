@@ -2,8 +2,9 @@
     "listening1.1": ["apple", "banana", "orange", "pear", "kiwi", "lemon", "plum", "watermelon",
                      "blueberry", "strawberry", "raspberry", "blackberry", "avocado", "grapefruit", "pineapple", "apricot", "nectarine", "coconut"],
 
-    "listening1.2": ["cat", "dog", "mouse", "horse", "monkey", "elephant", "snake", "bee", "ant", "spider",
-                     "fly", "mosquito", "cockroach", "grasshopper", "cricket", "beetle", "dragonfly", "centipede", "caterpillar", "scorpion"],
+    "listening1.2": ["cat", "dog", "mouse", "horse", "monkey", "elephant", "snake", "spider",
+                     "fly", "mosquito", "cockroach", "grasshopper", "cricket", "beetle","centipede", "caterpillar", "scorpion",
+                     "sheep","reindeer","moose","giraffe","fish","dolphin","shark","zebra"],
 
     "listening1.3": ["pencil", "pen", "book", "ruler", "eraser", "desk", "chair", "sharpener", "notebook", "backpack",
                      "blackboard", "whiteboard", "computer", "calculator", "tape", "scissors", "crayon", "marker", "printer"],

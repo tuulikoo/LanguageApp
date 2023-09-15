@@ -4,6 +4,7 @@ import wordList from '../utils/wordlists/wordList.json';
 import { convertTextToSpeech } from '../utils/mimicApi';
 import styles from '../styles/Exec.module.scss';
 import { useMemo } from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const POINT_LEVELS = [
     { threshold: 10, key: "listening1.1" },
@@ -37,9 +38,12 @@ const ExerciseComponent = () => {
     const [audioURL, setAudioURL] = useState(null);
     const [result, setResult] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(Math.floor(Math.random() * currentWordList.length));
+    const [isLoading, setIsLoading] = useState(false);
+    const [showCorrect, setShowCorrect] = useState(false);
 
     const updateUserPoints = useCallback(async () => {
         const pointsToAdd = 1;
+        setIsLoading(true);
         try {
             const response = await fetch('/api/updatePoints', {
                 method: 'POST',
@@ -56,7 +60,9 @@ const ExerciseComponent = () => {
         } catch (error) {
             console.error('Error:', error.message);
         }
+        setIsLoading(false);
     }, [user?.id]);
+
     const playAudio = useCallback(async () => {
         const audioBlob = await convertTextToSpeech(currentWordList[currentIndex]);
         const objectURL = URL.createObjectURL(audioBlob);
@@ -64,29 +70,42 @@ const ExerciseComponent = () => {
         new Audio(objectURL).play();
     }, [currentIndex, currentWordList]);
 
+  const handleCorrectAnswer = useCallback(() => {
+        setShowCorrect(true);
+        setResult(null);
+        setTimeout(() => {
+            setShowCorrect(false);
+            setInputWord('');
+            setCurrentIndex(Math.floor(Math.random() * currentWordList.length));
+        }, 2000); // Show "Oikein!" for 2 seconds
+    }, [currentWordList]);
+
     const handleSubmit = useCallback(async (e) => {
         e.preventDefault();
         if (inputWord.toLowerCase() === currentWordList[currentIndex].toLowerCase()) {
             await updateUserPoints();
-            setInputWord('');
-            setResult('Oikein!');
-            setCurrentIndex(Math.floor(Math.random() * currentWordList.length));
+            handleCorrectAnswer();
         } else {
             setInputWord('');
             setResult('väärin, yritä uudelleen!');
         }
-    }, [inputWord, currentIndex, currentWordList, updateUserPoints]);
+    }, [inputWord, currentIndex, currentWordList, updateUserPoints, handleCorrectAnswer]);
 
     return (
         <div className={styles.container}>
-            <AudioButton onPlay={playAudio} />
-            <ExerciseForm inputWord={inputWord} onInputChange={setInputWord} onSubmit={handleSubmit} />
-            <ResultDisplay result={result} />
-            {currentIndex < currentWordList.length - 1 && <NextButton onNext={() => setCurrentIndex(Math.floor(Math.random() * currentWordList.length))} />}
+            {isLoading ? <CircularProgress /> :
+            <>
+            {showCorrect ? <div className={styles.correctMessage}>Oikein!</div> :
+            <>
+                <AudioButton onPlay={playAudio} />
+                <ExerciseForm inputWord={inputWord} onInputChange={setInputWord} onSubmit={handleSubmit} />
+                <ResultDisplay result={result} />
+                {currentIndex < currentWordList.length - 1 && <NextButton onNext={() => setCurrentIndex(Math.floor(Math.random() * currentWordList.length))} />}
+            </>}
+            </>}
         </div>
     );
 };
-
 const AudioButton = ({ onPlay }) => (
     <button className={styles.audioButton} onClick={onPlay}>
         <img src="images/audio.png" alt="Play Audio" />
