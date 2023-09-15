@@ -25,20 +25,18 @@ const getWordListKey = (points) => {
         }
     }
 };
-
 const ExerciseComponent = () => {
     const { user } = useUser();
-    const userPoints = user ? user.userPoints : 0;
-    const [localPoints, setLocalPoints] = useState(0);
+    const initialUserPoints = user ? user.userPoints : 0;
+    const [userPointsState, setUserPointsState] = useState(initialUserPoints);
 
-    const currentWordListKey = useMemo(() => getWordListKey(userPoints), [userPoints]);
+    const currentWordListKey = useMemo(() => getWordListKey(userPointsState), [userPointsState]);
     const currentWordList = useMemo(() => wordList[currentWordListKey] || [], [currentWordListKey]);
 
     const [inputWord, setInputWord] = useState('');
     const [audioURL, setAudioURL] = useState(null);
     const [result, setResult] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(Math.floor(Math.random() * currentWordList.length));
-    const [userPointsState, setUserPointsState] = useState(userPoints);
 
     const updateUserPoints = useCallback(async () => {
         const pointsToAdd = 1;
@@ -46,7 +44,7 @@ const ExerciseComponent = () => {
             const response = await fetch('/api/updatePoints', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userId: user.id, newPoints: pointsToAdd }) // Now it's the points to add, not the total points
+                body: JSON.stringify({ userId: user.id, newPoints: pointsToAdd })
             });
 
             if (response.ok) {
@@ -58,7 +56,7 @@ const ExerciseComponent = () => {
         } catch (error) {
             console.error('Error:', error.message);
         }
-    }, [ user?.id]);
+    }, [user?.id]);
     const playAudio = useCallback(async () => {
         const audioBlob = await convertTextToSpeech(currentWordList[currentIndex]);
         const objectURL = URL.createObjectURL(audioBlob);
