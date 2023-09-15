@@ -23,10 +23,9 @@ export default async function handle(req, res) {
     }
 
     try {
-        // Find the user based on the JWT's decoded data (which ideally should contain the user ID or username)
         const user = await prisma.user.findUnique({
             where: {
-                id: decoded.id  // Assuming your JWT payload contains the user ID
+                id: decoded.id
             },
             select: {
                 id: true,

@@ -1,80 +1,124 @@
-import { useState, useEffect } from 'react';
-import { convertTextToSpeech } from '../utils/mimicApi';
-import styles from '../styles/Exec.module.scss';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { useUser } from '../utils/userContext';
 import wordList from '../utils/wordlists/wordList.json';
+import { convertTextToSpeech } from '../utils/mimicApi';
+import styles from '../styles/Exec.module.scss';
+import { useMemo } from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
 
+const POINT_LEVELS = [
+    { threshold: 10, key: "listening1.1" },
+    { threshold: 20, key: "listening1.2" },
+    { threshold: 30, key: "listening1.3" },
+    { threshold: 40, key: "listening1.4" },
+    { threshold: 50, key: "listening1.5" },
+    { threshold: 60, key: "listening1.6" },
+    { threshold: 70, key: "listening1.7" },
+    { threshold: 80, key: "listening1.8" },
+    { threshold: 90, key: "listening1.9" },
+    { threshold: 100, key: "listening2.0" },
+];
+
+const getWordListKey = (points) => {
+    for (let level of POINT_LEVELS) {
+        if (points <= level.threshold) {
+            return level.key;
+        }
+    }
+};
 const ExerciseComponent = () => {
     const { user } = useUser();
     const initialUserPoints = user ? user.userPoints : 0;
-    const userPoints = user ? user.userPoints : 0;
+    const [userPointsState, setUserPointsState] = useState(initialUserPoints);
+
+    const currentWordListKey = useMemo(() => getWordListKey(userPointsState), [userPointsState]);
+    const currentWordList = useMemo(() => wordList[currentWordListKey] || [], [currentWordListKey]);
+
     const [inputWord, setInputWord] = useState('');
     const [audioURL, setAudioURL] = useState(null);
     const [result, setResult] = useState(null);
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    const currentWordListKey = getWordListForPoints(userPoints);
-    const currentWordList = wordList[currentWordListKey] || [];
-    const [currentUserPoints, setCurrentUserPoints] = useState(initialUserPoints);
-
+    const [currentIndex, setCurrentIndex] = useState(Math.floor(Math.random() * currentWordList.length));
+    const [isLoading, setIsLoading] = useState(false);
+    const [showCorrect, setShowCorrect] = useState(false);
+    const [lastIndex, setLastIndex] = useState(null);
 
 
-
-    const playAudio = async () => {
-        try {
-            const audioBlob = await convertTextToSpeech(currentWordList[currentIndex]);
-            const objectURL = URL.createObjectURL(audioBlob);
-            setAudioURL(objectURL);
-            new Audio(objectURL).play();
-        } catch (error) {
-            console.error('Error:', error.message);
-        }
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        if (inputWord.trim().toLowerCase() === currentWordList[currentIndex].toLowerCase()) {
-            setResult('Oikein!');
-            setCurrentIndex(prevIndex => prevIndex + 1);
-            updateUserPoints();
-        } else {
-            setResult('väärin, yritä uudelleen!');
-        }
-
-        setInputWord('');
-    };
-
-    const updateUserPoints = async () => {
-        const newPoints = currentUserPoints + 1;
+    const updateUserPoints = useCallback(async () => {
+        const pointsToAdd = 1;
+        setIsLoading(true);
         try {
             const response = await fetch('/api/updatePoints', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userId: user.id, newPoints })
+                body: JSON.stringify({ userId: user.id, newPoints: pointsToAdd })
             });
 
             if (response.ok) {
                 const data = await response.json();
-                setCurrentUserPoints(data.updatedPoints);  // Use the updater function here
+                setUserPointsState(data.updatedPoints);
             } else {
                 throw new Error('Failed to update points');
             }
         } catch (error) {
             console.error('Error:', error.message);
         }
-    };
+        setIsLoading(false);
+    }, [user?.id]);
+
+    const playAudio = useCallback(async () => {
+        const audioBlob = await convertTextToSpeech(currentWordList[currentIndex]);
+        const objectURL = URL.createObjectURL(audioBlob);
+        setAudioURL(objectURL);
+        new Audio(objectURL).play();
+    }, [currentIndex, currentWordList]);
+
+    const getNewRandomIndex = useCallback(() => {
+        let newIndex;
+        do {
+            newIndex = Math.floor(Math.random() * currentWordList.length);
+        } while (newIndex === lastIndex && currentWordList.length > 1);
+        return newIndex;
+    }, [lastIndex, currentWordList]);
+    
+    const handleCorrectAnswer = useCallback(() => {
+        setShowCorrect(true);
+        setResult(null);
+        setTimeout(() => {
+            setShowCorrect(false);
+            setInputWord('');
+            const newIndex = getNewRandomIndex();
+            setCurrentIndex(newIndex);
+            setLastIndex(newIndex);
+        }, 2000); // Show "Oikein!" for 2 seconds
+    }, [getNewRandomIndex, currentWordList]);
+    
+
+    const handleSubmit = useCallback(async (e) => {
+        e.preventDefault();
+        if (inputWord.toLowerCase() === currentWordList[currentIndex].toLowerCase()) {
+            await updateUserPoints();
+            handleCorrectAnswer();
+        } else {
+            setInputWord('');
+            setResult('väärin, yritä uudelleen!');
+        }
+    }, [inputWord, currentIndex, currentWordList, updateUserPoints, handleCorrectAnswer]);
 
     return (
         <div className={styles.container}>
-            <AudioButton onPlay={playAudio} />
-            <ExerciseForm inputWord={inputWord} onInputChange={setInputWord} onSubmit={handleSubmit} />
-            <ResultDisplay result={result} />
-            <NextButton currentIndex={currentIndex} wordListLength={currentWordList.length} onNext={() => setCurrentIndex(prevIndex => prevIndex + 1)} />
+            {isLoading ? <CircularProgress /> :
+                    <>
+                            {showCorrect ? <div className={styles.correctMessage}>Oikein!</div> :
+                                    <>
+                                        <AudioButton onPlay={playAudio} />
+                                        <ExerciseForm inputWord={inputWord} onInputChange={setInputWord} onSubmit={handleSubmit} />
+                                        <ResultDisplay result={result} />
+                                        {currentIndex < currentWordList.length - 1 && <NextButton onNext={() => setCurrentIndex(Math.floor(Math.random() * currentWordList.length))} />}
+                                    </>}
+                    </>}
         </div>
     );
 };
-
 const AudioButton = ({ onPlay }) => (
     <button className={styles.audioButton} onClick={onPlay}>
         <img src="images/audio.png" alt="Play Audio" />
@@ -99,24 +143,8 @@ const ResultDisplay = ({ result }) => (
     )
 );
 
-const NextButton = ({ currentIndex, wordListLength, onNext }) => (
-    currentIndex < wordListLength - 1 && (
-        <button onClick={onNext}>Seuraava</button>
-    )
-);
+const NextButton = ({ onNext }) => <button className={styles.seuraavaButton} onClick={onNext}>Seuraava</button>;
 
-function getWordListForPoints(points) {
-    let key;
-
-    if (points <= 19) key = "listening1.1";
-    else if (points <= 39) key = "listening1.2";
-    else if (points <= 59) key = "listening1.3";
-
-    const currentWordList = wordList[key] || [];
-    const randomIndex = Math.floor(Math.random() * currentWordList.length);
-
-    return { key, randomIndex };
-}
 
 export default ExerciseComponent;
 

@@ -10,14 +10,20 @@ export default async function handler(req, res) {
     const { userId, newPoints } = req.body;
 
     try {
-        const updatedUser = await prisma.user.update({
-            where: { id: userId },
-            data: { userPoints: newPoints }
+        // Fetch current points
+        const currentUser = await prisma.user.findUnique({
+            where: { id: userId }
         });
 
-        if (!updatedUser) {
-            throw new Error('User not found or failed to update points');
+        if (!currentUser) {
+            throw new Error('User not found');
         }
+
+        // Increment points and update the user
+        const updatedUser = await prisma.user.update({
+            where: { id: userId },
+            data: { userPoints: currentUser.userPoints + newPoints }
+        });
 
         return res.status(200).json({ updatedPoints: updatedUser.userPoints });
     } catch (error) {
