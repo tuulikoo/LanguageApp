@@ -35,7 +35,7 @@ const ExerciseComponent = () => {
     const currentWordList = useMemo(() => wordList[currentWordListKey] || [], [currentWordListKey]);
 
     const [inputWord, setInputWord] = useState('');
-    const [audioURL, setAudioURL] = useState(null);
+    const [setAudioURL] = useState(null);
     const [result, setResult] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(Math.floor(Math.random() * currentWordList.length));
     const [isLoading, setIsLoading] = useState(false);
@@ -70,10 +70,9 @@ const ExerciseComponent = () => {
         const objectURL = URL.createObjectURL(audioBlob);
         setAudioURL(objectURL);
         new Audio(objectURL).play();
-    }, [currentIndex, currentWordList]);
+    }, [currentIndex, currentWordList, setAudioURL]);
 
     useEffect(() => {
-        updateUserPoints();
         setRemainingWords(currentWordList);
     }, [currentWordList, updateUserPoints]);
 
