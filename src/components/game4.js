@@ -35,15 +35,38 @@ function Game4() {
         }
     }, [user]);
 
-    const handleOptionClick = (option) => {
+    const handleOptionClick = async (option) => {
         if (!hasAnsweredCorrectly && option === data[currentQuestion].correctOption) {
             setScore(score + 1);
             setResult('Oikein!');
-            setHasAnsweredCorrectly(true); // Varmistetaan ettei samasta kysymyksestä voi saada kuin yhden pisteen
+            setHasAnsweredCorrectly(true);
+
             // Update points only if the user is authenticated
             if (user) {
-                updatePointsAndUI(currentUserPoints + 1);
+                try {
+                    // Send an API request to update the user's points
+                    const response = await fetch('/api/updatePoints', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            userId: user.id, // Replace with your user ID property
+                            newPoints: 1, // You may adjust the points increment as needed
+                        }),
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        updatePointsAndUI(data.updatedPoints);
+                    } else {
+                        throw new Error('Failed to update user points');
+                    }
+                } catch (error) {
+                    console.error('Error updating user points:', error);
+                }
             }
+
             setTimeout(() => {
                 handleNextQuestion();
             }, 1000);
@@ -62,6 +85,7 @@ function Game4() {
             setIncorrectAttempts(incorrectAttempts + 1);
         }
     };
+
 
     const handleNextQuestion = () => {
         setCurrentQuestion(currentQuestion + 1);
