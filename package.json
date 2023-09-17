@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "mimic3Server":"cd mimic3 && ./install.sh && source .venv/bin/activate && mimic3-server && bun run dev"
+    "mimic3Server": "cd mimic3 && ./install.sh && source .venv/bin/activate && mimic3-server",
+    "both": "npm-run-all --parallel mimic3Server dev"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -36,6 +37,7 @@
     "yup": "^1.2.0"
   },
   "devDependencies": {
+    "npm-run-all": "^4.1.5",
     "prisma": "^5.2.0"
   }
 }

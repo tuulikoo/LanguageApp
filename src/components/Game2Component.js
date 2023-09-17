@@ -43,6 +43,7 @@ const ExerciseComponent = () => {
     const [remainingWords, setRemainingWords] = useState(currentWordList);
 
 
+
     const updateUserPoints = useCallback(async () => {
         const pointsToAdd = 1;
         setIsLoading(true);
@@ -74,7 +75,10 @@ const ExerciseComponent = () => {
 
     useEffect(() => {
         setRemainingWords(currentWordList);
-    }, [currentWordList, updateUserPoints]);
+        if (user && user.userPoints) {
+            setUserPointsState(user.userPoints);
+        }
+    }, [currentWordList, updateUserPoints, user]);
 
     const getNextWordIndex = useCallback(() => {
         if (remainingWords.length === 0) {
