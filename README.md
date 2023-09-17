@@ -12,10 +12,7 @@ eivät pysty opiskelemaan uutta kieltä englanniksi. Sovelluksen käyttö lapsil
 ensimmäisen vieraan kielen opiskelua koulussa.
 
 
-## running mimic3 server 
+## running
 ```
-cd mimic3
-./install.sh
-source .venv/bin/activate
-mimic3-server
+./setup.sh
 ```
