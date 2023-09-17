@@ -35,7 +35,7 @@ const ExerciseComponent = () => {
     const currentWordList = useMemo(() => wordList[currentWordListKey] || [], [currentWordListKey]);
 
     const [inputWord, setInputWord] = useState('');
-    const [setAudioURL] = useState(null);
+    const [audioURL, setAudioURL] = useState(null);
     const [result, setResult] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(Math.floor(Math.random() * currentWordList.length));
     const [isLoading, setIsLoading] = useState(false);
@@ -70,7 +70,7 @@ const ExerciseComponent = () => {
         const objectURL = URL.createObjectURL(audioBlob);
         setAudioURL(objectURL);
         new Audio(objectURL).play();
-    }, [currentIndex, currentWordList, setAudioURL]);
+    }, [currentIndex, currentWordList]);
 
     useEffect(() => {
         setRemainingWords(currentWordList);
@@ -93,10 +93,7 @@ const ExerciseComponent = () => {
     const setNextWord = useCallback(() => {
         const newIndex = getNextWordIndex();
         setCurrentIndex(newIndex);
-        if (getNextWordIndex === currentWordList.length) {
-            setCurrentIndex(0);
-        }
-    }, [getNextWordIndex, currentWordList]);
+    }, [getNextWordIndex]);
 
     const handleCorrectAnswer = useCallback(() => {
         setShowCorrect(true);
@@ -118,7 +115,6 @@ const ExerciseComponent = () => {
             setResult('väärin, yritä uudelleen!');
         }
     }, [inputWord, currentIndex, currentWordList, updateUserPoints, handleCorrectAnswer]);
-
     return (
         <div className={styles.container}>
             {isLoading ? <CircularProgress /> :
@@ -128,7 +124,7 @@ const ExerciseComponent = () => {
                             <AudioButton onPlay={playAudio} />
                             <ExerciseForm inputWord={inputWord} onInputChange={setInputWord} onSubmit={handleSubmit} />
                             <ResultDisplay result={result} />
-                            <NextButton onNext={setNextWord} />
+                            {currentIndex < currentWordList.length - 1 && <NextButton onNext={setNextWord} />}
                         </>}
                 </>}
         </div>

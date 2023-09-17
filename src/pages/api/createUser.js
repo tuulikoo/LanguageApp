@@ -47,7 +47,7 @@ const CreateUser = async (req, res) => {
 
         // Set the jwt token as an httpOnly cookie
         res.setHeader('Set-Cookie', [
-            `token=${token}; HttpOnly; Path=/; Max-Age=${60 * 60 * 24 * 7}`, // 1 week duration
+            `token=${token}; HttpOnly; Path=/; Max-Age=${60 * 60 * 24 * 7}`,
             // If using HTTPS, add `Secure` to the cookie:
             // `token=${token}; HttpOnly; Path=/; Secure; Max-Age=${60 * 60 * 24 * 7}`,
         ]);
