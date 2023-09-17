@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "mimic3Server": "cd mimic3 && ./install.sh && source .venv/bin/activate && mimic3-server",
+    "mimic3Server": "cd mimic3 && source .venv/bin/activate && mimic3-server",
     "both": "npm-run-all --parallel mimic3Server dev"
   },
   "dependencies": {
