@@ -1,6 +1,12 @@
-# git clone mimic3
+#Check if mimic3 is in project root
+if [ -d "mimic3" ]; then
+  echo "mimic3 exists."
+else
+  echo "installing mimic3"
+  git clone https://github.com/MycroftAI/mimic3.git
+fi
 
-git clone https://github.com/MycroftAI/mimic3.git
+# git clone mimic3
 
 cd mimic3
 
