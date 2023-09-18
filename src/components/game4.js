@@ -52,7 +52,7 @@ function Game4() {
                         },
                         body: JSON.stringify({
                             userId: user.id, // Replace with your user ID property
-                            newPoints: 1, // You may adjust the points increment as needed
+                            newPoints: 1 // You may adjust the points increment as needed
                         }),
                     });
 
@@ -90,7 +90,7 @@ function Game4() {
     const handleNextQuestion = () => {
         setCurrentQuestion(currentQuestion + 1);
         setResult('');
-        setIncorrectAttempts(0); // Reset incorrect attempts counter
+        setIncorrectAttempts(0); // Reset
         setHasAnsweredCorrectly(false); // Reset the flag for the next question
     };
 
