@@ -4,7 +4,8 @@ if [ -d "mimic3" ]; then
 else
   echo "installing mimic3"
   git clone https://github.com/MycroftAI/mimic3.git
-fi
+fi 
+
 
 # git clone mimic3
 
@@ -14,8 +15,10 @@ cd mimic3
 
 source .venv/bin/activate
 
-#install voices for mimic
+pip3 install certifi
+#install voices for mimic 
 mimic3-download 'en_US/*'
+mimic3-download "fi_FI/*"
 # install deps 
 npm install 
 
