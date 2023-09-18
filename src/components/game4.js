@@ -90,7 +90,7 @@ function Game4() {
     const handleNextQuestion = () => {
         setCurrentQuestion(currentQuestion + 1);
         setResult('');
-        setIncorrectAttempts(0); // Reset
+        setIncorrectAttempts(0); // Reset incorrect attempts counter
         setHasAnsweredCorrectly(false); // Reset the flag for the next question
     };
 

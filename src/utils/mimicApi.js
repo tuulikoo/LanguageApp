@@ -8,7 +8,7 @@ export const convertTextToSpeech = async (text, options = {}) => {
         voice: 'en_US/ljspeech' || DEFAULT_VOICE,
         noiseScale: options.noiseScale || 0.222,
         noiseW: options.noiseW || 0.3,
-        lengthScale: options.lengthScale || 1.1,
+        lengthScale: options.lengthScale || 1.5,
         ssml: options.ssml || true,
     });
 
