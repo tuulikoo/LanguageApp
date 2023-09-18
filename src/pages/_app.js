@@ -1,5 +1,7 @@
 
 //import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS if needed
+import React from 'react';
+
 
 function MyApp({ Component, pageProps }) {
     return (

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Flashcard from './FlashcardComponent';
+import styles from '../styles/flashcards.module.css'; // Import the CSS module
 
-const FlashcardDeck = ({ flashcards }) => {
+const FlashcardDeckComponent = ({ flashcards }) => {
     const [currentCard, setCurrentCard] = useState(0);
 
     const handleNext = () => {
@@ -9,7 +10,7 @@ const FlashcardDeck = ({ flashcards }) => {
     };
 
     return (
-        <div className="flashcard-deck">
+        <div className={styles.flashcardDeck}>
             <Flashcard
                 word={flashcards[currentCard].word}
                 definition={flashcards[currentCard].definition}
@@ -19,4 +20,4 @@ const FlashcardDeck = ({ flashcards }) => {
     );
 };
 
-export default FlashcardDeck;
+export default FlashcardDeckComponent;
