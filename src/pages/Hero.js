@@ -6,7 +6,7 @@ const Hero=()=>{
         <img
             src="https://wallpaperaccess.com/full/759396.jpg"
             className={styles.hero_img}
-        />
+         alt="hero image"/>
         <h1 className={styles.hero_title}>
             🄻 🄴 🄰 🅁 🄽 🄸 🄽 🄶 <br />
             <span> 🄸🅂&ensp;🄿 🄾 🅆 🄴 🅁</span>
