@@ -1,0 +1,67 @@
+.dashboardContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+.navigation {
+    display: flex;
+    gap: 16px;
+
+    .navigationButton {
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 1px;
+        padding: 10px 20px;
+        background-color: #1A73E8;
+        color: #ffffff;
+        border-radius: 4px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+        &:hover {
+            background-color: #155BB0;
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+    }
+}
+
+.mainView {
+    flex: 1;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.02);
+    background-color: #F6F8FA;
+    padding: 20px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .settings {
+        cursor: pointer;
+        transition: color 0.2s;
+
+        svg {
+            font-size: 24px;
+            color: #AAA;
+
+            &:hover {
+                color: #666;  // Darker grey color on hover
+            }
+        }
+    }
+}

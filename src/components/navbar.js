@@ -33,7 +33,6 @@ function Navbar() {
                     </>
                 )}
             </div>
-
             <div className={styles.avatarContainer}>
                 {loading ? null : (
                     <button
