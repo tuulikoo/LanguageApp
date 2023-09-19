@@ -52,7 +52,7 @@ function Game4() {
                         },
                         body: JSON.stringify({
                             userId: user.id, // Replace with your user ID property
-                            newPoints: 1, // You may adjust the points increment as needed
+                            newPoints: 1 // You may adjust the points increment as needed
                         }),
                     });
 

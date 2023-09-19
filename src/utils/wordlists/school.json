@@ -1,0 +1,12 @@
+[
+    { "Id": 1, "src": "school/pencil.jpg", "btn1": "Computer", "btn2": "Eraser", "btn3": "Pencil", "btn4": "Scissors", "correctOption": "Pencil" },
+    { "Id": 2, "src": "school/pencil.jpg", "btn1": "Backpack", "btn2": "Chair", "btn3": "Pen", "btn4": "Tape", "correctOption": "Pen" },
+    { "Id": 3, "src": "school/book.jpg", "btn1": "Crayon", "btn2": "Book", "btn3": "Whiteboard", "btn4": "Ruler", "correctOption": "Book" },
+    { "Id": 4, "src": "school/ruler.jpg", "btn1": "Calculator", "btn2": "Printer", "btn3": "Ruler", "btn4": "Notebook", "correctOption": "Ruler" },
+    { "Id": 5, "src": "school/eraser.jpg", "btn1": "Marker", "btn2": "Desk", "btn3": "Eraser", "btn4": "Chair", "correctOption": "Eraser" },
+    { "Id": 6, "src": "school/desk.jpg", "btn1": "Blackboard", "btn2": "Desk", "btn3": "Sharpener", "btn4": "Pencil", "correctOption": "Desk" },
+    { "Id": 7, "src": "school/chair.png", "btn1": "Notebook", "btn2": "Chair", "btn3": "Scissors", "btn4": "Pen", "correctOption": "Chair" },
+    { "Id": 8, "src": "school/sharpener.jpg", "btn1": "Tape", "btn2": "Crayon", "btn3": "Sharpener", "btn4": "Book", "correctOption": "Sharpener" },
+    { "Id": 9, "src": "school/notebook.jpg", "btn1": "Ruler", "btn2": "Blackboard", "btn3": "Notebook", "btn4": "Computer", "correctOption": "Notebook" },
+    { "Id": 10, "src": "school/backpack.png", "btn1": "Whiteboard", "btn2": "Backpack", "btn3": "Calculator", "btn4": "Pencil", "correctOption": "Backpack" }
+]
