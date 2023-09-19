@@ -41,4 +41,5 @@ src/utils/mimic3/
 .DS_Store
 .idea
 .vscode
+mimic3
 
