@@ -32,6 +32,7 @@ export default async function handle(req, res) {
                 avatarId: true,
                 userPoints: true,
                 lastLevel: true,
+                timeSpent: true,
             },
         });
 

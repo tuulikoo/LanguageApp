@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/Admin.ExerciseBuilder.module.scss';
-import Button from '@mui/material/Button';
+import button from '@mui/material/button';
 
 const ExerciseBuilder = () => {
     const [listeningData, setListeningData] = useState({});
@@ -67,7 +67,6 @@ const ExerciseBuilder = () => {
 
     return (
         <div className={styles.exerciseBuilder}>
-
             <select onChange={handleCategoryChange}>
                 <option value="">Select a Category</option>
                 {Object.keys(listeningData).map((category) => (

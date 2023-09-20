@@ -24,7 +24,7 @@ export default function Login() {
         setSuccessMessage("");
         setLoginError(ERROR_MESSAGE);
         setLoginAttempts((prev) => prev + 1);
-    }
+    };
 
     const onSubmit = async (data) => {
         try {
@@ -74,19 +74,22 @@ export default function Login() {
                 {/* Login Error Display */}
                 {loginError && (
                     <div className={styles.loginError}>
-                        {loginAttempts >= MAX_LOGIN_ATTEMPTS ? "Oletko unohtanut salasanasi?" : loginError}
+                        {loginAttempts >= MAX_LOGIN_ATTEMPTS
+                            ? "Oletko unohtanut salasanasi?"
+                            : loginError}
                     </div>
-
                 )}
                 {successMessage && (
-                    <div className={styles.loginSuccess}>
-                        {successMessage}
-                    </div>
+                    <div className={styles.loginSuccess}>{successMessage}</div>
                 )}
 
-
                 {/* Login Button */}
-                <button id = "login_loginButton" type="submit" className={styles.loginButton} disabled={isSubmitting}>
+                <button
+                    id="login_loginButton"
+                    type="submit"
+                    className={styles.loginButton}
+                    disabled={isSubmitting}
+                >
                     Kirjaudu
                 </button>
             </form>

@@ -1,114 +1,123 @@
 .exerciseBuilder {
-    padding: 20px;
-    width: 790px;
-    margin: 0 auto;
+  padding: 20px;
+  width: 790px;
+  margin: 0 auto;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  button {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  select {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    appearance: none;
+  }
+  input {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 40%;
+  }
+
+  button {
+    cursor: pointer;
     background-color: #f7f7f7;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
-    select, button {
-        display: block;
-        margin: 10px 0;
-        padding: 10px;
-        width: 100%;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 16px;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.2);
     }
-    input {
-        display: block;
-        margin: 10px 0;
-        padding: 10px;
-        width: 100%;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 16px;
-        width: 40%;
+  }
 
-    }
+  .selected {
+    background-color: #e0e0e0;
+  }
+
+  .deleteSelected {
+    margin-top: 20px;
+    width: 20%;
+    margin: 10px auto;
+    color: #fff;
 
     button {
-        cursor: pointer;
-        background-color: #f7f7f7;
-
-        &:hover {
-            background-color: rgba(0, 0, 0, 0.2);
-        }
+      background-color: #f44336;
+      color: #fff;
+      &:hover {
+        background-color: #d32f2f;
+      }
     }
+  }
 
-    .selected {
-        background-color: #e0e0e0;
+  .categoryDisplay {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px;
+
+    button {
+      width: auto;
+      margin-right: 10px;
     }
-
-    .deleteSelected {
-        margin-top: 20px;
-        width: 20%;
-        margin: 10px auto;
-        color: #fff;
-
-        button {
-            background-color: #f44336;
-            &:hover {
-                background-color: #d32f2f;
-            }
-        }
-    }
-
-    .categoryDisplay {
-        display: flex; 
-        flex-wrap: wrap;
-        align-items: center;
-        margin-bottom: 10px;
-        gap: 10px;
-
-        button {
-            width: auto;
-            margin-right: 10px;
-        }
-    }
-.addWord {
+  }
+  .addWord {
     display: flex;
     align-items: center;
-    gap: 10px; // For spacing between the input and button
+    gap: 10px;
     margin-top: 20px;
 
     input {
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 16px;
-        transition: border-color 0.3s; // For a smooth effect on focus
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: border-color 0.3s; // For a smooth effect on focus
 
-        &:focus {
-            border-color: #007bff;
-            outline: none;
-        }
+      &:focus {
+        border-color: #007bff;
+        outline: none;
+      }
     }
 
     button {
-        background-color: #007bff; // A nice blue color
-        color: #fff; // White text color
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        width: 40%;
-        transition: background-color 0.3s; // For a hover effect
+      background-color: #007bff; // A nice blue color
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 40%;
+      transition: background-color 0.3s; // For a hover effect
 
-        &:hover {
-            background-color: #0056b3; // A bit darker blue for hover
-        }
+      &:hover {
+        background-color: #0056b3; // A bit darker blue for hover
+      }
 
-        &:active {
-            background-color: #004092; // Even darker blue for active click
-        }
+      &:active {
+        background-color: #004092; // Even darker blue for active click
+      }
 
-        &:disabled {
-            background-color: #b3c7d6;
-            cursor: not-allowed;
-        }
+      &:disabled {
+        background-color: #b3c7d6;
+        cursor: not-allowed;
+      }
     }
+  }
 }
-}
-

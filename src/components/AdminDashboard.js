@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
-import UserSearch from '../components/UserSearch';
-import Button from '@mui/material/Button';
-import { Box } from '@mui/system';
-import styles from '../styles/AdminDashboard.module.scss';
-import PeopleIcon from '@mui/icons-material/People';
-import SettingsIcon from '@mui/icons-material/Settings';
-import Statistics from './AdminStats';
-import AnalyticsIcon from '@mui/icons-material/Analytics';
-import ExerciseBuilder from './ExerciseBuilder';
-
+import React, { useState } from "react";
+import UserSearch from "../components/UserSearch";
+import Button from "@mui/material/Button";
+import { Box } from "@mui/system";
+import styles from "../styles/AdminDashboard.module.scss";
+import PeopleIcon from "@mui/icons-material/People";
+import SettingsIcon from "@mui/icons-material/Settings";
+import Statistics from "./AdminStats";
+import AnalyticsIcon from "@mui/icons-material/Analytics";
+import ExerciseBuilder from "./ExerciseBuilder";
 
 const AdminDashboard = () => {
-    const [currentView, setCurrentView] = useState('users');
+    const [currentView, setCurrentView] = useState("users");
 
     return (
         <Box className={styles.dashboardContainer}>
@@ -22,7 +21,7 @@ const AdminDashboard = () => {
                         variant="contained"
                         color="primary"
                         className={styles.navigationButton}
-                        onClick={() => setCurrentView('users')}
+                        onClick={() => setCurrentView("users")}
                     >
                         Users
                     </Button>
@@ -31,7 +30,7 @@ const AdminDashboard = () => {
                         variant="contained"
                         color="primary"
                         className={styles.navigationButton}
-                        onClick={() => setCurrentView('Statistics')}
+                        onClick={() => setCurrentView("Statistics")}
                     >
                         Statistics
                     </Button>
@@ -40,11 +39,10 @@ const AdminDashboard = () => {
                         variant="contained"
                         color="primary"
                         className={styles.navigationButton}
-                        onClick={() => setCurrentView('ExerciseBuilder')}
+                        onClick={() => setCurrentView("ExerciseBuilder")}
                     >
                         Exercise Builder
                     </Button>
-
                 </Box>
 
                 <Box className={styles.settings}>
@@ -53,14 +51,12 @@ const AdminDashboard = () => {
             </Box>
 
             <Box className={styles.mainView}>
-                {currentView === 'users' && <UserSearch />}
-                {currentView === 'Statistics' && <Statistics />}
-                {currentView === 'ExerciseBuilder' && <ExerciseBuilder />}
+                {currentView === "users" && <UserSearch />}
+                {currentView === "Statistics" && <Statistics />}
+                {currentView === "ExerciseBuilder" && <ExerciseBuilder />}
             </Box>
         </Box>
     );
 };
 
 export default AdminDashboard;
-
-

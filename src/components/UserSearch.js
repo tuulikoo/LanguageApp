@@ -1,21 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import {
-    Container, Typography, Paper, Table, TableBody, TableCell, TableContainer,
-    TableHead, TableRow, TextField, Drawer, ListItem, ListItemIcon, ListItemText, List
-} from '@mui/material';
-import styles from '../styles/AdminPanel.module.scss';
-
+    Container,
+    Paper,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    TextField,
+} from "@mui/material";
+import styles from "../styles/AdminPanel.module.scss";
 
 function UserSearch() {
     const [users, setUsers] = useState([]);
-    const [searchTerm, setSearchTerm] = useState('');
+    const [searchTerm, setSearchTerm] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const usersPerPage = 10;
 
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await fetch('/api/adminUsers');
+                const response = await fetch("/api/adminUsers");
                 if (response.ok) {
                     const data = await response.json();
                     setUsers(data);
@@ -30,14 +36,13 @@ function UserSearch() {
         fetchUsers();
     }, []);
 
-    const filteredUsers = users.filter(user =>
-        user.firstName.toLowerCase().includes(searchTerm.toLowerCase())
+    const filteredUsers = users.filter((user) =>
+        user.firstName.toLowerCase().includes(searchTerm.toLowerCase()),
     );
 
     const indexOfLastUser = currentPage * usersPerPage;
     const indexOfFirstUser = indexOfLastUser - usersPerPage;
     const currentUsers = filteredUsers.slice(indexOfFirstUser, indexOfLastUser);
-
 
     return (
         <Container maxWidth="lg" className={styles.container}>
@@ -59,27 +64,37 @@ function UserSearch() {
                             <TableCell className={styles.tableHeader}>Username</TableCell>
                             <TableCell className={styles.tableHeader}>Email</TableCell>
                             <TableCell className={styles.tableHeader}>Points</TableCell>
+                            <TableCell className={styles.tableHeader}>Time Spent</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {currentUsers.map(user => (
+                        {currentUsers.map((user) => (
                             <TableRow key={user.id}>
-                                <TableCell className={`${styles.px6} ${styles.py2}`}>{user.id}</TableCell>
-                                <TableCell className={`${styles.px6} ${styles.py2}`}>{user.firstName}</TableCell>
-                                <TableCell className={`${styles.px6} ${styles.py2}`}>{user.username}</TableCell>
-                                <TableCell className={`${styles.px6} ${styles.py2}`}>{user.email}</TableCell>
-                                <TableCell className={`${styles.px6} ${styles.py2}`}>{user.userPoints}</TableCell>
+                                <TableCell className={`${styles.px6} ${styles.py2}`}>
+                                    {user.id}
+                                </TableCell>
+                                <TableCell className={`${styles.px6} ${styles.py2}`}>
+                                    {user.firstName}
+                                </TableCell>
+                                <TableCell className={`${styles.px6} ${styles.py2}`}>
+                                    {user.username}
+                                </TableCell>
+                                <TableCell className={`${styles.px6} ${styles.py2}`}>
+                                    {user.email}
+                                </TableCell>
+                                <TableCell className={`${styles.px6} ${styles.py2}`}>
+                                    {user.userPoints}
+                                </TableCell>
+                                <TableCell className={`${styles.px6} ${styles.py2}`}>
+                                    {user.timeSpent}
+                                </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
                 </Table>
-            </TableContainer >
-        </Container >
+            </TableContainer>
+        </Container>
     );
 }
 
-
-
 export default UserSearch;
-
-

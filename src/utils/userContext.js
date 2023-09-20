@@ -10,8 +10,9 @@ export const useUser = () => {
 export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [sessionTime, setSessionTime] = useState(0);
 
-// logout function to call logout api endpoint
+    // logout function to call logout api endpoint
     const logout = async () => {
         try {
             await axios.post('/api/logout');
@@ -38,7 +39,9 @@ export const UserProvider = ({ children }) => {
         user,
         setUser,
         loading,
-        logout
+        logout,
+        sessionTime,
+        setSessionTime,
     };
 
     return <UserContext.Provider value={value}>{children}</UserContext.Provider>;

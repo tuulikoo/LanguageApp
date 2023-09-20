@@ -17,5 +17,6 @@ model User {
   userPoints Int @default(1)
   lastLevel Int @default(1)
   userRole String @default("user")
+  timeSpent Int? @default(0)
 } 
 

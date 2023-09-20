@@ -2,7 +2,6 @@
   "listening1.1": [
     "avocado",
     "apple",
-    "banana",
     "cherry",
     "grape",
     "lemon",
@@ -12,8 +11,7 @@
     "peach",
     "pineapple",
     "plum",
-    "strawberry",
-    "watermelon"
+    "strawberry"
   ],
   "listening1.2": [
     "cat",
@@ -27,7 +25,6 @@
     "spider",
     "fly",
     "mosquito",
-    "cockroach",
     "grasshopper",
     "cricket",
     "beetle",
@@ -84,7 +81,6 @@
     "driver",
     "cook",
     "waiter",
-    "waitress",
     "actor",
     "actress",
     "lawyer",
@@ -96,7 +92,8 @@
     "athlete",
     "scientist",
     "photographer",
-    "architect"
+    "architect",
+    "police"
   ],
   "listening1.6": [
     "monday",
@@ -108,7 +105,6 @@
     "sunday",
     "january",
     "february",
-    "march",
     "april",
     "may",
     "june",
