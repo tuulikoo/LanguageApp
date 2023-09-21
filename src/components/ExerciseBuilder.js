@@ -1,18 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import styles from '../styles/Admin.ExerciseBuilder.module.scss';
-import button from '@mui/material/button';
+import React, { useState, useEffect } from "react";
+import styles from "../styles/Admin.ExerciseBuilder.module.scss";
 
 const ExerciseBuilder = () => {
-    const [listeningData, setListeningData] = useState({});
+    const [data, setData] = useState({});
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [selectedItems, setSelectedItems] = useState([]);
-    const [newWord, setNewWord] = useState('');
+    const [newWord, setNewWord] = useState("");
+    const [availableFiles, setAvailableFiles] = useState([]);
+    const [selectedFile, setSelectedFile] = useState("");
 
     useEffect(() => {
-        fetch('/api/words')
+        // Fetch available JSON files
+        fetch("/api/fileHelper")
             .then((res) => res.json())
-            .then((data) => setListeningData(data));
+            .then((files) => setAvailableFiles(files));
+
+        // Fetch data for the default file
+        fetch(`/api/words?file=${selectedFile}`)
+            .then((res) => res.json())
+            .then((data) => setData(data));
     }, []);
+    const handleFileChange = (e) => {
+        setSelectedFile(e.target.value);
+        setSelectedCategory(null); // Reset category
+        fetch(`/api/words?file=${e.target.value}`)
+            .then((res) => res.json())
+            .then((data) => setData(data));
+    };
 
     const handleCategoryChange = (e) => {
         setSelectedCategory(e.target.value);
@@ -28,38 +42,44 @@ const ExerciseBuilder = () => {
             }
         });
     };
-
     const handleAddWord = () => {
-        fetch('/api/words', {
-            method: 'POST',
+        fetch(`/api/words?file=${selectedFile}`, {
+            // Include the file in request
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json',
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({ category: selectedCategory, word: newWord }),
-        })
-            .then(() => {
-                setListeningData((prevData) => ({
-                    ...prevData,
-                    [selectedCategory]: [...prevData[selectedCategory], newWord],
-                }));
-                setNewWord('');
-            });
+        }).then(() => {
+            setData((prevData) => ({
+                ...prevData,
+                [selectedCategory]: [...prevData[selectedCategory], newWord],
+            }));
+            setNewWord("");
+        });
     };
     const handleDeleteSelectedWords = () => {
-        const deleteRequests = selectedItems.map(word =>
-            fetch('/api/words', {
-                method: 'DELETE',
+        // Make sure to include the selected file in all API requests related to words
+        const deleteRequests = selectedItems.map((word) =>
+            fetch(`/api/words?file=${selectedFile}`, {
+                // Include the file in request
+                method: "DELETE",
                 headers: {
-                    'Content-Type': 'application/json',
+                    "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ categoryToDelete: selectedCategory, wordToDelete: word }),
-            })
+                body: JSON.stringify({
+                    categoryToDelete: selectedCategory,
+                    wordToDelete: word,
+                }),
+            }),
         );
 
         Promise.all(deleteRequests).then(() => {
-            setListeningData(prevData => ({
+            setData((prevData) => ({
                 ...prevData,
-                [selectedCategory]: prevData[selectedCategory].filter(word => !selectedItems.includes(word))
+                [selectedCategory]: prevData[selectedCategory].filter(
+                    (word) => !selectedItems.includes(word),
+                ),
             }));
             setSelectedItems([]); // Clear the selected items
         });
@@ -67,47 +87,52 @@ const ExerciseBuilder = () => {
 
     return (
         <div className={styles.exerciseBuilder}>
+            <select onChange={handleFileChange} value={selectedFile}>
+                {availableFiles.map((file) => (
+                    <option key={file} value={file}>
+                        {file}
+                    </option>
+                ))}
+            </select>
             <select onChange={handleCategoryChange}>
                 <option value="">Select a Category</option>
-                {Object.keys(listeningData).map((category) => (
+                {Object.keys(data).map((category) => (
                     <option key={category} value={category}>
                         {category}
                     </option>
                 ))}
             </select>
 
-
-
             <div className={styles.categoryDisplay}>
-                {selectedCategory && listeningData[selectedCategory]?.map((item) => (
-                    <button
-                        key={item}
-                        onClick={() => handleItemClick(item)}
-                        className={selectedItems.includes(item) ? styles.selected : ''}
-                        onDoubleClick={() => handleItemClick(item)}
-                    >
-                        {item}
-                    </button>
-                ))}
+                {selectedCategory &&
+                    data[selectedCategory]?.map((item) => (
+                        <button
+                            key={item}
+                            onClick={() => handleItemClick(item)}
+                            className={selectedItems.includes(item) ? styles.selected : ""}
+                            onDoubleClick={() => handleItemClick(item)}
+                        >
+                            {item}
+                        </button>
+                    ))}
             </div>
-
 
             {selectedItems.length > 0 && (
                 <div className={styles.deleteSelected}>
-                    <button onClick={handleDeleteSelectedWords}>
-                        Delete
-                    </button>
+                    <button onClick={handleDeleteSelectedWords}>Delete</button>
                 </div>
             )}
             {selectedCategory && (
                 <div className={styles.addWord}>
-                    <input value={newWord} onChange={(e) => setNewWord(e.target.value)} placeholder="Add a new word" />
+                    <input
+                        value={newWord}
+                        onChange={(e) => setNewWord(e.target.value)}
+                        placeholder="Add a new word"
+                    />
                     <button onClick={handleAddWord}>Add Word</button>
                 </div>
             )}
         </div>
-
     );
 };
 export default ExerciseBuilder;
-

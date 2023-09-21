@@ -1,33 +1,40 @@
 import { join } from 'path';
 import fs from 'fs';
 
-const filePath = join(process.cwd(), 'src', 'utils', 'wordlists', 'listeningData.json');
+const getFilePath = (fileName) => join(process.cwd(), 'src', 'utils', 'wordlists', fileName);
 
-const readData = () => {
+const readData = (fileName) => {
     try {
-        const rawData = fs.readFileSync(filePath, 'utf8');
+        const rawData = fs.readFileSync(getFilePath(fileName), 'utf8');
         return JSON.parse(rawData);
     } catch (error) {
-        throw new Error(`Error reading the JSON data: ${error.message}`);
+        throw new Error(`Error reading the JSON data from ${fileName}: ${error.message}`);
     }
 };
 
-const writeData = (data) => {
+const writeData = (data, fileName) => {
     try {
-        fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+        fs.writeFileSync(getFilePath(fileName), JSON.stringify(data, null, 2));
     } catch (error) {
-        throw new Error('Error writing to the JSON file.');
+        throw new Error(`Error writing to the JSON file (${fileName}).`);
     }
 };
 
 export default function handler(req, res) {
+    const fileName = req.query.file || 'listeningData.json';
+
+    if (!fileName.endsWith('.json')) {
+        return res.status(400).json({ error: 'Invalid file type.' });
+    }
+
     let data;
 
     try {
-        data = readData();
+        data = readData(fileName);
     } catch (error) {
         return res.status(500).json({ error: error.message });
     }
+
 
     switch (req.method) {
         case 'GET':
@@ -47,7 +54,7 @@ export default function handler(req, res) {
             data[category].push(word);
 
             try {
-                writeData(data);
+                writeData(data, fileName);
                 return res.status(200).send("Word added successfully");
             } catch (error) {
                 return res.status(500).json({ error: error.message });

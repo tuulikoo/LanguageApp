@@ -16,7 +16,6 @@
   "listening1.2": [
     "cat",
     "mouse",
-    "horse",
     "monkey",
     "elephant",
     "snake",
@@ -31,7 +30,8 @@
     "dragonfly",
     "centipede",
     "caterpillar",
-    "scorpion"
+    "scorpion",
+    "horse"
   ],
   "listening1.3": [
     "pencil",

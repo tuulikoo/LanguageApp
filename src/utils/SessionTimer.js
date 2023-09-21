@@ -18,7 +18,7 @@ function SessionTimer({ children }) {
 
             try {
                 const response = await fetch('/api/usageTimer', {
-                    method: 'POST',
+                   method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ userId: user.id, time: sessionTime }),
                 });
