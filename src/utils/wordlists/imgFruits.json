@@ -1,0 +1,104 @@
+[
+  {
+    "id": 1,
+    "imageUrl": "https://media.istockphoto.com/id/1467909805/fi/vektori/punainen-omena-kes%C3%A4hedelm%C3%A4hahmona-surffilaudalla-nauttien-lomasta-ja-hauskanpidosta.jpg?s=612x612&w=0&k=20&c=sj0M6VHf9NhoKUEEztviMp_qVTqESTwMeGSOlcStGFI=",
+    "eng": "apple",
+    "fin": "omena"
+  },
+  {
+    "id": 2,
+    "imageUrl": "https://media.istockphoto.com/id/162487071/fi/valokuva/banaani-nippu.jpg?s=612x612&w=0&k=20&c=UriFAgzw0N3tpQxB0gt2z3SMI-LLOYHRdyjId6XhbMI=",
+    "eng": "banana",
+    "fin": "banaani"
+  },
+  {
+    "id": 3,
+    "imageUrl": "https://media.istockphoto.com/id/185284489/photo/orange.jpg?s=612x612&w=0&k=20&c=m4EXknC74i2aYWCbjxbzZ6EtRaJkdSJNtekh4m1PspE=",
+    "eng": "orange",
+    "fin": "oranssi"
+  },
+  {
+    "id": 4,
+    "imageUrl": "https://media.istockphoto.com/id/474178403/fi/valokuva/p%C3%A4%C3%A4ryn%C3%A4-jonka-lehti-on-eristetty-valkoiselle-taustalle.jpg?s=612x612&w=0&k=20&c=YafTy1CpLI487JnDOnc3FeotZfgWcmvW5gEINxu6SIQ=",
+    "eng": "pear",
+    "fin": "päärynä"
+  },
+  {
+    "id": 5,
+    "imageUrl": "https://media.istockphoto.com/id/514110388/fi/valokuva/valkoviini-viiniryp%C3%A4leet-wachau.jpg?s=612x612&w=0&k=20&c=xOieygfss6j5-vU-VK0RlY294fAb_UuHmowf7NIJfEY=",
+    "eng": "grape",
+    "fin": "viinirypäle"
+  },
+  {
+    "id": 6,
+    "imageUrl": "https://media.istockphoto.com/id/1492582775/fi/vektori/puolet-kiivist%C3%A4-v%C3%A4lipalana-tai-ainesosana-3d-kuva.jpg?s=612x612&w=0&k=20&c=lTGe52Vk_Y95N3mfxFgvLUFd4Nr0pMTRm0yx_J_pFxo=",
+    "eng": "kiwi",
+    "fin": "kiivi"
+  },
+  {
+    "id": 7,
+    "imageUrl": "https://media.istockphoto.com/id/1389128157/fi/valokuva/sitruunahedelm%C3%A4t-joissa-on-lehti-eristetty-koko-sitruuna-ja-puoli-lehdill%C3%A4-valkoisella.jpg?s=612x612&w=0&k=20&c=GT47pbPxZypz_gdEWM0NBHhN73zP2kyzutvnsC3VdCw=",
+    "eng": "lemon",
+    "fin": "sitruuna"
+  },
+  {
+    "id": 9,
+    "imageUrl": "https://media.istockphoto.com/id/1393599686/fi/valokuva/persikan-hedelm%C3%A4t-leikataan-puoliksi-vihre%C3%A4ll%C3%A4-lehdell%C3%A4.jpg?s=612x612&w=0&k=20&c=EbD2s-73rxfhv5LbLMjZJgEwZSgA3YWO5_8z_8zv35o=",
+    "eng": "peach",
+    "fin": "persikka"
+  },
+  {
+    "id": 10,
+    "imageUrl": "https://media.istockphoto.com/id/896016050/fi/valokuva/viipaloitu-makea-vesimeloni-eristetty-valkoisella-taustalla.jpg?s=612x612&w=0&k=20&c=nrZClS_O2yekNt05DcciJCqoPFsVxRniZGcy3DqetoU=",
+    "eng": "watermelon",
+    "fin": "vesimeloni"
+  },
+  {
+    "id": 11,
+    "imageUrl": "https://media.istockphoto.com/id/1182799992/fi/valokuva/mustikka-jonka-lehti-on-eristetty-valkoiselle-pohjalle-leikepolulla.jpg?s=612x612&w=0&k=20&c=6okhim1llZhsWfVQaVF8jFZQmYRRDq2u5MLQ6K5MSbg=",
+    "eng": "blueberry",
+    "fin": "mustikka"
+  },
+  {
+    "id": 12,
+    "imageUrl": "https://media.istockphoto.com/id/1317775279/fi/valokuva/mansikat-eristetty-mansikkaviipale-ja-kokomarja-isolaatti-kaksi-mansikkaa-valkoisella.jpg?s=612x612&w=0&k=20&c=Q20cVHD62KMbbd5KNx7QhbDKCukKLI3_mVGUEkQLfdU=",
+    "eng": "strawberry",
+    "fin": "mansikka"
+  },
+  {
+    "id": 13,
+    "imageUrl": "https://media.istockphoto.com/id/648967314/fi/valokuva/vadelma-jonka-lehdet-on-eristetty-valkoiselle-taustalle.jpg?s=612x612&w=0&k=20&c=AhoL8SYRCWVtjGM0__J8HwksWFl1FI9myGJKHZSwip0=",
+    "eng": "raspberry",
+    "fin": "vadelma"
+  },
+  {
+    "id": 14,
+    "imageUrl": "https://media.istockphoto.com/id/182400599/fi/valokuva/karhunvatukka.jpg?s=612x612&w=0&k=20&c=sXYUYI0uTzwDlDyrFnKHBu6hRQZ6GXCI0MaZhHSaD-E=",
+    "eng": "blackberry",
+    "fin": "karhunvatukka"
+  },
+  {
+    "id": 15,
+    "imageUrl": "https://media.istockphoto.com/id/637891632/fi/valokuva/nektariinihedelm%C3%A4t-eristetty-valkoisella-taustaleiketyll%C3%A4.jpg?s=612x612&w=0&k=20&c=bq6ovwV-xpfJO1woVWOLojrgn-Cu1TOAdAENrtfNi30=",
+    "eng": "nectarine",
+    "fin": "nektariini"
+  },
+  {
+    "id": 16,
+    "imageUrl": "https://media.istockphoto.com/id/1079779268/fi/valokuva/avokado.jpg?s=612x612&w=0&k=20&c=SoedrfD2hbfEXLrm08D_2_P8I3A8JTLGl3sW8J0ZLJ4=",
+    "eng": "avocado",
+    "fin": "avokado"
+  },
+  {
+    "id": 17,
+    "imageUrl": "https://media.istockphoto.com/id/92023183/fi/valokuva/greippi.jpg?s=612x612&w=0&k=20&c=u70HRIKM1l8kGU1tKVsOZhehKW4WSZELqfJpvoZBqpw=",
+    "eng": "grapefruit",
+    "fin": "greippi"
+  },
+  {
+    "id": 17,
+    "imageUrl": "https://assets.stickpng.com/thumbs/5a5f620bee40df432bfac54c.png",
+    "eng": "Lychee",
+    "fin": "Litsi"
+  }
+]
