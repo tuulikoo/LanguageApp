@@ -5,7 +5,7 @@
     list-style-type: none;
 }
 
-.footer_container{
+.footer_container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -17,9 +17,11 @@
     color: dimgrey;
     text-decoration: none;
 }
-.address_list{
+
+.address_list {
     list-style: none;
 }
+
 .address_link {
     display: inline-block;
     font-size: 14px;
@@ -28,10 +30,12 @@
     margin-bottom: 9px;
     color: rgba(255, 255, 255, 0.6);
 }
+
 .subscription_form {
     display: flex;
     justify-content: center;
 }
+
 .colortext {
     display: inline-block;
     width: 175px;

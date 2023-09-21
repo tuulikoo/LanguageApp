@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import animals from '../utils/wordlists/animals.json';
-import { useUser } from '../utils/userContext';
+import {useUser} from '../utils/userContext';
 import styles from '../styles/Game4.module.scss'; // Import the styles
 
 function Game4() {
-    const { user } = useUser();
+    const {user} = useUser();
     const data = animals;
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [score, setScore] = useState(0);
@@ -97,7 +97,8 @@ function Game4() {
     const renderOptions = () => {
         const options = ['btn1', 'btn2', 'btn3', 'btn4'];
         return options.map((option, index) => (
-            <button className={styles.buttonStyle} key={index} onClick={() => handleOptionClick(data[currentQuestion][option])}>
+            <button className={styles.buttonStyle} key={index}
+                    onClick={() => handleOptionClick(data[currentQuestion][option])}>
                 {data[currentQuestion][option]}
             </button>
         ));
@@ -136,7 +137,7 @@ function Game4() {
 
             {currentQuestion < data.length ? (
                 <div className={styles.imgContainer}>
-                    <img src={data[currentQuestion].src} alt={`Animal ${data[currentQuestion].Id}`} />
+                    <img src={data[currentQuestion].src} alt={`Animal ${data[currentQuestion].Id}`}/>
                     <div className={styles.buttonContainerWrapper}>
                         {renderOptions()}
                     </div>

@@ -22,9 +22,8 @@
     background-color: #1a73e8;
     color: #ffffff;
     border-radius: 4px;
-    transition:
-      background-color 0.3s ease,
-      transform 0.3s ease;
+    transition: background-color 0.3s ease,
+    transform 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 
     &:hover {
@@ -48,6 +47,7 @@
   background-color: #f6f8fa;
   padding: 20px;
 }
+
 .header {
   display: flex;
   justify-content: space-between;

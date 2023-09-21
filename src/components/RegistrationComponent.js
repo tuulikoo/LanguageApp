@@ -1,15 +1,14 @@
-import { useForm } from "react-hook-form";
-import { useState } from "react";
+import {useForm} from "react-hook-form";
+import {useState} from "react";
 import axios from "axios";
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
 import styles from "../styles/RegistrationForm.module.scss";
-import Image from "next/image";
 
 function RegistrationForm() {
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        formState: {errors},
     } = useForm();
     const [loading, setLoading] = useState(false);
     const [apiFeedback, setApiFeedback] = useState(null);
@@ -18,13 +17,11 @@ function RegistrationForm() {
 
     // Avatars for the modal
     const avatars = [
-        { id: 1, src: "avatars/avatar1.png" },
-        { id: 2, src: "avatars/avatar2.png" },
-        { id: 3, src: "avatars/avatar3.png" },
-        { id: 4, src: "avatars/avatar4.png" },
+        {id: 1, src: "avatars/avatar1.png"},
+        {id: 2, src: "avatars/avatar2.png"},
+        {id: 3, src: "avatars/avatar3.png"},
+        {id: 4, src: "avatars/avatar4.png"},
     ];
-
-
 
 
     const router = useRouter();
@@ -48,7 +45,7 @@ function RegistrationForm() {
                 }, 2000);
             }
         } catch (error) {
-            setApiFeedback({ type: "error", message: error.response.data.message });
+            setApiFeedback({type: "error", message: error.response.data.message});
         } finally {
             setLoading(false);
         }
@@ -61,7 +58,7 @@ function RegistrationForm() {
                     label: "Käyttäjänimi",
                     type: "text",
                     id: "username",
-                    validation: { required: "Käyttäjänimi tarvitaan" },
+                    validation: {required: "Käyttäjänimi tarvitaan"},
                 },
                 {
                     label: "Sähköposti",
@@ -79,7 +76,7 @@ function RegistrationForm() {
                     label: "Etunimesi",
                     type: "text",
                     id: "firstName",
-                    validation: { required: "Etunimi tarvitaan" },
+                    validation: {required: "Etunimi tarvitaan"},
                 },
                 {
                     label: "Salasana",
@@ -87,7 +84,7 @@ function RegistrationForm() {
                     id: "password",
                     validation: {
                         required: "Salasana tarvitaan",
-                        minLength: { 8: "Salasanan pitää olla vähintään 8 merkkiä" },
+                        minLength: {8: "Salasanan pitää olla vähintään 8 merkkiä"},
                     },
                 },
             ].map((field) => (
@@ -105,7 +102,7 @@ function RegistrationForm() {
             ))}
             <input
                 type="hidden"
-                validation={{ required: "Valitse avatar" }}
+                validation={{required: "Valitse avatar"}}
                 {...register("avatarId")}
                 value={selectedAvatar ? selectedAvatar.id : ""}
             />
@@ -126,7 +123,7 @@ function RegistrationForm() {
                                         src={avatar.src}
                                         alt="Avatar"
                                         className={`${styles.avatarImage} ${selectedAvatar === avatar ? styles.selectedAvatar : ""
-                                            }`}
+                                        }`}
                                     />
                                 </div>
                             ))}
@@ -163,4 +160,5 @@ function RegistrationForm() {
     );
 
 }
+
 export default RegistrationForm;

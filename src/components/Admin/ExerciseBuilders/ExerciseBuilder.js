@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
-import styles from "../styles/Admin.ExerciseBuilder.module.scss";
+import React, { useEffect, useState } from "react";
+import { MenuItem, Select } from "@mui/material";
+import { FormControl, InputLabel } from "@mui/material";
+import styles from "../../../styles/Admin.ExerciseBuilder.module.scss";
 
 const ExerciseBuilder = () => {
     const [data, setData] = useState({});
@@ -34,7 +36,7 @@ const ExerciseBuilder = () => {
         setSelectedItems([]);
     };
 
-    const handleItemClick = (item) => { 
+    const handleItemClick = (item) => {
         setSelectedItems((prevItems) => {
             if (prevItems.includes(item)) {
                 return prevItems.filter((prevItem) => prevItem !== item);
@@ -87,21 +89,36 @@ const ExerciseBuilder = () => {
 
     return (
         <div className={styles.exerciseBuilder}>
-            <select onChange={handleFileChange} value={selectedFile}>
+            <InputLabel id="ExerciseBuilder-select-label">Choose file</InputLabel>
+            <Select
+                className={styles.select}
+                onChange={handleFileChange}
+                labelId="ExerciseBuilder-select-label"
+                id="ExerciseBuilder-select"
+                variant="outlined"
+                value={selectedFile}
+            >
                 {availableFiles.map((file) => (
-                    <option key={file} value={file}>
+                    <MenuItem key={file} value={file}>
                         {file.replace(".json", "")}
-                    </option>
+                    </MenuItem>
                 ))}
-            </select>
-            <select onChange={handleCategoryChange}>
-                <option value="">Select a Category</option>
+            </Select>
+            <InputLabel id="ExerciseBuilder-select-label">Choose category</InputLabel>
+            <Select
+                className={styles.select}
+                onChange={handleCategoryChange}
+                labelId="ExerciseBuilder-select"
+                id="ExerciseBuilder-select"
+                variant="outlined"
+                value={selectedCategory}
+            >
                 {Object.keys(data).map((category) => (
-                    <option key={category} value={category}>
+                    <MenuItem key={category} value={category}>
                         {category}
-                    </option>
+                    </MenuItem>
                 ))}
-            </select>
+            </Select>
 
             <div className={styles.categoryDisplay}>
                 {selectedCategory &&

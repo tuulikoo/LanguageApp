@@ -1,17 +1,19 @@
 /*levels*/
-.levels_container{
+.levels_container {
     width: 100vw;
     text-align: center;
     color: rgba(39, 70, 134, 0.58);
 }
-.levels_list{
+
+.levels_list {
     display: flex;
     justify-content: space-around;
     align-items: center;
     list-style-type: none;
     padding: 0px;
 }
-.levels_item{
+
+.levels_item {
     width: 30vw;
     border: 1px solid rgba(63, 118, 224, 0.58);
 }

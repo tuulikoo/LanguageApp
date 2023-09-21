@@ -1,10 +1,10 @@
-import { UserProvider, useUser } from '@/utils/userContext';
+import {UserProvider, useUser} from '@/utils/userContext';
 import styles from '../styles/UpdateDetailsComponent.module.scss';
-import React, { useEffect, useState } from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 
 
-function UpdateDetailsComponent({ setUser }) {
+function UpdateDetailsComponent({setUser}) {
     const [isUpdateRowVisible, setUpdateRowVisible] = useState(false);
     const [isUsernameRowVisible, setUsernameRowVisible] = useState(false);
     const [isPasswordRowVisible, setPasswordRowVisible] = useState(false);
@@ -17,14 +17,14 @@ function UpdateDetailsComponent({ setUser }) {
     const [newFirstName, setNewFirstName] = useState('');
     const [newUserName, setNewUserName] = useState('');
     const [newAvatar, setNewAvatar] = useState('');
-    const { user, loading } = useUser();
+    const {user, loading} = useUser();
     const [avatarHovered, setAvatarHovered] = useState(false);
 
     const avatars = [
-        { id: 1, src: 'avatars/avatar1.png' },
-        { id: 2, src: 'avatars/avatar2.png' },
-        { id: 3, src: 'avatars/avatar3.png' },
-        { id: 4, src: 'avatars/avatar4.png' },
+        {id: 1, src: 'avatars/avatar1.png'},
+        {id: 2, src: 'avatars/avatar2.png'},
+        {id: 3, src: 'avatars/avatar3.png'},
+        {id: 4, src: 'avatars/avatar4.png'},
     ];
 
     const updateUserDetails = async (data) => {
@@ -89,7 +89,7 @@ function UpdateDetailsComponent({ setUser }) {
         // Update details if there's something to update
         if (Object.keys(dataToUpdate).length > 0) {
             try {
-                await updateUserDetails({ userId: user.id, ...dataToUpdate });
+                await updateUserDetails({userId: user.id, ...dataToUpdate});
 
                 // Reload the page after successful update
                 window.location.reload();
@@ -104,10 +104,10 @@ function UpdateDetailsComponent({ setUser }) {
         <div id="section-container" className={styles.container}>
             <div id="currentDetails" className={styles.currentDetails}>
                 <h1 className={styles.welcome}>Tervetuloa omalle sivullesi {user.username}</h1>
-                <br />
+                <br/>
                 <h2 className={styles.welcome}>Pisteesi on {user.userPoints}</h2>
                 <h2 className={styles.welcome}>Olet tasolla {user.lastLevel}</h2>
-                <br />
+                <br/>
                 <p>Tästä voit tarkistaa omat tietosi ja tehdä niihin muutoksia:</p>
                 <h3>Etunimesi on {user.firstName}</h3>
                 <h3>käyttiksesi on {user.username}</h3>
@@ -230,7 +230,7 @@ function UpdateDetailsComponent({ setUser }) {
                                             src={avatar.src}
                                             alt="Avatar"
                                             className={`${styles.avatarImage} ${selectedAvatarId === avatar.id ? styles.selectedAvatar : ''
-                                                }`}
+                                            }`}
                                             onClick={() => setSelectedAvatarId(avatar.id)}
                                         />
                                     </div>
@@ -248,11 +248,11 @@ function UpdateDetailsComponent({ setUser }) {
 }
 
 export default function UpdateDetails() {
-    const { setUser } = useUser();
+    const {setUser} = useUser();
 
     return (
         <UserProvider>
-            <UpdateDetailsComponent setUser={setUser} /> {/* Pass setUser as a prop */}
+            <UpdateDetailsComponent setUser={setUser}/> {/* Pass setUser as a prop */}
         </UserProvider>
     );
 }

@@ -1,35 +1,41 @@
-.carousel_container{
+.carousel_container {
     text-align: center;
     color: rgba(39, 70, 134, 0.58);
 }
-.container{
+
+.container {
     width: 100vw;
     display: inline-flex;
     justify-content: center;
 }
-.mySwiper{
+
+.mySwiper {
     width: 90vw;
     background: rgba(63, 118, 224, 0.1);
     padding-top: 60px;
     margin-bottom: 40px;
 }
 
-.swipItem{
+.swipItem {
     display: inline-flex;
     height: 200px;
 }
-.imgBox{
+
+.imgBox {
     width: 25vw;
 }
-.imageUrl{
+
+.imageUrl {
     object-fit: cover;
     border-radius: 25%;
 }
-.detail{
+
+.detail {
     text-align: center;
     width: 45vw;
-    padding: 0px 25px;
+    padding: 0 25px;
 }
-.selected{
+
+.selected {
     width: 90vw;
 }

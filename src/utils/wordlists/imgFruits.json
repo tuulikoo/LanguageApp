@@ -1,11 +1,5 @@
 [
   {
-    "id": 1,
-    "imageUrl": "https://media.istockphoto.com/id/1467909805/fi/vektori/punainen-omena-kes%C3%A4hedelm%C3%A4hahmona-surffilaudalla-nauttien-lomasta-ja-hauskanpidosta.jpg?s=612x612&w=0&k=20&c=sj0M6VHf9NhoKUEEztviMp_qVTqESTwMeGSOlcStGFI=",
-    "eng": "apple",
-    "fin": "omena"
-  },
-  {
     "id": 2,
     "imageUrl": "https://media.istockphoto.com/id/162487071/fi/valokuva/banaani-nippu.jpg?s=612x612&w=0&k=20&c=UriFAgzw0N3tpQxB0gt2z3SMI-LLOYHRdyjId6XhbMI=",
     "eng": "banana",
@@ -88,17 +82,5 @@
     "imageUrl": "https://media.istockphoto.com/id/1079779268/fi/valokuva/avokado.jpg?s=612x612&w=0&k=20&c=SoedrfD2hbfEXLrm08D_2_P8I3A8JTLGl3sW8J0ZLJ4=",
     "eng": "avocado",
     "fin": "avokado"
-  },
-  {
-    "id": 17,
-    "imageUrl": "https://media.istockphoto.com/id/92023183/fi/valokuva/greippi.jpg?s=612x612&w=0&k=20&c=u70HRIKM1l8kGU1tKVsOZhehKW4WSZELqfJpvoZBqpw=",
-    "eng": "grapefruit",
-    "fin": "greippi"
-  },
-  {
-    "id": 17,
-    "imageUrl": "https://assets.stickpng.com/thumbs/5a5f620bee40df432bfac54c.png",
-    "eng": "Lychee",
-    "fin": "Litsi"
   }
 ]

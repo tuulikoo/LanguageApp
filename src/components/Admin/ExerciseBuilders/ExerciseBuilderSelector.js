@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ExerciseBuilder from "./ExerciseBuilder";
-import ImageExerciseBuilder from "./ImageExerciseBuilder";
+import ImageExerciseBuilder from "../../ImageExerciseBuilder";
 import { Box } from "@mui/system";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import styles from "../../../styles/ExerciseBuilderSelector.module.scss";
 
 const ExerciseBuilderSelector = () => {
     const [selectedExercise, setSelectedExercise] = useState("");
@@ -44,12 +45,14 @@ const ExerciseBuilderSelector = () => {
     return (
         <Box>
             <FormControl fullWidth>
-                <InputLabel id="exercise-select-label">Exercise</InputLabel>
+                <InputLabel id="exercise-select-label">Choose exercise</InputLabel>
                 <Select
+                    className={styles.select}
                     labelId="exercise-select-label"
                     id="exercise-select"
                     value={selectedExercise}
-                    label="Exercise"
+                    label="Choose exercise"
+                    variant="outlined"
                     onChange={handleExerciseChange}
                 >
                     {availableExercises.map((exercise) => (

@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import axios from 'axios'; // Import Axios or your preferred HTTP library
-
 import styles from '../styles/UserPointsComponent.module.css'; // Import the CSS module
 
 function UserPointsComponent() {
