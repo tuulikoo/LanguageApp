@@ -1,5 +1,5 @@
 import styles from "../styles/Level2.module.scss";
-import itemsJson from "../utils/wordlists/fruits.json";
+import itemsJson from "../utils/wordlists/imgfruits.json";
 import {Component} from "react";
 
 class Level2 extends Component {

@@ -11,7 +11,7 @@ model User {
   id        String @id @default(auto()) @map("_id") @db.ObjectId
   firstName String
   username  String @unique
-  email     String @unique
+  email     String @unique 
   password  String
   avatarId  Int?
   userPoints Int @default(1)

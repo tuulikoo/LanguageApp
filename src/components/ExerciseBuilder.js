@@ -11,7 +11,7 @@ const ExerciseBuilder = () => {
 
     useEffect(() => {
         // Fetch available JSON files
-        fetch("/api/fileHelper")
+        fetch("/api/fileHelper?prefix=listening")
             .then((res) => res.json())
             .then((files) => setAvailableFiles(files));
 
@@ -20,6 +20,7 @@ const ExerciseBuilder = () => {
             .then((res) => res.json())
             .then((data) => setData(data));
     }, []);
+
     const handleFileChange = (e) => {
         setSelectedFile(e.target.value);
         setSelectedCategory(null); // Reset category
@@ -33,7 +34,7 @@ const ExerciseBuilder = () => {
         setSelectedItems([]);
     };
 
-    const handleItemClick = (item) => {
+    const handleItemClick = (item) => { 
         setSelectedItems((prevItems) => {
             if (prevItems.includes(item)) {
                 return prevItems.filter((prevItem) => prevItem !== item);
@@ -59,7 +60,6 @@ const ExerciseBuilder = () => {
         });
     };
     const handleDeleteSelectedWords = () => {
-        // Make sure to include the selected file in all API requests related to words
         const deleteRequests = selectedItems.map((word) =>
             fetch(`/api/words?file=${selectedFile}`, {
                 // Include the file in request
@@ -90,7 +90,7 @@ const ExerciseBuilder = () => {
             <select onChange={handleFileChange} value={selectedFile}>
                 {availableFiles.map((file) => (
                     <option key={file} value={file}>
-                        {file}
+                        {file.replace(".json", "")}
                     </option>
                 ))}
             </select>
@@ -105,7 +105,7 @@ const ExerciseBuilder = () => {
 
             <div className={styles.categoryDisplay}>
                 {selectedCategory &&
-                    data[selectedCategory]?.map((item) => (
+                    data[selectedCategory].map((item) => (
                         <button
                             key={item}
                             onClick={() => handleItemClick(item)}

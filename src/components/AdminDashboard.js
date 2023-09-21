@@ -7,7 +7,7 @@ import PeopleIcon from "@mui/icons-material/People";
 import SettingsIcon from "@mui/icons-material/Settings";
 import Statistics from "./AdminStats";
 import AnalyticsIcon from "@mui/icons-material/Analytics";
-import ExerciseBuilder from "./ExerciseBuilder";
+import ExerciseBuilderSelector from "./ExerciseBuilderSelector";
 
 const AdminDashboard = () => {
     const [currentView, setCurrentView] = useState("users");
@@ -53,7 +53,7 @@ const AdminDashboard = () => {
             <Box className={styles.mainView}>
                 {currentView === "users" && <UserSearch />}
                 {currentView === "Statistics" && <Statistics />}
-                {currentView === "ExerciseBuilder" && <ExerciseBuilder />}
+                {currentView === "ExerciseBuilder" && <ExerciseBuilderSelector />}
             </Box>
         </Box>
     );
