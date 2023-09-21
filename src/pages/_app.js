@@ -1,18 +1,17 @@
-
-//import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS if needed
-import React from 'react';
-
-
+import "../styles/globals.scss";
+import Navbar from "../components/navbar";
+import { UserProvider } from "../utils/userContext";
+import SessionTimer from "@/utils/SessionTimer";
 function MyApp({ Component, pageProps }) {
     return (
-        <div className="app">
-            <main className="container">
-                <Component {...pageProps} />
-            </main>
-            <footer>
-                <p>Copyright © 2023</p>
-            </footer>
-        </div>
+        <UserProvider>
+            <SessionTimer>
+                <>
+                    <Navbar />
+                    <Component {...pageProps} />
+                </>
+            </SessionTimer>
+        </UserProvider>
     );
 }
 

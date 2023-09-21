@@ -5,7 +5,10 @@ module.exports = {
             { source: '/tab3', destination: '/Tab3' },
             { source: '/login', destination: '/Login' },
             { source: '/registration', destination: '/Registration' },
-            { source: '/level1', destination: '/Level1' }
+            { source: '/userpage', destination: '/UserPage' },
+            { source: '/level1', destination: '/Level1' },
+            { source: '/MainPage', destination: '/MainPage' }
+
         ];
     },
 };

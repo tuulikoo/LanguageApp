@@ -1,4 +1,4 @@
-import styles from "../styles/Header.module.css";
+import styles from "../styles/Header.module.scss";
 
 const Header = () => {
     return(
@@ -24,7 +24,6 @@ const Header = () => {
                                 🄷🄾🄼🄴
                             </a>
                         </li>
-
                         <li className={styles.nav_item}>
                             <a href={"/Login"} className={styles.nav_link}>🄻🄾🄶🄸🄽</a>
                         </li>

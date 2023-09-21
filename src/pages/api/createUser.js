@@ -13,9 +13,8 @@ const emailExists = async (email) => {
     const user = await prisma.user.findUnique({ where: { email } });
     return !!user;
 };
-
 const CreateUser = async (req, res) => {
-    const { username, password, email, firstName, lastName } = req.body;
+    const { username, password, email, firstName, avatarId } = req.body;
 
     try {
         // Check if username or email already exists
@@ -34,7 +33,7 @@ const CreateUser = async (req, res) => {
                 password: hashedPassword,
                 email,
                 firstName,
-                lastName,
+                avatarId,
             },
         });
 
@@ -45,10 +44,19 @@ const CreateUser = async (req, res) => {
 
         // Generate jwt token
         const token = generateToken(payload);
-        res.status(200).json({ message: 'User created successfully', token });
+
+        // Set the jwt token as an httpOnly cookie
+        res.setHeader('Set-Cookie', [
+            `token=${token}; HttpOnly; Path=/; Max-Age=${60 * 60 * 24 * 7}`,
+            // If using HTTPS, add `Secure` to the cookie:
+            // `token=${token}; HttpOnly; Path=/; Secure; Max-Age=${60 * 60 * 24 * 7}`,
+        ]);
+
+        res.status(200).json({ message: 'User created successfully' });
     } catch (error) {
-        res.status(500).json({ message: error.message }); 
+        res.status(500).json({ message: "Jotain meni pieleen" });
     }
 };
 
 export default CreateUser;
+

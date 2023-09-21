@@ -1,0 +1,91 @@
+.container {
+  @apply absolute top-1/2 left-1/2 flex flex-col items-center justify-center p-8 bg-opacity-10 rounded-xl shadow-md;
+  width: 30rem;
+  height: 30rem;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.audioButton {
+  @apply flex items-center justify-center p-2 bg-transparent text-white rounded cursor-pointer transition-all ease-in-out duration-300 transform-gpu;
+  padding: 0.5rem, 0.5rem, 0.5rem, 0.5rem;
+  &:hover {
+    transform: scale(1.4) translateY(-0.1rem);
+  }
+
+  img {
+    @apply w-24 h-24 mr-2 mb-10;
+  }
+}
+
+.result {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  @apply text-pink-500 transition-colors duration-300 ease-in-out;
+  animation: bounce 0.5s;
+  animation-delay: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
+  &:hover {
+    animation: scale 0.5s infinite;
+  }
+}
+
+.input {
+  @apply w-full p-2 bg-opacity-10 text-center text-xl rounded outline-none transition-colors duration-300;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding:
+    2 rem,
+    2rem,
+    2rem,
+    2rem;
+  &:focus {
+    @apply bg-opacity-20;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.5rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.correctMessage {
+  @apply text-green-500;
+  font-size: 2rem;
+  animation: bounce 1s;
+  animation: scale 0.5s infinite;
+}
+.seuraavaButton {
+  @apply mt-6 py-2 px-5 text-xl font-semibold bg-gradient-to-r from-blue-300 to-blue-400 text-white rounded-md shadow-md transform transition-all duration-300;
+
+  &:hover {
+    @apply shadow-xl scale-105;
+  }
+
+  &:active {
+    @apply scale-100 shadow-md;
+  }
+
+  &:focus {
+    @apply outline-none ring-2 ring-blue-300;
+  }
+}

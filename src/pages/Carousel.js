@@ -1,7 +1,7 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import {Carousel} from "react-responsive-carousel";
-import items from "./Items.json";
-import styles from "../styles/Carousel.module.css";
+import items from "../utils/wordlists/carousel.json";
+import styles from "../styles/Carousel.module.scss";
 
 export default function ResponsiveCarousel() {
     return (

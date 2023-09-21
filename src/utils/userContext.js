@@ -1,4 +1,4 @@
-import {createContext, useContext, useEffect, useState} from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 
 const UserContext = createContext();
@@ -7,47 +7,42 @@ export const useUser = () => {
     return useContext(UserContext);
 };
 
-export const UserProvider = ({children}) => {
+export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [token, setTokens] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [sessionTime, setSessionTime] = useState(0);
 
-    // check if token is valid and set user get token from utils/jwt.js
-    const setToken = (newToken) => {
-        if (newToken) {
-            localStorage.setItem('token', newToken);
-            axios.defaults.headers.common.Authorization = `Bearer ${newToken}`;
+    // logout function to call logout api endpoint
+    const logout = async () => {
+        try {
+            await axios.post('/api/logout');
+            setUser(null);
+        } catch (error) {
+            console.error('Error during logout:', error);
         }
-        setTokens(newToken);
     };
 
     useEffect(() => {
-        const fetchUser = async () => {
-            const storedToken = localStorage.getItem('token');
-            if (storedToken) {
-                setToken(storedToken);
-                try {
-                    const response = await axios.get('/api/user', {
-                        headers: {
-                            Authorization: `Bearer ${storedToken}`,
-                        },
-                    });
-
-                    if (response.data.user) {
-                        setUser(response.data.user);
-                    }
-                } catch (error) {
-                    console.error('Error fetching user:', error);
-                }
-            }
-            setLoading(false);
-        };
-
-        fetchUser();
+        axios.get('/api/user')
+            .then(response => {
+                setUser(response.data);
+                setLoading(false);
+            })
+            .catch(error => {
+                setLoading(false);
+                console.error('Error fetching user:', error);
+            });
     }, []);
-    return (
-        <UserContext.Provider value={{user, setUser, token, setToken, isLoading: loading}}>
-            {children}
-        </UserContext.Provider>
-    );
+
+
+    const value = {
+        user,
+        setUser,
+        loading,
+        logout,
+        sessionTime,
+        setSessionTime,
+    };
+
+    return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
