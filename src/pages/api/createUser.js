@@ -1,5 +1,5 @@
 import prisma from '../../utils/prisma';
-import { generateToken } from '../../utils/jwt';
+import { generateToken } from '@/utils/jwt';
 import bcrypt from 'bcrypt';
 
 // Function to check if username already exists
