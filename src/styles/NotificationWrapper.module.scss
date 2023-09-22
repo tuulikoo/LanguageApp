@@ -28,6 +28,19 @@
     color: #fff;
     font-size: 18px;
     cursor: pointer;
+        &:hover {
+            transform: scale(1.2);
+        }
+}
+.icon {
+    position: flex;
+    padding: 15px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+
 }
 
 
