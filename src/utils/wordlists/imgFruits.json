@@ -1,17 +1,5 @@
 [
   {
-    "id": 2,
-    "imageUrl": "https://media.istockphoto.com/id/162487071/fi/valokuva/banaani-nippu.jpg?s=612x612&w=0&k=20&c=UriFAgzw0N3tpQxB0gt2z3SMI-LLOYHRdyjId6XhbMI=",
-    "eng": "banana",
-    "fin": "banaani"
-  },
-  {
-    "id": 3,
-    "imageUrl": "https://media.istockphoto.com/id/185284489/photo/orange.jpg?s=612x612&w=0&k=20&c=m4EXknC74i2aYWCbjxbzZ6EtRaJkdSJNtekh4m1PspE=",
-    "eng": "orange",
-    "fin": "oranssi"
-  },
-  {
     "id": 4,
     "imageUrl": "https://media.istockphoto.com/id/474178403/fi/valokuva/p%C3%A4%C3%A4ryn%C3%A4-jonka-lehti-on-eristetty-valkoiselle-taustalle.jpg?s=612x612&w=0&k=20&c=YafTy1CpLI487JnDOnc3FeotZfgWcmvW5gEINxu6SIQ=",
     "eng": "pear",

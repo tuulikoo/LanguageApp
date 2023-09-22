@@ -1,5 +1,5 @@
-import { createContext, useContext, useEffect, useState } from 'react';
-import axios from 'axios';
+import { createContext, useContext, useEffect, useState } from "react";
+import axios from "axios";
 
 const UserContext = createContext();
 
@@ -15,25 +15,25 @@ export const UserProvider = ({ children }) => {
     // logout function to call logout api endpoint
     const logout = async () => {
         try {
-            await axios.post('/api/logout');
+            await axios.post("/api/logout");
             setUser(null);
         } catch (error) {
-            console.error('Error during logout:', error);
+            console.error("Error during logout:", error);
         }
     };
 
     useEffect(() => {
-        axios.get('/api/user')
-            .then(response => {
+        axios
+            .get("/api/user")
+            .then((response) => {
                 setUser(response.data);
                 setLoading(false);
             })
-            .catch(error => {
+            .catch((error) => {
                 setLoading(false);
-                console.error('Error fetching user:', error);
+                console.error("Error fetching user:", error);
             });
     }, []);
-
 
     const value = {
         user,
