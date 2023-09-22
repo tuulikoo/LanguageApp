@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ExerciseBuilder from "./ExerciseBuilder";
-import ImageExerciseBuilder from "../../ImageExerciseBuilder";
+import ImageExerciseBuilder from "../ImageExerciseBuilder";
 import { Box } from "@mui/system";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import styles from "../../../styles/ExerciseBuilderSelector.module.scss";
