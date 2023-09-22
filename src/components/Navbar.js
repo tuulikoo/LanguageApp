@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styles from '../styles/Navbar.module.scss';
-import {useRouter} from 'next/router';
-import {useUser} from '@/utils/userContext';
+import { useRouter } from 'next/router';
+import { useUser } from '@/utils/userContext';
 
 function Navbar() {
-    const {user, logout, loading} = useUser();
+    const { user, logout, loading } = useUser();
     const router = useRouter();
     const [avatarHovered, setAvatarHovered] = useState(false);
 
