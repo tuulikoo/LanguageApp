@@ -6,7 +6,7 @@ function SessionTimer({ children }) {
     const [sessionTime, setSessionTime] = useState(0);
 
     useEffect(() => {
-        // Initialize sessionTime from sessionStorage on client-side
+        if (user) {
         const storedTime = Number(sessionStorage.getItem("sessionTime")) || 0;
         setSessionTime(storedTime);
 
@@ -30,6 +30,7 @@ function SessionTimer({ children }) {
             clearInterval(interval);
             document.removeEventListener("visibilitychange", handleVisibilityChange);
         };
+        }
     }, [user]);
 
     const updateDatabase = async () => {
@@ -54,5 +55,6 @@ function SessionTimer({ children }) {
 
     return <>{children}</>;
 }
+ 
 
 export default SessionTimer;
