@@ -1,0 +1,295 @@
+{"level":30,"time":"2023-09-22T07:49:57.940Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Listening on 58946"}
+{"level":30,"time":"2023-09-22T07:49:57.965Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-22T07:49:57.965Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-22T07:49:57.966Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-22T07:49:57.967Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-22T07:49:57.969Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2023-09-22T07:49:58.253Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method newBrowser"}
+{"level":30,"time":"2023-09-22T07:49:58.255Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2023-09-22T07:49:58.255Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method newPage"}
+{"level":30,"time":"2023-09-22T07:49:58.259Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Changed active context"}
+{"level":30,"time":"2023-09-22T07:49:58.560Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Video path: undefined"}
+{"level":30,"time":"2023-09-22T07:49:58.560Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Changed active page"}
+{"level":30,"time":"2023-09-22T07:49:58.825Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method newPage"}
+{"level":30,"time":"2023-09-22T07:49:58.827Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method fillText"}
+{"level":30,"time":"2023-09-22T07:49:58.827Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with id=login_username in page."}
+{"level":30,"time":"2023-09-22T07:49:58.880Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method fillText"}
+{"level":30,"time":"2023-09-22T07:49:58.881Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method fillText"}
+{"level":30,"time":"2023-09-22T07:49:58.882Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with id=login_password in page."}
+{"level":30,"time":"2023-09-22T07:49:58.926Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method fillText"}
+{"level":30,"time":"2023-09-22T07:49:58.928Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method click"}
+{"level":30,"time":"2023-09-22T07:49:58.928Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with id=login_loginButton in page."}
+{"level":30,"time":"2023-09-22T07:49:58.962Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method click"}
+{"level":30,"time":"2023-09-22T07:50:02.977Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method click"}
+{"level":30,"time":"2023-09-22T07:50:02.977Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with .Navbar_avatarButton__FSunb in page."}
+{"level":30,"time":"2023-09-22T07:50:03.014Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method click"}
+{"level":30,"time":"2023-09-22T07:50:07.026Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.026Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.057Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.057Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.071Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.071Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.077Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.077Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.090Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.090Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.095Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.095Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.107Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.107Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.111Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.111Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.124Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.124Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.129Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.129Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.142Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.142Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.146Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.146Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.159Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.159Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.163Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.163Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.177Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.177Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.180Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.180Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.194Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.194Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.198Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.198Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.212Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.212Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.217Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.217Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.230Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.230Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.234Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.234Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.248Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.248Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.252Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.252Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.265Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.265Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.269Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.269Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.280Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.281Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.284Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.284Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.298Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.298Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.302Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.302Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.315Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.315Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.319Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.319Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.333Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.333Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.337Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.337Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.350Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.350Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.354Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.354Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.368Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.368Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.372Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.372Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.386Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.386Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.390Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.390Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.404Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.404Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.409Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.409Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.422Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.422Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.427Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.427Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.440Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.440Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.445Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.445Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.459Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.459Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.463Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.463Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.476Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.476Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.481Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.481Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.494Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.494Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.498Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.498Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.512Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.512Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.517Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.517Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.530Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.530Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.535Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.535Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.546Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.546Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.550Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.550Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.563Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.563Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.569Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.569Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.582Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.582Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.587Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.587Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.600Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.600Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.604Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.604Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.618Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.618Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.622Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.622Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.636Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.636Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.640Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.640Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.652Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.652Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.656Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.656Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.669Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.669Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.672Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.672Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.686Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.686Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.689Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.689Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.701Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.701Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.705Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.705Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.718Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.718Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.722Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.722Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.735Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.735Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.738Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.738Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.750Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.750Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.753Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.753Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.766Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.766Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.769Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.769Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.782Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.782Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.785Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.785Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.798Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.799Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.802Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.802Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.815Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.815Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.818Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.818Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.832Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.832Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.835Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.835Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.848Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.848Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.852Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.852Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.865Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.865Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.869Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.869Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.882Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.882Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.886Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.886Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.899Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.899Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.903Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.903Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.917Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.917Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.921Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.921Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.934Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.934Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.937Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.937Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.951Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.951Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.954Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.954Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.967Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.967Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.970Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.970Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.983Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.983Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:07.986Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:07.986Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.999Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:07.999Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:08.002Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:08.002Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:08.015Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:08.015Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:08.018Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:08.018Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:08.029Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:08.029Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:08.033Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:08.033Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:08.046Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:08.046Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:08.049Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:08.049Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:08.061Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:08.061Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-22T07:50:08.064Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage"}
+{"level":30,"time":"2023-09-22T07:50:08.064Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-22T07:50:08.065Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2023-09-22T07:50:08.065Z","pid":13406,"hostname":"Tuulis-Air.home","Take screenshot with options: ":{"path":"/Users/tuuli/LanguageApp/browser/screenshot/fail-screenshot-1.png","fileType":"png","fullPage":false,"timeout":10000,"omitBackground":false}}
+{"level":30,"time":"2023-09-22T07:50:08.157Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2023-09-22T07:50:08.163Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-22T07:50:08.164Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-22T07:50:08.164Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-22T07:50:08.165Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-22T07:50:08.165Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Changed active context"}
+{"level":30,"time":"2023-09-22T07:50:08.165Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Changing current active page"}
+{"level":30,"time":"2023-09-22T07:50:08.165Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Changed active page"}
+{"level":30,"time":"2023-09-22T07:50:08.168Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-22T07:50:08.168Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-22T07:50:08.169Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method switchBrowser"}
+{"level":30,"time":"2023-09-22T07:50:08.169Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method switchBrowser"}
+{"level":30,"time":"2023-09-22T07:50:08.169Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method switchBrowser"}
+{"level":30,"time":"2023-09-22T07:50:08.169Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method switchBrowser"}
+{"level":30,"time":"2023-09-22T07:50:08.170Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Changing current active page"}
+{"level":30,"time":"2023-09-22T07:50:08.170Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Changed active page"}
+{"level":30,"time":"2023-09-22T07:50:08.173Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-22T07:50:08.174Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-22T07:50:08.174Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Changed active context"}
+{"level":30,"time":"2023-09-22T07:50:08.174Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Changing current active page"}
+{"level":30,"time":"2023-09-22T07:50:08.174Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Changed active page"}
+{"level":30,"time":"2023-09-22T07:50:08.175Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method closeContext"}
+{"level":30,"time":"2023-09-22T07:50:08.179Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Removed page=d8449afa-74d7-42b2-920f-44b1612b2327 from context=b7ed640d-5950-442c-90c7-65165c820182 page stack"}
+{"level":30,"time":"2023-09-22T07:50:08.219Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method closeContext"}
+{"level":30,"time":"2023-09-22T07:50:08.221Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-22T07:50:08.221Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-22T07:50:08.240Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2023-09-22T07:50:08.279Z","pid":13406,"hostname":"Tuulis-Air.home","msg":"End of node method closeAllBrowsers"}

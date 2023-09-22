@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.5 on darwin)" generated="20230922 10:49:57.665" rpa="false" schemaversion="4">
+<suite id="s1" name="Update" source="/Users/tuuli/LanguageApp/robot/update.robot">
+<test id="s1-t1" name="Verify new email is saved after updating it to user-details" line="67">
+<kw name="Open Browser To Login Page">
+<kw name="New Browser" library="Browser">
+<arg>headless=${False}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20230922 10:49:57.968" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "/Users/tuuli/LanguageApp/browser/traces/9b9c3f7a-f438-4614-ad4e-3d4806ad0cef"}</msg>
+<msg timestamp="20230922 10:49:58.254" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"/Users/tuuli/LanguageApp/browser/traces/9b9c3f7a-f438-4614-ad4e-3d4806ad0cef"}</msg>
+<status status="PASS" starttime="20230922 10:49:57.968" endtime="20230922 10:49:58.254"/>
+</kw>
+<kw name="New Page" library="Browser">
+<arg>${LOGINURL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20230922 10:49:58.826" level="INFO">Successfully initialized new page object and opened url: http://localhost:3000/Login</msg>
+<msg timestamp="20230922 10:49:58.826" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20230922 10:49:58.254" endtime="20230922 10:49:58.826"/>
+</kw>
+<status status="PASS" starttime="20230922 10:49:57.967" endtime="20230922 10:49:58.827"/>
+</kw>
+<kw name="Enter Username">
+<kw name="Fill Text" library="Browser">
+<arg>id=login_username</arg>
+<arg>txt=${USERNAME}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230922 10:49:58.827" level="INFO">Fills the text 'Tester1' in the given field.</msg>
+<status status="PASS" starttime="20230922 10:49:58.827" endtime="20230922 10:49:58.881"/>
+</kw>
+<status status="PASS" starttime="20230922 10:49:58.827" endtime="20230922 10:49:58.881"/>
+</kw>
+<kw name="Enter Password">
+<kw name="Fill Text" library="Browser">
+<arg>id=login_password</arg>
+<arg>txt=${PASSWORD}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230922 10:49:58.881" level="INFO">Fills the text 'Password' in the given field.</msg>
+<status status="PASS" starttime="20230922 10:49:58.881" endtime="20230922 10:49:58.927"/>
+</kw>
+<status status="PASS" starttime="20230922 10:49:58.881" endtime="20230922 10:49:58.927"/>
+</kw>
+<kw name="Submit Login Form">
+<kw name="Click" library="Browser">
+<arg>id=login_loginButton</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230922 10:49:58.928" endtime="20230922 10:49:58.963"/>
+</kw>
+<status status="PASS" starttime="20230922 10:49:58.927" endtime="20230922 10:49:58.963"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>4s</arg>
+<arg>just to check if page opened</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230922 10:50:02.966" level="INFO">Slept 4 seconds</msg>
+<msg timestamp="20230922 10:50:02.966" level="INFO">just to check if page opened</msg>
+<status status="PASS" starttime="20230922 10:49:58.963" endtime="20230922 10:50:02.966"/>
+</kw>
+<kw name="Verify That MainPage Is Visible">
+<kw name="Get Url" library="Browser">
+<arg>==</arg>
+<arg>${MAINURL}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" starttime="20230922 10:50:02.968" endtime="20230922 10:50:02.975"/>
+</kw>
+<status status="PASS" starttime="20230922 10:50:02.967" endtime="20230922 10:50:02.975"/>
+</kw>
+<kw name="Navigate to Userpage">
+<kw name="Click" library="Browser">
+<arg>.Navbar_avatarButton__FSunb</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230922 10:50:02.976" endtime="20230922 10:50:03.016"/>
+</kw>
+<status status="PASS" starttime="20230922 10:50:02.975" endtime="20230922 10:50:03.016"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>4s</arg>
+<arg>just to check if page opened</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230922 10:50:07.019" level="INFO">Slept 4 seconds</msg>
+<msg timestamp="20230922 10:50:07.019" level="INFO">just to check if page opened</msg>
+<status status="PASS" starttime="20230922 10:50:03.016" endtime="20230922 10:50:07.019"/>
+</kw>
+<kw name="Verify That UserPage Is Visible">
+<kw name="Get Text" library="Browser">
+<arg>body</arg>
+<arg>contains</arg>
+<arg>Etunimesi on</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20230922 10:50:08.065" level="INFO">Text: 'Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage'</msg>
+<msg timestamp="20230922 10:50:08.158" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-1.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230922 10:50:08.158" level="INFO">See also file:///Users/tuuli/LanguageApp/playwright-log.txt for additional details.</msg>
+<msg timestamp="20230922 10:50:08.158" level="FAIL">Text 'Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage' (str) should contain 'Etunimesi on' (str)</msg>
+<status status="FAIL" starttime="20230922 10:50:07.021" endtime="20230922 10:50:08.161"/>
+</kw>
+<kw name="Get Url" library="Browser">
+<arg>==</arg>
+<arg>${USERURL}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="NOT RUN" starttime="20230922 10:50:08.161" endtime="20230922 10:50:08.162"/>
+</kw>
+<status status="FAIL" starttime="20230922 10:50:07.020" endtime="20230922 10:50:08.162"/>
+</kw>
+<kw name="Verify current email-address">
+<status status="NOT RUN" starttime="20230922 10:50:08.162" endtime="20230922 10:50:08.162"/>
+</kw>
+<kw name="Open adjust-fields">
+<status status="NOT RUN" starttime="20230922 10:50:08.162" endtime="20230922 10:50:08.162"/>
+</kw>
+<kw name="Verify Password Button Exists">
+<status status="NOT RUN" starttime="20230922 10:50:08.162" endtime="20230922 10:50:08.162"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>4s</arg>
+<arg>just to check if username was filled</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230922 10:50:08.162" endtime="20230922 10:50:08.162"/>
+</kw>
+<status status="FAIL" starttime="20230922 10:49:57.966" endtime="20230922 10:50:08.162">Text 'Etusivu\nTehtävät\nKirjaudu ulos\nkirjaudu sisaan nahdaksesi profiili\n\nUserPage' (str) should contain 'Etunimesi on' (str)</status>
+</test>
+<status status="FAIL" starttime="20230922 10:49:57.665" endtime="20230922 10:50:08.220"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Update">Update</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
