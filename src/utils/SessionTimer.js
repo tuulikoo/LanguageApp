@@ -1,19 +1,19 @@
-import { useEffect, useState } from 'react';
-import { useUser } from './userContext';
+import { useEffect, useState } from "react";
+import { useUser } from "./userContext";
 
 function SessionTimer({ children }) {
     const { user } = useUser();
     const [sessionTime, setSessionTime] = useState(0);
 
     useEffect(() => {
-        // Initialize sessionTime from sessionStorage on client-side
-        const storedTime = Number(sessionStorage.getItem('sessionTime')) || 0;
+        if (user) {
+        const storedTime = Number(sessionStorage.getItem("sessionTime")) || 0;
         setSessionTime(storedTime);
 
         const interval = setInterval(() => {
-            setSessionTime(prevTime => {
+            setSessionTime((prevTime) => {
                 const newTime = prevTime + 10;
-                sessionStorage.setItem('sessionTime', newTime.toString());
+                sessionStorage.setItem("sessionTime", newTime.toString());
                 return newTime;
             });
         }, 10000);
@@ -24,19 +24,20 @@ function SessionTimer({ children }) {
             }
         };
 
-        document.addEventListener('visibilitychange', handleVisibilityChange);
+        document.addEventListener("visibilitychange", handleVisibilityChange);
 
         return () => {
             clearInterval(interval);
-            document.removeEventListener('visibilitychange', handleVisibilityChange);
+            document.removeEventListener("visibilitychange", handleVisibilityChange);
         };
+        }
     }, [user]);
 
     const updateDatabase = async () => {
         try {
-            const response = await fetch('/api/usageTimer', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+            const response = await fetch("/api/usageTimer", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ userId: user.id, time: sessionTime }),
             });
 
@@ -54,6 +55,6 @@ function SessionTimer({ children }) {
 
     return <>{children}</>;
 }
+ 
 
 export default SessionTimer;
-
