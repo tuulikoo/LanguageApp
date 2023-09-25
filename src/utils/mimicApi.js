@@ -19,3 +19,16 @@ export const convertTextToSpeech = async (text, options = {}) => {
     return await response.blob();  // blob for audio data
 };
 
+export const textToSpeech = async (text, options = {}) => {
+    try {
+        const audioBlob = await convertTextToSpeech(text, options);
+        const audioUrl = URL.createObjectURL(audioBlob);
+        const audio = new Audio(audioUrl);
+        audio.play();
+        return audio;
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+};
+
