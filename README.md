@@ -12,7 +12,3 @@ eivät pysty opiskelemaan uutta kieltä englanniksi. Sovelluksen käyttö lapsil
 ensimmäisen vieraan kielen opiskelua koulussa.
 
 
-## running
-```
-./setup.sh
-```
