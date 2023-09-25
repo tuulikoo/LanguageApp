@@ -8,8 +8,7 @@ const Hero=()=>{
             className={styles.hero_img}
          alt="hero image"/>
         <h1 className={styles.hero_title}>
-            🄻 🄴 🄰 🅁 🄽 🄸 🄽 🄶 <br />
-            <span> 🄸🅂&ensp;🄿 🄾 🅆 🄴 🅁</span>
+            Learning Is Power<br />
         </h1>
         <a href="MainPage.js" className={styles.hero_button}>
             START

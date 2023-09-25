@@ -1,41 +1,89 @@
+/* Carousel.module.scss */
+
 .carousel_container {
+  font-family: Gabriola, Serif;
+  font-size: 20px;
   text-align: center;
-  color: rgba(39, 70, 134, 0.58);
+  color: #004092; /* Dark blue text color */
+}
+
+.h1{
+  font-size: 30px;
+  font-style: italic;
+  padding-bottom: 10px;
+  color: darkblue;
 }
 
 .container {
-  width: 100vw;
-  display: inline-flex;
+  width: 100%;
+  display: flex;
   justify-content: center;
+  align-items: center; /* Center vertically */
+  margin-top: 20px;
 }
 
 .mySwiper {
-  width: 90vw;
-  background: rgba(63, 118, 224, 0.1);
-  padding-top: 60px;
-  margin-bottom: 40px;
+  width: 100%;
+  max-width: 800px;
+  background: #8bdcb0; /* Light green background */
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(13, 4, 5, 0.1);
 }
 
 .swipItem {
-  display: inline-flex;
-  height: 200px;
+  display: flex;
+  justify-content: space-between; /* Image on the left, text on the right */
+  align-items: center; /* Center vertically */
+  margin: 10px;
+  width: 90%;
+  padding: 20px;
+  background-color: #65b8bf; /* Light blue background */
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(13, 4, 5, 0.1);
 }
 
 .imgBox {
-  width: 25vw;
+  width: 35%;
+  max-width: 200px;
 }
 
 .imageUrl {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%; /* Rounded image */
   object-fit: cover;
-  border-radius: 25%;
 }
 
 .detail {
   text-align: center;
-  width: 45vw;
-  padding: 0px 25px;
+  width: 60%; /* Adjust the width for the text */
+  padding: 0 10px;
 }
 
 .selected {
-  width: 90vw;
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .swipItem {
+    margin-top: 20px; /* Adjust margin for top space on narrow screens */
+    flex-direction: column; /* Stack image and text vertically on small screens */
+    align-items: center; /* Center content horizontally on small screens */
+    text-align: center; /* Center text on small screens */
+  }
+
+  .imgBox {
+    width: 50%; /* Adjust the image width for small screens */
+    max-width: none; /* Remove max-width constraint for the image */
+    margin-bottom: 10px; /* Add margin to create space between image and text */
+  }
+
+  .carousel_title,
+  .carousel_text {
+    margin-top: 5px; /* Adjust margin for better spacing */
+  }
 }

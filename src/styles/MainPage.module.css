@@ -1,0 +1,30 @@
+/* main-page.css */
+
+/* Style the Hero component */
+.Hero {
+    background-color: lightblue;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Style the Levels component */
+.Levels {
+    background-color: lightgreen;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Style the Carousel component */
+.Carousel {
+    background-color: lightcoral;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Style the Footer component */
+.Footer {
+    background-color: lightgray;
+    padding: 20px;
+    text-align: center;
+}
+

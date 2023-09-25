@@ -7,8 +7,8 @@ export default function ResponsiveCarousel() {
     return (
 
         <div className={styles.carousel_container}>
-            <h1 className={styles.carousel_title}>🅁🄴🅅🄸🄴🅆🅂</h1>
             <div className={styles.container}>
+
                 <Carousel
                     showArrows={true}
                     autoPlay={true}
@@ -20,6 +20,8 @@ export default function ResponsiveCarousel() {
                     {items.map(({id, imageUrl, title, text}) => (
                         <div key={id} className={styles.swipItem}>
                             <div className={styles.imgBox}>
+                                <h1 className={styles.h1}> Reviews</h1>
+
                                 <img src={imageUrl} alt="slides"/>
                             </div>
                             <div className={styles.detail}>

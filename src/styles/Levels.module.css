@@ -1,19 +1,76 @@
+<<<<<<< Updated upstream
 /*levels*/
 .levels_container{
     width: 100vw;
+=======
+/* Levels.module.css */
+
+
+
+.levels_container {
+    background-color: #65b8bf; /* Light blue background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(13, 4, 5, 0.1);
+>>>>>>> Stashed changes
     text-align: center;
-    color: rgba(39, 70, 134, 0.58);
+    font-family: Gabriola,serif;
 }
+
+.levels_container h1 {
+    font-size: 2rem;
+    color: #004092; /* Red text color */
+    margin-bottom: 20px;
+}
+<<<<<<< Updated upstream
 .levels_list{
+=======
+
+.levels_list {
+    list-style: none;
+    padding: 0;
+>>>>>>> Stashed changes
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
-    list-style-type: none;
-    padding: 0px;
 }
+<<<<<<< Updated upstream
 .levels_item{
     width: 30vw;
     border: 1px solid rgba(63, 118, 224, 0.58);
 }
 
 
+=======
+
+.levels_item {
+    background-color: #8bdcb0; /* Light green background */
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px 0;
+    width: 80%;
+    box-shadow: 0px 4px 8px rgba(13, 4, 5, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.levels_item p {
+    color: #394240; /* Dark blue text color */
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.levels_item p:first-child {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #004092; /* Red text color */
+}
+
+.levels_item:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+    background-color: #95d5d6; /* Light blue-green on hover */
+}
+>>>>>>> Stashed changes

@@ -1,8 +1,13 @@
+/* Footer.module.scss */
+
 .footer {
-  background-color: rgba(63, 118, 224, 0.58);
-  color: white;
+  background-color: #65b8bf; /* Light blue background */
+  color: #004092; /* Dark blue text color */
   font-size: 20px;
+  font-family: Gabriola, serif;
   list-style-type: none;
+  padding: 20px 0;
+  text-align: center; /* Center align text */
 }
 
 .footer_container {
@@ -14,54 +19,75 @@
 }
 
 .logo {
-  color: dimgrey;
+  color: darkblue; /* Reddish-pink color */
   text-decoration: none;
+  font-size: 24px; /* Increase font size */
+  font-family: Gabriola, sans-serif, sans-serif; /* Use a fun and bold font */
 }
 .address_list {
   list-style: none;
+  padding: 0; /* Remove default padding */
+  text-align: left; /* Align address list text to the left */
+}
+
+.address_item {
+  margin-bottom: 15px; /* Increase margin for better spacing */
 }
 .address_link {
-  display: inline-block;
-  font-size: 14px;
-  line-height: 1.71em;
+  font-size: 16px; /* Increase font size */
+  line-height: 1.5em; /* Adjust line height for better readability */
   letter-spacing: 0.03em;
-  margin-bottom: 9px;
-  color: rgba(255, 255, 255, 0.6);
+  color: #009580; /* Light green text color */
+  text-decoration: none; /* Remove underlines */
+  transition: color 0.3s; /* Add a smooth color transition on hover */
+
+  &:hover {
+    color: #1a73e8; /* Change text color on hover to match the logo color */
+  }
 }
 .subscription_form {
   display: flex;
   justify-content: center;
+  margin-top: 20px; /* Add top margin for separation */
 }
 .colortext {
-  display: inline-block;
   width: 175px;
   height: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 16px;
-
+  border: 1px solid #8bdcb0; /* Light green border */
+  padding: 0 16px; /* Adjust padding for better appearance */
   box-sizing: border-box;
   border-radius: 4px;
+  font-size: 16px; /* Increase font size */
+  color: #004092; /* Dark blue text color */
+  background-color: #fff; /* White background */
+  transition: border-color 0.3s, color 0.3s; /* Add transitions */
+
+  &:focus {
+    border-color: #ff6b6b; /* Change border color on focus to match the logo color */
+    color: #ff6b6b; /* Change text color on focus to match the logo color */
+  }
 }
 
 .subscribe_btn {
   display: flex;
+  border-radius: 25px;
   justify-content: center;
-  vertical-align: middle;
-  color: #ffffff;
-  background-color: rgba(63, 118, 224, 0.58);
-  width: 115px;
+  align-items: center;
+  color: #fff; /* White text color */
+  background-color: #3f51b5; /* Reddish-pink background */
+  width: 100px;
   height: 50px;
-  margin-right: 10px;
+  margin-left: 10px; /* Add left margin for spacing */
   font-weight: 700;
   font-size: 16px;
   line-height: 1.875;
-  align-items: center;
   text-align: center;
   letter-spacing: 0.06em;
+  border: #004092; /* Remove border */
+  cursor: pointer; /* Add pointer cursor */
+  transition: background-color 0.3s; /* Add background color transition */
 
-  padding: 10px 32px;
-  border-radius: 5px;
-  border: 1px solid rgba(63, 118, 224, 0.58);
+  &:hover {
+    background-color: #ff4f4f; /* Darken background color on hover */
+  }
 }

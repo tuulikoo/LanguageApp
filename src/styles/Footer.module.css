@@ -1,0 +1,66 @@
+/* Footer.module.scss */
+
+.footer {
+    background-color: #65b8bf; /* Light blue background */
+    color: #004092; /* Dark blue text color */
+    padding: 40px;
+    text-align: center;
+}
+
+.footer_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #ff5757; /* Red text color */
+    text-decoration: none;
+}
+
+.address_list {
+    list-style: none;
+    padding: 0;
+}
+
+.address_item {
+    margin-bottom: 10px;
+}
+
+.address_link {
+    color: #00bfa5; /* Green color */
+    text-decoration: none;
+}
+
+.subscription {
+    margin-top: 20px;
+}
+
+.subscription_form {
+    display: flex;
+    align-items: center;
+}
+
+.colortext {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.subscribe_btn {
+    background-color: #ff5757; /* Red background */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.subscribe_btn:hover {
+    background-color: #ff2a2a; /* Darker red background on hover */
+}

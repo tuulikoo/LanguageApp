@@ -3,7 +3,7 @@ import "./Level2";
 
 const Levels = () => {
     return <div className={styles.levels_container}>
-        <h1>🄻🄴🅅🄴🄻🅂 🅆🄴 🄷🄰🅅🄴</h1>
+        <h1>Levels We Have</h1>
         <ul className={styles.levels_list}>
             <li className={styles.levels_item}>
                 <p>Tab 1</p>

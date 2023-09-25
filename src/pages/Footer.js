@@ -6,7 +6,7 @@ const Footer = () => {
         <footer id="contacts">
             <div className={styles.footer_container}>
                 <a href="./" className={styles.logo}>
-                    🄻🄰🄽🄶🅄🄰🄶🄴 🄰🄿🄿
+                    Language App
                 </a>
                 <ul className={styles.address_list}>
                     <li className={styles.address_item}>
