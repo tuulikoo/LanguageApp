@@ -1,4 +1,13 @@
 /*levels*/
+@font-face {
+    font-family: "Dela Gothic One"; /* Specify the font family name */
+    src: url('../../public/fonts/DelaGothicOne-Regular.ttf') format('truetype'); /* Specify the path to your TTF font file */
+}
+
+.custom-font {
+    font-family: 'Dela Gothic One', sans-serif; /* Use the imported font family name */
+}
+
 .levels_container {
     width: 100vw;
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import FlashcardDeckComponent from "@/components/FlashcardDeckComponent";
 import styles from '../styles/level1.module.css';
 
-
 const Level1 = () => {
     const animalFlashcards = [
         {
@@ -38,33 +37,33 @@ const Level1 = () => {
     ];
 
 
-        return (
-            <div className={styles.pageContainer}>
-                <h1 className={styles.pageTitle}>Level 1 Flashcards</h1>
+    return (
+        <div className={styles.pageContainer} >
+            <h1 className={`${styles.pageTitle} font-custom`}>Level 1 Flashcards</h1>
 
-                <div className={styles.categoryContainer}>
-                    <h2>Animals</h2>
-                    <div className={styles.flashcardContainer}>
-                        <FlashcardDeckComponent flashcards={animalFlashcards} />
-                    </div>
-                </div>
-
-                <div className={styles.categoryContainer}>
-                    <h2>Foods</h2>
-                    <div className={styles.flashcardContainer}>
-                        <FlashcardDeckComponent flashcards={foodFlashcards} />
-                    </div>
-                </div>
-
-                <div className={styles.categoryContainer}>
-                    <h2>People</h2>
-                    <div className={styles.flashcardContainer}>
-                        <FlashcardDeckComponent flashcards={peopleFlashcards} />
-                    </div>
+            <div className={styles.categoryContainer}>
+                <h2 className="font-custom">Animals</h2>
+                <div className={styles.flashcardContainer}>
+                    <FlashcardDeckComponent flashcards={animalFlashcards} />
                 </div>
             </div>
-        );
-    };
+
+            <div className={styles.categoryContainer}>
+                <h2 className="font-custom">Foods</h2>
+                <div className={styles.flashcardContainer}>
+                    <FlashcardDeckComponent flashcards={foodFlashcards} />
+                </div>
+            </div>
+
+            <div className={styles.categoryContainer}>
+                <h2 className="font-custom">People</h2>
+                <div className={styles.flashcardContainer}>
+                    <FlashcardDeckComponent flashcards={peopleFlashcards} />
+                </div>
+            </div>
+        </div>
+    );
+};
 
 
     export default Level1;

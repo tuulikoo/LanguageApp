@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "Dela Gothic One"; /* Specify the font family name */
+  src: url('../../public/fonts/DelaGothicOne-Regular.ttf') format('truetype'); /* Specify the path to your TTF font file */
+}
+
+.custom-font {
+  font-family: 'Dela Gothic One', sans-serif; /* Use the imported font family name */
+}
+
 .navbar {
   margin-bottom: 20px;
   display: flex;
@@ -21,6 +30,7 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-family: "Dela Gothic One";
 
     &:hover {
       background-color: #ddd;
