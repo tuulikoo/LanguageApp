@@ -12,7 +12,7 @@ class Level2 extends Component {
     }
     nextWord=()=>{
         this.setState({
-            idx: this.state.idx+=1,
+            idx: state.idx+=1,
             error:0,
             isVisible:false,
         })
@@ -27,7 +27,7 @@ class Level2 extends Component {
         const items = this.state.items;
         const idx = this.state.idx;
 
-        if(this.state.idx == e.target.id){
+        if(state.idx == e.target.id){
             document.getElementById("info").textContent="Woooooow!";
             this.setState({isVisible:true});
             // const leftItems =items.filter(item=> item.id !== idx)
@@ -36,7 +36,7 @@ class Level2 extends Component {
 
             e.target.classList.add("hidden");
             document.getElementById("info").textContent="Nice try!";
-            this.setState({error:this.state.error+=1, isVisible:false});
+            this.setState({error:state.error+=1, isVisible:false});
 
             if(this.state.error ===2){
                 this.setState({isVisible:true});
@@ -51,7 +51,7 @@ class Level2 extends Component {
 
         return (<>
             <div className={styles.container}>
-                <p className={styles.title}> Choose the right image:</p>
+                <p className={styles.title}> Valitse oikea kuva:</p>
                 <p className={styles.word}>{itemsJson[idx].eng}</p>
                 <div className={styles.img_container}>
                     <a onClick={(e)=>this.onClick(e)} >
@@ -69,7 +69,7 @@ class Level2 extends Component {
 
 
                 </div>
-                <p id="info"></p>
+                <p id="info"> </p>
                 <div id={styles.correct} className={isVisible ? 'show' : 'hidden'}>
                 <p >corrent answer is: <span className={styles.correct_text}>{itemsJson[idx].fin}</span></p>
                 <img src={itemsJson[idx].imageUrl} width="350px" className={styles.correctImg}/>
