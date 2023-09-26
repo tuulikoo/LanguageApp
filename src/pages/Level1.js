@@ -1,69 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FlashcardDeckComponent from "@/components/FlashcardDeckComponent";
 import styles from '../styles/level1.module.css';
+import flashcardsData from 'src/utils/wordlists/flashcardsanat.json';
 
 const Level1 = () => {
-    const animalFlashcards = [
-        {
-            word: 'Leijona',
-            definition: 'Lion',
-        },
-        {
-            word: 'Elefantti',
-            definition: 'Elephant',
-        },
-    ];
+    const [selectedCategory, setSelectedCategory] = useState(null);
 
-    const foodFlashcards = [
-        {
-            word: 'Appelsiini',
-            definition: 'Orange',
-        },
-        {
-            word: 'Mansikka',
-            definition: 'Strawberry',
-        },
-    ];
+    const handleCategorySelect = (category) => {
+        setSelectedCategory(category);
+    };
 
-    const peopleFlashcards = [
-        {
-            word: 'Opettaja',
-            definition: 'Teacher',
-        },
-        {
-            word: 'Lääkäri',
-            definition: 'Doctor',
-        },
-    ];
-
+    const getCategoryButtonClassName = (category) => {
+        return category === selectedCategory ? styles.selectedCategoryButton : styles.categoryButton;
+    };
 
     return (
-        <div className={styles.pageContainer} >
+        <div className={styles.pageContainer}>
             <h1 className={`${styles.pageTitle} font-custom`}>Level 1 Flashcards</h1>
 
-            <div className={styles.categoryContainer}>
-                <h2 className="font-custom">Animals</h2>
-                <div className={styles.flashcardContainer}>
-                    <FlashcardDeckComponent flashcards={animalFlashcards} />
+            <div className={styles.categorySelector}>
+                <p className="font-custom">Mitä flashcard kategoriaa haluat opiskella?</p>
+                <div className={styles.categoryButtons}>
+                    <button
+                        className={getCategoryButtonClassName('animals')}
+                        onClick={() => handleCategorySelect('animals')}
+                    >
+                        Elaimet
+                    </button>
+                    <button
+                        className={getCategoryButtonClassName('food')}
+                        onClick={() => handleCategorySelect('food')}
+                    >
+                        Ruoka
+                    </button>
+                    <button
+                        className={getCategoryButtonClassName('people')}
+                        onClick={() => handleCategorySelect('people')}
+                    >
+                        Ihmiset
+                    </button>
                 </div>
             </div>
-
-            <div className={styles.categoryContainer}>
-                <h2 className="font-custom">Foods</h2>
-                <div className={styles.flashcardContainer}>
-                    <FlashcardDeckComponent flashcards={foodFlashcards} />
-                </div>
-            </div>
-
-            <div className={styles.categoryContainer}>
-                <h2 className="font-custom">People</h2>
-                <div className={styles.flashcardContainer}>
-                    <FlashcardDeckComponent flashcards={peopleFlashcards} />
-                </div>
+            <div className={styles.flashcardsWrapper}>
+                {selectedCategory && (
+                    <div className={styles.flashcardContainer}>
+                        <h2 className={`${styles.selectedCategoryTitle} font-custom`}>{selectedCategory}</h2>
+                        <FlashcardDeckComponent flashcards={flashcardsData.flashcards[selectedCategory]} />
+                    </div>
+                )}
             </div>
         </div>
     );
 };
 
-
-    export default Level1;
+export default Level1;
