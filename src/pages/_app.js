@@ -7,14 +7,14 @@ import NotificationWrapper from "@/components/NotificationWrapper";
 function MyApp({ Component, pageProps }) {
     return (
         <UserProvider>
-            <NotificationWrapper>
-                <SessionTimer>
+            <SessionTimer>
+                <NotificationWrapper>
                     <>
                         <Navbar />
                         <Component {...pageProps} />
                     </>
-                </SessionTimer>
-            </NotificationWrapper>
+                </NotificationWrapper>
+            </SessionTimer>
         </UserProvider>
     );
 }

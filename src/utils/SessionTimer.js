@@ -7,29 +7,29 @@ function SessionTimer({ children }) {
 
     useEffect(() => {
         if (user) {
-        const storedTime = Number(sessionStorage.getItem("sessionTime")) || 0;
-        setSessionTime(storedTime);
+            const storedTime = (sessionStorage.getItem("sessionTime")) || 0;
+            setSessionTime(storedTime);
 
-        const interval = setInterval(() => {
-            setSessionTime((prevTime) => {
-                const newTime = prevTime + 10;
-                sessionStorage.setItem("sessionTime", newTime.toString());
-                return newTime;
-            });
-        }, 10000);
+            const interval = setInterval(() => {
+                setSessionTime((prevTime) => {
+                    const newTime = prevTime + 10;
+                    sessionStorage.setItem("sessionTime", newTime.toString());
+                    return newTime;
+                });
+            }, 10000);
 
-        const handleVisibilityChange = () => {
-            if (document.hidden && user && user.id) {
-                updateDatabase();
-            }
-        };
+            const handleVisibilityChange = () => {
+                if (document.hidden && user && user.id) {
+                    updateDatabase();
+                }
+            };
 
-        document.addEventListener("visibilitychange", handleVisibilityChange);
+            document.addEventListener("visibilitychange", handleVisibilityChange);
 
-        return () => {
-            clearInterval(interval);
-            document.removeEventListener("visibilitychange", handleVisibilityChange);
-        };
+            return () => {
+                clearInterval(interval);
+                document.removeEventListener("visibilitychange", handleVisibilityChange);
+            };
         }
     }, [user]);
 
@@ -55,6 +55,6 @@ function SessionTimer({ children }) {
 
     return <>{children}</>;
 }
- 
+
 
 export default SessionTimer;
