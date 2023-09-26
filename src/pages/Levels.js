@@ -6,26 +6,25 @@ const Levels = () => {
         <h1>🄻🄴🅅🄴🄻🅂 🅆🄴 🄷🄰🅅🄴</h1>
         <ul className={styles.levels_list}>
             <li className={styles.levels_item}>
-                <p>Tab 1</p>
+                <p>Taso 1</p>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
-                    autem ea facilis fugiat laboriosam.
+                    Hyvä tapa testata oppimiasi sanoja. Sinun on valittava oikea englanninkielinen sana kuvasta. Toivottavasti voit arvata ensimmäisen kerran ja saada suurimman määrän pisteitä.
                 </p>
             </li>`
             <li className={styles.levels_item}>
 
-                <p>Tab 2</p>
+                <p>Taso 2</p>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
-                    autem ea facilis fugiat laboriosam.
+                    Toinen tapa tarkistaa oppimasi sanat. Sinun on valittava kuva englanninkielisen sanan perusteella. Toivottavasti voit arvata ensimmäisen kerran ja saada suurimman määrän pisteitä.
                 </p>
             </li>
             <li className={styles.levels_item}>
-                <p>Tab 3</p>
+                <p>Taso 3</p>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
-                    autem ea facilis fugiat laboriosam.
+                    Toinen tapa tarkistaa oppimasi sanat. Sinun täytyy kirjoittaa koko sana muistista. Toivottavasti voit arvata ensimmäisen kerran ja saada suurimman määrän pisteitä.
                 </p>
+                <p> Tsemppiä!</p>
+                
             </li>
         </ul>
     </div>
