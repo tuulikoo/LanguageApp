@@ -34,5 +34,17 @@
     { "Id": 8, "src": "school/sharpener.jpg", "btn1": "Tape", "btn2": "Crayon", "btn3": "Sharpener", "btn4": "Book", "correctOption": "Sharpener" },
     { "Id": 9, "src": "school/notebook.jpg", "btn1": "Ruler", "btn2": "Blackboard", "btn3": "Notebook", "btn4": "Computer", "correctOption": "Notebook" },
     { "Id": 10, "src": "school/backpack.png", "btn1": "Whiteboard", "btn2": "Backpack", "btn3": "Calculator", "btn4": "Pencil", "correctOption": "Backpack" }
-  ]
+  ],
+  "4": [
+  { "Id": 1, "src": "family/family.png", "btn1": "Cousin", "btn2": "Parents", "btn3": "Mother", "btn4": "Father", "correctOption": "Family" },
+  { "Id": 2, "src": "family/parents.png", "btn1": "Family", "btn2": "Father", "btn3": "Son", "btn4": "Daughter", "correctOption": "Parents" },
+  { "Id": 3, "src": "family/children.png", "btn1": "Grandparents", "btn2": "Siblings", "btn3": "Children", "btn4": "Mother", "correctOption": "Children" },
+  { "Id": 4, "src": "family/mother.png", "btn1": "Father", "btn2": "Sister", "btn3": "Mother", "btn4": "Brother", "correctOption": "Mother" },
+  { "Id": 5, "src": "family/father.png", "btn1": "Son", "btn2": "Mother", "btn3": "Father", "btn4": "Cousin", "correctOption": "Father" },
+  { "Id": 6, "src": "family/son.png", "btn1": "Daughter", "btn2": "Brother", "btn3": "Son", "btn4": "Sister", "correctOption": "Son" },
+  { "Id": 7, "src": "family/daughter.png", "btn1": "Sister", "btn2": "Grandmother", "btn3": "Daughter", "btn4": "Grandfather", "correctOption": "Daughter" },
+  { "Id": 8, "src": "family/grandparents.png", "btn1": "Siblings", "btn2": "Cousin", "btn3": "Son", "btn4": "Grandparents", "correctOption": "Grandparents" },
+  { "Id": 9, "src": "family/sister.png", "btn1": "Father", "btn2": "Sister", "btn3": "Mother", "btn4": "Brother", "correctOption": "Sister" },
+  { "Id": 10, "src": "family/brother.png", "btn1": "Son", "btn2": "Mother", "btn3": "Brother", "btn4": "Cousin", "correctOption": "Brother" }
+]
 }
