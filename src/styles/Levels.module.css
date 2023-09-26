@@ -1,19 +1,54 @@
-/*levels*/
 .levels_container {
-    width: 100vw;
-    text-align: center;
-    color: rgba(39, 70, 134, 0.58);
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .levels_list {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    list-style-type: none;
-    padding: 0px;
+  list-style: none;
+  padding: 0;
 }
 
 .levels_item {
-    width: 30vw;
-    border: 1px solid rgba(63, 118, 224, 0.58);
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
+
+.levels_item:hover {
+  background-color: #f5f5f5;
+}
+
+.level_title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.level_description {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #666;
+}
+.levels_item {
+    transition: transform 0.8s ease;
+    transform-style: preserve-3d;
+}
+.levels_item:hover {
+    transform: rotateY(5deg);
+}
+

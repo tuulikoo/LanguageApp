@@ -4,6 +4,7 @@ import { UserProvider } from "../utils/userContext";
 import SessionTimer from "@/utils/SessionTimer";
 import NotificationWrapper from "@/components/NotificationWrapper";
 
+
 function MyApp({ Component, pageProps }) {
     return (
         <UserProvider>

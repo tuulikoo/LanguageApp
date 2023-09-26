@@ -1,0 +1,35 @@
+.parallaxContainer {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    perspective: 1px;
+    transform-style: preserve-3d;
+
+    .firstSVG, .secondSVG {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-size: cover;
+        z-index: -1;
+    }
+
+    .firstSVG {
+        background-image: url('/svg/undraw_cat_epte.svg');
+        transform: translateZ(-4px) scale(2);
+    }
+
+    .secondSVG {
+        background-image: url('/svg/undraw_ride_a_bicycle_re_6tjy.svg');
+        transform: translateZ(-2px) scale(1);
+    }
+
+    .content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding: 20px;
+    }
+}
+

@@ -1,41 +1,59 @@
 .carousel_container {
-  text-align: center;
-  color: rgba(39, 70, 134, 0.58);
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;  // White background
+}
+
+.carousel_title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
 .container {
-  width: 100vw;
-  display: inline-flex;
-  justify-content: center;
+    background-color: #fff; 
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
 }
 
 .mySwiper {
-  width: 90vw;
-  background: rgba(63, 118, 224, 0.1);
-  padding-top: 60px;
-  margin-bottom: 40px;
+    .carousel .slide {
+        background: none;
+    }
+
+    .carousel .control-arrow {
+        display: none;  
+    }
+   
 }
 
 .swipItem {
-  display: inline-flex;
-  height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff; 
+
+    .detail {
+        text-align: center;
+        width: 100%;
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #666;
+        }
+    }
 }
 
-.imgBox {
-  width: 25vw;
-}
-
-.imageUrl {
-  object-fit: cover;
-  border-radius: 25%;
-}
-
-.detail {
-  text-align: center;
-  width: 45vw;
-  padding: 0px 25px;
-}
-
-.selected {
-  width: 90vw;
-}
