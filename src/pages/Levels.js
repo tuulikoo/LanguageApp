@@ -6,25 +6,22 @@ const Levels = () => {
         <h1>🄻🄴🅅🄴🄻🅂 🅆🄴 🄷🄰🅅🄴</h1>
         <ul className={styles.levels_list}>
             <li className={styles.levels_item}>
-                <p>Tab 1</p>
+                <p>Oppimisen taso</p>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
-                    autem ea facilis fugiat laboriosam.
+                    oppiminen flashcards:ien mukaan, mistä saat niin sanan suomeksi, kuin englanniksi. Sillä tasolla on hyvä aloittaa englannin kielen opiskelun.
                 </p>
             </li>`
             <li className={styles.levels_item}>
 
-                <p>Tab 2</p>
+                <p>Level 1</p>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
-                    autem ea facilis fugiat laboriosam.
+                    lapsille helppo tehtävä kuvan mukaan keksiä, kumpi sanoista on oikein. Se on hyvä tapa tarkistaa, miten onnistui ensimmäisen tason oppiminen ja muistatko sanoja hyvin. Saat pisteita, jos onnistuu ensimmäisesta kerrasta oikeasti.
                 </p>
             </li>
             <li className={styles.levels_item}>
-                <p>Tab 3</p>
+                <p>Level 2</p>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
-                    autem ea facilis fugiat laboriosam.
+                    nyt on tärkeä valita oikea kuva, mitä tarkoittaa lukea sana englanniksi ja valita oikea kuva. Saat pisteita, jos onnistuu ensimmäisesta kerrasta oikeasti.
                 </p>
             </li>
         </ul>
