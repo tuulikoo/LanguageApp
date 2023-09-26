@@ -47,6 +47,13 @@
 }
 
 /* Update the class name for the button container */
+.speakButton {
+  width: 40px; /* Adjust the width to match your image size */
+  height: 40px; /* Adjust the height to match your image size */
+  cursor: pointer;
+}
+
+/* Update the class name for the button container */
 .buttonContainerWrapper {
   margin-top: 20px;
   margin-bottom: 20px;
