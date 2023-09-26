@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import Game2Component from './Game2Component'; // Import Game2Component
 import game4 from '../utils/wordlists/game4.json';
 import { useUser } from '../utils/userContext';
-import styles from '../styles/Game4Component.module.scss'; // Import the styles
+import styles from '../styles/Game4Component.module.scss';
 
 function Game4Component() {
     const { user } = useUser();
@@ -12,10 +13,11 @@ function Game4Component() {
     const [currentUserPoints, setCurrentUserPoints] = useState(0);
     const [incorrectAttempts, setIncorrectAttempts] = useState(0);
     const [hasAnsweredCorrectly, setHasAnsweredCorrectly] = useState(false);
+    const [sectionCompleted, setSectionCompleted] = useState(false); // Track section completion
 
     const section = user ? user.lastLevel : "1"; // Default to "1.1" if lastLevel is not set
     const data = game4[section];
-    const questionsPerSection = 10; // Number of questions per section
+    const questionsPerSection = 10;
 
     useEffect(() => {
         if (user) {
@@ -68,8 +70,6 @@ function Game4Component() {
             }
         }
     }, [currentQuestion, data, user, questionsPerSection]);
-
-
 
     const handleOptionClick = async (option) => {
         if (!hasAnsweredCorrectly && option === data[currentQuestion].correctOption) {
@@ -129,6 +129,11 @@ function Game4Component() {
                 if (typeof user.lastLevel === 'number') {
                     const nextSectionNumber = user.lastLevel + 1;
                     const newLastLevel = nextSectionNumber;
+
+                    // If the section is completed, set the state variable
+                    if ((nextSectionNumber - 1) * questionsPerSection >= currentQuestion) {
+                        setSectionCompleted(true);
+                    }
 
                     fetch('/api/updateUser', {
                         method: 'POST',
@@ -195,7 +200,9 @@ function Game4Component() {
                 </div>
             </div>
 
-            {data ? (
+            {sectionCompleted ? (
+                <Game2Component />
+            ) : (
                 currentQuestion < (data.length || 0) ? (
                     <div className={styles.imgContainer}>
                         <div className={styles.imgWrapper}>
@@ -217,11 +224,11 @@ function Game4Component() {
                         <p>Sait {score} pistettä / {(data.length || 0)}.</p>
                     </div>
                 )
-            ) : (
-                <p>Loading...</p>
             )}
         </div>
     );
+
 }
 
 export default Game4Component;
+
