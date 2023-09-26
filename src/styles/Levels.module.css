@@ -24,8 +24,9 @@
 
 .levels_container h1 {
     font-size: 2rem;
-    color: #004092; /* Red text color */
+    color: #f0cf21; /* Red text color */
     margin-bottom: 20px;
+
 }
 
 
@@ -54,8 +55,8 @@
 }
 
 .levels_item p {
-    color: #394240; /* Dark blue text color */
-    font-size: 1rem;
+    color: rgba(0, 0, 138, 0.63); /* Dark blue text color */
+    font-size: 13px;
     text-align: center;
     margin-top: 10px;
 }

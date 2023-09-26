@@ -7,13 +7,15 @@
     font-family: 'Dela Gothic One', sans-serif; /* Use the imported font family name */
 }
 
+
+
 .hero_container {
     position: relative;
     width: 100vw;
     max-height: 700px;
     object-fit: cover;
     margin-bottom: 45px;
-    background-color: #65b8bf; /* Light blue background */
+    background-color: #8adbaf; /* Light blue background */
 }
 
 .hero_img {
@@ -38,7 +40,7 @@
     left: 10%; /* Adjust the left position as needed */
     background-color: #ff6b6b; /* Reddish-pink background for a cartoon-like look */
     border: none;
-    color: white; /* White text color for contrast */
+    color: #ffec00; /* White text color for contrast */
     text-decoration: none;
     padding: 20px 30px; /* Increase padding for a larger button */
     border-radius: 30px; /* Make the button more rounded */

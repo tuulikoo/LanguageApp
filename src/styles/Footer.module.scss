@@ -27,9 +27,10 @@
 }
 
 .logo {
-  color: darkblue; /* Reddish-pink color */
+  color: #ffec00; /* Reddish-pink color */
   text-decoration: none;
   font-size: 24px; /* Increase font size */
+  padding-bottom: 30px;
 }
 .address_list {
   list-style: none;
@@ -80,9 +81,9 @@
   border-radius: 25px;
   justify-content: center;
   align-items: center;
-  color: #fff; /* White text color */
-  background-color: #3f51b5; /* Reddish-pink background */
-  width: 100px;
+  color: #ffec00; /* White text color */
+  background-color: #fc8d0f; /* Reddish-pink background */
+  width: 150px;
   height: 50px;
   margin-left: 10px; /* Add left margin for spacing */
   font-weight: 700;
