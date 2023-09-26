@@ -2,6 +2,8 @@
 Library    Browser
 
 
+
+
 *** Variables ***
 ${LOGINURL} =    http://localhost:3000/Login
 ${USERURL} =    http://localhost:3000/UserPage
@@ -34,33 +36,38 @@ Verify That UserPage Is Visible
     Get Text    body    contains    Etunimesi on
     Get Url    ==    ${USERURL}
 
+
 Verify current email-address
-    Get Text    body    contains    test@er.fi
+    Get Text    body    contains    test@test.com
 
 Open adjust-fields
     Click    id=adjust
 
-Verify Password Button Exists
-    Get Text    id=newpassword
+Verify email-update Button Exists
+    Get Text    body    contains    Päivitä sähköpostiosoitteesi
 
 Open email input fields
     Click    id=email
 
+Enter new setup email
+    Fill Text    id=emailinput    txt=test@test.com
+
 Enter new email
-    Fill Text    id =     email txt="terttuli@test.com"
+    Fill Text    id=emailinput    txt=updated@test.com
 
 Save new email
-    Click    id= saveEmail
+    Click    id=saveButton
 
 Sign out
-    Click    id= signout
+    Click    id=signout
+
 Verify That Login Page Is Visible
     Get Text    body    contains    Login Page
     Get Url    ==    ${LOGINURL}/
     Get Title    ==    Login Page
 
 Verify That email has been updated
-    Get Text    body    contains    terttuli@test.com
+    Get Text    body    contains    emailisi on updated@test.com
 
 
 *** Test Cases ***
@@ -74,15 +81,26 @@ Verify new email is saved after updating it to user-details
     Navigate to Userpage
     Sleep    4s    just to check if page opened
     Verify That UserPage Is Visible
+    Open adjust-fields
+    Open email input fields
+    Enter new setup email
+    Sleep    2s    just to check if page opened
+    Save new email
+    Sleep    2s    just to check if page opened
+    Sign out
+    Enter Username
+    Enter Password
+    Submit Login Form
+    Sleep    4s    just to check if page opened
+    Verify That MainPage Is Visible
+    Navigate to Userpage
+    Sleep    4s    just to check if page opened
+    Verify That UserPage Is Visible
     Verify current email-address
     Open adjust-fields
-    Verify Password Button Exists
-    #Open email input fields
-    #Enter new email
-    #Save new email
-    #Sign out
-    #Verify That Login Page Is Visible
-    #Enter Username
-    #Enter Password
-    #Verify That email has been updated
-    Sleep    4s    just to check if username was filled
+    Verify email-update Button Exists
+    Open email input fields
+    Enter new email
+    Save new email
+    Sleep    5s    just to check if page opened
+    Verify That email has been updated

@@ -2,6 +2,7 @@ import {UserProvider, useUser} from '@/utils/userContext';
 import styles from '../styles/UpdateDetailsComponent.module.scss';
 import React, {useState} from 'react';
 import axios from 'axios';
+import UserPointsComponent from '@/components/UserPointsComponent';
 
 
 function UpdateDetailsComponent({setUser}) {
@@ -184,7 +185,7 @@ function UpdateDetailsComponent({setUser}) {
                             <div>
                                 <input
                                     className={styles.inputField}
-                                    id="email"
+                                    id="emailinput"
                                     type="email"
                                     placeholder="Enter new email"
                                     value={newEmail}
@@ -238,11 +239,17 @@ function UpdateDetailsComponent({setUser}) {
                             </div>
                         )}
                     </div>
-                    <button className={styles.saveButton} onClick={handleSaveClick}>
+
+                    <button className={styles.saveButton} id="saveButton" onClick={handleSaveClick}>
                         Tallenna
                     </button>
                 </div>
+
             )}
+            <div className={styles.points}>
+            <UserPointsComponent/>
+            </div>
+
         </div>
     );
 }

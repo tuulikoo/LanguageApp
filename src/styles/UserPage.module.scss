@@ -1,4 +1,3 @@
-
 .container {
     margin: 20px;
     display: flex;
@@ -10,6 +9,7 @@
 .updateDetails {
     margin-bottom: 20px;
     margin-top: 20px;
+    flex-grow: 10; /* Allow UpdateDetailsComponent to grow */
 }
 
 .userPoints {

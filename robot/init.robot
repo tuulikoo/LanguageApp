@@ -1,15 +1,12 @@
 *** Settings ***
 Library    Browser
 
-
-
 *** Variables ***
 ${LOGINURL} =    http://localhost:3000/Login
 ${USERURL} =    http://localhost:3000/UserPage
 ${MAINURL} =    http://localhost:3000/MainPage
 ${USERNAME} =    Tester1
 ${PASSWORD} =    Password
-
 
 *** Keywords ***
 Open Browser To Login Page
@@ -26,20 +23,19 @@ Submit Login Form
     Click    id=login_loginButton
 
 Verify That MainPage Is Visible
-        Get Url    ==    ${MAINURL}
+    Wait Until Page Contains    ${MAINURL}
 
 Navigate to Userpage
     Click   .Navbar_avatarButton__FSunb
 
 Verify That UserPage Is Visible
-    Get Text    body    contains    Etunimesi on
-    Get Url    ==    ${USERURL}
+    Wait Until Page Contains    ${USERURL}
 
 Open adjust-fields
     Click    id=adjust
 
 Verify email-update Button Exists
-    Get Text    body    contains    Päivitä sähköpostiosoitteesi
+    Wait Until Page Contains    Päivitä sähköpostiosoitteesi
 
 Open email input fields
     Click    id=email
@@ -52,30 +48,3 @@ Save new email
 
 Sign out
     Click    id=signout
-
-Verify That Login Page Is Visible
-    Get Text    body    contains    Login Page
-    Get Url    ==    ${LOGINURL}/
-    Get Title    ==    Login Page
-
-Verify That email has been updated
-    Get Text    body    contains    updated@test.com
-
-
-*** Test Cases ***
-Verify new email is saved after updating it to user-details
-    Open Browser To Login Page
-    Enter Username
-    Enter Password
-    Submit Login Form
-    Sleep    4s    just to check if page opened
-    Verify That MainPage Is Visible
-    Navigate to Userpage
-    Sleep    4s    just to check if page opened
-    Verify That UserPage Is Visible
-    Open adjust-fields
-    Verify email-update Button Exists
-    Open email input fields
-    Enter new email
-    Save new email
-    Sign out
