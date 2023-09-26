@@ -54,8 +54,7 @@ function Game4Component({ onLevelCompletion }) { // Pass onLevelCompletion as a 
                             headers: {
                                 'Content-Type': 'application/json',
                             },
-                            body: JSON.stringify({
-                                userId: user.id,
+                            body: JSON.stringify({ userId: user.id,
                                 lastLevel: nextLevel,
                             }),
                         })
