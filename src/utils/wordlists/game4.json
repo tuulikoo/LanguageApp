@@ -1,5 +1,5 @@
 {
-  "1": [
+  "2": [
     { "Id": 1, "src": "animals/lion.webp", "btn1": "Crocodile", "btn2": "Horse", "btn3": "Lion", "btn4": "Tiger", "correctOption": "Lion" },
     { "Id": 2, "src": "animals/bird.png", "btn1": "Bird", "btn2": "Lion", "btn3": "Penguin", "btn4": "Horse", "correctOption": "Bird" },
     { "Id": 3, "src": "animals/horse.webp", "btn1": "Zebra", "btn2": "Elephant", "btn3": "Horse", "btn4": "Giraffe", "correctOption": "Horse" },
@@ -11,7 +11,7 @@
     { "Id": 9, "src": "animals/bunny.webp", "btn1": "Koala", "btn2": "Bunny", "btn3": "Hedgehog", "btn4": "Squirrel", "correctOption": "Bunny" },
     { "Id": 10, "src": "animals/dolphin.webp", "btn1": "Shark", "btn2": "Fish", "btn3": "Dolphin", "btn4": "Whale", "correctOption": "Dolphin" }
   ],
-  "2": [
+  "1": [
     { "Id": 1, "src": "fruits/apple.jpg", "btn1": "Mango", "btn2": "Pineapple", "btn3": "Lemon", "btn4": "Apple", "correctOption": "Apple" },
     { "Id": 2, "src": "fruits/banana.jpg", "btn1": "Orange", "btn2": "Banana", "btn3": "Peach", "btn4": "Coconut", "correctOption": "Banana" },
     { "Id": 3, "src": "fruits/orange.jpg", "btn1": "Grape", "btn2": "Cherry", "btn3": "Strawberry", "btn4": "Orange", "correctOption": "Orange" },
