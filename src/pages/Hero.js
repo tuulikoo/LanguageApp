@@ -8,7 +8,7 @@ const Hero = () => {
                     <span className={styles.primary_text}>Aloita</span><br />
                     <span className={styles.secondary_text}>Kielen Opiskelu</span>
                 </h1>
-                <a href="MainPage.js" className={styles.hero_button}>
+                <a href="Levels" className={styles.hero_button}>
                     Tästä
                 </a>
             </div>

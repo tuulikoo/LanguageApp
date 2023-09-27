@@ -13,7 +13,7 @@ function Navbar() {
         router.push('/Login');
     };
 
-    // Determine the target URL for the "avatar-image" link based on user authentication
+
     const avatarLinkUrl = user ? '/UserPage' : '/Login';
 
     return (

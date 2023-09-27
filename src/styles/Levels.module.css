@@ -49,6 +49,16 @@
     transform-style: preserve-3d;
 }
 .levels_item:hover {
-    transform: rotateY(5deg);
+    transform: rotateY(9deg);
+}
+.levels_link {
+    text-decoration: none;
+}
+.level_button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    padding: 10px;
 }
 

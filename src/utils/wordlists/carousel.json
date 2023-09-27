@@ -1,44 +1,37 @@
 [
     {
         "id": 1,
-        "quote_finnish": "Opi eilisestä, elä tänään, toivo huomisesta.",
-        "quote_english": "Learn from yesterday, live for today, hope for tomorrow."
+        "quote_finnish": "Eilinen kuiskaa, tänään huutaa, huomenna laulaa.",
+        "quote_english": "Yesterday whispers, today shouts, tomorrow sings."
     },
     {
         "id": 2,
-        "quote_finnish": "Koulutus on ase, joka voi muuttaa maailmaa.",
-        "quote_english": "Education is the weapon which can change the world."
+        "quote_finnish": "Koulutus ei ole pelkkä valo; se on myös varjojen tanssi.",
+        "quote_english": "Education isn't just a light; it's also a dance of shadows."
     },
     {
         "id": 3,
-        "quote_finnish": "Opiskelu ilman ajattelua on turhaa, mutta ajattelu ilman opiskelua on vaarallista.",
-        "quote_english": "Learning without thinking is useless, but thinking without learning is dangerous."
+        "quote_finnish": "Opiskellessa, sydän ja mieli tanssivat; mutta ilman toista, kompastumme.",
+        "quote_english": "In learning, the heart and mind dance; without one, we stumble."
     },
     {
         "id": 4,
-        "quote_finnish": "Älä anna pelon estää sinua tekemästä sitä, mitä rakastat.",
-        "quote_english": "Don't let fear stop you from doing what you love."
+        "quote_finnish": "Pelko estää askelta, mutta intohimo lennättää sen yli.",
+        "quote_english": "Fear halts a step, but passion propels it forward."
     },
     {
         "id": 5,
-        "quote_finnish": "Kaikki tieto alkaa ihmettelystä.",
-        "quote_english": "All knowledge begins with wonder."
+        "quote_finnish": "Uteliaisuus on siemen; tieto on sen juuri.",
+        "quote_english": "Curiosity is the seed; knowledge its root."
     },
     {
         "id": 6,
-        "quote_finnish": "Kun lopetat oppimisen, lopetat kasvamisen.",
-        "quote_english": "When you stop learning, you stop growing."
+        "quote_finnish": "Oppimisen loppu on sielun talvi.",
+        "quote_english": "The end of learning is the soul's winter."
     },
     {
         "id": 7,
-        "quote_finnish": "Virheistä oppiminen on enemmän arvoinen kuin menestys.",
-        "quote_english": "Learning from mistakes is more valuable than success."
+        "quote_finnish": "Virheissämme piilee metsä, ei vain puita.",
+        "quote_english": "In our mistakes lies a forest, not just trees."
     }
 ]
-
-
-
-
-
-
-
