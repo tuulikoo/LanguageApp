@@ -15,16 +15,9 @@
     border-radius: 5px;
     font-size: 16px;
   }
-  select {
-    display: block;
-    margin: 10px 0;
-    padding: 10px;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    appearance: none;
-  }
+
+
+
   input {
     display: block;
     margin: 10px 0;
@@ -50,7 +43,6 @@
   }
 
   .deleteSelected {
-    margin-top: 20px;
     width: 20%;
     margin: 10px auto;
     color: #fff;
@@ -58,6 +50,7 @@
     button {
       background-color: #f44336;
       color: #fff;
+
       &:hover {
         background-color: #d32f2f;
       }
@@ -76,6 +69,7 @@
       margin-right: 10px;
     }
   }
+
   .addWord {
     display: flex;
     align-items: center;
@@ -120,4 +114,8 @@
       }
     }
   }
+    .select {
+    width: 290px;
+    margin: 10px 0;
+    }
 }

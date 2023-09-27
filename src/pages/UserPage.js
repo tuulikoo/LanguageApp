@@ -3,9 +3,9 @@ import Head from "next/head";
 import UpdateDetailsComponent from "@/components/UpdateDetailsComponent";
 import UserPointsComponent from "@/components/UserPointsComponent";
 import { UserProvider } from "@/utils/userContext";
-import styles from "../styles/UserPage.module.css";
+import styles from "../styles/UserPage.module.scss";
 
-import Game4 from "@/components/game4";
+import Game4Component from "@/components/Game4Component";
 function UserPage() {
     return (
         <UserProvider>
@@ -16,12 +16,6 @@ function UserPage() {
                 <div className={styles.updateDetails}>
                     <UpdateDetailsComponent />
                 </div>
-
-                {/*
-<div className={styles.userPoints}>
-    <UserPointsComponent />
-</div>
-*/}
             </div>
         </UserProvider>
     );

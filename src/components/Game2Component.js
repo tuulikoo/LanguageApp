@@ -1,10 +1,9 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useUser } from '@/utils/userContext';
 import listeningData from '../utils/wordlists/listeningData.json';
 import { convertTextToSpeech } from '@/utils/mimicApi';
 import styles from '../styles/Exec.module.scss';
 import CircularProgress from '@mui/material/CircularProgress';
-import { useEffect } from 'react';
 
 const POINT_LEVELS = [
     { threshold: 10, key: "listening1.1" },
@@ -35,13 +34,12 @@ const ExerciseComponent = () => {
     const currentWordList = useMemo(() => listeningData[currentWordListKey] || [], [currentWordListKey]);
 
     const [inputWord, setInputWord] = useState('');
-    const [audioURL, setAudioURL] = useState(null);
+    const [, setAudioURL] = useState(null);
     const [result, setResult] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(Math.floor(Math.random() * currentWordList.length));
     const [isLoading, setIsLoading] = useState(false);
     const [showCorrect, setShowCorrect] = useState(false);
     const [remainingWords, setRemainingWords] = useState(currentWordList);
-
 
 
     const updateUserPoints = useCallback(async () => {
@@ -162,7 +160,6 @@ const NextButton = ({ onNext }) => <button className={styles.seuraavaButton} onC
 
 
 export default ExerciseComponent;
-
 
 
 

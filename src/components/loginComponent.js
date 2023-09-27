@@ -1,23 +1,23 @@
-import { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
+import {useEffect, useState} from "react";
+import {useForm} from "react-hook-form";
 import axios from "axios";
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
 import styles from "../styles/login.module.scss";
-import { useUser } from "../utils/userContext";
+import {useUser} from "../utils/userContext";
 
 const MAX_LOGIN_ATTEMPTS = 5;
 const ERROR_MESSAGE = "Väärä käyttäjänimi tai salasana";
 const TIMEOUT_DURATION = 6000;
 
 export default function Login() {
-    const { register, handleSubmit, formState } = useForm();
-    const { errors, isSubmitting } = formState;
+    const {register, handleSubmit, formState} = useForm();
+    const {errors, isSubmitting} = formState;
 
     const [loginError, setLoginError] = useState("");
     const [loginAttempts, setLoginAttempts] = useState(0);
     const [successMessage, setSuccessMessage] = useState("");
 
-    const { setUser } = useUser();
+    const {setUser} = useUser();
     const router = useRouter();
 
     const handleLoginError = () => {
@@ -31,7 +31,7 @@ export default function Login() {
             const response = await axios.post("/api/login", data);
 
             if (response.status === 200) {
-                const { user } = response.data;
+                const {user} = response.data;
                 setUser(user); // set user data in the context
                 router.push("/MainPage");
             } else {
@@ -58,7 +58,7 @@ export default function Login() {
                     type="text"
                     label="Käyttäjänimi"
                     id="login_username"
-                    register={register("username", { required: "Syötä Käyttäjänimi" })}
+                    register={register("username", {required: "Syötä Käyttäjänimi"})}
                     error={errors.username}
                 />
 
@@ -67,7 +67,7 @@ export default function Login() {
                     type="password"
                     label="Salasana"
                     id="login_password"
-                    register={register("password", { required: "Syötä salasanasi" })}
+                    register={register("password", {required: "Syötä salasanasi"})}
                     error={errors.password}
                 />
 
@@ -97,11 +97,11 @@ export default function Login() {
     );
 }
 
-function InputField({ type, label, register, error, id }) {
+function InputField({type, label, register, error, id}) {
     return (
         <div className={styles.inputGroup}>
             <label>{label}</label>
-            <input type={type} {...register} id={id} className={styles.formControl} />
+            <input type={type} {...register} id={id} className={styles.formControl}/>
             {error && <div className={styles.formError}>{error.message}</div>}
         </div>
     );

@@ -1,6 +1,5 @@
-
 .container {
-    margin:20px;
+    margin: 20px;
     display: flex;
     flex-direction: column;
     align-items: center; /* Center horizontally */
@@ -10,6 +9,7 @@
 .updateDetails {
     margin-bottom: 20px;
     margin-top: 20px;
+    flex-grow: 10; /* Allow UpdateDetailsComponent to grow */
 }
 
 .userPoints {

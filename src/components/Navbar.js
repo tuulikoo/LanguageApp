@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from '../styles/Navbar.module.scss';
 import { useRouter } from 'next/router';
-import { useUser } from '../utils/userContext';
+import { useUser } from '@/utils/userContext';
 
 function Navbar() {
     const { user, logout, loading } = useUser();
@@ -23,13 +23,15 @@ function Navbar() {
 
                 {loading ? null : !user ? (
                     <>
-                        <button className={styles.navButton} onClick={() => router.push('/Login')}>Kirjaudu sisään</button>
-                        <button className={styles.navButton} onClick={() => router.push('/Registration')}>Rekisteröidy</button>
+                        <button className={styles.navButton} onClick={() => router.push('/Login')}>Kirjaudu sisään
+                        </button>
+                        <button className={styles.navButton} onClick={() => router.push('/Registration')}>Rekisteröidy
+                        </button>
                     </>
                 ) : (
                     <>
                         <button className={styles.navButton} onClick={() => router.push('/Levels')}>Tehtävät</button>
-                        <button className={styles.navButton} onClick={handleLogout}>Kirjaudu ulos</button>
+                        <button className={styles.navButton} id="signout" onClick={handleLogout}>Kirjaudu ulos</button>
                     </>
                 )}
             </div>

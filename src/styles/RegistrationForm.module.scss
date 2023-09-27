@@ -1,6 +1,6 @@
 .formWrapper {
   max-width: 400px;
-  margin: 40px auto; 
+  margin: 40px auto;
   padding: 40px;
   background-color: #fff;
   border-radius: 6px;
@@ -58,11 +58,10 @@
     margin-bottom: 20px;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 1,5px;
+    letter-spacing: 5px;
     position: relative;
-    } 
-   }
-
+  }
+}
 
 
 .avatarsGrid {
@@ -70,20 +69,21 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
+
 .avatarImage {
   width: 70%;
   border-radius: 50%;
   cursor: pointer;
   filter: grayscale(5%) opacity(0.8);
-  transition: 
-    transform 0.4s cubic-bezier(0.300, 0.2, 0.355, 1), 
-    filter 0.3s ease; 
+  transition: transform 0.4s cubic-bezier(0.300, 0.2, 0.355, 1),
+  filter 0.3s ease;
 
   &:hover {
     transform: scale(1.23);
-    filter: grayscale(0%) opacity(1); 
-  } 
+    filter: grayscale(0%) opacity(1);
+  }
 }
+
 .selectedAvatar {
   border: 3px solid #007BFF;
   border-radius: 50%;

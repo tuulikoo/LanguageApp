@@ -1,9 +1,30 @@
 .imgContainer {
-  border: 2px solid blue;
+
   padding: 10px;
-  max-width: 500px; /* Set a fixed width for the image container */
-  margin: 0 auto; /* Center align the image */
-  display: block; /* Ensure the image container is a block element */
+  max-width: 800px; /* Increase max-width */
+  max-height: 600px; /* Increase max-height */
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+
+  .imgWrapper img {
+    object-fit: contain; /* Maintain aspect ratio, fitting the image within its container */
+  }
+}
+
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.textContainer {
+  text-align: left;
+  margin-bottom: 20px;
 }
 
 /* Update the SCSS for the buttons */
@@ -16,9 +37,8 @@
   cursor: pointer;
   font-size: 16px;
   border-radius: 5px;
-  transition:
-    background-color 0.3s,
-    color 0.3s;
+  transition: background-color 0.3s,
+  color 0.3s;
 
   &:hover {
     background-color: #ff69b4;
@@ -27,21 +47,36 @@
 }
 
 /* Update the class name for the button container */
+.speakButton {
+  width: 40px; /* Adjust the width to match your image size */
+  height: 40px; /* Adjust the height to match your image size */
+  cursor: pointer;
+}
+
+/* Update the class name for the button container */
 .buttonContainerWrapper {
+  margin-top: 20px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  gap: 10px; /* Add some spacing between buttons */
 }
 
 /* ... other styles ... */
 
 /* Style result messages */
 .result {
-  padding-top: 3rem;
-  color: #ff69b4; /* Pink text color */
+  margin-top: 20px;
+  margin-bottom: 80px;
+  position: absolute;
+  bottom: 10px; /* Adjust the distance from the bottom */
+  transform: translateX(-50%); /* Center result text horizontally */
+  color: #ff69b4;
+  background-color: white;
   font-weight: bold;
+  font-size: 22px;
   animation: bounce 0.5s;
   animation-delay: 0.5s;
   animation-iteration-count: 1;
@@ -52,7 +87,9 @@
   }
 
   &.correct {
-    color: #008000; /* Green text color for correct answers */
+    font-size: 28px;
+    color: #008000;
+    background-color: white;
     animation: bounce 0.5s 3 alternate;
   }
 }
@@ -62,6 +99,8 @@
   font-size: 18px;
   margin-bottom: 20px;
 }
+
+
 
 /* Keyframes for animations */
 @keyframes bounce {

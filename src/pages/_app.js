@@ -1,15 +1,20 @@
 import "../styles/globals.scss";
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar";
 import { UserProvider } from "../utils/userContext";
 import SessionTimer from "@/utils/SessionTimer";
+import NotificationWrapper from "@/components/NotificationWrapper";
+
+
 function MyApp({ Component, pageProps }) {
     return (
         <UserProvider>
             <SessionTimer>
-                <>
-                    <Navbar />
-                    <Component {...pageProps} />
-                </>
+                <NotificationWrapper>
+                    <>
+                        <Navbar />
+                        <Component {...pageProps} />
+                    </>
+                </NotificationWrapper>
             </SessionTimer>
         </UserProvider>
     );

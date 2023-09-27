@@ -9,6 +9,7 @@ export default async function handle(req, res) {
             `token=; HttpOnly; Path=/; Max-Age=0; SameSite=Strict;`, // Clear the token cookie
         ]);
 
+
         return res.status(200).json({ message: 'Logged out successfully' });
     } catch (error) {
         console.error(error);

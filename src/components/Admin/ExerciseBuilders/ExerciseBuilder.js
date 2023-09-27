@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
-import styles from "../styles/Admin.ExerciseBuilder.module.scss";
+import React, { useEffect, useState } from "react";
+import { MenuItem, Select } from "@mui/material";
+import { FormControl, InputLabel } from "@mui/material";
+import styles from "../../../styles/Admin.ExerciseBuilder.module.scss";
 
 const ExerciseBuilder = () => {
     const [data, setData] = useState({});
@@ -11,7 +13,7 @@ const ExerciseBuilder = () => {
 
     useEffect(() => {
         // Fetch available JSON files
-        fetch("/api/fileHelper")
+        fetch("/api/fileHelper?prefix=listening")
             .then((res) => res.json())
             .then((files) => setAvailableFiles(files));
 
@@ -20,6 +22,7 @@ const ExerciseBuilder = () => {
             .then((res) => res.json())
             .then((data) => setData(data));
     }, []);
+
     const handleFileChange = (e) => {
         setSelectedFile(e.target.value);
         setSelectedCategory(null); // Reset category
@@ -59,7 +62,6 @@ const ExerciseBuilder = () => {
         });
     };
     const handleDeleteSelectedWords = () => {
-        // Make sure to include the selected file in all API requests related to words
         const deleteRequests = selectedItems.map((word) =>
             fetch(`/api/words?file=${selectedFile}`, {
                 // Include the file in request
@@ -87,25 +89,40 @@ const ExerciseBuilder = () => {
 
     return (
         <div className={styles.exerciseBuilder}>
-            <select onChange={handleFileChange} value={selectedFile}>
+            <InputLabel id="ExerciseBuilder-select-label">Choose file</InputLabel>
+            <Select
+                className={styles.select}
+                onChange={handleFileChange}
+                labelId="ExerciseBuilder-select-label"
+                id="ExerciseBuilder-select"
+                variant="outlined"
+                value={selectedFile}
+            >
                 {availableFiles.map((file) => (
-                    <option key={file} value={file}>
-                        {file}
-                    </option>
+                    <MenuItem key={file} value={file}>
+                        {file.replace(".json", "")}
+                    </MenuItem>
                 ))}
-            </select>
-            <select onChange={handleCategoryChange}>
-                <option value="">Select a Category</option>
+            </Select>
+            <InputLabel id="ExerciseBuilder-select-label">Choose category</InputLabel>
+            <Select
+                className={styles.select}
+                onChange={handleCategoryChange}
+                labelId="ExerciseBuilder-select"
+                id="ExerciseBuilder-select"
+                variant="outlined"
+                value={selectedCategory}
+            >
                 {Object.keys(data).map((category) => (
-                    <option key={category} value={category}>
+                    <MenuItem key={category} value={category}>
                         {category}
-                    </option>
+                    </MenuItem>
                 ))}
-            </select>
+            </Select>
 
             <div className={styles.categoryDisplay}>
                 {selectedCategory &&
-                    data[selectedCategory]?.map((item) => (
+                    data[selectedCategory].map((item) => (
                         <button
                             key={item}
                             onClick={() => handleItemClick(item)}

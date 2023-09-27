@@ -8,11 +8,13 @@
   font-weight: 700;
   font-size: 24px;
 }
+
 .word {
   font-family: serif;
   font-weight: 900;
   font-size: 72px;
 }
+
 .img_container,
 .correctImg {
   display: inline-flex;
@@ -21,16 +23,20 @@
   height: auto;
   object-fit: cover;
 }
+
 #correct > img {
   display: inline-block;
   text-align: center;
 }
+
 .show {
   display: block;
 }
+
 .hidden {
   display: none;
 }
+
 .nextBtn {
   background-color: white;
   border: 1px solid rgba(63, 118, 224, 0.58);

@@ -50,22 +50,28 @@ const Levels = () => {
     ];
 
     return (
-        <div className={`${styles.levels_container} font-custom`}>
+        <div className={`${styles.levels_container} custom-font`}>
             <h1 className={`font-custom ${styles.header}`}>Harjoituksia</h1>
             <ul className={styles.levels_list}>
                 {levelsData.map((level, index) => (
-                    <li key={index} className={`${styles.levels_item} font-custom`} onClick={() => handleItemClick(index)}>
+                    <li
+                        key={index}
+                        className={`${styles.levels_item} font-custom`}
+                        onClick={() => handleItemClick(index)}
+                    >
                         <h2 className={styles.level_title}>
                             {flippedStates[index] ? level.title.finnish : level.title.english}
                         </h2>
                         <p className={styles.level_description}>
-                            {flippedStates[index] ? level.description.finnish : level.description.english}
+                            {flippedStates[index]
+                                ? level.description.finnish
+                                : level.description.english}
                         </p>
                     </li>
                 ))}
             </ul>
         </div>
     );
-}
+};
 
 export default Levels;
