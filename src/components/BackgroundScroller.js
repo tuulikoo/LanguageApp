@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styles from '../styles/BackgroundScroller.module.scss';
 const svgList = [
-
+    'undraw_bibliophile_re_xarc.svg',
     'undraw_before_dawn_re_hp4m.svg',
     'undraw_launching_re_tomg.svg',
     'undraw_ride_a_bicycle_re_6tjy.svg',
@@ -24,7 +24,7 @@ const BackgroundScroller = () => {
     }, []);
 
     return (
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+        <div style={{ position: "absolute", top: 0, left: 10, width: '100%', height: '100%' }}>
             {svgList.map((svg, index) => {
                
                 const baseOffset = index * 130; 
