@@ -23,7 +23,7 @@ const Levels = () => {
                 finnish:
                     "oppiminen korttien  mukaan, saat sanan suomeksi, kuin englanniksi. Tällä tasolla on hyvä aloittaa englannin kielen opiskelu.",
             },
-            route: "/flashcards",
+            route: "/Level1",
         },
         {
             title: {
