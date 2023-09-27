@@ -3,6 +3,7 @@ import styles from '../styles/UpdateDetailsComponent.module.scss';
 import React, {useState} from 'react';
 import axios from 'axios';
 import UserPointsComponent from '@/components/UserPointsComponent';
+import {useRouter} from "next/router";
 
 
 function UpdateDetailsComponent({setUser}) {
@@ -20,6 +21,9 @@ function UpdateDetailsComponent({setUser}) {
     const [newAvatar, setNewAvatar] = useState('');
     const {user, loading} = useUser();
     const [avatarHovered, setAvatarHovered] = useState(false);
+    const [isDeleteModalVisible, setDeleteModalVisible] = useState(false);
+
+    const router = useRouter();
 
     const avatars = [
         {id: 1, src: 'avatars/avatar1.png'},
@@ -99,6 +103,35 @@ function UpdateDetailsComponent({setUser}) {
             }
         }
     };
+    const handleDeleteAccount = () => {
+        // Open the delete confirmation modal
+        setDeleteModalVisible(true);
+    };
+
+    const handleConfirmDelete = async () => {
+        // Close the delete confirmation modal
+        setDeleteModalVisible(false);
+
+        try {
+            // Send a DELETE request to your API endpoint to delete the user's account
+            const response = await axios.delete('/api/deleteUser'); // Replace with the correct API endpoint
+
+            if (response.status === 200) {
+                // Account deleted successfully, navigate to a logout or home page
+                router.push('/MainPage'); // Replace with the URL of your logout or home page
+            } else {
+                console.error('Failed to delete user account.');
+            }
+        } catch (error) {
+            console.error('An error occurred while deleting user account:', error);
+        }
+    };
+
+    const handleCancelDelete = () => {
+        // Close the delete confirmation modal
+        setDeleteModalVisible(false);
+    };
+
 
 
     return (
@@ -249,6 +282,24 @@ function UpdateDetailsComponent({setUser}) {
             <div className={styles.points}>
             <UserPointsComponent/>
             </div>
+            <div>
+                <button className={`${styles.deleteButton} ${styles.customDeleteButton}`} onClick={handleDeleteAccount}>
+                    Poista tietoni
+                </button>
+            </div>
+            {isDeleteModalVisible && (
+                <div className={styles.deleteModal}>
+                    <p>Haluatko varmasti poistaa tilisi?</p>
+                    <div className={styles.deleteModalButtons}>
+                        <button className={styles.deleteModalButton} onClick={handleConfirmDelete}>
+                            Kyllä
+                        </button>
+                        <button className={styles.deleteModalButton} onClick={handleCancelDelete}>
+                            Ei
+                        </button>
+                    </div>
+                </div>
+            )}
 
         </div>
     );

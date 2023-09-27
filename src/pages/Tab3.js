@@ -1,7 +1,11 @@
 import React from 'react';
+import UserList from '../components/userlist/UserlistComponent';
 
 const Tab3 = () => {
-    return <div>Tab 3 content</div>;
+    return (
+
+        <UserList />
+    );
 };
 
 export default Tab3;
