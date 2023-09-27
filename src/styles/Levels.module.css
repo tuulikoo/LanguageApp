@@ -23,6 +23,7 @@
 }
 
 .levels_container h1 {
+    font-family: "Dela Gothic One",serif;
     font-size: 2rem;
     color: #f0cf21; /* Red text color */
     margin-bottom: 20px;
@@ -55,16 +56,18 @@
 }
 
 .levels_item p {
-    color: rgba(0, 0, 138, 0.63); /* Dark blue text color */
+    color: rgba(2, 2, 96, 0.63); /* Dark blue text color */
     font-size: 13px;
     text-align: center;
     margin-top: 10px;
+    font-family: "Dela Gothic One",serif;
 }
 
 .levels_item p:first-child {
+    font-family: "Dela Gothic One",serif;
     font-size: 1.2rem;
     font-weight: bold;
-    color: #004092; /* Red text color */
+    color: #7c427e; /* Red text color */
 }
 
 .levels_item:hover {

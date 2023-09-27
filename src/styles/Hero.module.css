@@ -23,7 +23,14 @@
     max-height: 400px; /* Adjust the max-height as needed */
     object-fit: contain;
     margin: 0 auto; /* Center the image horizontally */
-    display: block; /* Ensure the image is centered */
+    display: flex; /* Ensure the image is centered */
+}
+
+.hero_img2 {
+    width: 70%; /* Adjust the width as needed */
+    max-height: 400px; /* Adjust the max-height as needed */
+    object-fit: contain;
+    display: flex;
 }
 
 .hero_title {

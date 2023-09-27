@@ -18,7 +18,6 @@ export default function ResponsiveCarousel() {
                     {items.map(({ id, imageUrl, title, text }) => (
                         <div key={id} className={styles.swipItem}>
                             <div className={styles.imgBox}>
-                                <h1 className={`font-custom ${styles.h1}`}>Reviews</h1>
                                 <img src={imageUrl} alt="slides" />
                             </div>
                             <div className={styles.detail}>
