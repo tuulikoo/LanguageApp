@@ -36,7 +36,8 @@ Verify That Game4-page Is Visible
     Get Text    body    contains    Tämän tehtävän pisteet: 0
 
 Choose Correct Answer
-    Click   xpath=//*[@id="__next"]/div[2]/div[2]/div/div/button[3]
+    Click   xpath=//*[@id="__next"]/div[2]/div[2]/div/div/div/button[4]
+
 
 Verify That Right Click Was Registered
     Get Text    body    contains    Oikein
@@ -45,7 +46,7 @@ Verify That Point was Given for Correct Answer
     Get Text    body    contains    Tämän tehtävän pisteet: 1
 
 Answer Wrong To Next Question
-    Click   xpath=//*[@id="__next"]/div[2]/div[2]/div/div/button[4]
+    Click   xpath=//*[@id="__next"]/div[2]/div[2]/div/div/div/button[4]
 
 Verify That Wrong Click Was Registered
     Get Text    body    contains    Väärin

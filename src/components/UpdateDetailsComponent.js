@@ -71,7 +71,7 @@ function UpdateDetailsComponent({setUser}) {
     const handleSaveClick = async () => {
         const dataToUpdate = {};
         if (newUserName !== '') {
-            dataToUpdate.newUserName = newUserName;
+            dataToUpdate.newUsername = newUserName;
         }
         if (newPassword !== '') {
             dataToUpdate.newPassword = newPassword;
@@ -111,8 +111,8 @@ function UpdateDetailsComponent({setUser}) {
                 <br/>
                 <p>Tästä voit tarkistaa omat tietosi ja tehdä niihin muutoksia:</p>
                 <h3>Etunimesi on {user.firstName}</h3>
-                <h3>käyttiksesi on {user.username}</h3>
-                <h3>emailisi on {user.email}</h3>
+                <h3>Käyttäjänimesi on {user.username}</h3>
+                <h3>Sähköpostisosoitteesi on {user.email}</h3>
                 <h3>
                     Avatarisi on{' '}
                     <img
@@ -143,8 +143,8 @@ function UpdateDetailsComponent({setUser}) {
                             <div>
                                 <input
                                     className={styles.inputField}
-                                    id="text"
-                                    type="text"
+                                    id="usrinput"
+                                    type="username"
                                     placeholder="Enter new username"
                                     value={newUserName}
                                     onChange={(e) => setNewUserName(e.target.value)}
