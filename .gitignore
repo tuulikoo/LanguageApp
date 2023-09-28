@@ -42,5 +42,4 @@ src/utils/mimic3/
 .idea
 .vscode
 mimic3
-# json files
-*.json
+
