@@ -1,16 +1,56 @@
-import React, { useEffect, useState } from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import styles from "../styles/Level2.module.scss";
 import fruits from "../utils/wordlists/fruits_level2.json";
 import animals from "../utils/wordlists/animals_level2.json";
 import {textToSpeech} from '../utils/mimicApi';
+import { useUser } from '@/utils/userContext';
 
+const getWordListKey = (points) => {
+    for (let level of POINT_LEVELS) {
+        if (points <= level.threshold) {
+            return level.key;
+        }
+    }
+};
 
-function Level2 () {
+const Level2 =() =>{
     const [idx, setIdx] = useState(0);
+    const { user } = useUser();
+    const initialUserPoints = user ? user.userPoints : 0;
+    const [userPointsState, setUserPointsState] = useState(initialUserPoints);
+    const [isLoading, setIsLoading] = useState(true);
     const [isVisible, setIsVisible] = useState(false);
     const [error, setError] = useState(0);
     const [itemsJson, setItemJson]=useState(fruits);
     const [isFinal, setIsFinal]=useState(false);
+
+    const updateUserPoints = useCallback(async () => {
+        const pointsToAdd = 1;
+        // setIsLoading(true);
+        try {
+            const response = await fetch('/api/updatePoints', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ userId: user.id, newPoints: pointsToAdd })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                setUserPointsState(data.updatedPoints);
+            } else {
+                throw new Error('Failed to update points');
+            }
+        } catch (error) {
+            console.error('Error:', error.message);
+        }
+        // setIsLoading(false);
+    }, [user?.id]);
+
+    useEffect(() => {
+        if (user && user.userPoints) {
+            setUserPointsState(user.userPoints);
+        }
+    }, [ updateUserPoints, user]);
 
     const nextWord=()=>{
         setIdx(idx+1);
@@ -31,9 +71,10 @@ function Level2 () {
         }
     }
 
-    const onClick = (e) => {
+    const onClick =async (e) => {
         if(idx == e.target.id){
             document.getElementById("info").textContent="Woooooow!";
+            await updateUserPoints();
             setIsVisible(true);
         } else {
             document.getElementById("info").textContent="Nice try";
@@ -57,6 +98,7 @@ function Level2 () {
     };
 
         return (<>
+
             <div className={styles.container} id="container">
                 <p className={styles.title}> Choose the right image:</p>
                 <p className={styles.word} id="word" onChange={handleSpeakButtonClick(itemsJson[idx].eng)}>{itemsJson[idx].eng} </p>
