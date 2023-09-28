@@ -10,7 +10,7 @@ const BackgroundScroller = () => {
     const [scrollY, setScrollY] = useState(0);
 
     const handleScroll = () => {
-        const speedFactor = 0.07; // Adjust this to control the scroll speed of the background
+        const speedFactor = 0.07;
         const newScrollY = window.scrollY * speedFactor;
         setScrollY(newScrollY);
     };
