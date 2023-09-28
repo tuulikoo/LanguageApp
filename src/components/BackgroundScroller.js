@@ -9,7 +9,7 @@ const BackgroundScroller = () => {
     const [scrollY, setScrollY] = useState(0);
 
     const handleScroll = () => {
-        const speedFactor = 0.04;
+        const speedFactor = 0.02;
         const newScrollY = window.scrollY * speedFactor;
         setScrollY(newScrollY);
     };
@@ -26,7 +26,7 @@ const BackgroundScroller = () => {
         <div style={{ position: "absolute", top: 0, left: 10, width: '100%', height: '90%' }}>
             {svgList.map((svg, index) => {
 
-                const baseOffset = index * 130;
+                const baseOffset = index * 100;
 
                 return (
                     <div
