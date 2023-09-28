@@ -41,6 +41,13 @@ const Levels = () => {
         },
     ];
 
+    const [flippedStates, setFlippedStates] = useState([true, true, true]);
+
+    const handleItemClick = (index) => {
+        const newFlippedStates = [...flippedStates];
+        newFlippedStates[index] = !newFlippedStates[index];
+        setFlippedStates(newFlippedStates);
+    };
     return (
         <div className={`${styles.levels_container} custom-font`}>
             <h1 className={`font-custom ${styles.header}`}>Harjoituksia</h1>
