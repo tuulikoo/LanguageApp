@@ -2,14 +2,6 @@ import React, { useState } from "react";
 import styles from "@/styles/Levels.module.css";
 
 const Levels = () => {
-    const [flippedStates, setFlippedStates] = useState([true, true, true]);
-
-    const handleItemClick = (index) => {
-        const newFlippedStates = [...flippedStates];
-        newFlippedStates[index] = !newFlippedStates[index];
-        setFlippedStates(newFlippedStates);
-    };
-
     const levelsData = [
         {
             title: {
