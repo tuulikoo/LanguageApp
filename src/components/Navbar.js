@@ -31,7 +31,7 @@ function Navbar() {
                 ) : (
                     <>
                         <button className={styles.navButton} onClick={() => router.push('/Levels')}>Tehtävät</button>
-                        <button className={styles.navButton} onClick={handleLogout}>Kirjaudu ulos</button>
+                        <button className={styles.navButton} id="signout" onClick={handleLogout}>Kirjaudu ulos</button>
                     </>
                 )}
             </div>

@@ -1,19 +1,77 @@
 /*levels*/
-.levels_container {
-    width: 100vw;
-    text-align: center;
-    color: rgba(39, 70, 134, 0.58);
+@font-face {
+    font-family: "Dela Gothic One"; /* Specify the font family name */
+    src: url('../../public/fonts/DelaGothicOne-Regular.ttf') format('truetype'); /* Specify the path to your TTF font file */
 }
 
+.custom-font {
+    font-family: 'Dela Gothic One', sans-serif; /* Use the imported font family name */
+}
+
+.levels_container {
+    width: 100vw;
+}
+/* Levels.module.css */
+
+.levels_container {
+    background-color: #65b8bf; /* Light blue background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(13, 4, 5, 0.1);
+    text-align: center;
+    font-family: Gabriola,serif;
+}
+
+.levels_container h1 {
+    font-family: "Dela Gothic One",serif;
+    font-size: 2rem;
+    color: #f0cf21; /* Red text color */
+    margin-bottom: 20px;
+
+}
+
+
 .levels_list {
+    list-style: none;
+    padding: 0;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
-    list-style-type: none;
-    padding: 0px;
+}
+.levels_item{
+    width: 30vw;
+    border: 1px solid rgba(63, 118, 224, 0.58);
 }
 
 .levels_item {
-    width: 30vw;
-    border: 1px solid rgba(63, 118, 224, 0.58);
+    background-color: #8bdcb0; /* Light green background */
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px 0;
+    width: 80%;
+    box-shadow: 0px 4px 8px rgba(13, 4, 5, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.levels_item p {
+    color: rgba(2, 2, 96, 0.63); /* Dark blue text color */
+    font-size: 13px;
+    text-align: center;
+    margin-top: 10px;
+    font-family: "Dela Gothic One",serif;
+}
+
+.levels_item p:first-child {
+    font-family: "Dela Gothic One",serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #7c427e; /* Red text color */
+}
+
+.levels_item:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+    background-color: #95d5d6; /* Light blue-green on hover */
 }

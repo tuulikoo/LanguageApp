@@ -5,9 +5,7 @@ import styles from "../styles/Carousel.module.scss";
 
 export default function ResponsiveCarousel() {
     return (
-
         <div className={styles.carousel_container}>
-            <h1 className={styles.carousel_title}>🅁🄴🅅🄸🄴🅆🅂</h1>
             <div className={styles.container}>
                 <Carousel
                     showArrows={true}
@@ -17,20 +15,19 @@ export default function ResponsiveCarousel() {
                     dynamicHeight={false}
                     className={styles.mySwiper}
                 >
-                    {items.map(({id, imageUrl, title, text}) => (
+                    {items.map(({ id, imageUrl, title, text }) => (
                         <div key={id} className={styles.swipItem}>
                             <div className={styles.imgBox}>
-                                <img src={imageUrl} alt="slides"/>
+                                <img src={imageUrl} alt="slides" />
                             </div>
                             <div className={styles.detail}>
-                                <h2>{title}</h2>
-                                <p>{text}</p>
+                                <h2 className="font-custom">{title}</h2>
+                                <p className="font-custom">{text}</p>
                             </div>
                         </div>
                     ))}
                 </Carousel>
             </div>
         </div>
-
     );
 }

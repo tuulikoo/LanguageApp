@@ -1,0 +1,62 @@
+{
+  "flashcards": {
+    "food": [
+      {
+        "word": "kakku",
+        "definition": "cake"
+      },
+      {
+        "word": "ruoka",
+        "definition": "food"
+      },
+      {
+        "word": "juoma",
+        "definition": "drink"
+      },
+      {
+        "word": "hedelmä",
+        "definition": "fruit"
+      },
+      {
+        "word": "jäätelö",
+        "definition": "ice cream"
+      }
+    ],
+    "people": [
+      {
+        "word": "ystävä",
+        "definition": "friend"
+      },
+      {
+        "word": "perhe",
+        "definition": "family"
+      },
+      {
+        "word": "opettaja",
+        "definition": "teacher"
+      }
+    ],
+    "animals": [
+      {
+        "word": "koira",
+        "definition": "dog"
+      },
+      {
+        "word": "kissa",
+        "definition": "cat"
+      },
+      {
+        "word": "lintu",
+        "definition": "bird"
+      },
+      {
+        "word": "kala",
+        "definition": "fish"
+      },
+      {
+        "word": "kani",
+        "definition": "rabbit"
+      }
+    ]
+  }
+}

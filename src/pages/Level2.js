@@ -4,6 +4,7 @@ import fruits from "../utils/wordlists/fruits_level2.json";
 import animals from "../utils/wordlists/animals_level2.json";
 import {textToSpeech} from '../utils/mimicApi';
 
+
 function Level2 () {
     const [idx, setIdx] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
@@ -28,11 +29,9 @@ function Level2 () {
             document.getElementById("button").className="hidden";
             textToSpeech("Great job");
         }
-
     }
 
     const onClick = (e) => {
-
         if(idx == e.target.id){
             document.getElementById("info").textContent="Woooooow!";
             setIsVisible(true);
@@ -41,6 +40,7 @@ function Level2 () {
 
             e.target.classList.add("hidden");
             document.getElementById("info").textContent="Nice try!";
+
             setError(error+1);
             setIsVisible(false);
 

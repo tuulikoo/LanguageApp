@@ -1,17 +1,29 @@
+/* Carousel.module.scss */
+@font-face {
+  font-family: "Dela Gothic One"; /* Specify the font family name */
+  src: url('../../public/fonts/DelaGothicOne-Regular.ttf') format('truetype'); /* Specify the path to your TTF font file */
+}
+
+.custom-font {
+  font-family: 'Dela Gothic One', sans-serif; /* Use the imported font family name */
+}
+
 .carousel_container {
   text-align: center;
-  color: rgba(39, 70, 134, 0.58);
+  color: rgb(0, 64, 145);
 }
 
 .container {
+  padding-top: 40px;
   width: 100vw;
   display: inline-flex;
   justify-content: center;
+  border-radius: 50%;
 }
 
 .mySwiper {
   width: 90vw;
-  background: rgba(63, 118, 224, 0.1);
+  background: rgb(138, 219, 175);
   padding-top: 60px;
   margin-bottom: 40px;
 }
@@ -38,4 +50,24 @@
 
 .selected {
   width: 90vw;
+}
+
+
+@media (max-width: 768px) {
+  .swipItem {
+    margin-top: 20px; /* Adjust margin for top space on narrow screens */
+    align-items: center; /* Center content horizontally on small screens */
+    text-align: center; /* Center text on small screens */
+  }
+
+  .imgBox {
+    width: 50%; /* Adjust the image width for small screens */
+    max-width: none; /* Remove max-width constraint for the image */
+    margin-bottom: 10px; /* Add margin to create space between image and text */
+  }
+
+  .carousel_title,
+  .carousel_text {
+    margin-top: 5px; /* Adjust margin for better spacing */
+  }
 }

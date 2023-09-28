@@ -1,0 +1,81 @@
+{"level":30,"time":"2023-09-27T11:19:31.480Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Listening on 65086"}
+{"level":30,"time":"2023-09-27T11:19:31.506Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-27T11:19:31.506Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-27T11:19:31.508Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-27T11:19:31.508Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-27T11:19:31.510Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2023-09-27T11:19:32.104Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method newBrowser"}
+{"level":30,"time":"2023-09-27T11:19:32.106Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2023-09-27T11:19:32.106Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method newPage"}
+{"level":30,"time":"2023-09-27T11:19:32.113Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Changed active context"}
+{"level":30,"time":"2023-09-27T11:19:32.519Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Video path: undefined"}
+{"level":30,"time":"2023-09-27T11:19:32.519Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Changed active page"}
+{"level":30,"time":"2023-09-27T11:19:32.852Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method newPage"}
+{"level":30,"time":"2023-09-27T11:19:32.856Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method fillText"}
+{"level":30,"time":"2023-09-27T11:19:32.856Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Strict mode is enabled, find Locator with id=login_username in page."}
+{"level":30,"time":"2023-09-27T11:19:32.935Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method fillText"}
+{"level":30,"time":"2023-09-27T11:19:32.936Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method fillText"}
+{"level":30,"time":"2023-09-27T11:19:32.936Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Strict mode is enabled, find Locator with id=login_password in page."}
+{"level":30,"time":"2023-09-27T11:19:32.944Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method fillText"}
+{"level":30,"time":"2023-09-27T11:19:32.946Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method click"}
+{"level":30,"time":"2023-09-27T11:19:32.946Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Strict mode is enabled, find Locator with id=login_loginButton in page."}
+{"level":30,"time":"2023-09-27T11:19:32.981Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method click"}
+{"level":30,"time":"2023-09-27T11:19:36.994Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method newPage"}
+{"level":30,"time":"2023-09-27T11:19:36.994Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2023-09-27T11:19:37.033Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Video path: undefined"}
+{"level":30,"time":"2023-09-27T11:19:37.033Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Changed active page"}
+{"level":30,"time":"2023-09-27T11:19:37.295Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method newPage"}
+{"level":30,"time":"2023-09-27T11:19:39.306Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-27T11:19:39.307Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-27T11:19:39.339Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nValitse oikea sana\nKokonaispisteesi: 0\nOlet tehtävätasolla: 1\nTämän tehtävän pisteet: 0\nMango\nPineapple\nLemon\nApple\n\n×\n\nOlet treenannut 0 minuuttia! Jatka samaan malliin"}
+{"level":30,"time":"2023-09-27T11:19:39.339Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-27T11:19:42.347Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method click"}
+{"level":30,"time":"2023-09-27T11:19:42.347Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"__next\"]/div[2]/div[2]/div/div/div/button[4] in page."}
+{"level":30,"time":"2023-09-27T11:19:42.397Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method click"}
+{"level":30,"time":"2023-09-27T11:19:43.402Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-27T11:19:43.402Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-27T11:19:43.409Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nValitse oikea sana\nKokonaispisteesi: 10\nOlet tehtävätasolla: 1\nTämän tehtävän pisteet: 1\nMango\nPineapple\nLemon\nApple\n\nOikein!\n\n×\n\nOlet treenannut 0 minuuttia! Jatka samaan malliin"}
+{"level":30,"time":"2023-09-27T11:19:43.409Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-27T11:19:45.415Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-27T11:19:45.415Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-27T11:19:45.423Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nValitse oikea sana\nKokonaispisteesi: 11\nOlet tehtävätasolla: 1\nTämän tehtävän pisteet: 1\nOrange\nBanana\nPeach\nCoconut"}
+{"level":30,"time":"2023-09-27T11:19:45.423Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-27T11:19:48.429Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method click"}
+{"level":30,"time":"2023-09-27T11:19:48.429Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"__next\"]/div[2]/div[2]/div/div/div/button[4] in page."}
+{"level":30,"time":"2023-09-27T11:19:48.454Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method click"}
+{"level":30,"time":"2023-09-27T11:19:51.461Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-27T11:19:51.461Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-27T11:19:51.473Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nValitse oikea sana\nKokonaispisteesi: 11\nOlet tehtävätasolla: 1\nTämän tehtävän pisteet: 1\nOrange\nBanana\nPeach\nCoconut\n\nVäärin, yritä uudelleen!"}
+{"level":30,"time":"2023-09-27T11:19:51.473Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-27T11:19:55.481Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method getText"}
+{"level":30,"time":"2023-09-27T11:19:55.481Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Strict mode is enabled, find Locator with body in page."}
+{"level":30,"time":"2023-09-27T11:19:55.492Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Retrieved text for element body containing Etusivu\nTehtävät\nKirjaudu ulos\nValitse oikea sana\nKokonaispisteesi: 11\nOlet tehtävätasolla: 1\nTämän tehtävän pisteet: 1\nOrange\nBanana\nPeach\nCoconut\n\nVäärin, yritä uudelleen!"}
+{"level":30,"time":"2023-09-27T11:19:55.492Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method getText"}
+{"level":30,"time":"2023-09-27T11:19:55.497Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-27T11:19:55.498Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-27T11:19:55.500Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-27T11:19:55.501Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-27T11:19:55.502Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Changed active context"}
+{"level":30,"time":"2023-09-27T11:19:55.502Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Changing current active page"}
+{"level":30,"time":"2023-09-27T11:19:55.502Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Changed active page"}
+{"level":30,"time":"2023-09-27T11:19:55.506Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-27T11:19:55.507Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-27T11:19:55.508Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method switchBrowser"}
+{"level":30,"time":"2023-09-27T11:19:55.508Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method switchBrowser"}
+{"level":30,"time":"2023-09-27T11:19:55.509Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method switchBrowser"}
+{"level":30,"time":"2023-09-27T11:19:55.509Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method switchBrowser"}
+{"level":30,"time":"2023-09-27T11:19:55.510Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Changing current active page"}
+{"level":30,"time":"2023-09-27T11:19:55.510Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Changed active page"}
+{"level":30,"time":"2023-09-27T11:19:55.513Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-27T11:19:55.513Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-27T11:19:55.514Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Changed active context"}
+{"level":30,"time":"2023-09-27T11:19:55.514Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Changing current active page"}
+{"level":30,"time":"2023-09-27T11:19:55.514Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Changed active page"}
+{"level":30,"time":"2023-09-27T11:19:55.516Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method closeContext"}
+{"level":30,"time":"2023-09-27T11:19:55.522Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Removed page=38a6e16c-d5ee-4e18-9a31-c59ef8874336 from context=cecd71a2-c164-4a6c-a615-d11ceb0c636f page stack"}
+{"level":30,"time":"2023-09-27T11:19:55.527Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Removed page=bf015eca-85ea-4195-add1-b8237ea87637 from context=cecd71a2-c164-4a6c-a615-d11ceb0c636f page stack"}
+{"level":30,"time":"2023-09-27T11:19:55.562Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method closeContext"}
+{"level":30,"time":"2023-09-27T11:19:55.565Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-27T11:19:55.565Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2023-09-27T11:19:55.581Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2023-09-27T11:19:55.624Z","pid":42716,"hostname":"Tuulis-MacBook-Air.local","msg":"End of node method closeAllBrowsers"}

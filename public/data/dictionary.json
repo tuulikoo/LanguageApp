@@ -1,0 +1,43 @@
+{
+  "dictionary": {
+    "animals": {
+      "kukka": "flower",
+      "koira": "dog",
+      "kissa": "cat",
+      "lintu": "bird"
+    },
+    "objects": {
+      "auto": "car",
+      "talo": "house",
+      "pallo": "ball",
+      "kirja": "book"
+    },
+    "nature": {
+      "aurinko": "sun",
+      "kuu": "moon",
+      "sateenkaari": "rainbow",
+      "metsä": "forest"
+    },
+    "food": {
+      "kakku": "cake",
+      "ruoka": "food",
+      "juoma": "drink"
+    },
+    "greetings": {
+      "kiitos": "thank you",
+      "hyvästi": "goodbye",
+      "ole hyvä": "you're welcome"
+    },
+    "activities": {
+      "hauskaa": "fun",
+      "leikkiä": "play",
+      "uni": "sleep"
+    },
+    "numbers": {
+      "numero": "number"
+    },
+    "friends": {
+      "ystävä": "friend"
+    }
+  }
+}

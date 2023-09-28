@@ -1,41 +1,67 @@
+@font-face {
+    font-family: "Dela Gothic One"; /* Specify the font family name */
+    src: url('../../public/fonts/DelaGothicOne-Regular.ttf') format('truetype'); /* Specify the path to your TTF font file */
+}
+
+.custom-font {
+    font-family: 'Dela Gothic One', sans-serif; /* Use the imported font family name */
+}
+
+
+
 .hero_container {
     position: relative;
     width: 100vw;
     max-height: 700px;
     object-fit: cover;
     margin-bottom: 45px;
+    background-color: #8adbaf; /* Light blue background */
 }
 
 .hero_img {
-    width: 500px;
-    opacity: 0.4;
+    width: 70%; /* Adjust the width as needed */
+    max-height: 400px; /* Adjust the max-height as needed */
     object-fit: contain;
+    margin: 0 auto; /* Center the image horizontally */
+    display: flex; /* Ensure the image is centered */
+}
+
+.hero_img2 {
+    width: 70%; /* Adjust the width as needed */
+    max-height: 400px; /* Adjust the max-height as needed */
+    object-fit: contain;
+    display: flex;
 }
 
 .hero_title {
     position: absolute;
-    top: 0px;
-    right: 10%;
-    color: rgba(63, 118, 224, 0.78);
-    font-size: 70px;
+    top: 10%; /* Adjust the top position as needed */
+    left: 10%; /* Adjust the left position as needed */
+    color: #004092; /* Dark blue text color */
+    font-size: 2rem; /* Match the font size used in levels */
 }
 
 .hero_button {
     position: absolute;
-    bottom: 0%;
-    right: 30%;
-    background-color: white;
-    border: 1px solid rgba(63, 118, 224, 0.58);
-    color: rgba(63, 118, 224, 0.58);
+    bottom: 10%; /* Adjust the bottom position as needed */
+    left: 10%; /* Adjust the left position as needed */
+    background-color: #ff6b6b; /* Reddish-pink background for a cartoon-like look */
+    border: none;
+    color: #ffec00; /* White text color for contrast */
     text-decoration: none;
-    padding: 15px 25px;
-    border-radius: 25px;
-    -moz-box-shadow: 0px 0px 61px -1px rgba(96, 96, 219, 1);
-    box-shadow: 0px 0px 61px -1px rgba(96, 96, 219, 1);
+    padding: 20px 30px; /* Increase padding for a larger button */
+    border-radius: 30px; /* Make the button more rounded */
+    box-shadow: 0px 4px 8px rgba(13, 4, 5, 0.1);
+    font-weight: bold; /* Increase font weight for prominence */
+    font-size: 1.5rem; /* Increase font size for emphasis */
+    transition: background-color 0.3s, transform 0.2s; /* Add transitions for interactivity */
+    cursor: pointer;
 }
 
 .hero_button:hover, .hero_button:focus {
-    cursor: pointer;
-    color: #1db91d;
-    border: 3px solid transparent;
+    background-color: #ff4f4f; /* Darker background color on hover for emphasis */
+    transform: scale(1.05); /* Slightly scale up the button on hover for interaction */
 }
+
+
+

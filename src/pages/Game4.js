@@ -1,10 +1,10 @@
 import React from 'react';
-import Game4 from '../components/Game4';
+import Game4Component from '../components/Game4Component';
 
 const Game = () => {
     return (
 
-        <Game4 />
+        <Game4Component />
     );
 };
 

@@ -1,10 +1,8 @@
 import prisma from '../../utils/prisma';
 import bcrypt from 'bcrypt';
 
-
 const updateUser = async (req, res) => {
-    const { userId } = req.body; // The ID of the user you want to update
-    const { newUsername, newPassword, newEmail, newFirstName, newAvatarId } = req.body; // Update fields
+    const { userId, newUsername, newPassword, newEmail, newFirstName, newAvatarId, lastLevel } = req.body; // Update fields
 
     try {
         // Check if the user exists
@@ -38,6 +36,11 @@ const updateUser = async (req, res) => {
             existingUser.avatarId = newAvatarId;
         }
 
+        // Update the lastLevel if provided
+        if (lastLevel) {
+            existingUser.lastLevel = lastLevel;
+        }
+
         // Save the updated user details
         await prisma.user.update({
             where: { id: userId },
@@ -47,6 +50,7 @@ const updateUser = async (req, res) => {
                 email: existingUser.email,
                 firstName: existingUser.firstName,
                 avatarId: existingUser.avatarId,
+                lastLevel: existingUser.lastLevel, // Include lastLevel in the update
             },
         });
 
