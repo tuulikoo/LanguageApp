@@ -36,6 +36,8 @@ export default async function handle(req, res) {
                 userPoints: true,
                 lastLevel: true,
                 timeSpent: true,
+                userRole: true,
+
             },
         });
 

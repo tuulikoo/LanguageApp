@@ -2,15 +2,14 @@ import { useEffect, useState } from 'react';
 import styles from '../styles/BackgroundScroller.module.scss';
 const svgList = [
     'undraw_bibliophile_re_xarc.svg',
-    'undraw_before_dawn_re_hp4m.svg',
-    'undraw_launching_re_tomg.svg',
+    'undraw_reading_re_29f8.svg',
     'undraw_ride_a_bicycle_re_6tjy.svg',
 ];
 const BackgroundScroller = () => {
     const [scrollY, setScrollY] = useState(0);
 
     const handleScroll = () => {
-        const speedFactor = 0.07;
+        const speedFactor = 0.04;
         const newScrollY = window.scrollY * speedFactor;
         setScrollY(newScrollY);
     };
@@ -24,17 +23,17 @@ const BackgroundScroller = () => {
     }, []);
 
     return (
-        <div style={{ position: "absolute", top: 0, left: 10, width: '100%', height: '100%' }}>
+        <div style={{ position: "absolute", top: 0, left: 10, width: '100%', height: '90%' }}>
             {svgList.map((svg, index) => {
-               
-                const baseOffset = index * 130; 
+
+                const baseOffset = index * 130;
 
                 return (
                     <div
                         key={svg}
                         style={{
                             position: 'absolute',
-                            top: `${baseOffset - scrollY * (index + 1)}vh`,  
+                            top: `${baseOffset - scrollY * (index + 1)}vh`,
                             [index % 2 === 0 ? 'left' : 'right']: 0,
                             width: '50vw',
                             height: '100vh',
