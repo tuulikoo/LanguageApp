@@ -1,0 +1,23 @@
+.dashboard_container {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background-color: #f7f7f9;
+}
+
+.chart {
+  padding: 30px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.chart_title {
+  margin-bottom: 25px;
+  font-weight: 600;
+  font-size: 1.5em;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
