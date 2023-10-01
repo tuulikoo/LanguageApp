@@ -8,6 +8,8 @@
 }
 
 .navbar {
+  position: sticky;
+  top: 0;
   margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
@@ -15,6 +17,8 @@
   padding: 10px 20px;
   background-color: #f2d021;
   color: #ffffff;
+  z-index: 1000;
+
 
   .navItems {
     display: flex;
