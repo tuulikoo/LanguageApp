@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import styles from "../styles/Navbar.module.scss";
-import { useRouter } from "next/router";
-import { useUser } from "@/utils/userContext";
+import React, { useState } from 'react';
+import styles from '../styles/Navbar.module.scss';
+import { useRouter } from 'next/router';
+import { useUser } from '@/utils/userContext';
 
 function Navbar() {
     const { user, logout, loading } = useUser();
@@ -10,60 +10,31 @@ function Navbar() {
 
     const handleLogout = async () => {
         await logout();
-        router.push("/Login");
+        router.push('/Login');
     };
 
-    // Determine the target URL for the "avatar-image" link based on user authentication
-    const avatarLinkUrl = user ? "/UserPage" : "/Login";
+
+    const avatarLinkUrl = user ? '/UserPage' : '/Login';
 
     return (
         <div className={styles.navbar}>
             <div className={styles.navItems}>
-                <button
-                    className={styles.navButton}
-                    onClick={() => router.push("/MainPage")}
-                >
-                    Etusivu
-                </button>
+                <button className={styles.navButton} onClick={() => router.push('/MainPage')}>Etusivu</button>
 
                 {loading ? null : !user ? (
                     <>
-                        <button
-                            className={styles.navButton}
-                            onClick={() => router.push("/Login")}
-                        >
-                            Kirjaudu sisään
+                        <button className={styles.navButton} onClick={() => router.push('/Login')}>Kirjaudu sisään
                         </button>
-                        <button
-                            className={styles.navButton}
-                            onClick={() => router.push("/Registration")}
-                        >
-                            Rekisteröidy
+                        <button className={styles.navButton} onClick={() => router.push('/Registration')}>Rekisteröidy
                         </button>
                     </>
                 ) : (
                     <>
-                        {user.userRole === "admin" && (
-                            <button
-                                className={styles.navButton}
-                                onClick={() => router.push("/AdminPage")}
-                            >
-                                Admin
-                            </button>
+                        {user.userRole === 'admin' && (
+                            <button className={styles.navButton} onClick={() => router.push('/Admin')}>Admin</button>
                         )}
-                        <button
-                            className={styles.navButton}
-                            onClick={() => router.push("/Levels")}
-                        >
-                            Tehtävät
-                        </button>
-                        <button
-                            className={styles.navButton}
-                            id="signout"
-                            onClick={handleLogout}
-                        >
-                            Kirjaudu ulos
-                        </button>
+                        <button className={styles.navButton} onClick={() => router.push('/Levels')}>Tehtävät</button>
+                        <button className={styles.navButton} id="signout" onClick={handleLogout}>Kirjaudu ulos</button>
                     </>
                 )}
             </div>
@@ -76,14 +47,9 @@ function Navbar() {
                         className={styles.avatarButton}
                     >
                         <img
-                            src={
-                                user
-                                    ? `avatars/avatar${user.avatarId}.png`
-                                    : "avatars/default.png"
-                            }
-                            alt={user ? `${user.username} Avatar` : "Default Avatar"}
-                            className={`${styles.avatar} ${avatarHovered ? styles.avatarHovered : ""
-                                }`}
+                            src={user ? `avatars/avatar${user.avatarId}.png` : 'avatars/default.png'}
+                            alt={user ? `${user.username} Avatar` : 'Default Avatar'}
+                            className={`${styles.avatar} ${avatarHovered ? styles.avatarHovered : ''}`}
                         />
                     </button>
                 )}
@@ -91,5 +57,6 @@ function Navbar() {
         </div>
     );
 }
-
 export default Navbar;
+
+
