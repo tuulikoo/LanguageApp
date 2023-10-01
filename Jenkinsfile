@@ -41,14 +41,23 @@ pipeline {
             }
         }
 
+        stage('Setup Robot Environment') {
+            steps {
+                sh '''
+               
+                /opt/robotenv/bin/pip install robotframework robotframework-browser
+              
+                /opt/robotenv/bin/rfbrowser init
+                '''
+            }
+        }
+
         stage('Robot Framework Tests') {
             steps {
-                sh '/opt/robotenv/bin/robot -d ${WORKSPACE}/robot'
-                
-         }
+                sh '/opt/robotenv/bin/robot -d ${WORKSPACE}/output ${WORKSPACE}/robot'
+            }
             post {
                 always {
-                    
                     robot(
                         outputPath: "${WORKSPACE}/output",
                         outputFileName: 'output.xml',
