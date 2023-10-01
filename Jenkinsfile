@@ -50,7 +50,7 @@ pipeline {
                 always {
                     
                     robot(
-                        outputPath: "${WORKSPACE}/output"
+                        outputPath: "${WORKSPACE}/output",
                         outputFileName: 'output.xml',
                         reportFileName: 'report.html',
                         logFileName: 'log.html',
