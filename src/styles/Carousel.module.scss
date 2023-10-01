@@ -1,5 +1,6 @@
 .carousel_container {
     max-width: 800px;
+    border-radius: 8px;
     margin: 50px auto;
     padding: 20px;
     text-align: center;
@@ -15,8 +16,7 @@
 }
 
 .container {
-    background-color: #fff; 
-    border-radius: 0;
+    background-color: #fff;
     padding: 0;
     box-shadow: none;
 }
