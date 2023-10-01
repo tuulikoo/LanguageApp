@@ -48,6 +48,7 @@
 
 .subscription {
     display: flex;
+    z-index: 1;
 
     .subscription_form {
         display: flex;
