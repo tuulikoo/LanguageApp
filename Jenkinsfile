@@ -60,16 +60,17 @@ pipeline {
             }
         }
 
-        stage('Run Robot Tests') {
-        steps {
-            dir('/var/jenkins_home/workspace/LanguageApp/robot') {
-                sh '''
+       stage('Run Robot Tests') {
+         steps {
+        dir('/var/jenkins_home/workspace/LanguageApp/robot') {
+            sh '''#!/bin/bash
                 source venv_robot/bin/activate
                 robot test_app.robot
-                '''
+            '''
             }
         }
     }
+
 }
     post {
         always {
