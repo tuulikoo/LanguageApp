@@ -41,14 +41,21 @@ pipeline {
             }
         }
 
+        stage('Setup Robot Environment') {
+            steps {
+                sh '''
+                /opt/robotenv/bin/pip install robotframework-browser
+                /opt/robotenv/bin/rfbrowser init
+                '''
+            }
+        }
+
         stage('Robot Framework Tests') {
             steps {
-                sh '/opt/robotenv/bin/robot -d /var/jenkins_home/workspace/LanguageApp/robot /var/jenkins_home/workspace/LanguageApp/robot'
-                
-         }
+                sh '/opt/robotenv/bin/robot -d ${WORKSPACE}/robot ${WORKSPACE}/robot'
+            }
             post {
                 always {
-                    
                     robot(
                         outputPath: "${WORKSPACE}/output",
                         outputFileName: 'output.xml',
@@ -62,4 +69,6 @@ pipeline {
         }
     }
 }
+
+
 
