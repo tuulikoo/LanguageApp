@@ -43,17 +43,16 @@ pipeline {
 
          stage('Setup Robot Framework') {
             steps {
-                dir('/var/jenkins_home/workspace/LanguageApp/robot') {
-                     sh '''
-                     python3 -m venv venv_robot
-                     source venv_robot/bin/activate
-                     pip install robotframework robotframework-browser
-                     rfbrowser init
-                     '''
-                }
-            }
-        }
-
+            dir('/var/jenkins_home/workspace/LanguageApp/robot') {
+            sh '''
+                python3 -m venv venv_robot
+                . venv_robot/bin/activate
+                pip install robotframework robotframework-browser
+                rfbrowser init
+            '''
+             }
+         }
+    }
         stage('Run Next.js App') {
             steps {
                 sh 'npm start &'
