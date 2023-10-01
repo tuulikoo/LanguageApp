@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -35,8 +36,8 @@ pipeline {
             }
         }
 
-        stage('Node.js Tests'){
-            steps{
+        stage('Node.js Tests') {
+            steps {
                 sh 'npm test'
             }
         }
@@ -44,17 +45,21 @@ pipeline {
         stage('Setup Robot Environment') {
             steps {
                 sh '''
-               
-                /opt/robotenv/bin/pip install robotframework robotframework-browser
-              
-                /opt/robotenv/bin/rfbrowser init
+                # Install Python, pip, Robot Framework, and Robot Framework Browser library
+                apt-get update
+                apt-get install -y python3 python3-pip
+                pip3 install --upgrade pip
+                pip3 install robotframework robotframework-browser
+
+                # Initialize the Robot Framework Browser
+                rfbrowser init
                 '''
             }
         }
 
         stage('Robot Framework Tests') {
             steps {
-                sh '/opt/robotenv/bin/robot -d ${WORKSPACE}/output ${WORKSPACE}/robot'
+                sh '/opt/robotenv/bin/robot -d ${WORKSPACE}/robot ${WORKSPACE}/robot'
             }
             post {
                 always {
