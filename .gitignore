@@ -44,3 +44,12 @@ src/utils/mimic3/
 mimic3
 # json files
 *.json
+
+#robot
+log.html
+output.xml
+playwright-log.txt
+report.html
+myenv
+myrobotenv
+output.html
