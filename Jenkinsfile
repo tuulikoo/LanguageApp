@@ -1,9 +1,8 @@
-
 pipeline {
     agent any
 
     environment {
-        NODE_ENV = 'production'
+        NODE_ENV = 'dev'
     }
 
     stages {
@@ -41,10 +40,38 @@ pipeline {
                 sh 'npm test'
             }
         }
+
+        stage('Setup Robot Framework') {
+            steps {
+                sh '''
+                    pip install robotframework robotframework-browser
+                    rfbrowser init
+                '''
+            }
+        }
+
+        stage('Run Next.js App') {
+            steps {
+                sh 'npm start &'
+                sleep 15  
+            }
+        }
+
+        stage('Run Robot Tests') {
+            steps {
+                sh 'robot test_app.robot'
+            }
+        }
+    }
+
+    post {
+        always {
+           
+            sh 'pkill -f "next start" || true'
+        }
     }
 }
 
-    
 
 
 
