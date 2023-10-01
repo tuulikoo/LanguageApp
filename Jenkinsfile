@@ -43,7 +43,7 @@ pipeline {
 
         stage('Robot Framework Tests') {
             steps {
-                sh '/opt/robotenv/bin/robot -d ${WORKSPACE}/robot'
+                sh '/opt/robotenv/bin/robot -d /var/jenkins_home/workspace/LanguageApp/robot /var/jenkins_home/workspace/LanguageApp/robot'
                 
          }
             post {
