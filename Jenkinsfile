@@ -43,11 +43,10 @@ pipeline {
 
         stage('Robot Framework Tests') {
             steps {
+                sh '/opt/robotenv/bin/robot -d ${WORKSPACE}/robot'
+
                 
-                   sh '''#!/bin/bash -l
-                    source /opt/robotenv/bin/activate
-                    robot -d ${WORKSPACE}/robot
-                    '''
+                 
          }
             post {
                 always {
