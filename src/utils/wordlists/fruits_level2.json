@@ -1,0 +1,62 @@
+[
+  {
+    "id": 0,
+    "imageUrl": "https://media.istockphoto.com/id/474178403/fi/valokuva/p%C3%A4%C3%A4ryn%C3%A4-jonka-lehti-on-eristetty-valkoiselle-taustalle.jpg?s=612x612&w=0&k=20&c=YafTy1CpLI487JnDOnc3FeotZfgWcmvW5gEINxu6SIQ=",
+    "eng": "pear",
+    "fin": "päärynä"
+  },
+  {
+    "id": 1,
+    "imageUrl": "https://media.istockphoto.com/id/514110388/fi/valokuva/valkoviini-viiniryp%C3%A4leet-wachau.jpg?s=612x612&w=0&k=20&c=xOieygfss6j5-vU-VK0RlY294fAb_UuHmowf7NIJfEY=",
+    "eng": "grape",
+    "fin": "viinirypäle"
+  },
+  {
+    "id": 2,
+    "imageUrl": "https://media.istockphoto.com/id/1492582775/fi/vektori/puolet-kiivist%C3%A4-v%C3%A4lipalana-tai-ainesosana-3d-kuva.jpg?s=612x612&w=0&k=20&c=lTGe52Vk_Y95N3mfxFgvLUFd4Nr0pMTRm0yx_J_pFxo=",
+    "eng": "kiwi",
+    "fin": "kiivi"
+  },
+  {
+    "id": 3,
+    "imageUrl": "https://media.istockphoto.com/id/1389128157/fi/valokuva/sitruunahedelm%C3%A4t-joissa-on-lehti-eristetty-koko-sitruuna-ja-puoli-lehdill%C3%A4-valkoisella.jpg?s=612x612&w=0&k=20&c=GT47pbPxZypz_gdEWM0NBHhN73zP2kyzutvnsC3VdCw=",
+    "eng": "lemon",
+    "fin": "sitruuna"
+  },
+  {
+    "id": 4,
+    "imageUrl": "https://media.istockphoto.com/id/1393599686/fi/valokuva/persikan-hedelm%C3%A4t-leikataan-puoliksi-vihre%C3%A4ll%C3%A4-lehdell%C3%A4.jpg?s=612x612&w=0&k=20&c=EbD2s-73rxfhv5LbLMjZJgEwZSgA3YWO5_8z_8zv35o=",
+    "eng": "peach",
+    "fin": "persikka"
+  },
+  {
+    "id": 5,
+    "imageUrl": "https://media.istockphoto.com/id/896016050/fi/valokuva/viipaloitu-makea-vesimeloni-eristetty-valkoisella-taustalla.jpg?s=612x612&w=0&k=20&c=nrZClS_O2yekNt05DcciJCqoPFsVxRniZGcy3DqetoU=",
+    "eng": "watermelon",
+    "fin": "vesimeloni"
+  },
+  {
+    "id": 6,
+    "imageUrl": "https://media.istockphoto.com/id/1182799992/fi/valokuva/mustikka-jonka-lehti-on-eristetty-valkoiselle-pohjalle-leikepolulla.jpg?s=612x612&w=0&k=20&c=6okhim1llZhsWfVQaVF8jFZQmYRRDq2u5MLQ6K5MSbg=",
+    "eng": "blueberry",
+    "fin": "mustikka"
+  },
+  {
+    "id": 7,
+    "imageUrl": "https://media.istockphoto.com/id/1317775279/fi/valokuva/mansikat-eristetty-mansikkaviipale-ja-kokomarja-isolaatti-kaksi-mansikkaa-valkoisella.jpg?s=612x612&w=0&k=20&c=Q20cVHD62KMbbd5KNx7QhbDKCukKLI3_mVGUEkQLfdU=",
+    "eng": "strawberry",
+    "fin": "mansikka"
+  },
+  {
+    "id": 8,
+    "imageUrl": "https://media.istockphoto.com/id/648967314/fi/valokuva/vadelma-jonka-lehdet-on-eristetty-valkoiselle-taustalle.jpg?s=612x612&w=0&k=20&c=AhoL8SYRCWVtjGM0__J8HwksWFl1FI9myGJKHZSwip0=",
+    "eng": "raspberry",
+    "fin": "vadelma"
+  },
+  {
+    "id": 9,
+    "imageUrl": "https://media.istockphoto.com/id/182400599/fi/valokuva/karhunvatukka.jpg?s=612x612&w=0&k=20&c=sXYUYI0uTzwDlDyrFnKHBu6hRQZ6GXCI0MaZhHSaD-E=",
+    "eng": "blackberry",
+    "fin": "karhunvatukka"
+  }
+]
