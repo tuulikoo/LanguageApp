@@ -65,7 +65,7 @@ pipeline {
         dir('/var/jenkins_home/workspace/LanguageApp/robot') {
             sh '''#!/bin/bash
                 source venv_robot/bin/activate
-                robot test_app.robot
+                robot .
             '''
             }
         }
