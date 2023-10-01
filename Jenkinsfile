@@ -40,8 +40,8 @@ pipeline {
         stage('Setup Robot Environment') {
     steps {
         sh '''
-        # Source the virtual environment
-        source /opt/robotenv/bin/activate
+        # Source the virtual environment using the . operator
+        . /opt/robotenv/bin/activate
         
         # Check if robotframework-browser is installed, and if not, install it
         if ! /opt/robotenv/bin/pip show robotframework-browser > /dev/null 2>&1; then
@@ -53,6 +53,9 @@ pipeline {
         '''
     }
 }
+
+
+     
 
         stage('Robot Framework Tests') { 
             steps {
