@@ -38,15 +38,23 @@ pipeline {
         }
 
         stage('Setup Robot Environment') {
-            steps {
-                sh '''
-                /opt/robotenv/bin/pip install robotframework-browser
-                /opt/robotenv/bin/rfbrowser init
-                '''
-            }
-        }
+    steps {
+        sh '''
+        # Source the virtual environment
+        source /opt/robotenv/bin/activate
+        
+        # Check if robotframework-browser is installed, and if not, install it
+        if ! /opt/robotenv/bin/pip show robotframework-browser > /dev/null 2>&1; then
+            /opt/robotenv/bin/pip install robotframework-browser
+        fi
+        
+        # Initialize the robot framework browser if needed
+        /opt/robotenv/bin/rfbrowser init
+        '''
+    }
+}
 
-        stage('Robot Framework Tests') {
+        stage('Robot Framework Tests') { 
             steps {
                 sh '/opt/robotenv/bin/robot -d ${WORKSPACE}/robot ${WORKSPACE}/robot'
             }
