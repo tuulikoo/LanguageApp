@@ -27,7 +27,7 @@ Submit Login Form
     Click    id=login_loginButton
 
 Verify That MainPage Is Visible
-        Get Url    ==    ${MAINURL}
+    Get Url    ==    ${MAINURL}
 
 
 *** Test Cases ***
