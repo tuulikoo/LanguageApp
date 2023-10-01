@@ -47,7 +47,7 @@ pipeline {
             sh '''
                 python3 -m venv venv_robot
                 . venv_robot/bin/activate
-                pip install robotframework robotframework-browser
+                pip install robotframework robotframework-browser robotframework-seleniumlibrary
                 rfbrowser init
             '''
              }
