@@ -29,30 +29,22 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                sh 'npm run build'
-            }
-        }
+       
 
         stage('Node.js Tests'){
             steps{
                 sh 'npm test'
             }
         }
-        stage('Setup Robot Environment') {
-    steps {
-        sh '''
-        rm -rf /opt/robotenv
-        /usr/bin/python3.11 -m venv /opt/robotenv
-        /opt/robotenv/bin/pip install robotframework-browser
-        /opt/robotenv/bin/rfbrowser init
-        '''
-    }
-}
- 
 
-       
+        stage('Setup Robot Environment') {
+            steps {
+                sh '''
+                /opt/robotenv/bin/pip install robotframework-browser
+                /opt/robotenv/bin/rfbrowser init
+                '''
+            }
+        }
 
         stage('Robot Framework Tests') {
             steps {
