@@ -44,15 +44,13 @@ pipeline {
         stage('Robot Framework Tests') {
             steps {
                 sh '/opt/robotenv/bin/robot -d ${WORKSPACE}/robot'
-
                 
-                 
          }
             post {
                 always {
                     
                     robot(
-                        outputPath: 'output',
+                        outputPath: "${WORKSPACE}/output",
                         outputFileName: 'output.xml',
                         reportFileName: 'report.html',
                         logFileName: 'log.html',
