@@ -44,8 +44,11 @@ pipeline {
         stage('Robot Framework Tests') {
             steps {
                 
-                sh 'source /opt/robotenv/bin/activate && robot -d /var/jenkins_home/workspace/LanguageApp/robot'
-            }
+                   sh '''#!/bin/bash -l
+                    source /opt/robotenv/bin/activate
+                    robot -d ${WORKSPACE}/robot
+                    '''
+         }
             post {
                 always {
                     
