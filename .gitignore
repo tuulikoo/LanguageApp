@@ -43,3 +43,13 @@ src/utils/mimic3/
 .vscode
 mimic3
 
+#robot
+log.html
+output.xml
+playwright-log.txt
+report.html
+myenv
+myrobotenv
+output.html
+
+

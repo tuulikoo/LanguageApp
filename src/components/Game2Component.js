@@ -124,6 +124,7 @@ const ExerciseComponent = () => {
                     {showCorrect ? <div className={styles.correctMessage}>Oikein!</div> :
                         <>
                             <AudioButton onPlay={playAudio} />
+                            <div id="spoken-word" data-spoken-word={currentWordList[currentIndex]}></div>
                             <ExerciseForm inputWord={inputWord} onInputChange={setInputWord} onSubmit={handleSubmit} />
                             <ResultDisplay result={result} />
                             {currentIndex < currentWordList.length - 1 && <NextButton onNext={setNextWord} />}
@@ -160,6 +161,7 @@ const NextButton = ({ onNext }) => <button className={styles.seuraavaButton} onC
 
 
 export default ExerciseComponent;
+
 
 
 

@@ -78,4 +78,3 @@ Verify Points Given for Correct Answer
     Verify That Wrong Click Was Registered
     Sleep    4s
     Verify That Point was Not Given for Incorrect Answer
-
