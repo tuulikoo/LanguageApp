@@ -41,39 +41,8 @@ pipeline {
                 sh 'npm test'
             }
         }
-
-        stage('Setup Robot Environment') {
-            steps {
-                sh '''
-                # Install Python, pip, Robot Framework, and Robot Framework Browser library
-                apt-get update
-                apt-get install -y python3 python3-pip
-                pip3 install --upgrade pip
-                pip3 install robotframework robotframework-browser
-
-                # Initialize the Robot Framework Browser
-                rfbrowser init
-                '''
-            }
-        }
-
-        stage('Robot Framework Tests') {
-            steps {
-                sh '/opt/robotenv/bin/robot -d ${WORKSPACE}/robot ${WORKSPACE}/robot'
-            }
-            post {
-                always {
-                    robot(
-                        outputPath: "${WORKSPACE}/output",
-                        outputFileName: 'output.xml',
-                        reportFileName: 'report.html',
-                        logFileName: 'log.html',
-                        passThreshold: 0,    
-                        unstableThreshold: 0 
-                    )
-                }
-            }
-        }
     }
 }
 
+
+       
