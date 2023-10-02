@@ -3,6 +3,7 @@ import game4 from '../utils/wordlists/game4.json';
 import { useUser } from '../utils/userContext';
 import styles from '../styles/Game4Component.module.scss';
 import { textToSpeech } from '../utils/mimicApi';
+import {useRouter} from "next/router";
 
 
 function Game4Component({ onLevelCompletion }) { // Pass onLevelCompletion as a prop
@@ -19,6 +20,8 @@ function Game4Component({ onLevelCompletion }) { // Pass onLevelCompletion as a 
     const section = user ? user.lastLevel : "1";
     const data = game4[section];
     const questionsPerSection = 10;
+
+    const router = useRouter();
 
     useEffect(() => {
         if (user) {
@@ -187,6 +190,17 @@ function Game4Component({ onLevelCompletion }) { // Pass onLevelCompletion as a 
         setCurrentUserPoints(newPoints);
     };
 
+    const handleBackToMainPage = () => {
+        router.push('/MainPage'); // Replace '/MainPage' with the actual URL of your MainPage
+    };
+
+    const handleBackToPreviousQuestion = () => {
+        // Navigate the user back to the previous question
+        if (currentQuestion > 0) {
+            setCurrentQuestion(currentQuestion - 1);
+        }
+    };
+
     return (
         <div className={styles.pageContainer}>
             <div className={styles.textContainer}>
@@ -231,6 +245,14 @@ function Game4Component({ onLevelCompletion }) { // Pass onLevelCompletion as a 
                         <p>Sait {score} pistettä / {(data.length || 0)}.</p>
                     </div>
                 )}
+            </div>
+            <div className={styles.backArrows}>
+                <button onClick={handleBackToMainPage} data-tooltip="Go back to Main Page">
+                    <img src="https://cdn.pixabay.com/photo/2012/04/02/16/10/arrow-24848_640.png" alt="Back to MainPage" />
+                </button>
+                <button onClick={handleBackToPreviousQuestion} data-tooltip="Go back to Previous Question">
+                    <img src="https://cdn.pixabay.com/photo/2012/04/01/12/48/arrow-23284_640.png" alt="Back to Previous Question" />
+                </button>
             </div>
         </div>
     );
