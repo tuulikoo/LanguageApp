@@ -12,16 +12,16 @@
     { "Id": 10, "src": "animals/dolphin.webp", "btn1": "Shark", "btn2": "Fish", "btn3": "Dolphin", "btn4": "Whale", "correctOption": "Dolphin" }
   ],
   "1": [
-    { "Id": 1, "src": "fruits/apple.jpg", "btn1": "Mango", "btn2": "Pineapple", "btn3": "Lemon", "btn4": "Apple", "correctOption": "Apple" },
+    { "Id": 1, "src": "fruits/apple.png", "btn1": "Mango", "btn2": "Pineapple", "btn3": "Lemon", "btn4": "Apple", "correctOption": "Apple" },
     { "Id": 2, "src": "fruits/banana.jpg", "btn1": "Orange", "btn2": "Banana", "btn3": "Peach", "btn4": "Coconut", "correctOption": "Banana" },
-    { "Id": 3, "src": "fruits/orange.jpg", "btn1": "Grape", "btn2": "Cherry", "btn3": "Strawberry", "btn4": "Orange", "correctOption": "Orange" },
-    { "Id": 4, "src": "fruits/pear.jpg", "btn1": "Watermelon", "btn2": "Pear", "btn3": "Kiwi", "btn4": "Pomegranate", "correctOption": "Pear" },
+    { "Id": 3, "src": "fruits/orange.webp", "btn1": "Grape", "btn2": "Cherry", "btn3": "Strawberry", "btn4": "Orange", "correctOption": "Orange" },
+    { "Id": 4, "src": "fruits/pear.webp", "btn1": "Watermelon", "btn2": "Pear", "btn3": "Kiwi", "btn4": "Pomegranate", "correctOption": "Pear" },
     { "Id": 5, "src": "fruits/kiwi.webp", "btn1": "Raspberry", "btn2": "Kiwi", "btn3": "Blueberry", "btn4": "Papaya", "correctOption": "Kiwi" },
     { "Id": 6, "src": "fruits/lemon.jpg", "btn1": "Grapefruit", "btn2": "Lemon", "btn3": "Lime", "btn4": "Apricot", "correctOption": "Lemon" },
-    { "Id": 7, "src": "fruits/plum.jpg", "btn1": "Plum", "btn2": "Guava", "btn3": "Dragonfruit", "btn4": "Mango", "correctOption": "Plum" },
-    { "Id": 8, "src": "fruits/watermelon.jpg", "btn1": "Pineapple", "btn2": "Passionfruit", "btn3": "Watermelon", "btn4": "Lychee", "correctOption": "Watermelon" },
-    { "Id": 9, "src": "fruits/pineapple.webp", "btn1": "Cantaloupe", "btn2": "Fig", "btn3": "Pineapple", "btn4": "Blackberry", "correctOption": "Pineapple" },
-    { "Id": 10, "src": "fruits/apricot.jpg", "btn1": "Peach", "btn2": "Kiwi", "btn3": "Apricot", "btn4": "Mango", "correctOption": "Apricot" }
+    { "Id": 7, "src": "fruits/plum.webp", "btn1": "Plum", "btn2": "Guava", "btn3": "Dragonfruit", "btn4": "Mango", "correctOption": "Plum" },
+    { "Id": 8, "src": "fruits/watermelon.webp", "btn1": "Pineapple", "btn2": "Passionfruit", "btn3": "Watermelon", "btn4": "Lychee", "correctOption": "Watermelon" },
+    { "Id": 9, "src": "fruits/pineapple1.webp", "btn1": "Cantaloupe", "btn2": "Fig", "btn3": "Pineapple", "btn4": "Blackberry", "correctOption": "Pineapple" },
+    { "Id": 10, "src": "fruits/peach.webp", "btn1": "Raspberry", "btn2": "Kiwi", "btn3": "Peach", "btn4": "Mango", "correctOption": "Peach" }
   ],
   "3": [
     { "Id": 1, "src": "school/pencil.jpg", "btn1": "Computer", "btn2": "Eraser", "btn3": "Pencil", "btn4": "Scissors", "correctOption": "Pencil" },

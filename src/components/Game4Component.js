@@ -6,7 +6,7 @@ import { textToSpeech } from '../utils/mimicApi';
 import {useRouter} from "next/router";
 
 
-function Game4Component({ onLevelCompletion }) { // Pass onLevelCompletion as a prop
+function Game4Component() { // Pass onLevelCompletion as a prop
     const { user } = useUser();
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -69,12 +69,12 @@ function Game4Component({ onLevelCompletion }) { // Pass onLevelCompletion as a 
                                 console.error('Error updating lastLevel:', error);
                             });
                         // Call the onLevelCompletion function to signal level completion
-                        onLevelCompletion();
+
                     }
                 }
             }
         }
-    }, [currentQuestion, data, user, questionsPerSection, onLevelCompletion]);
+    }, [currentQuestion, data, user, questionsPerSection]);
 
     const handleOptionClick = async (option) => {
         if (!hasAnsweredCorrectly && option === data[currentQuestion].correctOption) {
@@ -133,7 +133,7 @@ function Game4Component({ onLevelCompletion }) { // Pass onLevelCompletion as a 
                 // Check if user.lastLevel is a number
                 if (typeof user.lastLevel === 'number') {
                     const nextSectionNumber = user.lastLevel + 1;
-                    const newLastLevel = nextSectionNumber;
+                    const newLastLevel = nextSectionNumber - 1; // Fix this line
 
                     // If the section is completed, set the state variable
                     if ((nextSectionNumber - 1) * questionsPerSection >= currentQuestion) {
@@ -147,7 +147,7 @@ function Game4Component({ onLevelCompletion }) { // Pass onLevelCompletion as a 
                         },
                         body: JSON.stringify({
                             userId: user.id,
-                            lastLevel: 1,
+                            lastLevel: newLastLevel, // Update the user's last level correctly
                         }),
                     })
                         .then((response) => response.json())
@@ -201,6 +201,12 @@ function Game4Component({ onLevelCompletion }) { // Pass onLevelCompletion as a 
         }
     };
 
+    const handleNextSet = () => {
+        window.location.reload();
+    };
+
+
+
     return (
         <div className={styles.pageContainer}>
             <div className={styles.textContainer}>
@@ -229,7 +235,7 @@ function Game4Component({ onLevelCompletion }) { // Pass onLevelCompletion as a 
                         <div className={styles.imgWrapper}>
                             <img
                                 src={data[currentQuestion]?.src}
-                                alt={`Animal ${data[currentQuestion]?.Id}`}
+                                alt={`Image ${data[currentQuestion]?.Id}`}
                             />
                             <div className={styles.buttonContainerWrapper}>
                                 {renderOptions()}
@@ -243,6 +249,16 @@ function Game4Component({ onLevelCompletion }) { // Pass onLevelCompletion as a 
                     <div>
                         <h2>Harjoitus valmis!</h2>
                         <p>Sait {score} pistettä / {(data.length || 0)}.</p>
+                        <button
+                            onClick={handleNextSet}
+                            style={{
+                                maxWidth: '200px', // Limit the maximum width
+                                padding: '10px 20px', // Adjust padding for sizing
+                                fontSize: '16px', // Adjust font size if needed
+                            }}
+                        >
+                            <img src="https://cdn.pixabay.com/photo/2017/01/29/22/16/cycle-2019530_640.png" alt="Continue to next set"/>
+                        </button>
                     </div>
                 )}
             </div>
