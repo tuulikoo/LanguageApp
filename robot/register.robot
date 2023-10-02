@@ -4,7 +4,7 @@ Library    Browser
 
 *** Variables ***
 ${REGISTERURL} =    http://localhost:3000/Registration
-${USERNAME} =    RobotTester999
+${USERNAME} =    Robot
 ${PASSWORD} =    password
 ${EMAIL} =    robonos@osoite.com
 ${ETUNIMI} =    Robo
