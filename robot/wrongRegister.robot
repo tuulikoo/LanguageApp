@@ -14,7 +14,7 @@ ${ETUNIMI} =    Robo
 
 *** Keywords ***
 Open Browser To Register Page
-    New Browser    headless=${False}
+    New Browser    headless=${True}
     New Page    ${REGISTERURL}
 
 Enter Username
