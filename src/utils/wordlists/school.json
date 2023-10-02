@@ -46,7 +46,7 @@
   },
   {
     "Id": 6,
-    "src": "school/desk.jpg",
+    "src": "school/desk.webp",
     "btn1": "Blackboard",
     "btn2": "Desk",
     "btn3": "Sharpener",
@@ -55,7 +55,7 @@
   },
   {
     "Id": 7,
-    "src": "school/chair.png",
+    "src": "school/chair.jpg",
     "btn1": "Notebook",
     "btn2": "Chair",
     "btn3": "Scissors",
