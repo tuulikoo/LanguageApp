@@ -12,16 +12,16 @@
     { "Id": 10, "src": "animals/dolphin.webp", "btn1": "Shark", "btn2": "Fish", "btn3": "Dolphin", "btn4": "Whale", "correctOption": "Dolphin" }
   ],
   "1": [
-    { "Id": 1, "src": "fruits/apple.jpg", "btn1": "Mango", "btn2": "Pineapple", "btn3": "Lemon", "btn4": "Apple", "correctOption": "Apple" },
+    { "Id": 1, "src": "fruits/apple.png", "btn1": "Mango", "btn2": "Pineapple", "btn3": "Lemon", "btn4": "Apple", "correctOption": "Apple" },
     { "Id": 2, "src": "fruits/banana.jpg", "btn1": "Orange", "btn2": "Banana", "btn3": "Peach", "btn4": "Coconut", "correctOption": "Banana" },
-    { "Id": 3, "src": "fruits/orange.jpg", "btn1": "Grape", "btn2": "Cherry", "btn3": "Strawberry", "btn4": "Orange", "correctOption": "Orange" },
-    { "Id": 4, "src": "fruits/pear.jpg", "btn1": "Watermelon", "btn2": "Pear", "btn3": "Kiwi", "btn4": "Pomegranate", "correctOption": "Pear" },
+    { "Id": 3, "src": "fruits/orange.webp", "btn1": "Grape", "btn2": "Cherry", "btn3": "Strawberry", "btn4": "Orange", "correctOption": "Orange" },
+    { "Id": 4, "src": "fruits/pear.webp", "btn1": "Watermelon", "btn2": "Pear", "btn3": "Kiwi", "btn4": "Pomegranate", "correctOption": "Pear" },
     { "Id": 5, "src": "fruits/kiwi.webp", "btn1": "Raspberry", "btn2": "Kiwi", "btn3": "Blueberry", "btn4": "Papaya", "correctOption": "Kiwi" },
     { "Id": 6, "src": "fruits/lemon.jpg", "btn1": "Grapefruit", "btn2": "Lemon", "btn3": "Lime", "btn4": "Apricot", "correctOption": "Lemon" },
-    { "Id": 7, "src": "fruits/plum.jpg", "btn1": "Plum", "btn2": "Guava", "btn3": "Dragonfruit", "btn4": "Mango", "correctOption": "Plum" },
-    { "Id": 8, "src": "fruits/watermelon.jpg", "btn1": "Pineapple", "btn2": "Passionfruit", "btn3": "Watermelon", "btn4": "Lychee", "correctOption": "Watermelon" },
-    { "Id": 9, "src": "fruits/pineapple.webp", "btn1": "Cantaloupe", "btn2": "Fig", "btn3": "Pineapple", "btn4": "Blackberry", "correctOption": "Pineapple" },
-    { "Id": 10, "src": "fruits/apricot.jpg", "btn1": "Peach", "btn2": "Kiwi", "btn3": "Apricot", "btn4": "Mango", "correctOption": "Apricot" }
+    { "Id": 7, "src": "fruits/plum.webp", "btn1": "Plum", "btn2": "Guava", "btn3": "Dragonfruit", "btn4": "Mango", "correctOption": "Plum" },
+    { "Id": 8, "src": "fruits/watermelon.webp", "btn1": "Pineapple", "btn2": "Passionfruit", "btn3": "Watermelon", "btn4": "Lychee", "correctOption": "Watermelon" },
+    { "Id": 9, "src": "fruits/pineapple1.webp", "btn1": "Cantaloupe", "btn2": "Fig", "btn3": "Pineapple", "btn4": "Blackberry", "correctOption": "Pineapple" },
+    { "Id": 10, "src": "fruits/peach.webp", "btn1": "Raspberry", "btn2": "Kiwi", "btn3": "Peach", "btn4": "Mango", "correctOption": "Peach" }
   ],
   "3": [
     { "Id": 1, "src": "school/pencil.jpg", "btn1": "Computer", "btn2": "Eraser", "btn3": "Pencil", "btn4": "Scissors", "correctOption": "Pencil" },
@@ -36,27 +36,27 @@
     { "Id": 10, "src": "school/backpack.png", "btn1": "Whiteboard", "btn2": "Backpack", "btn3": "Calculator", "btn4": "Pencil", "correctOption": "Backpack" }
   ],
   "4": [
-  { "Id": 1, "src": "family/family.png", "btn1": "Cousin", "btn2": "Family", "btn3": "Mother", "btn4": "Father", "correctOption": "Family" },
-  { "Id": 2, "src": "family/parents.png", "btn1": "Family", "btn2": "Father", "btn3": "Son", "btn4": "Parents", "correctOption": "Parents" },
-  { "Id": 3, "src": "family/children.png", "btn1": "Grandparents", "btn2": "Siblings", "btn3": "Children", "btn4": "Mother", "correctOption": "Children" },
-  { "Id": 4, "src": "family/mother.png", "btn1": "Father", "btn2": "Sister", "btn3": "Mother", "btn4": "Brother", "correctOption": "Mother" },
-  { "Id": 5, "src": "family/father.png", "btn1": "Dog", "btn2": "Mother", "btn3": "Father", "btn4": "Cousin", "correctOption": "Father" },
-  { "Id": 6, "src": "family/son.png", "btn1": "Daughter", "btn2": "Grandmother", "btn3": "Son", "btn4": "Sister", "correctOption": "Son" },
-  { "Id": 7, "src": "family/daughter.png", "btn1": "Sister", "btn2": "Grandmother", "btn3": "Daughter", "btn4": "Grandfather", "correctOption": "Daughter" },
-  { "Id": 8, "src": "family/grandparents.png", "btn1": "Siblings", "btn2": "Cousin", "btn3": "Son", "btn4": "Grandparents", "correctOption": "Grandparents" },
-  { "Id": 9, "src": "family/sister.png", "btn1": "Father", "btn2": "Sister", "btn3": "Mother", "btn4": "Brother", "correctOption": "Sister" },
-  { "Id": 10, "src": "family/brother.png", "btn1": "Brother", "btn2": "Mother", "btn3": "Grandfather", "btn4": "Cousin", "correctOption": "Brother" }
-],
+    { "Id": 1, "src": "family/family.png", "btn1": "Cousin", "btn2": "Family", "btn3": "Mother", "btn4": "Father", "correctOption": "Family" },
+    { "Id": 2, "src": "family/parents.png", "btn1": "Family", "btn2": "Father", "btn3": "Son", "btn4": "Parents", "correctOption": "Parents" },
+    { "Id": 3, "src": "family/children.png", "btn1": "Grandparents", "btn2": "Aunt", "btn3": "Children", "btn4": "Mother", "correctOption": "Children" },
+    { "Id": 4, "src": "family/mother.png", "btn1": "Father", "btn2": "Sister", "btn3": "Mother", "btn4": "Brother", "correctOption": "Mother" },
+    { "Id": 5, "src": "family/father.png", "btn1": "Dog", "btn2": "Mother", "btn3": "Father", "btn4": "Cousin", "correctOption": "Father" },
+    { "Id": 6, "src": "family/son.png", "btn1": "Daughter", "btn2": "Grandmother", "btn3": "Son", "btn4": "Sister", "correctOption": "Son" },
+    { "Id": 7, "src": "family/daughter.png", "btn1": "Tiger", "btn2": "Grandmother", "btn3": "Daughter", "btn4": "Grandfather", "correctOption": "Daughter" },
+    { "Id": 8, "src": "family/grandparents.png", "btn1": "Siblings", "btn2": "Cousin", "btn3": "Son", "btn4": "Grandparents", "correctOption": "Grandparents" },
+    { "Id": 9, "src": "family/sister.png", "btn1": "Father", "btn2": "Sister", "btn3": "Mother", "btn4": "Brother", "correctOption": "Sister" },
+    { "Id": 10, "src": "family/brother.png", "btn1": "Brother", "btn2": "Mother", "btn3": "Grandfather", "btn4": "Cousin", "correctOption": "Brother" }
+  ],
   "5": [
-  { "Id": 1, "src": "professions/pilot.webp", "btn1": "Photographer", "btn2": "Sailor", "btn3": "Pilot", "btn4": "Artist", "correctOption": "Pilot" },
-  { "Id": 2, "src": "professions/photographer.webp", "btn1": "Scientist", "btn2": "Waiter", "btn3": "Photographer", "btn4": "Police", "correctOption": "Photographer" },
-  { "Id": 3, "src": "professions/sailor.webp", "btn1": "Cook", "btn2": "Sailor", "btn3": "Teacher", "btn4": "Doctor", "correctOption": "Sailor" },
-  { "Id": 4, "src": "professions/artist.webp", "btn1": "Police", "btn2": "Artist", "btn3": "Waiter", "btn4": "Scientist", "correctOption": "Artist" },
-  { "Id": 5, "src": "professions/scientist.webp", "btn1": "Teacher", "btn2": "Scientist", "btn3": "Pilot", "btn4": "Doctor", "correctOption": "Scientist" },
-  { "Id": 6, "src": "professions/police.webp", "btn1": "Photographer", "btn2": "Waiter", "btn3": "Police", "btn4": "Sailor", "correctOption": "Police" },
-  { "Id": 7, "src": "professions/waiter.webp", "btn1": "Cook", "btn2": "Artist", "btn3": "Waiter", "btn4": "Teacher", "correctOption": "Waiter" },
-  { "Id": 8, "src": "professions/cook.webp", "btn1": "Doctor", "btn2": "Cook", "btn3": "Sailor", "btn4": "Photographer", "correctOption": "Cook" },
-  { "Id": 9, "src": "professions/teacher.webp", "btn1": "Pilot", "btn2": "Scientist", "btn3": "Teacher", "btn4": "Artist", "correctOption": "Teacher" },
-  { "Id": 10, "src": "professions/doctor.webp", "btn1": "Waiter", "btn2": "Doctor", "btn3": "Photographer", "btn4": "Sailor", "correctOption": "Doctor" }
-]
+    { "Id": 1, "src": "professions/pilot.webp", "btn1": "Photographer", "btn2": "Sailor", "btn3": "Pilot", "btn4": "Artist", "correctOption": "Pilot" },
+    { "Id": 2, "src": "professions/photographer.webp", "btn1": "Scientist", "btn2": "Waiter", "btn3": "Photographer", "btn4": "Police", "correctOption": "Photographer" },
+    { "Id": 3, "src": "professions/sailor.webp", "btn1": "Cook", "btn2": "Sailor", "btn3": "Teacher", "btn4": "Doctor", "correctOption": "Sailor" },
+    { "Id": 4, "src": "professions/artist.webp", "btn1": "Police", "btn2": "Artist", "btn3": "Waiter", "btn4": "Scientist", "correctOption": "Artist" },
+    { "Id": 5, "src": "professions/scientist.webp", "btn1": "Teacher", "btn2": "Scientist", "btn3": "Pilot", "btn4": "Doctor", "correctOption": "Scientist" },
+    { "Id": 6, "src": "professions/police.webp", "btn1": "Photographer", "btn2": "Waiter", "btn3": "Police", "btn4": "Sailor", "correctOption": "Police" },
+    { "Id": 7, "src": "professions/waiter.webp", "btn1": "Cook", "btn2": "Artist", "btn3": "Waiter", "btn4": "Teacher", "correctOption": "Waiter" },
+    { "Id": 8, "src": "professions/cook.webp", "btn1": "Doctor", "btn2": "Cook", "btn3": "Sailor", "btn4": "Photographer", "correctOption": "Cook" },
+    { "Id": 9, "src": "professions/teacher.webp", "btn1": "Pilot", "btn2": "Scientist", "btn3": "Teacher", "btn4": "Artist", "correctOption": "Teacher" },
+    { "Id": 10, "src": "professions/doctor.webp", "btn1": "Waiter", "btn2": "Doctor", "btn3": "Photographer", "btn4": "Sailor", "correctOption": "Doctor" }
+  ]
 }
