@@ -123,9 +123,9 @@ Verify Points Given for Correct Answer
 
     Type Correct Answer    ${spoken_word}
     Log    Fill text with: ${spoken_word}
-    Sleep    2s  # Adjust sleep duration as needed
+    Sleep    10s  # Adjust sleep duration as needed
     Log    Correct word submitted
-    Sleep    4s
+    Sleep    4s 
     Navigate to Userpage
     Sleep    2s
     Verify That UserPage Is Visible
