@@ -6,7 +6,7 @@ Library    Browser
 ${REGISTERURL} =    http://localhost:3000/Registration
 ${USERNAME} =    Robot
 ${PASSWORD} =    password
-${EMAIL} =    robonos@osoite.com
+${EMAIL} =    robonos@osoite.com.com
 ${ETUNIMI} =    Robo
 ${LOGINURL} =    http://localhost:3000/Login
 
