@@ -60,7 +60,7 @@ Verify new email is saved after updating it to user-details
     Verify That MainPage Is Visible
     Navigate to Userpage
     Sleep    4s    just to check if page opened
-r   Verify That UserPage Is Visible
+    Verify That UserPage Is Visible
     Verify Delete-button exists
     Click Delete-button
     Verify Confirm Deletion Text Appears
