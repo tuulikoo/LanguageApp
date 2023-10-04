@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
-import prisma from "../../utils/prisma.js"
-import { generateToken } from "../../utils/jwt.js"
+import prisma from "../../utils/prisma.js";
+import { generateToken } from "../../utils/jwt.js";
 
 const loginController = async (req, res) => {
     const { username, password } = req.body;
@@ -26,9 +26,8 @@ const loginController = async (req, res) => {
             const token = generateToken(payload);
 
             // Set the JWT token as an httpOnly cookie
-            res.setHeader('Set-Cookie', [
+            res.setHeader("Set-Cookie", [
                 `token=${token}; HttpOnly; Path=/; Max-Age=${60 * 60 * 24 * 7}`, // 1 week duration
-
             ]);
 
             // Exclude password from the returned user data
