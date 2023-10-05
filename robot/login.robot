@@ -8,7 +8,7 @@ Library    Browser
 ${LOGINURL} =    http://localhost:3000/Login
 ${USERURL} =    http://localhost:3000/UserPage
 ${MAINURL} =    http://localhost:3000/MainPage
-${USERNAME} =    RobotTester999
+${USERNAME} =    Robot
 ${PASSWORD} =    password
 
 

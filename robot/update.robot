@@ -8,8 +8,8 @@ Library    Browser
 ${LOGINURL} =    http://localhost:3000/Login
 ${USERURL} =    http://localhost:3000/UserPage
 ${MAINURL} =    http://localhost:3000/MainPage
-${USERNAME} =    Tester1
-${PASSWORD} =    Password
+${USERNAME} =    Robot
+${PASSWORD} =    password
 
 
 *** Keywords ***

@@ -12,8 +12,8 @@ ${LOGINURL} =    http://localhost:3000/Login
 ${GAME2URL} =    http://localhost:3000/Game2
 ${MAINURL} =    http://localhost:3000/MainPage
 ${USERURL} =    http://localhost:3000/UserPage
-${USERNAME} =    Robotester1
-${PASSWORD} =    Password
+${USERNAME} =    Robot
+${PASSWORD} =    password
 ${Timeout}        5s
 ${JSON_FILE_PATH} =    ./src/utils/listeningData.json
 @{SUITE_SETUP}    Playwright Browser    rf    Browser
