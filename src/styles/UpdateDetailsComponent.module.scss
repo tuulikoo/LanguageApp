@@ -1,13 +1,12 @@
-/*
-@font-face {
-  font-family: 'Karma Future';
-  src: url('../../public/fonts/Karma Future.otf') format('opentype'); /* Path to Karma Future font */
-/*}
 
 @font-face {
-  font-family: 'Karma Suture';
-  src: url('../../public/fonts/Karma Suture.otf') format('opentype'); /* Path to Karma Suture font }*/
+  font-family: "Dela Gothic One"; /* Specify the font family name */
+  src: url('../../public/fonts/DelaGothicOne-Regular.ttf') format('truetype'); /* Specify the path to your TTF font file */
+}
 
+.custom-font {
+  font-family: 'Dela Gothic One', sans-serif; /* Use the imported font family name */
+}
 
 .container {
   font-family: 'Karma Suture', sans-serif; /* Specify the font stack */
@@ -19,22 +18,29 @@
 }
 
 .currentDetails {
-  border: 2px solid #2196F3;
-  padding: 20px;
+  border: 10px solid #ffec00;
+  padding: 30px;
   margin-bottom: 20px;
-  background-color: #E6E6FA;
+  background-color: rgba(252, 141, 15, 0.61);
   border-radius: 10px;
   margin-top: 30px;
+  font-family: "Dela Gothic One",Serif;
+  text-align: left;
+  font-size: 16px;
 }
 
 .currentDetails h2 {
-  font-size: 18px;
-  color: #333;
+  font-family: "Dela Gothic One" ;
+  font-size: 20px;
+  color: #000000;
+  background-color: #ffec00;
 }
 
 .welcome {
-  font-family: 'Karma Future', sans-serif;
+  font-family: "Dela Gothic One";
   font-size: 36px;
+  color: #b4520c;
+  text-align: center;
 }
 
 

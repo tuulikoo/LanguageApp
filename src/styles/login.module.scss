@@ -1,22 +1,43 @@
+@font-face {
+  font-family: "Dela Gothic One";
+  src: url('../../public/fonts/DelaGothicOne-Regular.ttf') format('truetype');
+}
+
+.custom-font {
+  font-family: 'Dela Gothic One', sans-serif;
+}
+
 .loginContainer {
-  width: 300px;
+  width: 500px; /* Increased width */
   margin: 50px auto;
-  padding: 40px;
+  padding: 80px; /* Increased padding */
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  background-color: #8adbaf;
+  text-align: center;
+  font-family: "Dela Gothic One", serif;
+  font-size: 20px;
+
+}
+
+.otsikko{
+  font-size:40px;
+  padding-bottom: 50px;
+  color: #2a2a65;
 }
 
 .inputGroup {
-  margin-bottom: 15px;
+  margin-bottom: 30px; /* Increased margin */
   font-weight: bold;
 }
 
 .formControl {
   width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #e1e1e1;
-  border-radius: 5px;
+  padding: 20px; /* Increased padding */
+  margin-top: 15px; /* Increased margin */
+  border: 2px solid #82ec73;
+  border-radius: 10px;
+  font-size: 24px; /* Increased font size */
   transition: border 0.3s ease;
 
   &:focus {
@@ -27,34 +48,36 @@
 
 .formError {
   color: #d9534f;
-  font-size: 12px;
-  margin-top: 5px;
+  font-size: 18px; /* Increased font size */
+  margin-top: 15px; /* Increased margin */
 }
 
 .loginError {
   color: #d9534f;
-  margin-bottom: 10px;
+  margin-bottom: 30px; /* Increased margin */
   text-align: center;
 }
 
 .loginAttemptsError {
   color: #d9534f;
-  margin-bottom: 10px;
+  margin-bottom: 30px; /* Increased margin */
   text-align: center;
 }
 
 .loginButton {
+  font-family: "Dela Gothic One",serif;
   width: 100%;
-  padding: 10px;
-  background-color: #007bff;
+  padding: 20px; /* Increased padding */
+  background-color: #3f51b4;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-size: 24px; /* Increased font size */
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #e4b0e6;
   }
 
   &:disabled {
@@ -64,8 +87,7 @@
 }
 
 .loginSuccess {
-  color: #28a745;
-  margin-bottom: 10px;
+  color: #00008a;
+  margin-bottom: 30px; /* Increased margin */
   text-align: center;
-} 
-
+}

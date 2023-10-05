@@ -98,4 +98,14 @@
     gap: 20px;
 }
 
+.audioContainer{
+    font-size: 10px;
+}
+
+.speakButton{
+    max-width: 50px;
+    padding-top: 10px;
+
+}
+
 /* Add more styles as needed */

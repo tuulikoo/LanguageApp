@@ -51,7 +51,7 @@ export default function Login() {
 
     return (
         <div className={styles.loginContainer}>
-            <h2>Kirjaudu sisään</h2>
+            <h2 className={styles.otsikko}>Kirjaudu sisään</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 {/* Username Input */}
                 <InputField

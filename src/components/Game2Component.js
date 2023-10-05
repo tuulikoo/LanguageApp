@@ -118,7 +118,11 @@ const ExerciseComponent = () => {
         }
     }, [inputWord, currentIndex, currentWordList, updateUserPoints, handleCorrectAnswer]);
     return (
-        <div className={styles.container}>
+        <div className={styles.container}
+             style={{
+                 fontFamily: "'Dela Gothic One', sans-serif", // Use the imported font family name
+             }}
+        >
             {isLoading ? <CircularProgress /> :
                 <>
                     {showCorrect ? <div className={styles.correctMessage}>Oikein!</div> :

@@ -2,12 +2,18 @@ import React, { useState } from 'react';
 import FlashcardDeckComponent from "@/components/FlashcardDeckComponent";
 import styles from '../styles/level1.module.css';
 import flashcardsData from 'src/utils/wordlists/flashcardsanat.json';
+import {textToSpeech} from "@/utils/mimicApi";
 
 const Level1 = () => {
     const [selectedCategory, setSelectedCategory] = useState(null);
 
     const handleCategorySelect = (category) => {
         setSelectedCategory(category);
+    };
+
+    const handleSpeakButtonClick = () => {
+        // Speak the correct word using the textToSpeech function
+        textToSpeech(data[currentQuestion].correctOption);
     };
 
     const getCategoryButtonClassName = (category) => {
@@ -41,14 +47,24 @@ const Level1 = () => {
                     </button>
                 </div>
             </div>
+
             <div className={styles.flashcardsWrapper}>
                 {selectedCategory && (
                     <div className={styles.flashcardContainer}>
+
                         <h2 className={`${styles.selectedCategoryTitle} font-custom`}>{selectedCategory}</h2>
+                        <img
+                            className={styles.speakButton}
+                            src='/images/audio.png'
+                            alt="Speaker Button"
+                            onClick={handleSpeakButtonClick}
+                        />
                         <FlashcardDeckComponent flashcards={flashcardsData.flashcards[selectedCategory]} />
                     </div>
                 )}
             </div>
+
+
         </div>
     );
 };

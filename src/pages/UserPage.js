@@ -8,16 +8,18 @@ import styles from "../styles/UserPage.module.scss";
 import Game4Component from "@/components/Game4Component";
 function UserPage() {
     return (
-        <UserProvider>
-            <div className={styles.container}>
-                <Head>
+        <div className={styles.pageContainer}>
+            <UserProvider>
+                <div className={styles.container}>
+                        <Head>
                     <title>UserPage</title>
-                </Head>
-                <div className={styles.updateDetails}>
-                    <UpdateDetailsComponent />
+                        </Head>
+                    <div className={styles.updateDetails}>
+                        <UpdateDetailsComponent />
+                    </div>
                 </div>
-            </div>
-        </UserProvider>
+            </UserProvider>
+        </div>
     );
 }
 

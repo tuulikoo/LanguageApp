@@ -1,5 +1,14 @@
-.imgContainer {
+//CSS TÄNNE
+@font-face {
+  font-family: "Dela Gothic One"; /* Specify the font family name */
+  src: url('../../public/fonts/DelaGothicOne-Regular.ttf') format('truetype'); /* Specify the path to your TTF font file */
+}
 
+.custom-font {
+  font-family: 'Dela Gothic One', sans-serif; /* Use the imported font family name */
+}
+
+.imgContainer {
   padding: 10px;
   max-width: 800px; /* Increase max-width */
   max-height: 600px; /* Increase max-height */
@@ -11,26 +20,30 @@
   position: relative;
 
   .imgWrapper img {
+    max-width: 600px;
+    max-height: 600px;
     object-fit: contain; /* Maintain aspect ratio, fitting the image within its container */
   }
 }
 
 .pageContainer {
+  background-color: #549a0a;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding-bottom: 80px;
 }
 
 .textContainer {
   text-align: left;
-  margin-bottom: 20px;
+  padding-top: 50px;
 }
 
 /* Update the SCSS for the buttons */
 .buttonStyle {
   border: 2px solid black;
-  background-color: green;
+  background-color: #fd6a6a;
   color: white;
   padding: 10px 20px;
   margin: 5px;
@@ -39,6 +52,8 @@
   border-radius: 5px;
   transition: background-color 0.3s,
   color 0.3s;
+  font-family: "Dela Gothic One";
+  text-shadow: #2a2a65;
 
   &:hover {
     background-color: #ff69b4;
@@ -48,15 +63,16 @@
 
 /* Update the class name for the button container */
 .speakButton {
-  width: 40px; /* Adjust the width to match your image size */
-  height: 40px; /* Adjust the height to match your image size */
+  width: 70px; /* Adjust the width to match your image size */
+  height: 70px; /* Adjust the height to match your image size */
   cursor: pointer;
 }
 
+
+
 /* Update the class name for the button container */
 .buttonContainerWrapper {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  padding-top: 60px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -68,36 +84,84 @@
 
 /* Style result messages */
 .result {
-  margin-top: 20px;
-  margin-bottom: 80px;
+  margin-top: 50px;
+  margin-bottom: -60px;
   position: absolute;
   bottom: 10px; /* Adjust the distance from the bottom */
   transform: translateX(-50%); /* Center result text horizontally */
-  color: #ff69b4;
-  background-color: white;
+  color: #000000;
+  height: 40px;
+  background-color: #ff0000;
   font-weight: bold;
   font-size: 22px;
+  text-align: center;
   animation: bounce 0.5s;
   animation-delay: 0.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+  font-family: "Dela Gothic One";
 
   &:hover {
     animation: scale 0.5s infinite;
   }
 
+
+
   &.correct {
     font-size: 28px;
-    color: #008000;
-    background-color: white;
+    color: #000000;
+    background-color: #00ff2b;
     animation: bounce 0.5s 3 alternate;
+    font-family: "Dela Gothic One";
   }
+}
+
+.pageContainer .kuuntelu h2 {
+  background-color: #82ec73;
+  max-width: 200px;
+  flex-direction: column;
 }
 
 /* Additional styles */
 .pointsDisplay {
-  font-size: 18px;
+  font-size: 30px;
   margin-bottom: 20px;
+  font-family: "Dela Gothic One",Serif;
+}
+
+.pageContainer h1{
+  font-size: 40px;
+}
+
+/* Add this CSS class for hiding the speak button */
+.hiddenSpeakButton {
+  display: none;
+}
+
+.audioContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px; /* Add spacing between the audio button and text */
+}
+
+.audioText {
+  font-size: 18px; /* Adjust the font size as needed */
+  margin-top: 10px; /* Add spacing between the audio button and text */
+  color: #000; /* Set the text color */
+}
+
+
+
+/* Add styles for "Harjoitus valmis!" text when the game is completed */
+.harjoitusValmis {
+  text-align: center; /* Center text horizontally */
+  padding: 20px; /* Add padding for spacing */
+  background-color: #ffec00; /* Background color */
+  border-radius: 10px; /* Rounded edges */
+  max-width: 600px; /* Limit the maximum width */
+  margin: 0 auto; /* Center the element horizontally */
+  font-size: 30px; /* Increase the font size */
 }
 
 
@@ -126,3 +190,4 @@
     transform: scale(1);
   }
 }
+
