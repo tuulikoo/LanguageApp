@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import {
     Container,
     Paper,
@@ -44,6 +44,21 @@ function UserSearch() {
     const indexOfFirstUser = indexOfLastUser - usersPerPage;
     const currentUsers = filteredUsers.slice(indexOfFirstUser, indexOfLastUser);
 
+    const averageRatio = users.reduce((total, user) => total + user.userPoints / user.timeSpent, 0) / users.length;
+
+    const columnStyle = (ratio) => {
+        if (ratio < averageRatio) {
+            return styles.tableCellRed;
+        } else if (ratio > averageRatio) {
+            return styles.tableCellGreen;
+        } else {
+            return styles.tableCell;
+        }
+    };
+
+
+
+
     return (
         <Container maxWidth="lg" className={styles.container}>
             <TextField
@@ -82,10 +97,11 @@ function UserSearch() {
                                 <TableCell className={`${styles.px6} ${styles.py2}`}>
                                     {user.email}
                                 </TableCell>
-                                <TableCell className={`${styles.px6} ${styles.py2}`}>
+                                <TableCell className={`${styles.px6} ${styles.py2} ${columnStyle(user.userPoints / user.timeSpent)}`}>
                                     {user.userPoints}
+
                                 </TableCell>
-                                <TableCell className={`${styles.px6} ${styles.py2}`}>
+                                <TableCell className={`${styles.px6} ${styles.py2} ${columnStyle(user.userPoints / user.timeSpent)}`}>
                                     {user.timeSpent}
                                 </TableCell>
                             </TableRow>

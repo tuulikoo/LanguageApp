@@ -83,7 +83,7 @@ const LevelSelector = () => {
                                     handleItemClick(index);
                                 }}
                             >
-                                {flippedStates[index] ? "Switch to English" : "Switch to Finnish"}
+                                {flippedStates[index] ? "English" : "Suomeksi"}
                             </Button>
                         </MuiLink>
                     </li>
