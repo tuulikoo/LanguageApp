@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 
 const svgList = [
 
-    'undraw_bibliophile_re_xarc.svg',
-    'undraw_reading_re_29f8.svg',
-    'undraw_ride_a_bicycle_re_6tjy.svg',
+    'abstrakt-design-132.png',
+    'abstrakt-design-332.png',
+    'abstrakt-design-458.png',
 ];
 
 const BackgroundScroller = () => {

@@ -23,7 +23,8 @@ const LevelSelector = () => {
                 finnish:
                     "oppiminen korttien  mukaan, saat sanan suomeksi, kuin englanniksi. Tällä tasolla on hyvä aloittaa englannin kielen opiskelu.",
             },
-            route: "/Level1",
+            route: "/Flashcards",
+            image: "/svg/blob.svg"
         },
         {
             title: {
@@ -37,6 +38,7 @@ const LevelSelector = () => {
                     "Tehtävänä valita oikea sana kuvan perusteella. Tämä on hyvä tapa tarkistaa, kuinka hyvin olet oppinut edellisestä tasosta ja muistatko sanat. Saat pisteitä oikeista vastauksista.",
             },
             route: "/Game4",
+            image: "/svg/blob2.svg"
         },
         {
             title: {
@@ -50,6 +52,7 @@ const LevelSelector = () => {
                     "Kuunteluharjoitus: kuuntele sana ja kirjoita se. Saat pisteita oikeista vastauksista.",
             },
             route: "/Game2",
+            image: "/svg/blob3.svg"
         },
     ];
 
@@ -60,6 +63,7 @@ const LevelSelector = () => {
                 {levelsData.map((level, index) => (
                     <li key={index} className={styles.levels_item}>
                         <MuiLink href={level.route} className={styles.levels_link}>
+                            <img src={level.image} alt="level" className={styles.level_image} />
                             <h2 className={styles.level_title}>
                                 {flippedStates[index]
                                     ? level.title.finnish

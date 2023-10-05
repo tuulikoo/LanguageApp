@@ -33,7 +33,7 @@ function Navbar() {
                         {user.userRole === 'admin' && (
                             <button className={styles.navButton} onClick={() => router.push('/Admin')}>Admin</button>
                         )}
-                        <button className={styles.navButton} onClick={() => router.push('/Levels')}>Tehtävät</button>
+                        <button className={styles.navButton} onClick={() => router.push('/LevelSelection')}>Tehtävät</button>
                         <button className={styles.navButton} id="signout" onClick={handleLogout}>Kirjaudu ulos</button>
                     </>
                 )}
