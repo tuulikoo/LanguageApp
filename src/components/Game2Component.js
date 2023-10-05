@@ -4,6 +4,7 @@ import listeningData from '../utils/wordlists/listeningData.json';
 import { convertTextToSpeech } from '@/utils/mimicApi';
 import styles from '../styles/Exec.module.scss';
 import CircularProgress from '@mui/material/CircularProgress';
+import { Image } from 'react-bootstrap';
 
 const POINT_LEVELS = [
     { threshold: 10, key: "listening1.1" },
@@ -135,7 +136,7 @@ const ExerciseComponent = () => {
 };
 const AudioButton = ({ onPlay }) => (
     <button className={styles.audioButton} onClick={onPlay}>
-        <img src="images/audio.png" alt="Play Audio" />
+        <Image src="images/audio.png" alt="Play Audio" />
     </button>
 );
 
