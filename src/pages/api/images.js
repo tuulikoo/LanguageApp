@@ -28,7 +28,6 @@ export default function handler(req, res) {
 
     if (!fileName) {
         return res.status(400).json({ error: "No filename" });
-
     } else if (!fileName.endsWith(".json")) {
         return res.status(400).json({ error: "Invalid filename" });
     }
@@ -48,15 +47,16 @@ export default function handler(req, res) {
             const { imageUrl, eng, fin } = req.body;
 
             if (!imageUrl || !eng || !fin) {
-                return res
-                    .status(400)
-                    .json({
-                        error: "Image URL, English word, and Finnish word are required.",
-                    });
+                return res.status(400).json({
+                    error: "Image URL, English word, and Finnish word are required.",
+                });
             }
-
+            const highestId = data.reduce(
+                (maxId, item) => Math.max(maxId, item.id),
+                0,
+            );
             const newItem = {
-                id: data.length + 1, // auto incrementing the id
+                id: highestId + 1,
                 imageUrl,
                 eng,
                 fin,
