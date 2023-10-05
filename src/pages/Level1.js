@@ -1,70 +1,24 @@
-import React from 'react';
-import FlashcardDeckComponent from "@/components/FlashcardDeckComponent";
+import { useState, useEffect } from 'react';
+import Flashcard from '@/components/FlashcardComponent';
 import styles from '../styles/level1.module.css';
 
+function Level1() {
+    const [words, setWords] = useState([]);
 
-const Level1 = () => {
-    const animalFlashcards = [
-        {
-            word: 'Leijona',
-            definition: 'Lion',
-        },
-        {
-            word: 'Elefantti',
-            definition: 'Elephant',
-        },
-    ];
+    useEffect(() => {
+        fetch('/path/to/words.json')
+            .then(response => response.json())
+            .then(data => setWords(data));
+    }, []);
 
-    const foodFlashcards = [
-        {
-            word: 'Appelsiini',
-            definition: 'Orange',
-        },
-        {
-            word: 'Mansikka',
-            definition: 'Strawberry',
-        },
-    ];
+    return (
+        <div className={styles.container}>
+            {words.map((word, index) => (
+                <Flashcard key={index} word={word} />
+            ))}
+        </div>
+    );
+}
 
-    const peopleFlashcards = [
-        {
-            word: 'Opettaja',
-            definition: 'Teacher',
-        },
-        {
-            word: 'Lääkäri',
-            definition: 'Doctor',
-        },
-    ];
+export default Level1;
 
-
-        return (
-            <div className={styles.pageContainer}>
-                <h1 className={styles.pageTitle}>Level 1 Flashcards</h1>
-
-                <div className={styles.categoryContainer}>
-                    <h2>Animals</h2>
-                    <div className={styles.flashcardContainer}>
-                        <FlashcardDeckComponent flashcards={animalFlashcards} />
-                    </div>
-                </div>
-
-                <div className={styles.categoryContainer}>
-                    <h2>Foods</h2>
-                    <div className={styles.flashcardContainer}>
-                        <FlashcardDeckComponent flashcards={foodFlashcards} />
-                    </div>
-                </div>
-
-                <div className={styles.categoryContainer}>
-                    <h2>People</h2>
-                    <div className={styles.flashcardContainer}>
-                        <FlashcardDeckComponent flashcards={peopleFlashcards} />
-                    </div>
-                </div>
-            </div>
-        );
-    };
-
-
-    export default Level1;

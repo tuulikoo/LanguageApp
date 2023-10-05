@@ -1,26 +1,14 @@
-import React, { useState } from 'react';
-import styles from '../styles/flashcards.module.css'; // Import the CSS module
+import { useState } from 'react';
+import styles from './FlashcardComponent.module.css';
 
-const Flashcard = ({ word, definition, onNext }) => {
-    const [isFlipped, setIsFlipped] = useState(false);
-
-    const handleFlip = () => {
-        setIsFlipped(!isFlipped);
-    };
+function Flashcard({ word }) {
+    const [flipped, setFlipped] = useState(false);
 
     return (
-        <div className={styles.flashcard}>
-            <div
-                className={`${styles.card} ${isFlipped ? styles.flipped : ''}`} // Use CSS module class names
-                onClick={handleFlip}
-            >
-                <h3>{isFlipped ? definition : word}</h3>
-            </div>
-            <div className={styles.arrow} onClick={() => { setIsFlipped(false); onNext(); }}>
-                →
-            </div>
+        <div className={styles.card} onClick={() => setFlipped(!flipped)}>
+            {flipped ? word.finnish : word.english}
         </div>
     );
-};
+}
 
 export default Flashcard;

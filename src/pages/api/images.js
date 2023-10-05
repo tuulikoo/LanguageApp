@@ -51,9 +51,12 @@ export default function handler(req, res) {
                     error: "Image URL, English word, and Finnish word are required.",
                 });
             }
-
+            const highestId = data.reduce(
+                (maxId, item) => Math.max(maxId, item.id),
+                0,
+            );
             const newItem = {
-                id: data.length + 1, // auto incrementing the id
+                id: highestId + 1,
                 imageUrl,
                 eng,
                 fin,
