@@ -14,7 +14,7 @@ ${PASSWORD} =    wrongpassword
 
 *** Keywords ***
 Open Browser To Login Page
-    New Browser    headless=${False}
+    New Browser    headless=${True}
     New Page    ${LOGINURL}
 
 Enter Username
