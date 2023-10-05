@@ -1,0 +1,61 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: #f6f8fa;
+
+    .pageTitle {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        color: #333;
+    }
+
+    .categorySelector {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+
+        button {
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #e0e0e0;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: #d1d1d1;
+            }
+        }
+
+        .selectedCategoryButton {
+            background-color: #007BFF;
+            color: white;
+
+            &:hover {
+                background-color: #0056b3;
+            }
+        }
+    }
+
+    .flashcardsWrapper {
+        width: 100%;
+        max-width: 800px;
+        position: relative;
+
+        .selectedCategoryTitle {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .speakButton {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40px;
+            cursor: pointer;
+        }
+    }
+}
