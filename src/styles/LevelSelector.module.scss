@@ -1,0 +1,85 @@
+.levels_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f7f7f7;
+  min-height: 100vh;
+}
+
+.header {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.levels_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+  align-items: flex-end;
+}
+
+.levels_item {
+  position: "relative";
+  padding-bottom: 50px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  display: grid;
+}
+
+.levels_item:hover {
+  transform: translateY(-10px);
+}
+
+.level_title {
+  font-size: 24px;
+    font-weight: bold;
+  margin-bottom: 10px;
+  color: #58cc02;
+}
+
+.level_description {
+  margin-bottom: 20px;
+  flex-grow: 1;
+  margin-bottom: 20px;
+}
+
+.level_button {
+  background-color: #58cc02;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.level_button:hover {
+  background-color: #4da902;
+}
+
+.level_button:focus {
+  outline: none;
+}
+
+.levels_link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

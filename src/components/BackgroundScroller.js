@@ -27,6 +27,7 @@ const BackgroundScroller = () => {
     return (
         <div style={{ position: "absolute", top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden' }}>
             {svgList.map((svg, index) => {
+
                 const baseOffset = index * 100;
 
                 return (
@@ -34,7 +35,7 @@ const BackgroundScroller = () => {
                         key={svg}
                         style={{
                             position: 'absolute',
-                            top: `${baseOffset - scrollY * (index + 1)}vh`,
+                            top: `${baseOffset - 39 - scrollY * (index + 1)}vh`,
                             [index % 2 === 0 ? 'left' : 'right']: 0,
                             width: '50%',
                             height: '100%',
