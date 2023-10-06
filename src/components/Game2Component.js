@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useUser } from '@/utils/userContext';
-import listeningData from '../utils/wordlists/listeningData.json';
 import { convertTextToSpeech } from '@/utils/mimicApi';
 import styles from '../styles/Exec.module.scss';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -25,31 +24,33 @@ const getWordListKey = (points) => {
         }
     }
 };
+
 const ExerciseComponent = () => {
     const { user } = useUser();
     const initialUserPoints = user ? user.userPoints : 0;
     const [userPointsState, setUserPointsState] = useState(initialUserPoints);
 
+    // Determine the key for fetching the word list regardless of the user's login status
     const currentWordListKey = useMemo(() => getWordListKey(userPointsState), [userPointsState]);
-    const currentWordList = useMemo(() => listeningData[currentWordListKey] || [], [currentWordListKey]);
 
+    const [currentWordList, setCurrentWordList] = useState([]);
     const [inputWord, setInputWord] = useState('');
     const [, setAudioURL] = useState(null);
     const [result, setResult] = useState(null);
-    const [currentIndex, setCurrentIndex] = useState(Math.floor(Math.random() * currentWordList.length));
+    const [currentIndex, setCurrentIndex] = useState(0); // Initialize to 0 initially
     const [isLoading, setIsLoading] = useState(false);
     const [showCorrect, setShowCorrect] = useState(false);
     const [remainingWords, setRemainingWords] = useState(currentWordList);
-
 
     const updateUserPoints = useCallback(async () => {
         const pointsToAdd = 1;
         setIsLoading(true);
         try {
+            // Update user points regardless of whether the user is logged in or not
             const response = await fetch('/api/updatePoints', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userId: user.id, newPoints: pointsToAdd })
+                body: JSON.stringify({ userId: user?.id, newPoints: pointsToAdd })
             });
 
             if (response.ok) {
@@ -65,20 +66,29 @@ const ExerciseComponent = () => {
     }, [user?.id]);
 
     const playAudio = useCallback(async () => {
-        const audioBlob = await convertTextToSpeech(currentWordList[currentIndex]);
-        const objectURL = URL.createObjectURL(audioBlob);
-        setAudioURL(objectURL);
-        new Audio(objectURL).play();
+        console.log('Playing audio...');
+        console.log('Current index:', currentIndex);
+        console.log('Current word list:', currentWordList);
+
+        if (currentWordList.length > 0) {
+            // Check if currentIndex is valid
+            if (currentIndex >= 0 && currentIndex < currentWordList.length) {
+                const audioBlob = await convertTextToSpeech(currentWordList[currentIndex]);
+                const objectURL = URL.createObjectURL(audioBlob);
+                setAudioURL(objectURL);
+                new Audio(objectURL).play();
+            } else {
+                // If currentIndex is invalid, reset it to a valid index (e.g., 0)
+                const newIndex = Math.max(0, Math.floor(Math.random() * currentWordList.length));
+                console.warn('Resetting index to a valid value:', newIndex);
+                setCurrentIndex(newIndex);
+            }
+        } else {
+            console.warn('Cannot play audio: Empty word list.');
+        }
     }, [currentIndex, currentWordList]);
 
-    useEffect(() => {
-        setRemainingWords(currentWordList);
-        if (user && user.userPoints) {
-            setUserPointsState(user.userPoints);
-        }
-    }, [currentWordList, updateUserPoints, user]);
-
-    const getNextWordIndex = useCallback(() => {
+    const getNextWordIndex = () => {
         if (remainingWords.length === 0) {
             setRemainingWords(currentWordList);
         }
@@ -89,8 +99,34 @@ const ExerciseComponent = () => {
         setRemainingWords(prevWords => prevWords.filter(word => word !== newWord));
 
         return currentWordList.indexOf(newWord);
-    }, [remainingWords, currentWordList]);
+    };
 
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                setIsLoading(true);
+                const response = await fetch(`/api/getWordsListening?category=${currentWordListKey}`);
+                if (response.ok) {
+                    const words = await response.json();
+                    console.log('Fetched words:', words); // Log the fetched words
+                    setCurrentWordList(words);
+
+                    // Set currentIndex after fetching the word list
+                    const newIndex = Math.floor(Math.random() * words.length);
+                    console.log('New index:', newIndex); // Log the new index
+                    setCurrentIndex(newIndex); // Set currentIndex here
+                } else {
+                    throw new Error('Failed to fetch words.');
+                }
+            } catch (error) {
+                console.error('Error fetching words:', error.message);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchData();
+    }, [userPointsState, currentWordListKey]);
 
     const setNextWord = useCallback(() => {
         const newIndex = getNextWordIndex();
@@ -118,11 +154,7 @@ const ExerciseComponent = () => {
         }
     }, [inputWord, currentIndex, currentWordList, updateUserPoints, handleCorrectAnswer]);
     return (
-        <div className={styles.container}
-             style={{
-                 fontFamily: "'Dela Gothic One', sans-serif", // Use the imported font family name
-             }}
-        >
+        <div className={styles.container}>
             {isLoading ? <CircularProgress /> :
                 <>
                     {showCorrect ? <div className={styles.correctMessage}>Oikein!</div> :
@@ -165,8 +197,4 @@ const NextButton = ({ onNext }) => <button className={styles.seuraavaButton} onC
 
 
 export default ExerciseComponent;
-
-
-
-
 
