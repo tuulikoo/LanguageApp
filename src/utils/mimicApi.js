@@ -7,7 +7,7 @@ export const convertTextToSpeech = async (text, options = {}) => {
         voice: DEFAULT_VOICE,
         noiseScale: options.noiseScale || 0.222,
         noiseW: options.noiseW || 0.3,
-        lengthScale: options.lengthScale || 1.5,
+        lengthScale: options.lengthScale || 1.3,
         ssml: options.ssml || false,
     });
 
