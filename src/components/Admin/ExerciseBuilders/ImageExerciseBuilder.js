@@ -24,8 +24,14 @@ const ImageExerciseBuilder = () => {
                 .catch((error) => console.error("Error fetching items:", error));
         }
     }, [selectedFile]);
+
     const handleSubmit = () => {
         fetch(`/api/images?file=${selectedFile}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ imageUrl, eng, fin }),
+        })
+        fetch(`/api/addImgDB`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ imageUrl, eng, fin }),
@@ -40,16 +46,30 @@ const ImageExerciseBuilder = () => {
             .catch((error) => console.error("Error adding item:", error));
     };
 
-    const handleDelete = (id) => {
-        fetch(`/api/images?file=${selectedFile}`, {
-            method: "DELETE",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ id }),
-        })
-            .then(() => {
+    const handleDelete = async (id) => {
+        try {
+            const [dbResponse, fileResponse] = await Promise.all([
+                fetch(`/api/images?file=${selectedFile}`, {
+                    method: "DELETE",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ id }),
+                }),
+                fetch(`/api/deleteImgDB`, {
+                    method: "DELETE",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ id }),
+                }),
+
+            ]);
+
+            if (dbResponse.ok && fileResponse.ok) {
                 setItems((prevItems) => prevItems.filter((item) => item.id !== id));
-            })
-            .catch((error) => console.error("Error deleting item:", error));
+            } else {
+                throw new Error("Error deleting item.");
+            }
+        } catch (error) {
+            console.error("Error deleting item:", error);
+        }
     };
 
     return (

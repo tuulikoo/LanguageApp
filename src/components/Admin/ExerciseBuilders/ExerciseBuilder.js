@@ -58,33 +58,64 @@ const ExerciseBuilder = () => {
                 ...prevData,
                 [selectedCategory]: [...prevData[selectedCategory], newWord],
             }));
-            setNewWord("");
-        });
-    };
-    const handleDeleteSelectedWords = () => {
-        const deleteRequests = selectedItems.map((word) =>
-            fetch(`/api/words?file=${selectedFile}`, {
-                // Include the file in request
-                method: "DELETE",
+            fetch("/api/updateDatabase", {
+                method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({
-                    categoryToDelete: selectedCategory,
-                    wordToDelete: word,
-                }),
-            }),
-        );
-
-        Promise.all(deleteRequests).then(() => {
-            setData((prevData) => ({
-                ...prevData,
-                [selectedCategory]: prevData[selectedCategory].filter(
-                    (word) => !selectedItems.includes(word),
-                ),
-            }));
-            setSelectedItems([]); // Clear the selected items
+                body: JSON.stringify({ category: selectedCategory, word: newWord }),
+            });
+            setNewWord("");
         });
+    };
+    const handleDeleteSelectedWords = async () => {
+        console.log("delete pushed");
+
+        try {
+            const deleteRequests = selectedItems.map((word) =>
+                fetch(`/api/words?file=${selectedFile}`, {
+                    // Include the file in request
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        categoryToDelete: selectedCategory,
+                        wordToDelete: word,
+                    }),
+                })
+            );
+
+            // Also, delete words from the database using Prisma
+            const deleteDatabaseRequests = selectedItems.map((word) =>
+                fetch(`/api/deleteDB?file=${selectedFile}`, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ categoryToDelete: selectedCategory, wordToDelete: word }),
+                })
+            );
+
+            Promise.all([...deleteRequests, ...deleteDatabaseRequests]).then(() => {
+                setData((prevData) => {
+                    if (prevData[selectedCategory]) {
+                        return {
+                            ...prevData,
+                            [selectedCategory]: prevData[selectedCategory].filter(
+                                (word) => !selectedItems.includes(word)
+                            ),
+                        };
+                    }
+                    return prevData; // Category not found, return unchanged data
+                });
+
+                setSelectedItems([]); // Clear the selected items
+            });
+        } catch (error) {
+            console.error("Error in handleDeleteSelectedWords:", error);
+
+        }
     };
 
     return (

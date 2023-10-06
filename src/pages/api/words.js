@@ -1,5 +1,8 @@
 import { join } from 'path';
 import fs from 'fs';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 const getFilePath = (fileName) => join(process.cwd(), 'src', 'utils', 'wordlists', fileName);
 
@@ -20,7 +23,7 @@ const writeData = (data, fileName) => {
     }
 };
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
     const fileName = req.query.file || 'listeningData.json';
 
     if (!fileName.endsWith('.json')) {
@@ -34,7 +37,6 @@ export default function handler(req, res) {
     } catch (error) {
         return res.status(500).json({ error: error.message });
     }
-
 
     switch (req.method) {
         case 'GET':
@@ -55,7 +57,22 @@ export default function handler(req, res) {
 
             try {
                 writeData(data, fileName);
-                return res.status(200).send("Word added successfully");
+
+                // Insert data into the database using Prisma
+                await prisma.listeningData.upsert({
+                    where: { category: fileName },
+                    create: {
+                        category: fileName,
+                        [category]: [word],
+                    },
+                    update: {
+                        [category]: {
+                            push: word,
+                        },
+                    },
+                });
+
+                return res.status(200).send('Word added successfully');
             } catch (error) {
                 return res.status(500).json({ error: error.message });
             }
@@ -71,11 +88,22 @@ export default function handler(req, res) {
                 return res.status(400).json({ error: 'Invalid category or word to delete.' });
             }
 
-            data[categoryToDelete] = data[categoryToDelete].filter(item => item !== wordToDelete);
+            data[categoryToDelete] = data[categoryToDelete].filter((item) => item !== wordToDelete);
 
             try {
-                writeData(data);
-                return res.status(200).send("Word removed successfully");
+                writeData(data, fileName);
+
+                // Delete data from the database using Prisma
+                await prisma.listeningData.update({
+                    where: { category: fileName },
+                    data: {
+                        [categoryToDelete]: {
+                            set: data[categoryToDelete],
+                        },
+                    },
+                });
+
+                return res.status(200).send('Word removed successfully');
             } catch (error) {
                 return res.status(500).json({ error: error.message });
             }
@@ -84,4 +112,3 @@ export default function handler(req, res) {
             return res.status(405).end();
     }
 }
-
