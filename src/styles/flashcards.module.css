@@ -56,3 +56,21 @@
 }
 
 
+.speakButton{
+    max-width: 50px;
+    padding-top: 10px;
+
+}
+
+.centeredContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.speakButton h2{
+    font-family: "Dela Gothic One";
+}
+
+

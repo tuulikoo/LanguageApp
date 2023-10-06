@@ -224,12 +224,15 @@ function Game4Component() { // Pass onLevelCompletion as a prop
                 </div>
             </div>
             <div className={styles.gameContainer}>
-                <img
-                    className={styles.speakButton}
-                    src='/images/audio.png'
-                    alt="Speaker Button"
-                    onClick={handleSpeakButtonClick}
-                />
+                <div className={styles.centeredContainer}>
+                    <img
+                        className={styles.speakButton}
+                        src='/images/audio.png'
+                        alt="Speaker Button"
+                        onClick={handleSpeakButtonClick}
+                    />
+                    <h2>Kuuntele</h2>
+                </div>
                 {currentQuestion < (data.length || 0) ? (
                     <div className={styles.imgContainer}>
                         <div className={styles.imgWrapper}>

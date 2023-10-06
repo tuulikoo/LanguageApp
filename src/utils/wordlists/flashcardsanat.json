@@ -2,60 +2,60 @@
   "flashcards": {
     "food": [
       {
-        "word": "kakku",
-        "definition": "cake"
+        "word": "cake",
+        "definition": "kakku"
       },
       {
-        "word": "ruoka",
-        "definition": "food"
+        "word": "food",
+        "definition": "ruoka"
       },
       {
-        "word": "juoma",
-        "definition": "drink"
+        "word": "drink",
+        "definition": "juoma"
       },
       {
-        "word": "hedelmä",
-        "definition": "fruit"
+        "word": "fruit",
+        "definition": "hedelmä"
       },
       {
-        "word": "jäätelö",
-        "definition": "ice cream"
+        "word": "ice cream",
+        "definition": "jäätelö"
       }
     ],
     "people": [
       {
-        "word": "ystävä",
-        "definition": "friend"
+        "word": "friend",
+        "definition": "ystävä"
       },
       {
-        "word": "perhe",
-        "definition": "family"
+        "word": "family",
+        "definition": "perhe"
       },
       {
-        "word": "opettaja",
-        "definition": "teacher"
+        "word": "teacher",
+        "definition": "opettaja"
       }
     ],
     "animals": [
       {
-        "word": "koira",
-        "definition": "dog"
+        "word": "dog",
+        "definition": "koira"
       },
       {
-        "word": "kissa",
-        "definition": "cat"
+        "word": "cat",
+        "definition": "kissa"
       },
       {
-        "word": "lintu",
-        "definition": "bird"
+        "word": "bird",
+        "definition": "lintu"
       },
       {
-        "word": "kala",
-        "definition": "fish"
+        "word": "fish",
+        "definition": "kala"
       },
       {
-        "word": "kani",
-        "definition": "rabbit"
+        "word": "rabbit",
+        "definition": "kani"
       }
     ]
   }

@@ -11,10 +11,6 @@ const Level1 = () => {
         setSelectedCategory(category);
     };
 
-    const handleSpeakButtonClick = () => {
-        // Speak the correct word using the textToSpeech function
-        textToSpeech(data[currentQuestion].correctOption);
-    };
 
     const getCategoryButtonClassName = (category) => {
         return category === selectedCategory ? styles.selectedCategoryButton : styles.categoryButton;
@@ -53,12 +49,7 @@ const Level1 = () => {
                     <div className={styles.flashcardContainer}>
 
                         <h2 className={`${styles.selectedCategoryTitle} font-custom`}>{selectedCategory}</h2>
-                        <img
-                            className={styles.speakButton}
-                            src='/images/audio.png'
-                            alt="Speaker Button"
-                            onClick={handleSpeakButtonClick}
-                        />
+
                         <FlashcardDeckComponent flashcards={flashcardsData.flashcards[selectedCategory]} />
                     </div>
                 )}
