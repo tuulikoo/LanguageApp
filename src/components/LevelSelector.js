@@ -54,7 +54,23 @@ const LevelSelector = () => {
             route: "/Game2",
             image: "/svg/blob3.svg"
         },
+        {
+            title: {
+                english: "Listening exercise 2",
+                finnish: "Kuunteluharjoituksia 2",
+            },
+            description: {
+                english:
+                    "Listening exercise: listen the sentence and choose correct words. Earn points for correct answers",
+                finnish:
+                    "Kuunteluharjoitus: kuuntele lause ja valitse oikeat sanat. Saat pisteitä oikeista vastauksista.",
+            },
+            route: "/Game5",
+            image: "/svg/blob4.svg"
+        }
     ];
+
+
 
 
     return (
