@@ -6,7 +6,6 @@
             "home",
             "hut",
             "shack",
-            "river",
             "beach"
         ],
         "answers": [
@@ -78,7 +77,6 @@
             "cat",
             "bird",
             "tree",
-            "children",
             "ball"
         ],
         "answers": [
@@ -92,7 +90,6 @@
         "distractors": [
             "dog",
             "bird",
-            "tree",
             "children",
             "ball"
         ],
@@ -106,7 +103,6 @@
         "sentence": "The ____ are flying in the ____.",
         "distractors": [
             "plane",
-            "bird",
             "beach",
             "river",
             "bats"
@@ -123,7 +119,6 @@
             "magazine",
             "notebook",
             "pen",
-            "table",
             "chair"
         ],
         "answers": [
@@ -137,7 +132,6 @@
         "distractors": [
             "man",
             "woman",
-            "parents",
             "teacher",
             "bird"
         ],
@@ -183,7 +177,6 @@
             "game",
             "ball",
             "coach",
-            "fans",
             "stadium"
         ],
         "answers": [
@@ -198,7 +191,6 @@
             "actor",
             "musician",
             "album",
-            "fans",
             "record"
         ],
         "answers": [
@@ -212,7 +204,6 @@
         "distractors": [
             "worker",
             "gardener",
-            "fields",
             "animals",
             "barn"
         ],
@@ -228,8 +219,7 @@
             "elephant",
             "tiger",
             "pride",
-            "jungle",
-            "territory"
+            "jungle"
         ],
         "answers": [
             "lion",
@@ -257,7 +247,6 @@
         "distractors": [
             "squirrel",
             "flower",
-            "eggs",
             "branches",
             "sky"
         ],
@@ -287,7 +276,6 @@
         "distractors": [
             "cat",
             "bird",
-            "owner",
             "house",
             "kennel"
         ],
