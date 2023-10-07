@@ -216,45 +216,57 @@ function Game4Component() { // Pass onLevelCompletion as a prop
     return (
         <div className={styles.pageContainer}>
             <div className={styles.textContainer}>
-                <h1>Valitse oikea sana</h1>
+                {currentQuestion < (data.length || 0) && (
+                    <h1 className={`font-custom`}>Valitse oikea sana</h1>
+                )}
                 <div className={styles.pointsDisplay}>
                     {user ? (
-                        <div>Kokonaispisteesi: {currentUserPoints}</div>
+                        <div className={`font-custom`}>Kokonaispisteesi: {currentUserPoints}</div>
                     ) : null}
                     {user ? (
-                        <div>Olet tehtävätasolla: {user.lastLevel}</div>
+                        <div className={`font-custom`}>Olet tehtävätasolla: {user.lastLevel}</div>
                     ) : null}
                     {user ? (
-                        <div>Tämän tehtävän pisteet: {score}</div>
+                        <div className={`font-custom`}>Tämän tehtävän pisteet: {score}</div>
                     ) : null}
                 </div>
             </div>
             <div className={styles.gameContainer}>
-                <img
-                    className={styles.speakButton}
-                    src='/images/audio.png'
-                    alt="Speaker Button"
-                    onClick={handleSpeakButtonClick}
-                />
                 {currentQuestion < (data.length || 0) ? (
-                    <div className={styles.imgContainer}>
-                        <div className={styles.imgWrapper}>
+                    <>
+                        <div className={styles.centeredContainer}>
                             <img
-                                src={data[currentQuestion]?.src}
-                                alt={`Image ${data[currentQuestion]?.Id}`}
+                                className={styles.speakButton}
+                                src='/images/audio.png'
+                                alt="Speaker Button"
+                                onClick={handleSpeakButtonClick}
                             />
-                            <div className={styles.buttonContainerWrapper}>
-                                {renderOptions()}
-                            </div>
+                            <h2>Kuuntele</h2>
                         </div>
-                        <p className={`${styles.result} ${result === 'Oikein!' ? styles.correct : ''}`}>
-                            {result}
-                        </p>
-                    </div>
+                        <div className={styles.imgContainer}>
+                            <div className={styles.imgWrapper}>
+                                <div className={styles.centeredContainer}>
+                                    <img
+                                        src={data[currentQuestion]?.src}
+                                        alt={`Image ${data[currentQuestion]?.Id}`}
+                                    />
+                                    <p className={`${styles.result} ${result === 'Oikein!' ? styles.correct : ''}`}>
+                                        {result}
+                                    </p>
+                                </div>
+                                <div className={styles.buttonContainerWrapper}>
+                                    {renderOptions()}
+                                </div>
+                            </div>
+                            <p className={`${styles.result} ${result === 'Oikein!' ? styles.correct : ''}`}>
+                                {result}
+                            </p>
+                        </div>
+                    </>
                 ) : (
-                    <div>
-                        <h2>Harjoitus valmis!</h2>
-                        <p>Sait {score} pistettä / {(data.length || 0)}.</p>
+                    <div className={styles.harjoitusValmis}>
+                        <h2 className={`font-custom`}>Harjoitus valmis!</h2>
+                        <p className={`font-custom`}>Sait {score} pistettä / {(data.length || 0)}.</p>
                         <button
                             onClick={handleNextSet}
                             style={{
@@ -266,6 +278,7 @@ function Game4Component() { // Pass onLevelCompletion as a prop
                             <img src="https://cdn.pixabay.com/photo/2017/01/29/22/16/cycle-2019530_640.png" alt="Continue to next set"/>
                         </button>
                     </div>
+
                 )}
             </div>
             <div className={styles.backArrows}>
