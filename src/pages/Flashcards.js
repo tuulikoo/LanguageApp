@@ -1,45 +1,61 @@
 import React, { useState } from 'react';
 import FlashcardDeckComponent from "@/components/FlashcardDeckComponent";
-import styles from '../styles/level1.module.scss';
+import styles from '../styles/level1.module.css';
 import flashcardsData from 'src/utils/wordlists/flashcardsanat.json';
-import { textToSpeech } from "@/utils/mimicApi";
+
 
 const Level1 = () => {
     const [selectedCategory, setSelectedCategory] = useState(null);
 
-    const handleSpeakButtonClick = () => {
-        // Assuming you have a mechanism to get the current word
-        textToSpeech(currentWord);
+    const handleCategorySelect = (category) => {
+        setSelectedCategory(category);
+    };
+
+
+    const getCategoryButtonClassName = (category) => {
+        return category === selectedCategory ? styles.selectedCategoryButton : styles.categoryButton;
     };
 
     return (
         <div className={styles.pageContainer}>
-            <h1 className={styles.pageTitle}>Sanoja ja lauseita</h1>
+            <h1 className={`${styles.pageTitle} font-custom`}>Level 1 Flashcards</h1>
 
             <div className={styles.categorySelector}>
-                {['animals', 'food', 'people'].map(category => (
+                <p className="font-custom">Mitä flashcard kategoriaa haluat opiskella?</p>
+                <div className={styles.categoryButtons}>
                     <button
-                        key={category}
-                        className={selectedCategory === category ? styles.selectedCategoryButton : styles.categoryButton}
-                        onClick={() => setSelectedCategory(category)}
+                        className={getCategoryButtonClassName('animals')}
+                        onClick={() => handleCategorySelect('animals')}
                     >
-                        {category}
+                        Elaimet
                     </button>
-                ))}
+                    <button
+                        className={getCategoryButtonClassName('food')}
+                        onClick={() => handleCategorySelect('food')}
+                    >
+                        Ruoka
+                    </button>
+                    <button
+                        className={getCategoryButtonClassName('people')}
+                        onClick={() => handleCategorySelect('people')}
+                    >
+                        Ihmiset
+                    </button>
+                </div>
             </div>
 
-            {selectedCategory && (
-                <div className={styles.flashcardsWrapper}>
-                    <h2 className={styles.selectedCategoryTitle}>{selectedCategory}</h2>
-                    <img
-                        className={styles.speakButton}
-                        src='/images/audio.png'
-                        alt="Speaker Button"
-                        onClick={handleSpeakButtonClick}
-                    />
-                    <FlashcardDeckComponent flashcards={flashcardsData.flashcards[selectedCategory]} />
-                </div>
-            )}
+            <div className={styles.flashcardsWrapper}>
+                {selectedCategory && (
+                    <div className={styles.flashcardContainer}>
+
+                        <h2 className={`${styles.selectedCategoryTitle} font-custom`}>{selectedCategory}</h2>
+
+                        <FlashcardDeckComponent flashcards={flashcardsData.flashcards[selectedCategory]} />
+                    </div>
+                )}
+            </div>
+
+
         </div>
     );
 };
