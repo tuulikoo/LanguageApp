@@ -219,17 +219,6 @@ function Game4Component() { // Pass onLevelCompletion as a prop
                 {currentQuestion < (data.length || 0) && (
                     <h1 className={`font-custom`}>Valitse oikea sana</h1>
                 )}
-                <div className={styles.pointsDisplay}>
-                    {user ? (
-                        <div className={`font-custom`}>Kokonaispisteesi: {currentUserPoints}</div>
-                    ) : null}
-                    {user ? (
-                        <div className={`font-custom`}>Olet tehtävätasolla: {user.lastLevel}</div>
-                    ) : null}
-                    {user ? (
-                        <div className={`font-custom`}>Tämän tehtävän pisteet: {score}</div>
-                    ) : null}
-                </div>
             </div>
             <div className={styles.gameContainer}>
                 {currentQuestion < (data.length || 0) ? (
@@ -278,7 +267,19 @@ function Game4Component() { // Pass onLevelCompletion as a prop
                             <img src="https://cdn.pixabay.com/photo/2017/01/29/22/16/cycle-2019530_640.png" alt="Continue to next set"/>
                         </button>
                     </div>
-
+                )}
+                {sectionCompleted && (
+                    <div className={styles.pointsDisplay}>
+                        {user ? (
+                            <div className={`font-custom`}>Kokonaispisteesi: {currentUserPoints}</div>
+                        ) : null}
+                        {user ? (
+                            <div className={`font-custom`}>Olet tehtävätasolla: {user.lastLevel}</div>
+                        ) : null}
+                        {user ? (
+                            <div className={`font-custom`}>Tämän tehtävän pisteet: {score}</div>
+                        ) : null}
+                    </div>
                 )}
             </div>
             <div className={styles.backArrows}>

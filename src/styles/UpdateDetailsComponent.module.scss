@@ -46,13 +46,14 @@
 
 .updateBox {
   margin: 10px;
-  font-family: 'Karma Suture', sans-serif;
-  border: 2px solid #4CAF50;
+  font-family: 'Dela Gothic One', sans-serif;
+  border: 2px solid #ffffff;
   padding: 20px;
-  background-color: #E0F2F1;
+  background-color: #edb157;
   border-radius: 10px;
   width: 70%;
-  max-width: 800px;
+  max-width: 400px;
+
 }
 
 .update-section {
@@ -60,9 +61,9 @@
 }
 
 .adjustButton {
-  font-family: 'Karma Suture', sans-serif;
+  font-family: 'Dela Gothic One', sans-serif;
   color: black;
-  background-color: #4CAF50;
+  background-color: #3f51b4;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -74,8 +75,8 @@
 
 .showButton {
   margin: 5px;
-  font-family: 'Karma Suture', sans-serif;
-  background-color: yellow;
+  font-family: 'Dela Gothic One', sans-serif;
+  background-color: #b3520c;
   color: black;
   border: solid 2px black;
   padding: 10px 20px;
@@ -85,7 +86,7 @@
 }
 
 .saveButton {
-  font-family: 'Karma Suture', sans-serif;
+  font-family: 'Dela Gothic One', sans-serif;
   margin: 3px;
   background-color: #E6E6FA;
   color: black;
@@ -96,10 +97,17 @@
   font-size: 14px;
 }
 
-.saveButton:hover, .adjustButton:hover, .showButton:hover {
-  background-color: #45a049;
+.saveButton:hover {
+  background-color: #a0a0ef;
 }
 
+.adjustButton:hover{
+  background-color: #00008a;
+}
+
+.showButton:hover {
+  background-color: #672e04;
+}
 
 .deleteModal {
   background-color: #ff4d4d; // Red background color
@@ -137,15 +145,16 @@
 }
 
 .deleteModalButton:hover {
-  background-color: #ff3333; // Darker red on hover
+  background-color: #ff0000; // Darker red on hover
   border: 2px solid #cc0000; // Darker red border on hover
 }
 .customDeleteButton {
+  font-family: "Dela Gothic One";
   margin-top: 20px; // Add some space between the button and the rest of the content
   padding: 10px 20px;
   border: 2px solid #ff3333; // Red border
   background-color: #ff4d4d; // Red background color
-  color: white; // White text color
+  color: #000000; // White text color
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
@@ -196,14 +205,6 @@
   border-color: #4caf50;
 }
 
-.avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 100%;
-  object-fit: cover;
-  background-color: lightblue;
-  transition: transform 0.5s ease-in-out;
-}
 
 .avatarHovered {
   transform: scale(1.4);
@@ -246,6 +247,39 @@
   border: 3px solid #007BFF;
   border-radius: 50%;
 }
+
+.omatTiedot {
+  font-size: 13px;
+
+  .avatarTiedot {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 25px;
+
+
+    h3 {
+      font-family: "Dela Gothic One"; /* Apply the custom font */
+      font-size: 18px; /* Adjust the font size as needed */
+      color: #b4520c; /* Set the text color to stand out */
+    }
+
+    .avatar {
+      width: 100px; /* Adjust the width as needed */
+      height: 100px; /* Adjust the height as needed */
+      border-radius: 50%;
+      object-fit: cover;
+      background-color: lightblue;
+      transition: transform 0.5s ease-in-out;
+      margin: 10px auto; /* Center the avatar horizontally */
+
+      &:hover {
+        transform: scale(1.4);
+      }
+    }
+  }
+}
+
+
 
 @media (min-width: 768px) {
   .updateBox, .currentDetails {

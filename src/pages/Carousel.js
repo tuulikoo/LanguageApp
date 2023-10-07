@@ -8,20 +8,17 @@ export default function ResponsiveCarousel() {
         <div className={styles.carousel_container}>
             <div className={styles.container}>
                 <Carousel
+                    showArrows={true}
                     autoPlay={true}
+                    showIndicators={true}
                     infiniteLoop={true}
                     dynamicHeight={false}
-                    showStatus={false}
-                    showThumbs={false}
-                    showIndicators={false}
-                    showArrows={false}
-                    stopOnHover={true}
-                    interval={10000}
                     className={styles.mySwiper}
                 >
-                    {items.map(({ id, title, text }) => (
+                    {items.map(({ id, imageUrl, title, text }) => (
                         <div key={id} className={styles.swipItem}>
                             <div className={styles.imgBox}>
+                                <img src={imageUrl} alt="slides" />
                             </div>
                             <div className={styles.detail}>
                                 <h2 className="font-custom">{title}</h2>

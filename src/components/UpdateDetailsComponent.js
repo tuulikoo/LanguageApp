@@ -65,7 +65,7 @@ function UpdateDetailsComponent({setUser}) {
     }
 
     if (!user) {
-        return <div>kirjaudu sisaan nahdaksesi profiili</div>;
+        return <div>Kirjaudu sisään nähdäksesi profiili</div>;
     }
 
     function toggleVisibility(setVisibilityState) {
@@ -142,18 +142,25 @@ function UpdateDetailsComponent({setUser}) {
                 <h2 className={styles.welcome}>Pisteesi on {user.userPoints}</h2>
                 <h2 className={styles.welcome}>Olet tasolla {user.lastLevel}</h2>
                 <br/>
-                <p>Tästä voit tarkistaa omat tietosi ja tehdä niihin muutoksia:</p>
-                <h3>Etunimesi on {user.firstName}</h3>
-                <h3>Käyttäjänimesi on {user.username}</h3>
-                <h3>Sähköpostisosoitteesi on {user.email}</h3>
-                <h3>
-                    Avatarisi on{' '}
-                    <img
-                        src={`avatars/avatar${user.avatarId}.png`}
-                        alt={`${user.username} Avatar`}
-                        className={`${styles.avatar} ${avatarHovered ? styles.avatarHovered : ''}`}
-                    />
-                </h3>
+                <div className={styles.omatTiedot}>
+                    <h4>Tästä voit tarkistaa omat tietosi ja tehdä niihin muutoksia:</h4>
+                    <br/>
+                    <br/>
+                    <h3>Etunimesi: {user.firstName}</h3>
+                    <br/>
+                    <h3>Käyttäjänimesi: {user.username}</h3>
+                    <br/>
+                    <h3>Sähköpostisosoitteesi: {user.email}</h3>
+                    <br/>
+                    <h3 className={styles.avatarTiedot}>
+                        Avatarisi on{' '}
+                        <img
+                            src={`avatars/avatar${user.avatarId}.png`}
+                            alt={`${user.username} Avatar`}
+                            className={`${styles.avatar} ${avatarHovered ? styles.avatarHovered : ''}`}
+                        />
+                    </h3>
+                </div>
             </div>
             <button
                 id="adjust"
