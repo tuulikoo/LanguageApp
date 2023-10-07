@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState } from "react";
 import styles from "@/styles/LevelSelector.module.scss";
 import { Button, Link as MuiLink } from "@mui/material";
 import { RefreshOutlined } from "@mui/icons-material";
+import Image from "next/image";
 
 const LevelSelector = () => {
     const [flippedStates, setFlippedStates] = useState([true, true, true]);
@@ -24,7 +25,7 @@ const LevelSelector = () => {
                     "oppiminen korttien  mukaan, saat sanan suomeksi, kuin englanniksi. Tällä tasolla on hyvä aloittaa englannin kielen opiskelu.",
             },
             route: "/Flashcards",
-            image: "/svg/blob.svg"
+            image: "/svg/blob.svg",
         },
         {
             title: {
@@ -38,7 +39,7 @@ const LevelSelector = () => {
                     "Tehtävänä valita oikea sana kuvan perusteella. Tämä on hyvä tapa tarkistaa, kuinka hyvin olet oppinut edellisestä tasosta ja muistatko sanat. Saat pisteitä oikeista vastauksista.",
             },
             route: "/Game4",
-            image: "/svg/blob2.svg"
+            image: "/svg/blob2.svg",
         },
         {
             title: {
@@ -52,7 +53,7 @@ const LevelSelector = () => {
                     "Kuunteluharjoitus: kuuntele sana ja kirjoita se. Saat pisteita oikeista vastauksista.",
             },
             route: "/Game2",
-            image: "/svg/blob3.svg"
+            image: "/svg/blob3.svg",
         },
         {
             title: {
@@ -66,12 +67,9 @@ const LevelSelector = () => {
                     "Kuunteluharjoitus: kuuntele lause ja valitse oikeat sanat. Saat pisteitä oikeista vastauksista.",
             },
             route: "/Game5",
-            image: "/svg/blob4.svg"
-        }
+            image: "/svg/blob4.svg",
+        },
     ];
-
-
-
 
     return (
         <div className={styles.levels_container}>
@@ -79,7 +77,13 @@ const LevelSelector = () => {
                 {levelsData.map((level, index) => (
                     <li key={index} className={styles.levels_item}>
                         <MuiLink href={level.route} className={styles.levels_link}>
-                            <img src={level.image} alt="level" className={styles.level_image} />
+                            <Image
+                                src={level.image}
+                                alt="level"
+                                width={200}
+                                height={200}
+                                className={styles.level_image}
+                            />
                             <h2 className={styles.level_title}>
                                 {flippedStates[index]
                                     ? level.title.finnish
@@ -110,4 +114,3 @@ const LevelSelector = () => {
 };
 
 export default LevelSelector;
-
