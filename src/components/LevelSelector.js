@@ -5,7 +5,7 @@ import { RefreshOutlined } from "@mui/icons-material";
 import Image from "next/image";
 
 const LevelSelector = () => {
-    const [flippedStates, setFlippedStates] = useState([true, true, true]);
+    const [flippedStates, setFlippedStates] = useState([true, true, true, true, true]);
 
     const handleItemClick = (index) => {
         const newFlippedStates = [...flippedStates];
@@ -69,6 +69,21 @@ const LevelSelector = () => {
             route: "/Game5",
             image: "/svg/blob4.svg",
         },
+        {
+            title: {
+                english: "Listening exercise 3",
+                finnish: "Kuunteluharjoituksia 3",
+            },
+            description: {
+                english:
+                "Listening exercise: listen and read the story and choose correct aswers. Earn points for correct answers",
+                finnish:
+                "Kuunteluharjoitus: kuuntele ja lue tarina ja valitse oikeat vastaukset. Saat pisteitä oikeista vastauksista.",
+            },
+            route: "/Story",
+            image: "/svg/blob5.svg",
+        }
+        
     ];
 
     return (

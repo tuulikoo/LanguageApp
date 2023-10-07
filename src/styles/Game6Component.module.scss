@@ -1,0 +1,59 @@
+$primary-color: #58CC02; 
+$secondary-color: #F4F5F7;
+$hover-color: #4FA902; 
+$header-color: #333;
+
+.container {
+    background-color: $secondary-color;
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 700px;
+    margin: auto;
+
+    h5 {
+        color: $header-color;
+        margin-bottom: 1.5rem;
+    }
+
+    .startButton {
+        display: flex;
+        justify-content: center;
+
+        .primaryButton {
+            background-color: $primary-color;
+            &:hover {
+                background-color: $hover-color;
+            }
+        }
+    }
+
+    .storyContent {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 10px;
+        margin-bottom: 1.5rem;
+
+        p {
+            margin-bottom: 1rem;
+        }
+    }
+
+    .feedback {
+        margin: 1rem 0;
+    }
+}
+
+.option {
+    .MuiRadio-colorPrimary.Mui-checked {
+        color: $primary-color;
+    }
+}
+
+.primaryButton {
+    background-color: $primary-color;
+    color: white;
+    &:hover {
+        background-color: $hover-color;
+    }
+}
+

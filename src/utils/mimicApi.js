@@ -4,9 +4,9 @@ const MIMIC3_SERVER = process.env.NEXT_PUBLIC_MIMIC3_SERVER;
 export const convertTextToSpeech = async (text, options = {}) => {
     const params = new URLSearchParams({
         text,
-        voice: DEFAULT_VOICE,
-        noiseScale: options.noiseScale || 0.222,
-        noiseW: options.noiseW || 0.3,
+        voice: options.voice || DEFAULT_VOICE,
+        noiseScale: options.noiseScale || 0.499,
+        noiseW: options.noiseW || 0.4,
         lengthScale: options.lengthScale || 1.3,
         ssml: options.ssml || false,
     });
