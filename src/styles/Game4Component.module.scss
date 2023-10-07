@@ -13,10 +13,15 @@
   max-width: 800px;
   margin: 20px auto;
   text-align: center; /* Center the content horizontally */
+  display: flex; /* Use flexbox for centering vertically */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex-direction: column; /* Stack elements vertically */
 }
 
 .imgWrapper {
   display: inline-block; /* Make the wrapper inline-block to center its content */
+  text-align: center; /* Center the content horizontally */
 }
 
 .imgWrapper img {
@@ -29,11 +34,13 @@
   background-color: #549a0a;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
   text-align: center;
   padding-bottom: 80px;
-  max-height: fit-content;
+  min-height: 100vh; /* Ensure the container takes up the full viewport height */
 }
+
 
 .textContainer {
   text-align: left;
@@ -183,8 +190,9 @@
 .harjoitusValmis {
   text-align: center; /* Center text horizontally */
   padding: 20px; /* Add padding for spacing */
-  background-color: #ffec00; /* Background color */
+  background-color: #ff8800; /* Background color */
   border-radius: 10px; /* Rounded edges */
+
   max-width: 600px; /* Limit the maximum width */
   margin: 0 auto; /* Center the element horizontally */
   font-size: 30px; /* Increase the font size */
