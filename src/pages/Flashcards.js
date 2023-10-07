@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import FlashcardDeckComponent from "@/components/FlashcardDeckComponent";
 import styles from '../styles/level1.module.css';
-import flashcardsData from 'src/utils/wordlists/flashcardsanat.json';
+import flashcardsData from "../utils/wordlists/flshcardsanat.json";
 
 
 const Level1 = () => {
