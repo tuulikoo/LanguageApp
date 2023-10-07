@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "content": "In a quiet village, children loved to play near the river.  One day, a boy named William found a magical stone by the riverside, which granted wishes. He wished for endless candies, and his pockets filled up instantly.",
+        "options": [
+            "William löysi toivomuslähteen joen varrelta.",
+            "William toivoi äärettömästi rahaa.",
+            "William toivoi äärettömästi karkkia."
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "id": 2,
+        "content": "A curious cat named scarlett, loved to explore her neighborhood. One sunny day, she climbed a tall tree and discovered a bird's nest with three blue eggs. The bird chirped protectively, and scarlett decided to climb down.",
+        "options": [
+            "scarlett löysi kolme vihreää munaa.",
+            "scarlett päätti jäädä puuhun.",
+            "scarlett löysi linnunpesän."
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "id": 3,
+        "content": "Alice, a talented baker, decided to participate in a baking competition. She baked a delicious blueberry pie that mesmerized the judges. To everyone's surprise, Alice's pie took the second place.",
+        "options": [
+            "Alice leipoi herkullisen omenapiirakan.",
+            "Alice voitti kilpailun.",
+            "Alice sai toisen sijan."
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "id": 4,
+        "content": "A long time ago, there was a kingdom ruled by a wise king. The king had a beautiful daughter, who was loved by everyone. One day, a dragon attacked the kingdom, and the king's daughter was kidnapped. The king sent his bravest knight to rescue her.",
+        "options": [
+            "Kuningas lähettää ritarin pelastamaan prinsessan.",
+            "Kuningas lähettää ritarin etsimään lohikäärmettä.",
+            "Kuningas lähettää ritarin etsimään aarretta."
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 5,
+        "content": "In a dense forest, lived a playful squirrel named timmy. timmy loved collecting shiny objects. One winter morning, he stumbled upon a golden acorn. It was unlike anything he had seen before.",
+        "options": [
+            "timmy löysi hopeisen tammenterhon.",
+            "timmy ei pitänyt kiiltävistä esineistä.",
+            "timmy löysi kultaisen tammenterhon."
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "id": 7,
+        "content": "The forest was known to have mysterious lights during the night. Travelers often spoke of blue and green lights dancing between the trees, but no one knew their origin.",
+        "options": [
+            "Matkustajat puhuivat punaisista ja keltaisista valoista.",
+            "Valot tanssivat puun latvoissa.",
+            "Kukaan ei tiennyt valojen alkuperää."
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "id": 8,
+        "content": "Every autumn, the village organized a festival. The main event was a pie-eating contest. Surprisingly, this year's winner was the town's librarian.",
+        "options": [
+            "Voittaja oli kylän leipuri.",
+            "Vetonaula oli omenan heittokilpailu.",
+            "Tämän vuoden voittaja oli kylän kirjastonhoitaja."
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "id": 9,
+        "content": "The northern lights illuminated the night sky in hues of green and pink. Locals believed that these lights were the spirits of their ancestors watching over them.",
+        "options": [
+            "Revontulet värittivät taivaan oranssiksi ja siniseksi.",
+            "Paikalliset uskoivat, että kyseessä oli vieraiden avaruusolentojen tekosia.",
+            "Revontulien uskottiin olevan esi-isien henkiä."
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "id": 10,
+        "content": "The oldest tree in the village was believed to have unique powers. During full moons, it bore a single golden apple. Many tried to get the apple, but it would only remain in the hands of someone with a kind heart.",
+        "options": [
+            "Puun uskottiin olevan kirottu.",
+            "Puussa kasvoi kultaisia omenoita joka päivä.",
+            "Omena jäisi vain hyväsydämisen henkilön käsiin."
+        ],
+        "correctAnswer": 2
+    }
+]

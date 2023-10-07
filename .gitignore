@@ -43,7 +43,6 @@ src/utils/mimic3/
 .vscode
 mimic3
 # json files
-*.json
 
 #robot
 log.html
