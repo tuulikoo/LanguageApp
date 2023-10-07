@@ -198,6 +198,42 @@
   font-size: 30px; /* Increase the font size */
 }
 
+.backToMain::before,
+.backToPrevious::before {
+  content: attr(data-tooltip); /* Set the tooltip text from the data-tooltip attribute */
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 14px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 1;
+}
+
+/* Position the tooltip above the button */
+.backToMain::before {
+  bottom: 30px; /* Adjust the distance from the button */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Position the tooltip above the button */
+.backToPrevious::before {
+  bottom: 30px; /* Adjust the distance from the button */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Show the tooltip on hover */
+.backToMain:hover::before,
+.backToPrevious:hover::before {
+  visibility: visible;
+  opacity: 1;
+}
+
 
 
 /* Keyframes for animations */

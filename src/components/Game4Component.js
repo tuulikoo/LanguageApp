@@ -72,6 +72,7 @@ function Game4Component() { // Pass onLevelCompletion as a prop
 
                     }
                 }
+
             }
         }
     }, [currentQuestion, data, user, questionsPerSection]);
@@ -202,73 +203,76 @@ function Game4Component() { // Pass onLevelCompletion as a prop
     };
 
     const handleNextSet = () => {
-        window.location.reload();
+        if (!data || !data.length) {
+            router.push('/MainPage');
+        } else {
+            window.location.reload();
+        }
     };
+
 
 
 
     return (
         <div className={styles.pageContainer}>
             <div className={styles.textContainer}>
-                {currentQuestion < (data.length || 0) && (
-                    <h1 className={`font-custom`}>Valitse oikea sana</h1>
-                )}
+                <h1>Valitse oikea sana</h1>
                 <div className={styles.pointsDisplay}>
                     {user ? (
-                        <div className={`font-custom`}>Kokonaispisteesi: {currentUserPoints}</div>
+                        <div>Kokonaispisteesi: {currentUserPoints}</div>
                     ) : null}
                     {user ? (
-                        <div className={`font-custom`}>Olet tehtävätasolla: {user.lastLevel}</div>
+                        <div>Olet tehtävätasolla: {user.lastLevel}</div>
                     ) : null}
                     {user ? (
-                        <div className={`font-custom`}>Tämän tehtävän pisteet: {score}</div>
+                        <div>Tämän tehtävän pisteet: {score}</div>
                     ) : null}
                 </div>
             </div>
             <div className={styles.gameContainer}>
+                <img
+                    className={styles.speakButton}
+                    src='/images/audio.png'
+                    alt="Speaker Button"
+                    onClick={handleSpeakButtonClick}
+                />
                 {currentQuestion < (data.length || 0) ? (
-                    <>
-                        <div className={styles.centeredContainer}>
+                    <div className={styles.imgContainer}>
+                        <div className={styles.imgWrapper}>
                             <img
-                                className={styles.speakButton}
-                                src='/images/audio.png'
-                                alt="Speaker Button"
-                                onClick={handleSpeakButtonClick}
+                                src={data[currentQuestion]?.src}
+                                alt={`Image ${data[currentQuestion]?.Id}`}
                             />
-                            <h2>Kuuntele</h2>
-                        </div>
-                        <div className={styles.imgContainer}>
-                            <div className={styles.imgWrapper}>
-                                <div className={styles.centeredContainer}>
-                                    <img
-                                        src={data[currentQuestion]?.src}
-                                        alt={`Image ${data[currentQuestion]?.Id}`}
-                                    />
-                                    <p className={`${styles.result} ${result === 'Oikein!' ? styles.correct : ''}`}>
-                                        {result}
-                                    </p>
-                                </div>
-                                <div className={styles.buttonContainerWrapper}>
-                                    {renderOptions()}
-                                </div>
+                            <div className={styles.buttonContainerWrapper}>
+                                {renderOptions()}
                             </div>
-                            <p className={`${styles.result} ${result === 'Oikein!' ? styles.correct : ''}`}>
-                                {result}
-                            </p>
                         </div>
-                    </>
+                        <p className={`${styles.result} ${result === 'Oikein!' ? styles.correct : ''}`}>
+                            {result}
+                        </p>
+                    </div>
                 ) : (
-                    <div className={styles.harjoitusValmis}>
-                        <h2 className={`font-custom`}>Harjoitus valmis!</h2>
-                        <p className={`font-custom`}>Sait {score} pistettä / {(data.length || 0)}.</p>
+                    <div>
+                        <h2>Harjoitus valmis!</h2>
+                        <p>Sait {score} pistettä / {(data.length || 0)}.</p>
+                        <button
+                            onClick={handleNextSet}
+                            style={{
+                                maxWidth: '200px', // Limit the maximum width
+                                padding: '10px 20px', // Adjust padding for sizing
+                                fontSize: '16px', // Adjust font size if needed
+                            }}
+                        >
+                            <img src="https://cdn.pixabay.com/photo/2017/01/29/22/16/cycle-2019530_640.png" alt="Continue to next set"/>
+                        </button>
                     </div>
                 )}
             </div>
             <div className={styles.backArrows}>
-                <button onClick={handleBackToMainPage} data-tooltip="Go back to Main Page">
+                <button className={styles.backToMain} onClick={handleBackToMainPage} data-tooltip="Takaisin kotisivulle">
                     <img src="https://cdn.pixabay.com/photo/2012/04/02/16/10/arrow-24848_640.png" alt="Back to MainPage" />
                 </button>
-                <button onClick={handleBackToPreviousQuestion} data-tooltip="Go back to Previous Question">
+                <button onClick={handleBackToPreviousQuestion} data-tooltip="Edellinen kysymys" className={styles.backToPrevious}>
                     <img src="https://cdn.pixabay.com/photo/2012/04/01/12/48/arrow-23284_640.png" alt="Back to Previous Question" />
                 </button>
             </div>

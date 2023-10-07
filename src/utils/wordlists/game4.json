@@ -58,5 +58,17 @@
     { "Id": 8, "src": "professions/cook.webp", "btn1": "Doctor", "btn2": "Cook", "btn3": "Sailor", "btn4": "Photographer", "correctOption": "Cook" },
     { "Id": 9, "src": "professions/teacher.webp", "btn1": "Pilot", "btn2": "Scientist", "btn3": "Teacher", "btn4": "Artist", "correctOption": "Teacher" },
     { "Id": 10, "src": "professions/doctor.webp", "btn1": "Waiter", "btn2": "Doctor", "btn3": "Photographer", "btn4": "Sailor", "correctOption": "Doctor" }
+  ],
+  "6": [
+    { "Id": 1, "src": "weather/sunny.webp", "btn1": "Cold", "btn2": "Rainy", "btn3": "Sunny", "btn4": "Night", "correctOption": "Sunny" },
+    { "Id": 2, "src": "weather/cloudy.webp", "btn1": "Windy", "btn2": "Snowy", "btn3": "Cloudy", "btn4": "Foggy", "correctOption": "Cloudy" },
+    { "Id": 3, "src": "weather/rainy.webp", "btn1": "Hail", "btn2": "Thunderstorm", "btn3": "Rainy", "btn4": "Sleet", "correctOption": "Rainy" },
+    { "Id": 4, "src": "weather/snowy.webp", "btn1": "Sunny", "btn2": "Foggy", "btn3": "Snowy", "btn4": "Icy", "correctOption": "Snowy" },
+    { "Id": 5, "src": "weather/windy.webp", "btn1": "Tornado", "btn2": "Windy", "btn3": "Hurricane", "btn4": "Breezy", "correctOption": "Windy" },
+    { "Id": 6, "src": "weather/foggy.webp", "btn1": "Misty", "btn2": "Overcast", "btn3": "Foggy", "btn4": "Clear", "correctOption": "Foggy" },
+    { "Id": 7, "src": "weather/stormy.webp", "btn1": "Sunny", "btn2": "Thunderstorm", "btn3": "Stormy", "btn4": "Hail", "correctOption": "Stormy" },
+    { "Id": 8, "src": "weather/hail.webp", "btn1": "Hail", "btn2": "Tornado", "btn3": "Rainy", "btn4": "Sunny", "correctOption": "Hail" },
+    { "Id": 9, "src": "weather/tornado.webp", "btn1": "Blizzard", "btn2": "Tornado", "btn3": "Sleet", "btn4": "Foggy", "correctOption": "Tornado" },
+    { "Id": 10, "src": "weather/clear.webp", "btn1": "Overcast", "btn2": "Clear", "btn3": "Misty", "btn4": "Windy", "correctOption": "Clear" }
   ]
 }
