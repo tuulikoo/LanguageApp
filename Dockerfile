@@ -3,7 +3,7 @@ FROM node:20
  WORKDIR /usr/src/app
 
 # Install git 
-RUN apk update && apk add git
+RUN apt-get update && apt-get install -y git
 
 # Clone the repository and switch to the desired branch
 RUN git clone -b ui/ux https://github.com/tuulikoo/LanguageApp.git .
