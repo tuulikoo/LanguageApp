@@ -74,7 +74,7 @@ export default function handler(req, res) {
             data[categoryToDelete] = data[categoryToDelete].filter(item => item !== wordToDelete);
 
             try {
-                writeData(data);
+                writeData(data, fileName);
                 return res.status(200).send("Word removed successfully");
             } catch (error) {
                 return res.status(500).json({ error: error.message });
