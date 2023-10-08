@@ -31,7 +31,7 @@ Our vision for LanguageApp is to provide language learners with a fun and motiva
 
 ### Voice Production
 
-LanguageApp uses the [Mimic3](https://github.com/MycroftAI/mimic3)An open-source privacy-focused neural Text to Speech engine.
+LanguageApp uses the [Mimic3](https://github.com/MycroftAI/mimic3) An open-source privacy-focused neural Text to Speech engine.
 
 ### About the Application
 
