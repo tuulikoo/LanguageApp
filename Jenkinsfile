@@ -74,8 +74,8 @@ pipeline {
 }
     post {
         always {
-            robot name: '**/output.xml'
-            sh 'pkill -f "next start" || true'
+            robot outputPath: '.', logFileName: 'log.html', outputFileName: 'output.xml', reportFileName: 'report.html'
+                        sh 'pkill -f "next start" || true'
         }
     }
 }
