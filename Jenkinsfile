@@ -74,7 +74,7 @@ pipeline {
 }
     post {
         always {
-           
+            robot name: '**/output.xml'
             sh 'pkill -f "next start" || true'
         }
     }
