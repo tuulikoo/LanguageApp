@@ -8,7 +8,7 @@ ${LOGINURL} =    http://localhost:3000/Login
 ${GAME4URL} =    http://localhost:3000/Game4
 ${MAINURL} =    http://localhost:3000/MainPage
 ${USERNAME} =    Robot
-${PASSWORD} =    Password
+${PASSWORD} =    password
 ${Timeout}        5s
 ${CorrectOption}  # Define the correct option for your test case
 
