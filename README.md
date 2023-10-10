@@ -37,7 +37,7 @@ LanguageApp uses the [Mimic3](https://github.com/MycroftAI/mimic3) An open-sourc
 
 - Safety
   - Due to application being hosted in Metropolia eCloud it is only accessible to users connected to the Metropolia network. The application is also protected by a firewall.
-[More about application safety in finnish](https://github.com/tuulikoo/LanguageApp/blob/main/LanguageApp%20-%20turvallisuus.pdf)
+[More about application safety in finnish](https://github.com/tuulikoo/LanguageApp/blob/main/dokumentit/LanguageApp%20-%20turvallisuus.pdf)
 
 
 ### Tests
