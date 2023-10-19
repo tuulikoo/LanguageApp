@@ -8,6 +8,7 @@ export default async function handle(req, res) {
         return res.status(405).end();
     }
 
+
     // Authenticate user using the JWT from the httpOnly cookie
     const token = req.cookies.token; // Get token from cookies
 

@@ -118,7 +118,7 @@ function UserPointsComponent() {
         message = 'Hieno alku! Jatka harjoittelua ansaitaksesi lisää pisteitä!';
     } else {
         message = 'Aloitetaan oppiminen! Mitä enemmän harjoittelet, sitä enemmän pisteitä ansaitset!';
-    };
+    }
 
     const handleStartPracticeClick = () => {
         // Use router to navigate to MainPage

@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import {
     Container, Typography, Box, Grid, Paper, Button, Snackbar, Alert
 } from '@mui/material';
-import { textToSpeech } from '../utils/mimicApi';
+import { textToSpeech } from '@/utils/mimicApi';
 import wordPairs from '../utils/wordlists/Game5wordlist.json';
 import styles from '../styles/Game5.module.scss';
 import updateUserPoints from '../helpers/PointAdder';
-import { useUser } from '../utils/userContext';
+import { useUser } from '@/utils/userContext';
 
 
 function Game5() {
@@ -14,7 +14,7 @@ function Game5() {
     const [isCorrect, setIsCorrect] = useState(false);
     const [droppedWords, setDroppedWords] = useState([]);
     const [openSnackbar, setOpenSnackbar] = useState(false);
-    const [userpoints, setUserpoints] = useState(0);
+    const [, setUserpoints] = useState(0);
     const { user } = useUser();
 
     useEffect(() => {

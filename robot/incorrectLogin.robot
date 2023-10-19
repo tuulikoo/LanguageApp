@@ -1,3 +1,4 @@
+# -*- coding: robot -*-
 *** Settings ***
 Library    Browser
 

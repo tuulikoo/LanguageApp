@@ -1,15 +1,25 @@
 *** Settings ***
-Library    Browser
-
-
+Library     Browser
+Resource    wrongRegister.robot
 
 
 *** Variables ***
-${LOGINURL} =    http://localhost:3000/Login
-${USERURL} =    http://localhost:3000/UserPage
-${MAINURL} =    http://localhost:3000/MainPage
-${USERNAME} =    Tester1099
-${PASSWORD} =    Password
+${LOGINURL} =       http://localhost:3000/Login
+${USERURL} =        http://localhost:3000/UserPage
+${MAINURL} =        http://localhost:3000/MainPage
+${USERNAME} =       Tester1099
+${PASSWORD} =       Password
+
+
+*** Test Cases ***
+Verify User Cannot Login With Incorrect Password
+    Open Browser To Login Page
+    Enter Username
+    Enter Password
+    Submit Login Form
+    Sleep    4s    just to wait for error message
+    Verify That Error message is shown
+    Verify that url is same
 
 
 *** Keywords ***
@@ -31,13 +41,3 @@ Verify That Error message is shown
 
 Verify that url is same
     Get Url    ==    ${LOGINURL}
-
-*** Test Cases ***
-Verify User Cannot Login With Incorrect Password
-    Open Browser To Login Page
-    Enter Username
-    Enter Password
-    Submit Login Form
-    Sleep    4s    just to wait for error message
-    Verify That Error message is shown
-    Verify that url is same

@@ -19,6 +19,7 @@ export default function ResponsiveCarousel() {
                     showThumbs={false}
                     interval={10000}
                     className={styles.mySwiper}
+                    swipeable={true}
                 >
                     {items.map(({ id, quote_finnish, quote_english }) => (
                         <div key={id} className={styles.swipItem}>

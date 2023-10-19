@@ -2,7 +2,7 @@ FROM node:18
 
 WORKDIR /usr/src/app
 
-# Install git 
+# Install git§ 
 RUN apt-get update && apt-get install -y git
 
 # Clone the repository and switch to the desired branch

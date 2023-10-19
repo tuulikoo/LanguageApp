@@ -113,8 +113,7 @@ function UpdateDetailsComponent({setUser}) {
         setDeleteModalVisible(false);
 
         try {
-            // Send a DELETE request to your API endpoint to delete the user's account
-            const response = await axios.delete('/api/deleteUser'); // Replace with the correct API endpoint
+            const response = await axios.delete('/api/deleteUser');
 
             if (response.status === 200) {
                 // Account deleted successfully, navigate to a logout or home page

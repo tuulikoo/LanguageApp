@@ -1,80 +1,79 @@
 .footer {
-    padding: 40px 0;
-    background-color: #fff;
-    border-top: 1px solid #e5e5e5;
+  padding: 40px 0;
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
 }
 
 .footer_container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .logo_container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    .logo {
-        font-size: 1.8rem;
-        font-weight: 600;
-        color: #333;
-        margin-right: 20px;
-        text-decoration: none;
-        text-transform: uppercase;
-    }
+  .logo {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    margin-right: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
 }
 
 .address_list {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 
-    .address_item {
-        margin-bottom: 10px;
+  .address_item {
+    margin-bottom: 10px;
 
-        .address_link {
-            color: #888;
-            text-decoration: none;
-            transition: color 0.3s;
+    .address_link {
+      color: #888;
+      text-decoration: none;
+      transition: color 0.3s;
 
-            &:hover {
-                color: #555;
-            }
-        }
+      &:hover {
+        color: #555;
+      }
     }
+  }
 }
 
 .subscription {
+  display: flex;
+  z-index: 1;
+
+  .subscription_form {
     display: flex;
-    z-index: 1;
 
-    .subscription_form {
-        display: flex;
-
-        .email_input {
-            padding: 10px 15px;
-            border: 1px solid #e5e5e5;
-            border-right: none;
-            border-radius: 5px 0 0 5px;
-            outline: none;
-            font-size: 1rem;
-        }
-
-        .subscribe_btn {
-            padding: 10px 15px;
-            border: none;
-            background-color: #333;
-            color: #fff;
-            cursor: pointer;
-            border-radius: 0 5px 5px 0;
-            transition: background-color 0.3s;
-
-            &:hover {
-                background-color: #555;
-            }
-        }
+    .email_input {
+      padding: 10px 15px;
+      border: 1px solid #e5e5e5;
+      border-right: none;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+      font-size: 1rem;
     }
-}
 
+    .subscribe_btn {
+      padding: 10px 15px;
+      border: none;
+      background-color: #333;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 0 5px 5px 0;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #555;
+      }
+    }
+  }
+}

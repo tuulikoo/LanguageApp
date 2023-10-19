@@ -3,11 +3,13 @@ import game4 from '../utils/wordlists/game4.json';
 import { useUser } from '../utils/userContext';
 import styles from '../styles/Game4Component.module.scss';
 import { textToSpeech } from '../utils/mimicApi';
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
+import Image from 'next/image';
 
 
 function Game4Component() { // Pass onLevelCompletion as a prop
     const { user } = useUser();
+
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [score, setScore] = useState(0);
@@ -15,7 +17,7 @@ function Game4Component() { // Pass onLevelCompletion as a prop
     const [currentUserPoints, setCurrentUserPoints] = useState(0);
     const [incorrectAttempts, setIncorrectAttempts] = useState(0);
     const [hasAnsweredCorrectly, setHasAnsweredCorrectly] = useState(false);
-    const [sectionCompleted, setSectionCompleted] = useState(false); // Added this line
+    const [, setSectionCompleted] = useState(false);
 
     const section = user ? user.lastLevel : "1";
     const data = game4[section];
@@ -57,7 +59,8 @@ function Game4Component() { // Pass onLevelCompletion as a prop
                             headers: {
                                 'Content-Type': 'application/json',
                             },
-                            body: JSON.stringify({ userId: user.id,
+                            body: JSON.stringify({
+                                userId: user.id,
                                 lastLevel: nextLevel,
                             }),
                         })
@@ -224,7 +227,7 @@ function Game4Component() { // Pass onLevelCompletion as a prop
                 </div>
             </div>
             <div className={styles.gameContainer}>
-                <img
+                <Image
                     className={styles.speakButton}
                     src='/images/audio.png'
                     alt="Speaker Button"
@@ -233,7 +236,7 @@ function Game4Component() { // Pass onLevelCompletion as a prop
                 {currentQuestion < (data.length || 0) ? (
                     <div className={styles.imgContainer}>
                         <div className={styles.imgWrapper}>
-                            <img
+                            <Image
                                 src={data[currentQuestion]?.src}
                                 alt={`Image ${data[currentQuestion]?.Id}`}
                             />
@@ -257,17 +260,17 @@ function Game4Component() { // Pass onLevelCompletion as a prop
                                 fontSize: '16px', // Adjust font size if needed
                             }}
                         >
-                            <img src="https://cdn.pixabay.com/photo/2017/01/29/22/16/cycle-2019530_640.png" alt="Continue to next set"/>
+                            <Image src="https://cdn.pixabay.com/photo/2017/01/29/22/16/cycle-2019530_640.png" alt="Continue to next set" />
                         </button>
                     </div>
                 )}
             </div>
             <div className={styles.backArrows}>
                 <button onClick={handleBackToMainPage} data-tooltip="Go back to Main Page">
-                    <img src="https://cdn.pixabay.com/photo/2012/04/02/16/10/arrow-24848_640.png" alt="Back to MainPage" />
+                    <Image src="https://cdn.pixabay.com/photo/2012/04/02/16/10/arrow-24848_640.png" alt="Back to MainPage" />
                 </button>
                 <button onClick={handleBackToPreviousQuestion} data-tooltip="Go back to Previous Question">
-                    <img src="https://cdn.pixabay.com/photo/2012/04/01/12/48/arrow-23284_640.png" alt="Back to Previous Question" />
+                    <Image src="https://cdn.pixabay.com/photo/2012/04/01/12/48/arrow-23284_640.png" alt="Back to Previous Question" />
                 </button>
             </div>
         </div>
