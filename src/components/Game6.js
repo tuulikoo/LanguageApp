@@ -12,6 +12,7 @@ function GameStoryComponent() {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [feedback, setFeedback] = useState("");
     const [isStoryStarted, setIsStoryStarted] = useState(false);
+    const [isTextRevealed, setIsTextRevealed] = useState(false);
     const { user } = useUser();
 
     const loadNewStory = () => {
@@ -21,6 +22,11 @@ function GameStoryComponent() {
         setDisplayedText("");
         setIsStoryStarted(false);
     };
+
+    const revealText = () => {
+        setIsTextRevealed(true);
+    };
+
 
     const startStory = () => {
         const story = stories[currentStoryIndex];
@@ -48,7 +54,7 @@ function GameStoryComponent() {
 
 
     const handleSubmit = () => {
-        if (selectedAnswer === stories[currentStoryIndex].correctAnswer) {
+        if (selectedAnswer == stories[currentStoryIndex].correctAnswer) {
             setFeedback("Oikein");
             updateUserPoints(user.id, 2);
         } else {
