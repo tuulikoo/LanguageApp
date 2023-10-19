@@ -48,7 +48,7 @@ function Game5() {
             setIsCorrect(true);
             const pointsToAdd = 1;
             updateUserPoints(user.id, pointsToAdd).then((updatedPoints) => {
-            setUserpoints(updatedPoints);
+                setUserpoints(updatedPoints);
             });
         }
     };
@@ -65,78 +65,78 @@ function Game5() {
         textToSpeech(fullSentence);
     };
 
-  return (
-    <Container className={styles.container}>
-        {currentPair && (
-            <>
-                <Typography variant="h4" className={styles.sentence}>
-                    {currentPair.sentence.split("____").map((part, index) =>
-                        index === currentPair.answers.length ? (
-                            part
-                        ) : (
-                            <>
-                                {part}
-                                <Box
-                                    component="span"
-                                    onDrop={(e) => handleDrop(e, index)}
-                                    onDragOver={(e) => e.preventDefault()}
-                                    className={`${styles.dropBox} ${droppedWords[index] ? styles.hasWord : styles.empty
-                                        }`}
-                                >
-                                    {droppedWords[index]}
-                                </Box>
-                            </>
-                        )
-                    )}
-                </Typography>
+    return (
+        <Container className={styles.container}>
+            {currentPair && (
+                <>
+                    <Typography variant="h4" className={styles.sentence}>
+                        {currentPair.sentence.split("____").map((part, index) =>
+                            index === currentPair.answers.length ? (
+                                part
+                            ) : (
+                                <>
+                                    {part}
+                                    <Box
+                                        component="span"
+                                        onDrop={(e) => handleDrop(e, index)}
+                                        onDragOver={(e) => e.preventDefault()}
+                                        className={`${styles.dropBox} ${droppedWords[index] ? (droppedWords[index] === currentPair.answers[index] ? styles.hasWord : styles.wrongAnswer) : styles.empty}`}
+                                    >
+                                        {droppedWords[index]}
+                                    </Box>
 
-                <Grid container spacing={3} className={styles.wordsContainer}>
-                    {[...currentPair.answers, ...currentPair.distractors].map(
-                        (word, index) => (
-                            <Grid item key={index}>
-                                <Paper
-                                    className={styles.wordCard}
-                                    draggable
-                                    onDragStart={(e) => handleDragStart(e, word)}
-                                >
-                                    {word}
-                                </Paper>
-                            </Grid>
-                        ),
-                    )}
-                </Grid>
+                                </>
+                            )
+                        )}
+                    </Typography>
 
-                <div className={styles.buttons}>
-                    <Button
-                        variant="contained"
-                        className={styles.playButton}
-                        onClick={speakSentence}
+                    <Grid container spacing={3} className={styles.wordsContainer}>
+                        {[...currentPair.answers, ...currentPair.distractors].map(
+                            (word, index) => (
+                                <Grid item key={index}>
+                                    <Paper
+                                        className={styles.wordCard}
+                                        draggable
+                                        onDragStart={(e) => handleDragStart(e, word)}
+                                    >
+                                        {word}
+                                    </Paper>
+                                </Grid>
+                            ),
+                        )}
+                    </Grid>
+
+                    <div className={styles.buttons}>
+                        <Button
+                            variant="contained"
+                            className={styles.playButton}
+                            onClick={speakSentence}
+                        >
+                            Kuuntele lause
+                        </Button>
+
+                        <Button
+                            variant="contained"
+                            className={styles.nextButton}
+                            onClick={loadNewQuestion}
+                        >
+                            Suraava
+                        </Button>
+                    </div>
+
+                    <Snackbar
+                        open={openSnackbar}
+                        autoHideDuration={3000}
+                        onClose={handleCloseSnackbar}
                     >
-                        Kuuntele lause
-                    </Button>
-
-                    <Button
-                        variant="contained"
-                        className={styles.nextButton}
-                        onClick={loadNewQuestion}
-                    >
-                        Suraava
-                    </Button>
-                </div>
-
-                <Snackbar
-                    open={openSnackbar}
-                    autoHideDuration={3000}
-                    onClose={handleCloseSnackbar}
-                >
-                    <Alert onClose={handleCloseSnackbar} severity="success" className={styles.feedback}>
-                        Oikein!
-                    </Alert>
-                </Snackbar>
-            </>
-        )}
-    </Container>
-);
+                        <Alert onClose={handleCloseSnackbar} severity="success" className={styles.feedback}>
+                            Oikein!
+                        </Alert>
+                    </Snackbar>
+                </>
+            )}
+        </Container>
+    );
 
 }
 
