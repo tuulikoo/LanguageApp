@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  languageapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        DATABASE_URL: ${DATABASE_URL}
+        JWT_SECRET: ${JWT_SECRET}
+        NEXT_PUBLIC_MIMIC3_SERVER: ${NEXT_PUBLIC_MIMIC3_SERVER}
+    image: languageapp:latest
+    ports:
+      - "3009:3009"
+
