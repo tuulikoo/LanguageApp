@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from "../styles/UserPointsComponent.module.scss";
 import { useRouter } from 'next/router'; // Import useRouter from Next.js
