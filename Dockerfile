@@ -1,4 +1,3 @@
-
 FROM node:18
 
 # Accept build arguments
