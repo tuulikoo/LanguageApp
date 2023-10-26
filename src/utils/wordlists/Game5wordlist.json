@@ -1,287 +1,122 @@
 [
-    {
-        "english": "house",
-        "sentence": "She lives in a big ____ near the ____.",
-        "distractors": [
-            "home",
-            "hut",
-            "shack",
-            "beach"
-        ],
-        "answers": [
-            "house",
-            "river"
-        ]
-    },
-    {
-        "english": "mountain",
-        "sentence": "The view from the top of the ____ is breathtaking.",
-        "distractors": [
-            "hill",
-            "building",
-            "tree",
-            "lake",
-            "road"
-        ],
-        "answers": [
-            "mountain"
-        ]
-    },
-    {
-        "english": "ocean",
-        "sentence": "The ____ waves were crashing onto the shore.",
-        "distractors": [
-            "pool",
-            "river",
-            "lake",
-            "pond",
-            "fountain",
-            "oceans"
-        ],
-        "answers": [
-            "ocean"
-        ]
-    },
-    {
-        "english": "guitar",
-        "sentence": "He played a melody on his ____.",
-        "distractors": [
-            "pianos",
-            "drum",
-            "flute",
-            "violin",
-            "trumpet"
-        ],
-        "answers": [
-            "guitar"
-        ]
-    },
-    {
-        "english": "computer",
-        "sentence": "I need to upgrade my ____ for better performance.",
-        "distractors": [
-            "phone",
-            "tablet",
-            "television",
-            "camera",
-            "watch"
-        ],
-        "answers": [
-            "computer"
-        ]
-    },
-    {
-        "english": "dog",
-        "sentence": "The ____ are playing in the park with the ____.",
-        "distractors": [
-            "cat",
-            "bird",
-            "tree",
-            "ball"
-        ],
-        "answers": [
-            "dogs",
-            "children"
-        ]
-    },
-    {
-        "english": "cat",
-        "sentence": "The ____ is sleeping on the ____.",
-        "distractors": [
-            "dog",
-            "bird",
-            "children",
-            "ball"
-        ],
-        "answers": [
-            "cat",
-            "tree"
-        ]
-    },
-    {
-        "english": "bird",
-        "sentence": "The ____ are flying in the ____.",
-        "distractors": [
-            "plane",
-            "beach",
-            "river",
-            "bats"
-        ],
-        "answers": [
-            "birds",
-            "sky"
-        ]
-    },
-    {
-        "english": "book",
-        "sentence": "She read the ____ and placed it on the ____.",
-        "distractors": [
-            "magazine",
-            "notebook",
-            "pen",
-            "chair"
-        ],
-        "answers": [
-            "book",
-            "table"
-        ]
-    },
-    {
-        "english": "child",
-        "sentence": "The ____ toy broke, so the ____ bought a new one.",
-        "distractors": [
-            "man",
-            "woman",
-            "teacher",
-            "bird"
-        ],
-        "answers": [
-            "child's",
-            "parents"
-        ]
-    },
-    {
-        "english": "teacher",
-        "sentence": "The ____'s lesson was comprehensive, and many ____ appreciated it.",
-        "distractors": [
-            "student",
-            "parent",
-            "principal",
-            "book",
-            "classroom"
-        ],
-        "answers": [
-            "teacher",
-            "students"
-        ]
-    },
-    {
-        "english": "doctor",
-        "sentence": "The ____'s advice was crucial for the ____ health.",
-        "distractors": [
-            "nurse",
-            "hospital",
-            "patient",
-            "medicine",
-            "surgery"
-        ],
-        "answers": [
-            "doctor",
-            "patient's"
-        ]
-    },
-    {
-        "english": "player",
-        "sentence": "The ____ scored a goal, making all the ____ cheer loudly.",
-        "distractors": [
-            "game",
-            "ball",
-            "coach",
-            "stadium"
-        ],
-        "answers": [
-            "player",
-            "fans"
-        ]
-    },
-    {
-        "english": "singer",
-        "sentence": "The ____'s new song topped the charts and ____ around the world loved it.",
-        "distractors": [
-            "actor",
-            "musician",
-            "album",
-            "record"
-        ],
-        "answers": [
-            "singer",
-            "fans"
-        ]
-    },
-    {
-        "english": "farmer",
-        "sentence": "The ____ worked hard, and as a result, the ____ yielded a rich harvest.",
-        "distractors": [
-            "worker",
-            "gardener",
-            "animals",
-            "barn"
-        ],
-        "answers": [
-            "farmer",
-            "fields"
-        ]
-    },
-    {
-        "english": "lion",
-        "sentence": "The ____ roared, asserting its dominance over its ____.",
-        "distractors": [
-            "elephant",
-            "tiger",
-            "pride",
-            "jungle"
-        ],
-        "answers": [
-            "lion",
-            "territory"
-        ]
-    },
-    {
-        "english": "mother",
-        "sentence": "The ____ hugged her ____ after she won the competition.",
-        "distractors": [
-            "father",
-            "daughter",
-            "prize",
-            "friends",
-            "school"
-        ],
-        "answers": [
-            "mother",
-            "daughter"
-        ]
-    },
-    {
-        "english": "bird",
-        "sentence": "The ____ built a nest on the tree, where it kept its ____ safe.",
-        "distractors": [
-            "squirrel",
-            "flower",
-            "branches",
-            "sky"
-        ],
-        "answers": [
-            "bird",
-            "eggs"
-        ]
-    },
-    {
-        "english": "car",
-        "sentence": "The ____'s speed was unparalleled, making it a favorite among ____.",
-        "distractors": [
-            "bike",
-            "bus",
-            "racer",
-            "roads",
-            "enthusiasts"
-        ],
-        "answers": [
-            "car",
-            "racing enthusiasts"
-        ]
-    },
-    {
-        "english": "dog",
-        "sentence": "The ____ wagged its tail every time it saw its ____ coming home.",
-        "distractors": [
-            "cat",
-            "bird",
-            "house",
-            "kennel"
-        ],
-        "answers": [
-            "dog",
-            "owner"
-        ]
-    }
+  {
+    "english": "house",
+    "sentence": "She lives in a big ____ near the ____.",
+    "distractors": ["home", "hut", "shack", "beach"],
+    "answers": ["house", "river"]
+  },
+  {
+    "english": "mountain",
+    "sentence": "The view from the top of the ____ is breathtaking.",
+    "distractors": ["hill", "building", "tree", "lake", "road"],
+    "answers": ["mountain"]
+  },
+  {
+    "english": "ocean",
+    "sentence": "The ____ waves were crashing onto the shore.",
+    "distractors": ["pool", "river", "lake", "pond", "fountain", "oceans"],
+    "answers": ["ocean"]
+  },
+  {
+    "english": "guitar",
+    "sentence": "He played a melody on his ____.",
+    "distractors": ["pianos", "drum", "flute", "violin", "trumpet"],
+    "answers": ["guitar"]
+  },
+  {
+    "english": "computer",
+    "sentence": "I need to upgrade my ____ for better performance.",
+    "distractors": ["phone", "tablet", "television", "camera", "watch"],
+    "answers": ["computer"]
+  },
+  {
+    "english": "dog",
+    "sentence": "The ____ are playing in the park with the ____.",
+    "distractors": ["cat", "bird", "tree", "ball"],
+    "answers": ["dogs", "children"]
+  },
+  {
+    "english": "cat",
+    "sentence": "The ____ is sleeping on the ____.",
+    "distractors": ["dog", "bird", "children", "ball"],
+    "answers": ["cat", "tree"]
+  },
+  {
+    "english": "bird",
+    "sentence": "The ____ are flying in the ____.",
+    "distractors": ["plane", "beach", "river", "bats"],
+    "answers": ["birds", "sky"]
+  },
+  {
+    "english": "book",
+    "sentence": "She read the ____ and placed it on the ____.",
+    "distractors": ["magazine", "notebook", "pen", "chair"],
+    "answers": ["book", "table"]
+  },
+  {
+    "english": "child",
+    "sentence": "The ____ toy broke, so the ____ bought a new one.",
+    "distractors": ["man", "woman", "teacher", "bird"],
+    "answers": ["child's", "parents"]
+  },
+  {
+    "english": "teacher",
+    "sentence": "The ____'s lesson was comprehensive, and many ____ appreciated it.",
+    "distractors": ["student", "parent", "principal", "book", "classroom"],
+    "answers": ["teacher", "students"]
+  },
+  {
+    "english": "doctor",
+    "sentence": "The ____'s advice was crucial for the ____ health.",
+    "distractors": ["nurse", "hospital", "patient", "medicine", "surgery"],
+    "answers": ["doctor", "patient's"]
+  },
+  {
+    "english": "player",
+    "sentence": "The ____ scored a goal, making all the ____ cheer loudly.",
+    "distractors": ["game", "ball", "coach", "stadium"],
+    "answers": ["player", "fans"]
+  },
+  {
+    "english": "singer",
+    "sentence": "The ____'s new song topped the charts and ____ around the world loved it.",
+    "distractors": ["actor", "musician", "album", "record"],
+    "answers": ["singer", "fans"]
+  },
+  {
+    "english": "farmer",
+    "sentence": "The ____ worked hard, and as a result, the ____ yielded a rich harvest.",
+    "distractors": ["worker", "gardener", "animals", "barn"],
+    "answers": ["farmer", "fields"]
+  },
+  {
+    "english": "lion",
+    "sentence": "The ____ roared, asserting its dominance over its ____.",
+    "distractors": ["elephant", "tiger", "pride", "jungle"],
+    "answers": ["lion", "territory"]
+  },
+  {
+    "english": "mother",
+    "sentence": "The ____ hugged her ____ after she won the competition.",
+    "distractors": ["father", "daughter", "prize", "friends", "school"],
+    "answers": ["mother", "daughter"]
+  },
+  {
+    "english": "bird",
+    "sentence": "The ____ built a nest on the tree, where it kept its ____ safe.",
+    "distractors": ["squirrel", "flower", "branches", "sky"],
+    "answers": ["bird", "eggs"]
+  },
+  {
+    "english": "car",
+    "sentence": "The ____'s speed was unparalleled, making it a favorite among ____.",
+    "distractors": ["bike", "bus", "racer", "roads", "enthusiasts"],
+    "answers": ["car", "racing enthusiasts"]
+  },
+  {
+    "english": "dog",
+    "sentence": "The ____ wagged its tail every time it saw its ____ coming home.",
+    "distractors": ["cat", "bird", "house", "kennel"],
+    "answers": ["dog", "owner"]
+  }
 ]

@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import game4 from '../utils/wordlists/game4.json';
-import { useUser } from '../utils/userContext';
-import styles from '../styles/Game4Component.module.scss';
-import { textToSpeech } from '../utils/mimicApi';
+import React, { useEffect, useState } from "react";
+import game4 from "../utils/wordlists/game4.json";
+import { useUser } from "../utils/userContext";
+import styles from "../styles/Game4Component.module.scss";
+import { textToSpeech } from "../utils/mimicApi";
 import { useRouter } from "next/router";
-import Image from 'next/image';
+import { Image } from "react-bootstrap";
 
-
-function Game4Component() { // Pass onLevelCompletion as a prop
+function Game4Component() {
+    // Pass onLevelCompletion as a prop
     const { user } = useUser();
-
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [score, setScore] = useState(0);
@@ -29,16 +28,16 @@ function Game4Component() { // Pass onLevelCompletion as a prop
         if (user) {
             async function fetchUserPoints() {
                 try {
-                    const response = await fetch('/api/user');
+                    const response = await fetch("/api/user");
                     if (response.ok) {
                         const data = await response.json();
-                        console.log('User data:', data);
+                        console.log("User data:", data);
                         setCurrentUserPoints(data.userPoints);
                     } else {
-                        throw new Error('Failed to fetch user points');
+                        throw new Error("Failed to fetch user points");
                     }
                 } catch (error) {
-                    console.error('Error:', error.message);
+                    console.error("Error:", error.message);
                 }
             }
 
@@ -54,10 +53,10 @@ function Game4Component() { // Pass onLevelCompletion as a prop
 
                     // Check if it's time to increment lastLevel
                     if ((nextLevel - 1) * questionsPerSection >= currentQuestion) {
-                        fetch('/api/updateUser', {
-                            method: 'POST',
+                        fetch("/api/updateUser", {
+                            method: "POST",
                             headers: {
-                                'Content-Type': 'application/json',
+                                "Content-Type": "application/json",
                             },
                             body: JSON.stringify({
                                 userId: user.id,
@@ -69,10 +68,9 @@ function Game4Component() { // Pass onLevelCompletion as a prop
                                 // Handle the response, if needed
                             })
                             .catch((error) => {
-                                console.error('Error updating lastLevel:', error);
+                                console.error("Error updating lastLevel:", error);
                             });
                         // Call the onLevelCompletion function to signal level completion
-
                     }
                 }
             }
@@ -80,43 +78,25 @@ function Game4Component() { // Pass onLevelCompletion as a prop
     }, [currentQuestion, data, user, questionsPerSection]);
 
     const handleOptionClick = async (option) => {
-        if (!hasAnsweredCorrectly && option === data[currentQuestion].correctOption) {
+        if (
+            !hasAnsweredCorrectly &&
+            option === data[currentQuestion].correctOption
+        ) {
             setScore(score + 1);
-            setResult('Oikein!');
+            setResult("Oikein!");
             setHasAnsweredCorrectly(true);
-
-            if (user) {
-                try {
-                    const response = await fetch('/api/updatePoints', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            userId: user.id,
-                            newPoints: 1,
-                        }),
-                    });
-
-                    if (response.ok) {
-                        const data = await response.json();
-                        updatePointsAndUI(data.updatedPoints);
-                    } else {
-                        throw new Error('Failed to update user points');
-                    }
-                } catch (error) {
-                    console.error('Error updating user points:', error);
-                }
-            }
+            await PointAdder(user.id, 1);
 
             setTimeout(() => {
                 handleNextQuestion();
             }, 1000);
         } else {
             if (incorrectAttempts === 0) {
-                setResult('Väärin, yritä uudelleen!');
+                setResult("Väärin, yritä uudelleen!");
             } else {
-                setResult(`Vastasit väärin, oikea vastaus oli ${data[currentQuestion].correctOption}`);
+                setResult(
+                    `Vastasit väärin, oikea vastaus oli ${data[currentQuestion].correctOption}`,
+                );
                 setTimeout(() => {
                     handleNextQuestion();
                 }, 2000);
@@ -127,26 +107,29 @@ function Game4Component() { // Pass onLevelCompletion as a prop
 
     const handleNextQuestion = () => {
         setCurrentQuestion(currentQuestion + 1);
-        setResult('');
+        setResult("");
         setIncorrectAttempts(0);
         setHasAnsweredCorrectly(false);
 
         if (currentQuestion + 1 >= data?.length) {
             if (user) {
                 // Check if user.lastLevel is a number
-                if (typeof user.lastLevel === 'number') {
+                if (typeof user.lastLevel === "number") {
                     const nextSectionNumber = user.lastLevel + 1;
                     const newLastLevel = nextSectionNumber - 1; // Fix this line
 
                     // If the section is completed, set the state variable
-                    if ((nextSectionNumber - 1) * questionsPerSection >= currentQuestion) {
+                    if (
+                        (nextSectionNumber - 1) * questionsPerSection >=
+                        currentQuestion
+                    ) {
                         setSectionCompleted(true);
                     }
 
-                    fetch('/api/updateUser', {
-                        method: 'POST',
+                    fetch("/api/updateUser", {
+                        method: "POST",
                         headers: {
-                            'Content-Type': 'application/json',
+                            "Content-Type": "application/json",
                         },
                         body: JSON.stringify({
                             userId: user.id,
@@ -158,7 +141,7 @@ function Game4Component() { // Pass onLevelCompletion as a prop
                             // Handle the response, if needed
                         })
                         .catch((error) => {
-                            console.error('Error updating lastLevel:', error);
+                            console.error("Error updating lastLevel:", error);
                         });
                 }
             }
@@ -171,7 +154,7 @@ function Game4Component() { // Pass onLevelCompletion as a prop
     };
 
     const renderOptions = () => {
-        const options = ['btn1', 'btn2', 'btn3', 'btn4'];
+        const options = ["btn1", "btn2", "btn3", "btn4"];
         return options.map((option, index) => (
             <button
                 className={styles.buttonStyle}
@@ -194,7 +177,7 @@ function Game4Component() { // Pass onLevelCompletion as a prop
     };
 
     const handleBackToMainPage = () => {
-        router.push('/MainPage'); // Replace '/MainPage' with the actual URL of your MainPage
+        router.push("/MainPage"); // Replace '/MainPage' with the actual URL of your MainPage
     };
 
     const handleBackToPreviousQuestion = () => {
@@ -208,28 +191,20 @@ function Game4Component() { // Pass onLevelCompletion as a prop
         window.location.reload();
     };
 
-
-
     return (
         <div className={styles.pageContainer}>
             <div className={styles.textContainer}>
                 <h1>Valitse oikea sana</h1>
                 <div className={styles.pointsDisplay}>
-                    {user ? (
-                        <div>Kokonaispisteesi: {currentUserPoints}</div>
-                    ) : null}
-                    {user ? (
-                        <div>Olet tehtävätasolla: {user.lastLevel}</div>
-                    ) : null}
-                    {user ? (
-                        <div>Tämän tehtävän pisteet: {score}</div>
-                    ) : null}
+                    {user ? <div>Kokonaispisteesi: {currentUserPoints}</div> : null}
+                    {user ? <div>Olet tehtävätasolla: {user.lastLevel}</div> : null}
+                    {user ? <div>Tämän tehtävän pisteet: {score}</div> : null}
                 </div>
             </div>
             <div className={styles.gameContainer}>
                 <Image
                     className={styles.speakButton}
-                    src='/images/audio.png'
+                    src="/images/audio.png"
                     alt="Speaker Button"
                     onClick={handleSpeakButtonClick}
                 />
@@ -244,33 +219,53 @@ function Game4Component() { // Pass onLevelCompletion as a prop
                                 {renderOptions()}
                             </div>
                         </div>
-                        <p className={`${styles.result} ${result === 'Oikein!' ? styles.correct : ''}`}>
+                        <p
+                            className={`${styles.result} ${result === "Oikein!" ? styles.correct : ""
+                                }`}
+                        >
                             {result}
                         </p>
                     </div>
                 ) : (
                     <div>
                         <h2>Harjoitus valmis!</h2>
-                        <p>Sait {score} pistettä / {(data.length || 0)}.</p>
+                        <p>
+                            Sait {score} pistettä / {data.length || 0}.
+                        </p>
                         <button
                             onClick={handleNextSet}
                             style={{
-                                maxWidth: '200px', // Limit the maximum width
-                                padding: '10px 20px', // Adjust padding for sizing
-                                fontSize: '16px', // Adjust font size if needed
+                                maxWidth: "200px", // Limit the maximum width
+                                padding: "10px 20px", // Adjust padding for sizing
+                                fontSize: "16px", // Adjust font size if needed
                             }}
                         >
-                            <Image src="https://cdn.pixabay.com/photo/2017/01/29/22/16/cycle-2019530_640.png" alt="Continue to next set" />
+                            <Image
+                                src="https://cdn.pixabay.com/photo/2017/01/29/22/16/cycle-2019530_640.png"
+                                alt="Continue to next set"
+                            />
                         </button>
                     </div>
                 )}
             </div>
             <div className={styles.backArrows}>
-                <button onClick={handleBackToMainPage} data-tooltip="Go back to Main Page">
-                    <Image src="https://cdn.pixabay.com/photo/2012/04/02/16/10/arrow-24848_640.png" alt="Back to MainPage" />
+                <button
+                    onClick={handleBackToMainPage}
+                    data-tooltip="Go back to Main Page"
+                >
+                    <Image
+                        src="https://cdn.pixabay.com/photo/2012/04/02/16/10/arrow-24848_640.png"
+                        alt="Back to MainPage"
+                    />
                 </button>
-                <button onClick={handleBackToPreviousQuestion} data-tooltip="Go back to Previous Question">
-                    <Image src="https://cdn.pixabay.com/photo/2012/04/01/12/48/arrow-23284_640.png" alt="Back to Previous Question" />
+                <button
+                    onClick={handleBackToPreviousQuestion}
+                    data-tooltip="Go back to Previous Question"
+                >
+                    <Image
+                        src="https://cdn.pixabay.com/photo/2012/04/01/12/48/arrow-23284_640.png"
+                        alt="Back to Previous Question"
+                    />
                 </button>
             </div>
         </div>

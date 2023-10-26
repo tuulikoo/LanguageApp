@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "../styles/flashcards.module.css";
 import { textToSpeech } from "@/utils/mimicApi";
-import Image from "next/image";
+import { Image } from "react-bootstrap";
 
 const Flashcard = ({ word, definition, isFlipped, onFlip, onNext }) => {
   return (

@@ -33,7 +33,7 @@ function SessionTimer({ children }) {
                 clearInterval(interval);
                 document.removeEventListener(
                     "visibilitychange",
-                    handleVisibilityChange
+                    handleVisibilityChange,
                 );
             };
         }
