@@ -1,15 +1,24 @@
 *** Settings ***
-Library    Browser
-
-
+Library     Browser
 
 
 *** Variables ***
-${LOGINURL} =    http://localhost:3000/Login
-${USERURL} =    http://localhost:3000/UserPage
-${MAINURL} =    http://localhost:3000/MainPage
-${USERNAME} =    Robot
-${PASSWORD} =    password
+${LOGINURL} =       http://localhost:3009/Login
+${USERURL} =        http://localhost:3009/UserPage
+${MAINURL} =        http://localhost:3009/MainPage
+${USERNAME} =       Robot
+${PASSWORD} =       password
+
+
+*** Test Cases ***
+Verify Succesfull Login
+    Open Browser To Login Page
+    Enter Username
+    Enter Password
+    Submit Login Form
+    Sleep    4s    just to check if page opened
+    Verify That MainPage Is Visible
+
 
 *** Keywords ***
 Open Browser To Login Page
@@ -27,13 +36,3 @@ Submit Login Form
 
 Verify That MainPage Is Visible
     Get Url    ==    ${MAINURL}
-
-
-*** Test Cases ***
-Verify Succesfull Login
-    Open Browser To Login Page
-    Enter Username
-    Enter Password
-    Submit Login Form
-    Sleep    4s    just to check if page opened
-    Verify That MainPage Is Visible

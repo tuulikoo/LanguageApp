@@ -1,14 +1,30 @@
 *** Settings ***
-Library    Browser
+Library     Browser
 
 
 *** Variables ***
-${REGISTERURL} =    http://localhost:3000/Registration
-${USERNAME} =    Robot
-${PASSWORD} =    password
-${EMAIL} =    robonos@osoite.com.com
-${ETUNIMI} =    Robo
-${LOGINURL} =    http://localhost:3000/Login
+${REGISTERURL} =    http://localhost:3009/Registration
+${USERNAME} =       Robot
+${PASSWORD} =       password
+${EMAIL} =          robonos@osoite.com.com
+${ETUNIMI} =        Robo
+${LOGINURL} =       http://localhost:3009/Login
+
+
+*** Test Cases ***
+Verify Successfull Registration
+    Open Browser To Register Page
+    Enter Username
+    Enter Email
+    Enter Firstname
+    Enter Password
+    Open Choose Avatar adjust-fields
+    Select Avatar
+    Click Register
+    Sleep    2s
+    Get Confirmitation
+    Sleep    4s
+    Confirm Login Page is Open
 
 
 *** Keywords ***
@@ -34,8 +50,6 @@ Open Choose Avatar adjust-fields
 Select Avatar
     Click    xpath=(//img[@alt="Avatar"])[2]
 
-
-
 Click Register
     Click    .RegistrationForm_newUserButton__go4Al
 
@@ -45,19 +59,3 @@ Get Confirmitation
 Confirm Login Page is Open
     Get Text    body    contains    Kirjaudu sisään
     Get Url    ==    ${LOGINURL}
-
-
-*** Test Cases ***
-Verify Successfull Registration
-    Open Browser To Register Page
-    Enter Username
-    Enter Email
-    Enter Firstname
-    Enter Password
-    Open Choose Avatar adjust-fields
-    Select Avatar
-    Click Register
-    Sleep    2s
-    Get Confirmitation
-    Sleep    4s
-    Confirm Login Page is Open

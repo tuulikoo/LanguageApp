@@ -1,16 +1,28 @@
+*** Comments ***
 # -*- coding: robot -*-
+
+
 *** Settings ***
-Library    Browser
-
-
+Library     Browser
 
 
 *** Variables ***
-${LOGINURL} =    http://localhost:3000/Login
-${USERURL} =    http://localhost:3000/UserPage
-${MAINURL} =    http://localhost:3000/MainPage
-${USERNAME} =    Tester1
-${PASSWORD} =    wrongpassword
+${LOGINURL} =       http://localhost:3009/Login
+${USERURL} =        http://localhost:3009/UserPage
+${MAINURL} =        http://localhost:3009/MainPage
+${USERNAME} =       Tester1
+${PASSWORD} =       wrongpassword
+
+
+*** Test Cases ***
+Verify User Cannot Login With Incorrect Password
+    Open Browser To Login Page
+    Enter Username
+    Enter Password
+    Submit Login Form
+    Sleep    4s    just to wait for error message
+    Verify That Error message is shown
+    Verify that url is same
 
 
 *** Keywords ***
@@ -32,13 +44,3 @@ Verify That Error message is shown
 
 Verify that url is same
     Get Url    ==    ${LOGINURL}
-
-*** Test Cases ***
-Verify User Cannot Login With Incorrect Password
-    Open Browser To Login Page
-    Enter Username
-    Enter Password
-    Submit Login Form
-    Sleep    4s    just to wait for error message
-    Verify That Error message is shown
-    Verify that url is same

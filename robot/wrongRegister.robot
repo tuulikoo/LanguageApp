@@ -3,7 +3,7 @@ Library     Browser
 
 
 *** Variables ***
-${REGISTERURL} =    http://localhost:3000/Registration
+${REGISTERURL} =    http://localhost:3009/Registration
 ${USERNAME} =       RobotTester
 ${PASSWORD} =       Password
 ${EMAIL} =          virheellinen@osoite

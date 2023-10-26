@@ -3,9 +3,9 @@ Library     Browser
 
 
 *** Variables ***
-${LOGINURL} =       http://localhost:3000/Login
-${USERURL} =        http://localhost:3000/UserPage
-${MAINURL} =        http://localhost:3000/MainPage
+${LOGINURL} =       http://localhost:3009/Login
+${USERURL} =        http://localhost:3009/UserPage
+${MAINURL} =        http://localhost:3009/MainPage
 ${USERNAME} =       Robot
 ${PASSWORD} =       password
 

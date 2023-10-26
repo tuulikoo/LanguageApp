@@ -3,9 +3,9 @@ Library     Browser
 
 
 *** Variables ***
-${LOGINURL} =       http://localhost:3000/Login
-${GAME4URL} =       http://localhost:3000/Game4
-${MAINURL} =        http://localhost:3000/MainPage
+${LOGINURL} =       http://localhost:3009/Login
+${GAME4URL} =       http://localhost:3009/Game4
+${MAINURL} =        http://localhost:3009/MainPage
 ${USERNAME} =       Robot
 ${PASSWORD} =       password
 ${Timeout}          5s
