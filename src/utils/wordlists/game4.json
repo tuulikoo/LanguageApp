@@ -1,462 +1,74 @@
 {
-    "2": [
-        {
-            "Id": 1,
-            "src": "animals/lion.webp",
-            "btn1": "Crocodile",
-            "btn2": "Horse",
-            "btn3": "Lion",
-            "btn4": "Tiger",
-            "correctOption": "Lion"
-        },
-        {
-            "Id": 2,
-            "src": "animals/bird.png",
-            "btn1": "Bird",
-            "btn2": "Lion",
-            "btn3": "Penguin",
-            "btn4": "Horse",
-            "correctOption": "Bird"
-        },
-        {
-            "Id": 3,
-            "src": "animals/horse.webp",
-            "btn1": "Zebra",
-            "btn2": "Elephant",
-            "btn3": "Horse",
-            "btn4": "Giraffe",
-            "correctOption": "Horse"
-        },
-        {
-            "Id": 4,
-            "src": "animals/bear.webp",
-            "btn1": "Bear",
-            "btn2": "Kangaroo",
-            "btn3": "Panda",
-            "btn4": "Tiger",
-            "correctOption": "Bear"
-        },
-        {
-            "Id": 5,
-            "src": "animals/dog.webp",
-            "btn1": "Cat",
-            "btn2": "Dog",
-            "btn3": "Rabbit",
-            "btn4": "Sheep",
-            "correctOption": "Dog"
-        },
-        {
-            "Id": 6,
-            "src": "animals/snake.webp",
-            "btn1": "Lizard",
-            "btn2": "Snake",
-            "btn3": "Frog",
-            "btn4": "Turtle",
-            "correctOption": "Snake"
-        },
-        {
-            "Id": 7,
-            "src": "animals/butterfly.png",
-            "btn1": "Butterfly",
-            "btn2": "Dragonfly",
-            "btn3": "Ladybug",
-            "btn4": "Bee",
-            "correctOption": "Butterfly"
-        },
-        {
-            "Id": 8,
-            "src": "animals/cat.webp",
-            "btn1": "Dolphin",
-            "btn2": "Lion",
-            "btn3": "Tiger",
-            "btn4": "Cat",
-            "correctOption": "Cat"
-        },
-        {
-            "Id": 9,
-            "src": "animals/bunny.webp",
-            "btn1": "Koala",
-            "btn2": "Bunny",
-            "btn3": "Hedgehog",
-            "btn4": "Squirrel",
-            "correctOption": "Bunny"
-        },
-        {
-            "Id": 10,
-            "src": "animals/dolphin.webp",
-            "btn1": "Shark",
-            "btn2": "Fish",
-            "btn3": "Dolphin",
-            "btn4": "Whale",
-            "correctOption": "Dolphin"
-        }
-    ],
-    "1": [
-        {
-            "Id": 1,
-            "src": "fruits/apple.png",
-            "btn1": "Mango",
-            "btn2": "Pineapple",
-            "btn3": "Lemon",
-            "btn4": "Apple",
-            "correctOption": "Apple"
-        },
-        {
-            "Id": 2,
-            "src": "fruits/banana.jpg",
-            "btn1": "Orange",
-            "btn2": "Banana",
-            "btn3": "Peach",
-            "btn4": "Coconut",
-            "correctOption": "Banana"
-        },
-        {
-            "Id": 3,
-            "src": "fruits/orange.webp",
-            "btn1": "Grape",
-            "btn2": "Cherry",
-            "btn3": "Strawberry",
-            "btn4": "Orange",
-            "correctOption": "Orange"
-        },
-        {
-            "Id": 4,
-            "src": "fruits/pear.webp",
-            "btn1": "Watermelon",
-            "btn2": "Pear",
-            "btn3": "Kiwi",
-            "btn4": "Pomegranate",
-            "correctOption": "Pear"
-        },
-        {
-            "Id": 5,
-            "src": "fruits/kiwi.webp",
-            "btn1": "Raspberry",
-            "btn2": "Kiwi",
-            "btn3": "Blueberry",
-            "btn4": "Papaya",
-            "correctOption": "Kiwi"
-        },
-        {
-            "Id": 6,
-            "src": "fruits/lemon.jpg",
-            "btn1": "Grapefruit",
-            "btn2": "Lemon",
-            "btn3": "Lime",
-            "btn4": "Apricot",
-            "correctOption": "Lemon"
-        },
-        {
-            "Id": 7,
-            "src": "fruits/plum.webp",
-            "btn1": "Plum",
-            "btn2": "Guava",
-            "btn3": "Dragonfruit",
-            "btn4": "Mango",
-            "correctOption": "Plum"
-        },
-        {
-            "Id": 8,
-            "src": "fruits/watermelon.webp",
-            "btn1": "Pineapple",
-            "btn2": "Passionfruit",
-            "btn3": "Watermelon",
-            "btn4": "Lychee",
-            "correctOption": "Watermelon"
-        },
-        {
-            "Id": 9,
-            "src": "fruits/pineapple1.webp",
-            "btn1": "Cantaloupe",
-            "btn2": "Fig",
-            "btn3": "Pineapple",
-            "btn4": "Blackberry",
-            "correctOption": "Pineapple"
-        },
-        {
-            "Id": 10,
-            "src": "fruits/peach.webp",
-            "btn1": "Raspberry",
-            "btn2": "Kiwi",
-            "btn3": "Peach",
-            "btn4": "Mango",
-            "correctOption": "Peach"
-        }
-    ],
-    "3": [
-        {
-            "Id": 1,
-            "src": "school/pencil.jpg",
-            "btn1": "Computer",
-            "btn2": "Eraser",
-            "btn3": "Pencil",
-            "btn4": "Scissors",
-            "correctOption": "Pencil"
-        },
-        {
-            "Id": 2,
-            "src": "school/pen.jpg",
-            "btn1": "Backpack",
-            "btn2": "Chair",
-            "btn3": "Pen",
-            "btn4": "Tape",
-            "correctOption": "Pen"
-        },
-        {
-            "Id": 3,
-            "src": "school/book.jpg",
-            "btn1": "Crayon",
-            "btn2": "Book",
-            "btn3": "Whiteboard",
-            "btn4": "Ruler",
-            "correctOption": "Book"
-        },
-        {
-            "Id": 4,
-            "src": "school/ruler.jpg",
-            "btn1": "Calculator",
-            "btn2": "Printer",
-            "btn3": "Ruler",
-            "btn4": "Notebook",
-            "correctOption": "Ruler"
-        },
-        {
-            "Id": 5,
-            "src": "school/eraser.jpg",
-            "btn1": "Marker",
-            "btn2": "Desk",
-            "btn3": "Eraser",
-            "btn4": "Chair",
-            "correctOption": "Eraser"
-        },
-        {
-            "Id": 6,
-            "src": "school/desk.webp",
-            "btn1": "Blackboard",
-            "btn2": "Desk",
-            "btn3": "Sharpener",
-            "btn4": "Pencil",
-            "correctOption": "Desk"
-        },
-        {
-            "Id": 7,
-            "src": "school/chair.jpg",
-            "btn1": "Notebook",
-            "btn2": "Chair",
-            "btn3": "Scissors",
-            "btn4": "Pen",
-            "correctOption": "Chair"
-        },
-        {
-            "Id": 8,
-            "src": "school/sharpener.jpg",
-            "btn1": "Tape",
-            "btn2": "Crayon",
-            "btn3": "Sharpener",
-            "btn4": "Book",
-            "correctOption": "Sharpener"
-        },
-        {
-            "Id": 9,
-            "src": "school/notebook.jpg",
-            "btn1": "Ruler",
-            "btn2": "Blackboard",
-            "btn3": "Notebook",
-            "btn4": "Computer",
-            "correctOption": "Notebook"
-        },
-        {
-            "Id": 10,
-            "src": "school/backpack.png",
-            "btn1": "Whiteboard",
-            "btn2": "Backpack",
-            "btn3": "Calculator",
-            "btn4": "Pencil",
-            "correctOption": "Backpack"
-        }
-    ],
-    "4": [
-        {
-            "Id": 1,
-            "src": "family/family.png",
-            "btn1": "Cousin",
-            "btn2": "Family",
-            "btn3": "Mother",
-            "btn4": "Father",
-            "correctOption": "Family"
-        },
-        {
-            "Id": 2,
-            "src": "family/parents.png",
-            "btn1": "Family",
-            "btn2": "Father",
-            "btn3": "Son",
-            "btn4": "Parents",
-            "correctOption": "Parents"
-        },
-        {
-            "Id": 3,
-            "src": "family/children.png",
-            "btn1": "Grandparents",
-            "btn2": "Aunt",
-            "btn3": "Children",
-            "btn4": "Mother",
-            "correctOption": "Children"
-        },
-        {
-            "Id": 4,
-            "src": "family/mother.png",
-            "btn1": "Father",
-            "btn2": "Sister",
-            "btn3": "Mother",
-            "btn4": "Brother",
-            "correctOption": "Mother"
-        },
-        {
-            "Id": 5,
-            "src": "family/father.png",
-            "btn1": "Dog",
-            "btn2": "Mother",
-            "btn3": "Father",
-            "btn4": "Cousin",
-            "correctOption": "Father"
-        },
-        {
-            "Id": 6,
-            "src": "family/son.png",
-            "btn1": "Daughter",
-            "btn2": "Grandmother",
-            "btn3": "Son",
-            "btn4": "Sister",
-            "correctOption": "Son"
-        },
-        {
-            "Id": 7,
-            "src": "family/daughter.png",
-            "btn1": "Tiger",
-            "btn2": "Grandmother",
-            "btn3": "Daughter",
-            "btn4": "Grandfather",
-            "correctOption": "Daughter"
-        },
-        {
-            "Id": 8,
-            "src": "family/grandparents.png",
-            "btn1": "Siblings",
-            "btn2": "Cousin",
-            "btn3": "Son",
-            "btn4": "Grandparents",
-            "correctOption": "Grandparents"
-        },
-        {
-            "Id": 9,
-            "src": "family/sister.png",
-            "btn1": "Father",
-            "btn2": "Sister",
-            "btn3": "Mother",
-            "btn4": "Brother",
-            "correctOption": "Sister"
-        },
-        {
-            "Id": 10,
-            "src": "family/brother.png",
-            "btn1": "Brother",
-            "btn2": "Mother",
-            "btn3": "Grandfather",
-            "btn4": "Cousin",
-            "correctOption": "Brother"
-        }
-    ],
-    "5": [
-        {
-            "Id": 1,
-            "src": "professions/pilot.webp",
-            "btn1": "Photographer",
-            "btn2": "Sailor",
-            "btn3": "Pilot",
-            "btn4": "Artist",
-            "correctOption": "Pilot"
-        },
-        {
-            "Id": 2,
-            "src": "professions/photographer.webp",
-            "btn1": "Scientist",
-            "btn2": "Waiter",
-            "btn3": "Photographer",
-            "btn4": "Police",
-            "correctOption": "Photographer"
-        },
-        {
-            "Id": 3,
-            "src": "professions/sailor.webp",
-            "btn1": "Cook",
-            "btn2": "Sailor",
-            "btn3": "Teacher",
-            "btn4": "Doctor",
-            "correctOption": "Sailor"
-        },
-        {
-            "Id": 4,
-            "src": "professions/artist.webp",
-            "btn1": "Police",
-            "btn2": "Artist",
-            "btn3": "Waiter",
-            "btn4": "Scientist",
-            "correctOption": "Artist"
-        },
-        {
-            "Id": 5,
-            "src": "professions/scientist.webp",
-            "btn1": "Teacher",
-            "btn2": "Scientist",
-            "btn3": "Pilot",
-            "btn4": "Doctor",
-            "correctOption": "Scientist"
-        },
-        {
-            "Id": 6,
-            "src": "professions/police.webp",
-            "btn1": "Photographer",
-            "btn2": "Waiter",
-            "btn3": "Police",
-            "btn4": "Sailor",
-            "correctOption": "Police"
-        },
-        {
-            "Id": 7,
-            "src": "professions/waiter.webp",
-            "btn1": "Cook",
-            "btn2": "Artist",
-            "btn3": "Waiter",
-            "btn4": "Teacher",
-            "correctOption": "Waiter"
-        },
-        {
-            "Id": 8,
-            "src": "professions/cook.webp",
-            "btn1": "Doctor",
-            "btn2": "Cook",
-            "btn3": "Sailor",
-            "btn4": "Photographer",
-            "correctOption": "Cook"
-        },
-        {
-            "Id": 9,
-            "src": "professions/teacher.webp",
-            "btn1": "Pilot",
-            "btn2": "Scientist",
-            "btn3": "Teacher",
-            "btn4": "Artist",
-            "correctOption": "Teacher"
-        },
-        {
-            "Id": 10,
-            "src": "professions/doctor.webp",
-            "btn1": "Waiter",
-            "btn2": "Doctor",
-            "btn3": "Photographer",
-            "btn4": "Sailor",
-            "correctOption": "Doctor"
-        }
-    ]
+  "2": [
+    { "Id": 1, "src": "animals/lion.webp", "btn1": "Crocodile", "btn2": "Horse", "btn3": "Lion", "btn4": "Tiger", "correctOption": "Lion" },
+    { "Id": 2, "src": "animals/bird.png", "btn1": "Bird", "btn2": "Lion", "btn3": "Penguin", "btn4": "Horse", "correctOption": "Bird" },
+    { "Id": 3, "src": "animals/horse.webp", "btn1": "Zebra", "btn2": "Elephant", "btn3": "Horse", "btn4": "Giraffe", "correctOption": "Horse" },
+    { "Id": 4, "src": "animals/bear.webp", "btn1": "Bear", "btn2": "Kangaroo", "btn3": "Panda", "btn4": "Tiger", "correctOption": "Bear" },
+    { "Id": 5, "src": "animals/dog.webp", "btn1": "Cat", "btn2": "Dog", "btn3": "Rabbit", "btn4": "Sheep", "correctOption": "Dog" },
+    { "Id": 6, "src": "animals/snake.webp", "btn1": "Lizard", "btn2": "Snake", "btn3": "Frog", "btn4": "Turtle", "correctOption": "Snake" },
+    { "Id": 7, "src": "animals/butterfly.png", "btn1": "Butterfly", "btn2": "Dragonfly", "btn3": "Ladybug", "btn4": "Bee", "correctOption": "Butterfly" },
+    { "Id": 8, "src": "animals/cat.webp", "btn1": "Dolphin", "btn2": "Lion", "btn3": "Tiger", "btn4": "Cat", "correctOption": "Cat" },
+    { "Id": 9, "src": "animals/bunny.webp", "btn1": "Koala", "btn2": "Bunny", "btn3": "Hedgehog", "btn4": "Squirrel", "correctOption": "Bunny" },
+    { "Id": 10, "src": "animals/dolphin.webp", "btn1": "Shark", "btn2": "Fish", "btn3": "Dolphin", "btn4": "Whale", "correctOption": "Dolphin" }
+  ],
+  "1": [
+    { "Id": 1, "src": "fruits/apple.png", "btn1": "Mango", "btn2": "Pineapple", "btn3": "Lemon", "btn4": "Apple", "correctOption": "Apple" },
+    { "Id": 2, "src": "fruits/banana.jpg", "btn1": "Orange", "btn2": "Banana", "btn3": "Peach", "btn4": "Coconut", "correctOption": "Banana" },
+    { "Id": 3, "src": "fruits/orange.webp", "btn1": "Grape", "btn2": "Cherry", "btn3": "Strawberry", "btn4": "Orange", "correctOption": "Orange" },
+    { "Id": 4, "src": "fruits/pear.webp", "btn1": "Watermelon", "btn2": "Pear", "btn3": "Kiwi", "btn4": "Pomegranate", "correctOption": "Pear" },
+    { "Id": 5, "src": "fruits/kiwi.webp", "btn1": "Raspberry", "btn2": "Kiwi", "btn3": "Blueberry", "btn4": "Papaya", "correctOption": "Kiwi" },
+    { "Id": 6, "src": "fruits/lemon.jpg", "btn1": "Grapefruit", "btn2": "Lemon", "btn3": "Lime", "btn4": "Apricot", "correctOption": "Lemon" },
+    { "Id": 7, "src": "fruits/plum.webp", "btn1": "Plum", "btn2": "Guava", "btn3": "Dragonfruit", "btn4": "Mango", "correctOption": "Plum" },
+    { "Id": 8, "src": "fruits/watermelon.webp", "btn1": "Pineapple", "btn2": "Passionfruit", "btn3": "Watermelon", "btn4": "Lychee", "correctOption": "Watermelon" },
+    { "Id": 9, "src": "fruits/pineapple1.webp", "btn1": "Cantaloupe", "btn2": "Fig", "btn3": "Pineapple", "btn4": "Blackberry", "correctOption": "Pineapple" },
+    { "Id": 10, "src": "fruits/peach.webp", "btn1": "Raspberry", "btn2": "Kiwi", "btn3": "Peach", "btn4": "Mango", "correctOption": "Peach" }
+  ],
+  "3": [
+    { "Id": 1, "src": "school/pencil.jpg", "btn1": "Computer", "btn2": "Eraser", "btn3": "Pencil", "btn4": "Scissors", "correctOption": "Pencil" },
+    { "Id": 2, "src": "school/pen.jpg", "btn1": "Backpack", "btn2": "Chair", "btn3": "Pen", "btn4": "Tape", "correctOption": "Pen" },
+    { "Id": 3, "src": "school/book.jpg", "btn1": "Crayon", "btn2": "Book", "btn3": "Whiteboard", "btn4": "Ruler", "correctOption": "Book" },
+    { "Id": 4, "src": "school/ruler.jpg", "btn1": "Calculator", "btn2": "Printer", "btn3": "Ruler", "btn4": "Notebook", "correctOption": "Ruler" },
+    { "Id": 5, "src": "school/eraser.jpg", "btn1": "Marker", "btn2": "Desk", "btn3": "Eraser", "btn4": "Chair", "correctOption": "Eraser" },
+    { "Id": 6, "src": "school/desk.webp", "btn1": "Blackboard", "btn2": "Desk", "btn3": "Sharpener", "btn4": "Pencil", "correctOption": "Desk" },
+    { "Id": 7, "src": "school/chair.jpg", "btn1": "Notebook", "btn2": "Chair", "btn3": "Scissors", "btn4": "Pen", "correctOption": "Chair" },
+    { "Id": 8, "src": "school/sharpener.jpg", "btn1": "Tape", "btn2": "Crayon", "btn3": "Sharpener", "btn4": "Book", "correctOption": "Sharpener" },
+    { "Id": 9, "src": "school/notebook.jpg", "btn1": "Ruler", "btn2": "Blackboard", "btn3": "Notebook", "btn4": "Computer", "correctOption": "Notebook" },
+    { "Id": 10, "src": "school/backpack.png", "btn1": "Whiteboard", "btn2": "Backpack", "btn3": "Calculator", "btn4": "Pencil", "correctOption": "Backpack" }
+  ],
+  "4": [
+    { "Id": 1, "src": "family/family.png", "btn1": "Cousin", "btn2": "Family", "btn3": "Mother", "btn4": "Father", "correctOption": "Family" },
+    { "Id": 2, "src": "family/parents.png", "btn1": "Family", "btn2": "Father", "btn3": "Son", "btn4": "Parents", "correctOption": "Parents" },
+    { "Id": 3, "src": "family/children.png", "btn1": "Grandparents", "btn2": "Aunt", "btn3": "Children", "btn4": "Mother", "correctOption": "Children" },
+    { "Id": 4, "src": "family/mother.png", "btn1": "Father", "btn2": "Sister", "btn3": "Mother", "btn4": "Brother", "correctOption": "Mother" },
+    { "Id": 5, "src": "family/father.png", "btn1": "Dog", "btn2": "Mother", "btn3": "Father", "btn4": "Cousin", "correctOption": "Father" },
+    { "Id": 6, "src": "family/son.png", "btn1": "Daughter", "btn2": "Grandmother", "btn3": "Son", "btn4": "Sister", "correctOption": "Son" },
+    { "Id": 7, "src": "family/daughter.png", "btn1": "Tiger", "btn2": "Grandmother", "btn3": "Daughter", "btn4": "Grandfather", "correctOption": "Daughter" },
+    { "Id": 8, "src": "family/grandparents.png", "btn1": "Siblings", "btn2": "Cousin", "btn3": "Son", "btn4": "Grandparents", "correctOption": "Grandparents" },
+    { "Id": 9, "src": "family/sister.png", "btn1": "Father", "btn2": "Sister", "btn3": "Mother", "btn4": "Brother", "correctOption": "Sister" },
+    { "Id": 10, "src": "family/brother.png", "btn1": "Brother", "btn2": "Mother", "btn3": "Grandfather", "btn4": "Cousin", "correctOption": "Brother" }
+  ],
+  "5": [
+    { "Id": 1, "src": "professions/pilot.webp", "btn1": "Photographer", "btn2": "Sailor", "btn3": "Pilot", "btn4": "Artist", "correctOption": "Pilot" },
+    { "Id": 2, "src": "professions/photographer.webp", "btn1": "Scientist", "btn2": "Waiter", "btn3": "Photographer", "btn4": "Police", "correctOption": "Photographer" },
+    { "Id": 3, "src": "professions/sailor.webp", "btn1": "Cook", "btn2": "Sailor", "btn3": "Teacher", "btn4": "Doctor", "correctOption": "Sailor" },
+    { "Id": 4, "src": "professions/artist.webp", "btn1": "Police", "btn2": "Artist", "btn3": "Waiter", "btn4": "Scientist", "correctOption": "Artist" },
+    { "Id": 5, "src": "professions/scientist.webp", "btn1": "Teacher", "btn2": "Scientist", "btn3": "Pilot", "btn4": "Doctor", "correctOption": "Scientist" },
+    { "Id": 6, "src": "professions/police.webp", "btn1": "Photographer", "btn2": "Waiter", "btn3": "Police", "btn4": "Sailor", "correctOption": "Police" },
+    { "Id": 7, "src": "professions/waiter.webp", "btn1": "Cook", "btn2": "Artist", "btn3": "Waiter", "btn4": "Teacher", "correctOption": "Waiter" },
+    { "Id": 8, "src": "professions/cook.webp", "btn1": "Doctor", "btn2": "Cook", "btn3": "Sailor", "btn4": "Photographer", "correctOption": "Cook" },
+    { "Id": 9, "src": "professions/teacher.webp", "btn1": "Pilot", "btn2": "Scientist", "btn3": "Teacher", "btn4": "Artist", "correctOption": "Teacher" },
+    { "Id": 10, "src": "professions/doctor.webp", "btn1": "Waiter", "btn2": "Doctor", "btn3": "Photographer", "btn4": "Sailor", "correctOption": "Doctor" }
+  ],
+  "6": [
+    { "Id": 1, "src": "weather/sunny.webp", "btn1": "Cold", "btn2": "Rainy", "btn3": "Sunny", "btn4": "Night", "correctOption": "Sunny" },
+    { "Id": 2, "src": "weather/cloudy.webp", "btn1": "Windy", "btn2": "Snowy", "btn3": "Cloudy", "btn4": "Foggy", "correctOption": "Cloudy" },
+    { "Id": 3, "src": "weather/rainy.webp", "btn1": "Hail", "btn2": "Thunderstorm", "btn3": "Rainy", "btn4": "Sleet", "correctOption": "Rainy" },
+    { "Id": 4, "src": "weather/snowy.webp", "btn1": "Sunny", "btn2": "Foggy", "btn3": "Snowy", "btn4": "Icy", "correctOption": "Snowy" },
+    { "Id": 5, "src": "weather/windy.webp", "btn1": "Tornado", "btn2": "Windy", "btn3": "Hurricane", "btn4": "Breezy", "correctOption": "Windy" },
+    { "Id": 6, "src": "weather/foggy.webp", "btn1": "Misty", "btn2": "Overcast", "btn3": "Foggy", "btn4": "Clear", "correctOption": "Foggy" },
+    { "Id": 7, "src": "weather/stormy.webp", "btn1": "Sunny", "btn2": "Thunderstorm", "btn3": "Stormy", "btn4": "Hail", "correctOption": "Stormy" },
+    { "Id": 8, "src": "weather/hail.webp", "btn1": "Hail", "btn2": "Tornado", "btn3": "Rainy", "btn4": "Sunny", "correctOption": "Hail" },
+    { "Id": 9, "src": "weather/tornado.webp", "btn1": "Blizzard", "btn2": "Tornado", "btn3": "Sleet", "btn4": "Foggy", "correctOption": "Tornado" },
+    { "Id": 10, "src": "weather/clear.webp", "btn1": "Overcast", "btn2": "Clear", "btn3": "Misty", "btn4": "Windy", "correctOption": "Clear" }
+  ]
 }

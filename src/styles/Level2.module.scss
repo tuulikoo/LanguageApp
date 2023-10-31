@@ -1,10 +1,11 @@
 .container {
   text-align: center;
+  height: 100vh;
 }
 
 .title,
 .correct_text {
-  font-family: sans-serif;
+  font-family: "Dela Gothic One";
   font-weight: 700;
   font-size: 24px;
 }
@@ -27,6 +28,7 @@
 #correct > img {
   display: inline-block;
   text-align: center;
+  width: 350px;
 }
 
 .show {
@@ -36,7 +38,12 @@
 .hidden {
   display: none;
 }
-
+#threeImg{
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
 .nextBtn {
   background-color: white;
   border: 1px solid rgba(63, 118, 224, 0.58);
@@ -54,4 +61,8 @@
   cursor: pointer;
   color: #1db91d;
   border: 3px solid transparent;
+}
+.sound:hover,
+.sound:focus {
+  cursor: pointer;
 }

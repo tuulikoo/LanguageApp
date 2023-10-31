@@ -1,3 +1,16 @@
+@font-face {
+    font-family: "Dela Gothic One"; /* Specify the font family name */
+    src: url('../../public/fonts/DelaGothicOne-Regular.ttf') format('truetype'); /* Specify the path to your TTF font file */
+}
+
+.custom-font {
+    font-family: 'Dela Gothic One', sans-serif; /* Use the imported font family name */
+}
+
+.pageContainer{
+    background-color: rgba(204, 230, 176, 0.7);
+}
+
 .container {
     margin: 20px;
     display: flex;
@@ -14,7 +27,7 @@
 
 .userPoints {
     margin: 30px;
-    background-color: #f5f5f5;
+    background-color: #8a0000;
     padding: 20px;
     border-radius: 10px;
     width: 100%; /* Make it take up the full width of the container */

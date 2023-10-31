@@ -8,15 +8,58 @@ datasource db {
 }
 
 model User {
-  id        String @id @default(auto()) @map("_id") @db.ObjectId
-  firstName String
-  username  String @unique
-  email     String @unique 
-  password  String
-  avatarId  Int?
-  userPoints Int @default(1)
-  lastLevel Int @default(1)
-  userRole String @default("user")
-  timeSpent Int? @default(0)
-} 
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  firstName  String
+  username   String @unique
+  email      String @unique
+  password   String
+  avatarId   Int?
+  userPoints Int    @default(1)
+  lastLevel  Int    @default(1)
+  userRole   String @default("user")
+  timeSpent  Int?   @default(0)
+}
 
+model Game4 {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  category  String
+  questions Json[]
+}
+
+model ListeningData {
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  category String   @unique // Unique index on the 'category' field
+  words    String[]
+}
+
+model SchoolItem {
+  id       Int    @id @map("_id")
+  imageUrl String
+  eng      String
+  fin      String
+}
+
+model FruitItem {
+  id       Int    @id @map("_id")
+  imageUrl String
+  eng      String
+  fin      String
+}
+
+model AnimalItem {
+  id       Int    @id @map("_id")
+  imageUrl String
+  eng      String
+  fin      String
+}
+
+model FlashcardItem {
+  id         Int    @id @map("_id")
+  word       String
+  definition String
+}
+
+model Flashcardsanat {
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  flashcards Json
+}

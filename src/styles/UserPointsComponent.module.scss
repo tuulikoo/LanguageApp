@@ -1,13 +1,24 @@
 /* UserPointsComponent.module.scss */
+@font-face {
+    font-family: "Dela Gothic One"; /* Specify the font family name */
+    src: url('../../public/fonts/DelaGothicOne-Regular.ttf') format('truetype'); /* Specify the path to your TTF font file */
+}
+
+.custom-font {
+    font-family: 'Dela Gothic One', sans-serif; /* Use the imported font family name */
+}
 
 .userPointsContainer {
+    background-color: #fd8919;
+    font-family: "Dela Gothic One";
     text-align: center;
     padding: 20px;
     border: 2px solid #e0e0e0;
     border-radius: 10px;
     width: 70%;
     max-width: 800px;
-    margin: 10px;
+    margin: 10px auto; /* Center horizontally */
+    margin-top: 10vh; /* Center vertically using viewport height */
 }
 
 /* Add a new class for the reward grid */
@@ -69,8 +80,8 @@
     margin: 0 10px;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #007bff; /* Blue color for buttons */
-    color: #fff;
+    background-color: #ffec00; /* Blue color for buttons */
+    color: #4f2502;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -121,3 +132,5 @@
     display: block;
     margin: 0 auto;
 }
+
+

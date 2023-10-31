@@ -1,0 +1,62 @@
+[
+  {
+    "id": 0,
+    "imageUrl": "school/pencil.jpg",
+    "eng": "Pencil",
+    "fin": "Lyijykynä"
+  },
+  {
+    "id": 1,
+    "imageUrl": "school/pen.jpg",
+    "eng": "Pen",
+    "fin": "Kynä"
+  },
+  {
+    "id": 2,
+    "imageUrl": "school/book.jpg",
+    "eng": "Book",
+    "fin": "Kirja"
+  },
+  {
+    "id": 3,
+    "imageUrl": "school/ruler.jpg",
+    "eng": "Ruler",
+    "fin": "Viivotin"
+  },
+  {
+    "id": 4,
+    "imageUrl": "school/eraser.jpg",
+    "eng": "Eraser",
+    "fin": "Pyyhekumi"
+  },
+  {
+    "id": 5,
+    "imageUrl": "school/desk.webp",
+    "eng": "Desk",
+    "fin": "Työpöytä"
+  },
+  {
+    "id": 6,
+    "imageUrl":  "school/sharpener.jpg",
+    "eng": "Sharpener",
+    "fin": "Teroitin"
+  },
+  {
+    "id": 7,
+    "imageUrl": "school/notebook.jpg",
+    "eng": "Notebook",
+    "fin": "Muistikirja"
+  },
+  {
+    "id": 8,
+    "imageUrl": "school/chair.jpg",
+    "eng": "Chair",
+    "fin": "Tuoli"
+  },
+  {
+    "id": 9,
+    "imageUrl": "school/backpack.png",
+    "eng": "Backpack",
+    "fin": "Reppu"
+  }
+]

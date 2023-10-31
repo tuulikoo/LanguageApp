@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
-import game4 from "../utils/wordlists/game4.json";
-import { useUser } from "../utils/userContext";
-import styles from "../styles/Game4Component.module.scss";
-import { textToSpeech } from "../utils/mimicApi";
-import { useRouter } from "next/router";
-import { Image } from "react-bootstrap";
+import React, { useEffect, useState } from 'react';
+import game4 from '../utils/wordlists/game4.json';
+import { useUser } from '../utils/userContext';
+import styles from '../styles/Game4Component.module.scss';
+import { textToSpeech } from '../utils/mimicApi';
+import {useRouter} from "next/router";
 
-function Game4Component() {
-    // Pass onLevelCompletion as a prop
+
+function Game4Component() { // Pass onLevelCompletion as a prop
     const { user } = useUser();
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -16,7 +15,7 @@ function Game4Component() {
     const [currentUserPoints, setCurrentUserPoints] = useState(0);
     const [incorrectAttempts, setIncorrectAttempts] = useState(0);
     const [hasAnsweredCorrectly, setHasAnsweredCorrectly] = useState(false);
-    const [, setSectionCompleted] = useState(false);
+    const [sectionCompleted, setSectionCompleted] = useState(false); // Added this line
 
     const section = user ? user.lastLevel : "1";
     const data = game4[section];
@@ -28,16 +27,16 @@ function Game4Component() {
         if (user) {
             async function fetchUserPoints() {
                 try {
-                    const response = await fetch("/api/user");
+                    const response = await fetch('/api/user');
                     if (response.ok) {
                         const data = await response.json();
-                        console.log("User data:", data);
+                        console.log('User data:', data);
                         setCurrentUserPoints(data.userPoints);
                     } else {
-                        throw new Error("Failed to fetch user points");
+                        throw new Error('Failed to fetch user points');
                     }
                 } catch (error) {
-                    console.error("Error:", error.message);
+                    console.error('Error:', error.message);
                 }
             }
 
@@ -53,13 +52,12 @@ function Game4Component() {
 
                     // Check if it's time to increment lastLevel
                     if ((nextLevel - 1) * questionsPerSection >= currentQuestion) {
-                        fetch("/api/updateUser", {
-                            method: "POST",
+                        fetch('/api/updateUser', {
+                            method: 'POST',
                             headers: {
-                                "Content-Type": "application/json",
+                                'Content-Type': 'application/json',
                             },
-                            body: JSON.stringify({
-                                userId: user.id,
+                            body: JSON.stringify({ userId: user.id,
                                 lastLevel: nextLevel,
                             }),
                         })
@@ -68,35 +66,55 @@ function Game4Component() {
                                 // Handle the response, if needed
                             })
                             .catch((error) => {
-                                console.error("Error updating lastLevel:", error);
+                                console.error('Error updating lastLevel:', error);
                             });
                         // Call the onLevelCompletion function to signal level completion
+
                     }
                 }
+
             }
         }
     }, [currentQuestion, data, user, questionsPerSection]);
 
     const handleOptionClick = async (option) => {
-        if (
-            !hasAnsweredCorrectly &&
-            option === data[currentQuestion].correctOption
-        ) {
+        if (!hasAnsweredCorrectly && option === data[currentQuestion].correctOption) {
             setScore(score + 1);
-            setResult("Oikein!");
+            setResult('Oikein!');
             setHasAnsweredCorrectly(true);
-            await PointAdder(user.id, 1);
+
+            if (user) {
+                try {
+                    const response = await fetch('/api/updatePoints', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            userId: user.id,
+                            newPoints: 1,
+                        }),
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        updatePointsAndUI(data.updatedPoints);
+                    } else {
+                        throw new Error('Failed to update user points');
+                    }
+                } catch (error) {
+                    console.error('Error updating user points:', error);
+                }
+            }
 
             setTimeout(() => {
                 handleNextQuestion();
             }, 1000);
         } else {
             if (incorrectAttempts === 0) {
-                setResult("Väärin, yritä uudelleen!");
+                setResult('Väärin, yritä uudelleen!');
             } else {
-                setResult(
-                    `Vastasit väärin, oikea vastaus oli ${data[currentQuestion].correctOption}`,
-                );
+                setResult(`Vastasit väärin, oikea vastaus oli ${data[currentQuestion].correctOption}`);
                 setTimeout(() => {
                     handleNextQuestion();
                 }, 2000);
@@ -107,29 +125,26 @@ function Game4Component() {
 
     const handleNextQuestion = () => {
         setCurrentQuestion(currentQuestion + 1);
-        setResult("");
+        setResult('');
         setIncorrectAttempts(0);
         setHasAnsweredCorrectly(false);
 
         if (currentQuestion + 1 >= data?.length) {
             if (user) {
                 // Check if user.lastLevel is a number
-                if (typeof user.lastLevel === "number") {
+                if (typeof user.lastLevel === 'number') {
                     const nextSectionNumber = user.lastLevel + 1;
                     const newLastLevel = nextSectionNumber - 1; // Fix this line
 
                     // If the section is completed, set the state variable
-                    if (
-                        (nextSectionNumber - 1) * questionsPerSection >=
-                        currentQuestion
-                    ) {
+                    if ((nextSectionNumber - 1) * questionsPerSection >= currentQuestion) {
                         setSectionCompleted(true);
                     }
 
-                    fetch("/api/updateUser", {
-                        method: "POST",
+                    fetch('/api/updateUser', {
+                        method: 'POST',
                         headers: {
-                            "Content-Type": "application/json",
+                            'Content-Type': 'application/json',
                         },
                         body: JSON.stringify({
                             userId: user.id,
@@ -141,7 +156,7 @@ function Game4Component() {
                             // Handle the response, if needed
                         })
                         .catch((error) => {
-                            console.error("Error updating lastLevel:", error);
+                            console.error('Error updating lastLevel:', error);
                         });
                 }
             }
@@ -154,7 +169,7 @@ function Game4Component() {
     };
 
     const renderOptions = () => {
-        const options = ["btn1", "btn2", "btn3", "btn4"];
+        const options = ['btn1', 'btn2', 'btn3', 'btn4'];
         return options.map((option, index) => (
             <button
                 className={styles.buttonStyle}
@@ -177,7 +192,7 @@ function Game4Component() {
     };
 
     const handleBackToMainPage = () => {
-        router.push("/MainPage"); // Replace '/MainPage' with the actual URL of your MainPage
+        router.push('/MainPage'); // Replace '/MainPage' with the actual URL of your MainPage
     };
 
     const handleBackToPreviousQuestion = () => {
@@ -188,84 +203,91 @@ function Game4Component() {
     };
 
     const handleNextSet = () => {
-        window.location.reload();
+        if (!data || !data.length) {
+            router.push('/MainPage');
+        } else {
+            window.location.reload();
+        }
     };
+
+
+
 
     return (
         <div className={styles.pageContainer}>
             <div className={styles.textContainer}>
-                <h1>Valitse oikea sana</h1>
-                <div className={styles.pointsDisplay}>
-                    {user ? <div>Kokonaispisteesi: {currentUserPoints}</div> : null}
-                    {user ? <div>Olet tehtävätasolla: {user.lastLevel}</div> : null}
-                    {user ? <div>Tämän tehtävän pisteet: {score}</div> : null}
-                </div>
+                {currentQuestion < (data.length || 0) && (
+                    <h1 className={`font-custom`}>Valitse oikea sana</h1>
+                )}
             </div>
             <div className={styles.gameContainer}>
-                <Image
-                    className={styles.speakButton}
-                    src="/images/audio.png"
-                    alt="Speaker Button"
-                    onClick={handleSpeakButtonClick}
-                />
                 {currentQuestion < (data.length || 0) ? (
-                    <div className={styles.imgContainer}>
-                        <div className={styles.imgWrapper}>
-                            <Image
-                                src={data[currentQuestion]?.src}
-                                alt={`Image ${data[currentQuestion]?.Id}`}
+                    <>
+                        <div className={styles.centeredContainer}>
+                            <img
+                                className={styles.speakButton}
+                                src='/images/audio.png'
+                                alt="Speaker Button"
+                                onClick={handleSpeakButtonClick}
                             />
-                            <div className={styles.buttonContainerWrapper}>
-                                {renderOptions()}
-                            </div>
+                            <h2>Kuuntele</h2>
                         </div>
-                        <p
-                            className={`${styles.result} ${result === "Oikein!" ? styles.correct : ""
-                                }`}
-                        >
-                            {result}
-                        </p>
-                    </div>
+                        <div className={styles.imgContainer}>
+                            <div className={styles.imgWrapper}>
+                                <div className={styles.centeredContainer}>
+                                    <img
+                                        src={data[currentQuestion]?.src}
+                                        alt={`Image ${data[currentQuestion]?.Id}`}
+                                    />
+                                    <p className={`${styles.result} ${result === 'Oikein!' ? styles.correct : ''}`}>
+                                        {result}
+                                    </p>
+                                </div>
+                                <div className={styles.buttonContainerWrapper}>
+                                    {renderOptions()}
+                                </div>
+                            </div>
+                            <p className={`${styles.result} ${result === 'Oikein!' ? styles.correct : ''}`}>
+                                {result}
+                            </p>
+                        </div>
+                    </>
                 ) : (
-                    <div>
-                        <h2>Harjoitus valmis!</h2>
-                        <p>
-                            Sait {score} pistettä / {data.length || 0}.
-                        </p>
+                    <div className={styles.harjoitusValmis}>
+                        <h2 className={`font-custom`}>Harjoitus valmis!</h2>
+                        <p className={`font-custom`}>Sait {score} pistettä / {(data.length || 0)}.</p>
                         <button
                             onClick={handleNextSet}
                             style={{
-                                maxWidth: "200px", // Limit the maximum width
-                                padding: "10px 20px", // Adjust padding for sizing
-                                fontSize: "16px", // Adjust font size if needed
+                                maxWidth: '200px', // Limit the maximum width
+                                padding: '10px 20px', // Adjust padding for sizing
+                                fontSize: '16px', // Adjust font size if needed
                             }}
                         >
-                            <Image
-                                src="https://cdn.pixabay.com/photo/2017/01/29/22/16/cycle-2019530_640.png"
-                                alt="Continue to next set"
-                            />
+                            <img src="https://cdn.pixabay.com/photo/2017/01/29/22/16/cycle-2019530_640.png" alt="Continue to next set"/>
                         </button>
+                    </div>
+                )}
+                {sectionCompleted && (
+                    <div className={styles.pointsDisplay}>
+                        {user ? (
+                            <div className={`font-custom`}>Kokonaispisteesi: {currentUserPoints}</div>
+                        ) : null}
+                        {user ? (
+                            <div className={`font-custom`}>Olet tehtävätasolla: {user.lastLevel}</div>
+                        ) : null}
+                        {user ? (
+                            <div className={`font-custom`}>Tämän tehtävän pisteet: {score}</div>
+                        ) : null}
                     </div>
                 )}
             </div>
             <div className={styles.backArrows}>
-                <button
-                    onClick={handleBackToMainPage}
-                    data-tooltip="Go back to Main Page"
-                >
-                    <Image
-                        src="https://cdn.pixabay.com/photo/2012/04/02/16/10/arrow-24848_640.png"
-                        alt="Back to MainPage"
-                    />
+                <button className={styles.backToMain} onClick={handleBackToMainPage} data-tooltip="Takaisin kotisivulle">
+                    <img src="https://cdn.pixabay.com/photo/2012/04/02/16/10/arrow-24848_640.png" alt="Back to MainPage" />
                 </button>
-                <button
-                    onClick={handleBackToPreviousQuestion}
-                    data-tooltip="Go back to Previous Question"
-                >
-                    <Image
-                        src="https://cdn.pixabay.com/photo/2012/04/01/12/48/arrow-23284_640.png"
-                        alt="Back to Previous Question"
-                    />
+                <button onClick={handleBackToPreviousQuestion} data-tooltip="Edellinen kysymys" className={styles.backToPrevious}>
+                    <img src="https://cdn.pixabay.com/photo/2012/04/01/12/48/arrow-23284_640.png" alt="Back to Previous Question" />
                 </button>
             </div>
         </div>

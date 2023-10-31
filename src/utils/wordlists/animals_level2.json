@@ -1,0 +1,62 @@
+[
+  {
+    "id": 0,
+    "imageUrl": "animals/lion.webp",
+    "eng": "Lion",
+    "fin": "leijona"
+  },
+  {
+    "id": 1,
+    "imageUrl": "animals/bird.png",
+    "eng": "Bird",
+    "fin": "lintu"
+  },
+  {
+    "id": 2,
+    "imageUrl": "animals/horse.webp",
+    "eng": "Horse",
+    "fin": "hevonen"
+  },
+  {
+    "id": 3,
+    "imageUrl": "animals/bear.webp",
+    "eng": "Bear",
+    "fin": "karhu"
+  },
+  {
+    "id": 4,
+    "imageUrl": "animals/dog.webp",
+    "eng": "Dog",
+    "fin": "koira"
+  },
+  {
+    "id": 5,
+    "imageUrl": "animals/snake.webp",
+    "eng": "Snake",
+    "fin": "käärme"
+  },
+  {
+    "id": 6,
+    "imageUrl": "animals/butterfly.png",
+    "eng": "Butterfly",
+    "fin": "perhonen"
+  },
+  {
+    "id": 7,
+    "imageUrl": "animals/cat.webp",
+    "eng": "Cat",
+    "fin": "kissa"
+  },
+  {
+    "id": 8,
+    "imageUrl": "animals/bunny.webp",
+    "eng": "Bunny",
+    "fin": "pupu"
+  },
+  {
+    "id": 9,
+    "imageUrl": "animals/dolphin.webp",
+    "eng": "Dolphin",
+    "fin": "delfiini"
+  }
+]
