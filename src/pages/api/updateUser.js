@@ -2,7 +2,7 @@ import prisma from '../../utils/prisma';
 import bcrypt from 'bcrypt';
 
 const updateUser = async (req, res) => {
-    const { userId, newUsername, newPassword, newEmail, newFirstName, newAvatarId, lastLevel } = req.body; // Update fields
+    const { userId, newUsername, newPassword, newEmail, newFirstName,newLanguage, newAvatarId, lastLevel } = req.body; // Update fields
 
     try {
         // Check if the user exists
@@ -28,6 +28,10 @@ const updateUser = async (req, res) => {
             existingUser.email = newEmail;
         }
 
+        if (newLanguage) {
+            existingUser.language = newLanguage;
+        }
+
         if (newFirstName) {
             existingUser.firstName = newFirstName;
         }
@@ -49,8 +53,9 @@ const updateUser = async (req, res) => {
                 password: existingUser.password,
                 email: existingUser.email,
                 firstName: existingUser.firstName,
+                language: existingUser.language,
                 avatarId: existingUser.avatarId,
-                lastLevel: existingUser.lastLevel, // Include lastLevel in the update
+                lastLevel: existingUser.lastLevel,
             },
         });
 

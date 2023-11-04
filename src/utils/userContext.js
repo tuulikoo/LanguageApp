@@ -12,6 +12,7 @@ export const UserProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const [sessionTime, setSessionTime] = useState(0);
 
+
     // logout function to call logout api endpoint
     const logout = async () => {
         try {

@@ -33,6 +33,7 @@ export default async function handle(req, res) {
                 username: true,
                 email: true,
                 avatarId: true,
+                language: true,
                 userPoints: true,
                 lastLevel: true,
                 timeSpent: true,

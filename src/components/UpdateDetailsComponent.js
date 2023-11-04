@@ -145,6 +145,7 @@ function UpdateDetailsComponent({setUser}) {
                 <h3>Etunimesi on {user.firstName}</h3>
                 <h3>käyttiksesi on {user.username}</h3>
                 <h3>emailisi on {user.email}</h3>
+                <h3>Kielesi on {user.language}</h3>
                 <h3>
                     Avatarisi on{' '}
                     <img

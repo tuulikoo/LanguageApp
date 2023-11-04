@@ -45,6 +45,14 @@
     transition: transform 0.5s ease-in-out;
     margin-left: 20px;
   }
+
+  .lang {
+    width: 60px;
+    height: 40px;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+    margin-left: 20px;
+  }
 }
 
 .avatarButton {
@@ -58,6 +66,58 @@
 
 .avatarHovered {
   transform: scale(1.4);
+}
+.langContainer {
+  position: relative;
+  margin-left: 20px;
+}
+
+.langImage {
+  width: 60px;
+  height: 40px;
+  object-fit: cover;
+  transition: transform 0.5s ease-in-out;
+}
+
+.langText {
+  display: none; /* Hide the text by default */
+}
+
+.languageDropdown {
+  display: inline-block;
+  width: 60px;
+  height: 40px;
+}
+
+.languageOptions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 60px;
+  max-height: 400px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #ccc;
+  z-index: 1;
+}
+
+.flagOption {
+  width: 60px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.optionText {
+  text-align: center;
+  display: block;
+  font-size: 14px;
+  color: #333;
+  margin: 5px 0;
+}
+
+/* Show the text on hover */
+.langButton:hover .langText {
+  display: block;
 }
 
 @media (max-width: 768px) {
