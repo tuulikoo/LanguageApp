@@ -6,6 +6,11 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+enum Language {
+  fi_FI
+  sv_SE
+  ja_JP
+}
 
 model User {
   id         String @id @default(auto()) @map("_id") @db.ObjectId
@@ -14,11 +19,13 @@ model User {
   email      String @unique
   password   String
   avatarId   Int?
-  userPoints Int    @default(1)
+  userPoints Int    @default(0)
   lastLevel  Int    @default(1)
   userRole   String @default("user")
   timeSpent  Int?   @default(0)
+  language   Language @default(fi_FI)
 }
+
 
 model Game4 {
   id        String @id @default(auto()) @map("_id") @db.ObjectId

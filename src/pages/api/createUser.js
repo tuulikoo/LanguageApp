@@ -14,7 +14,9 @@ const emailExists = async (email) => {
     return !!user;
 };
 const CreateUser = async (req, res) => {
-    const { username, password, email, firstName, avatarId } = req.body;
+    const { username, password, email, firstName,language, avatarId } = req.body;
+    console.log("Apissa ollaan ei logata kieltä");
+    console.log("Apissa ollaan" + language);
 
     try {
         // Check if username or email already exists
@@ -33,9 +35,12 @@ const CreateUser = async (req, res) => {
                 password: hashedPassword,
                 email,
                 firstName,
+                language,
                 avatarId,
             },
+            
         });
+        console.log("Apissa22 ollaan" + language);
 
         const payload = {
             id: newUser.id,
