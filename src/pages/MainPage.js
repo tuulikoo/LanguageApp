@@ -8,6 +8,8 @@ import BackgroundScroller from "../components/BackgroundScroller.js";
 const MainPage = () => {
     return (
         <div style={{ position: 'relative', minHeight: '100vh' }}>
+            <BackgroundScroller />
+
             <Hero />
             <Levels />
             <Carousel />
@@ -17,4 +19,5 @@ const MainPage = () => {
 };
 
 export default MainPage;
+
 
