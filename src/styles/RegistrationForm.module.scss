@@ -1,52 +1,35 @@
-@font-face {
-  font-family: "Dela Gothic One";
-  src: url('../../public/fonts/DelaGothicOne-Regular.ttf') format('truetype');
-}
-
-.custom-font {
-  font-family: 'Dela Gothic One', sans-serif;
-}
-
 .formWrapper {
-  max-width: 500px;
-  margin: 50px auto;
+  max-width: 400px;
+  margin: 40px auto;
   padding: 40px;
-  background-color: #8adbaf;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0px 4px 12px rgba(13, 4, 5, 0.1);
 
   label {
     display: block;
-    margin-top: 15px;
-    font-weight: bold;
-    font-size: 20px;
-    color: #3f51b4;
-    font-family: "Dela Gothic One",Serif;
+    margin-top: 10px;
+    font-weight: 600;
+    color: #555;
   }
-
-  
-
 
   input {
     width: 100%;
-    padding: 20px;
-    margin-top: 10px;
-    border: 2px solid #82ec73;
-    border-radius: 10px;
-    font-size: 24px;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     transition: border 0.2s;
-    font-family: "Dela Gothic One";
 
     &:focus {
       border-color: #007BFF;
-      outline: none;
     }
   }
 
   .inputError {
-    color: #d9534f;
-    font-size: 18px;
-    margin-top: 15px;
+    color: red;
+    font-size: 0.85em;
+    margin-top: 5px;
   }
 }
 
@@ -77,9 +60,9 @@
     text-transform: uppercase;
     letter-spacing: 5px;
     position: relative;
-    color: #000;
   }
 }
+
 
 .avatarsGrid {
   display: grid;
@@ -88,7 +71,7 @@
 }
 
 .avatarImage {
-  width: 70%;
+  width: 70%; 
   border-radius: 50%;
   cursor: pointer;
   filter: grayscale(5%) opacity(0.8);
@@ -111,27 +94,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  font-family: "Dela Gothic One",serif;
 }
 
 .newUserButton,
 .selectAvatarButton,
 .closeModalButton {
-  padding: 15px 30px; /* Slightly smaller buttons */
+  padding: 10px 20px;
   border: none;
-  border-radius: 10px;
+  border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.2s;
-  font-size: 24px;
 }
 
 .newUserButton {
-  background-color: #ffec00;
-  color: #3f51b4;
+  background-color: #007BFF;
+  color: #fff;
 
   &:hover {
-    background-color: #fc8d0f;
+    background-color: #0056b3;
   }
 
   &:disabled {
@@ -141,11 +121,11 @@
 }
 
 .selectAvatarButton {
-  background-color: #fd6a6a;
-  color: #ffffff;
+  background-color: #00bfa5;
+  color: #fff;
 
   &:hover {
-    background-color: #fc8d0f;
+    background-color: #009580;
   }
 }
 
@@ -158,6 +138,12 @@
     background-color: #d32f2f;
   }
 }
+.languageSelection {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .successMessage {
   color: #4caf50;
@@ -166,3 +152,5 @@
 .errorMessage {
   color: #f44336;
 }
+
+
