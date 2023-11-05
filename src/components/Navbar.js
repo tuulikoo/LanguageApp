@@ -40,7 +40,7 @@ function Navbar() {
 
         if (user) {
             console.log("userid " + user.id);
-           // const data = { language: languageCode };
+            // const data = { language: languageCode };
 
             axios
                 .post(`/api/updateUserLanguage?userId=${user.id}&language=${languageCode}`)
@@ -159,7 +159,7 @@ function Navbar() {
                                 {remainingLanguages.map((lang) => (
                                     <div key={lang.code} onClick={() => handleLanguageChange(lang.code)}>
                                         <img src={lang.image} alt={lang.name} className={styles.flagOption} />
-                                        <span className={styles.optionText}>{lang.name}</span>
+                                        <span className={styles.optionText}></span>
                                     </div>
                                 ))}
                             </div>

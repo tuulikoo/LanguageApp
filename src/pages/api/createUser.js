@@ -36,7 +36,7 @@ const CreateUser = async (req, res) => {
                 language,
                 avatarId,
             },
-            
+
         });
 
         const payload = {
