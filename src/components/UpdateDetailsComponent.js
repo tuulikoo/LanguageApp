@@ -1,9 +1,13 @@
 import {UserProvider, useUser} from '@/utils/userContext';
 import styles from '../styles/UpdateDetailsComponent.module.scss';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import UserPointsComponent from '@/components/UserPointsComponent';
 import {useRouter} from "next/router";
+import Cookies from "js-cookie";
+import {getSelectedLanguage} from "@/utils/selectedLanguage";
+import { useTranslation } from 'react-i18next';
+import i18n, {t} from "i18next";
 
 
 function UpdateDetailsComponent({setUser}) {
@@ -22,8 +26,23 @@ function UpdateDetailsComponent({setUser}) {
     const {user, loading} = useUser();
     const [avatarHovered, setAvatarHovered] = useState(false);
     const [isDeleteModalVisible, setDeleteModalVisible] = useState(false);
-
     const router = useRouter();
+    const selectedLanguage = getSelectedLanguage();
+
+    const [state, setState] = useState({
+        value: "fi_FI"
+    });
+
+    useEffect(() => {
+        import(`../locales/${selectedLanguage}.json`)
+            .then((translationModule) => setTranslations(translationModule.default))
+            .catch((error) => {
+                console.error(`Failed to load translation for ${selectedLanguage}.`, error);
+            });
+    }, [selectedLanguage]);
+
+
+
 
     const avatars = [
         {id: 1, src: 'avatars/avatar1.png'},
@@ -31,6 +50,7 @@ function UpdateDetailsComponent({setUser}) {
         {id: 3, src: 'avatars/avatar3.png'},
         {id: 4, src: 'avatars/avatar4.png'},
     ];
+
 
     const updateUserDetails = async (data) => {
         try {
@@ -65,7 +85,7 @@ function UpdateDetailsComponent({setUser}) {
     }
 
     if (!user) {
-        return <div>kirjaudu sisaan nahdaksesi profiili</div>;
+        return <div>{t("welcome")}</div>;
     }
 
     function toggleVisibility(setVisibilityState) {
@@ -136,12 +156,12 @@ function UpdateDetailsComponent({setUser}) {
     return (
         <div id="section-container" className={styles.container}>
             <div id="currentDetails" className={styles.currentDetails}>
-                <h1 className={styles.welcome}>Tervetuloa omalle sivullesi {user.username}</h1>
+                <h1 className={styles.welcome}>{t("welcome")} {user.username}</h1>
                 <br/>
-                <h2 className={styles.welcome}>Pisteesi on {user.userPoints}</h2>
-                <h2 className={styles.welcome}>Olet tasolla {user.lastLevel}</h2>
+                <h2 className={styles.welcome}>{t("userPoints")} {user.userPoints}</h2>
+                <h2 className={styles.welcome}>{t("level")} {user.lastLevel}</h2>
                 <br/>
-                <p>Tästä voit tarkistaa omat tietosi ja tehdä niihin muutoksia:</p>
+                <p> {t("updateDetails")}</p>
                 <h3>Etunimesi on {user.firstName}</h3>
                 <h3>käyttiksesi on {user.username}</h3>
                 <h3>emailisi on {user.email}</h3>

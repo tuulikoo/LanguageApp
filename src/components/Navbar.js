@@ -4,8 +4,10 @@ import { useRouter } from 'next/router';
 import { useUser } from '@/utils/userContext';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { useTranslation } from 'react-i18next';
 
 function Navbar() {
+    const { t, i18n } = useTranslation();
     const { user, logout, loading, setUser } = useUser();
     const router = useRouter();
     const [avatarHovered, setAvatarHovered] = useState(false);
@@ -14,13 +16,12 @@ function Navbar() {
     const [selectedLanguage, setSelectedLanguage] = useState('');
 
     useEffect(() => {
-        // Load the selected language from the cookie when the component mounts
         setSelectedLanguage(Cookies.get('selectedLanguage') || '');
     }, []);
 
     const setLanguageCookie = (languageCode) => {
         Cookies.set('selectedLanguage', languageCode, { expires: 7 });
-        setSelectedLanguage(languageCode); // Update the selected language in the state
+        setSelectedLanguage(languageCode);
     };
 
     const handleLogout = async () => {
@@ -35,7 +36,7 @@ function Navbar() {
     };
     const handleLanguageChange = (languageCode) => {
         setLanguageCookie(languageCode);
-
+        i18n.changeLanguage(languageCode);
 
         if (user) {
             console.log("userid " + user.id);

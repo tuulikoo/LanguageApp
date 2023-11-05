@@ -1,0 +1,15 @@
+{
+  "updateDetailsComponent": {
+    "signinFirst": "Kirjaudu sisään päästäksesi katsomaan omaa profiiliasi",
+    "welcome": "Tervetuloa omalle sivullesi {username}",
+    "userPoints": "Pisteesi on {userPoints}",
+    "level": "Olet tasolla {lastLevel}",
+    "updateDetails": "Tee tietoihisi muutoksia",
+    "updateDetailsButton": "Tallenna",
+    "deleteAccount": "Poista tietoni",
+    "deleteAccountConfirmation": "Haluatko varmasti poistaa tilisi?",
+    "yes": "Kyllä",
+    "no": "Ei"
+
+  }
+}
