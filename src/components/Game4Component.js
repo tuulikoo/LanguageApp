@@ -4,6 +4,7 @@ import { useUser } from '../utils/userContext';
 import styles from '../styles/Game4Component.module.scss';
 import { textToSpeech } from '../utils/mimicApi';
 import {useRouter} from "next/router";
+import Cookies from 'js-cookie';
 
 
 function Game4Component() { // Pass onLevelCompletion as a prop
@@ -20,7 +21,7 @@ function Game4Component() { // Pass onLevelCompletion as a prop
     const section = user ? user.lastLevel : "1";
     const data = game4[section];
     const questionsPerSection = 10;
-
+    const selectedLanguage = Cookies.get('selectedLanguage');
     const router = useRouter();
 
     useEffect(() => {
@@ -68,7 +69,7 @@ function Game4Component() { // Pass onLevelCompletion as a prop
                             .catch((error) => {
                                 console.error('Error updating lastLevel:', error);
                             });
-                        // Call the onLevelCompletion function to signal level completion
+                        // Todo: Call the onLevelCompletion function to signal level completion
 
                     }
                 }

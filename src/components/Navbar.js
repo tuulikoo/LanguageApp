@@ -3,6 +3,7 @@ import styles from '../styles/Navbar.module.scss';
 import { useRouter } from 'next/router';
 import { useUser } from '@/utils/userContext';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 function Navbar() {
     const { user, logout, loading, setUser } = useUser();
@@ -10,7 +11,17 @@ function Navbar() {
     const [avatarHovered, setAvatarHovered] = useState(false);
     const [dropdownVisible, setDropdownVisible] = useState(false);
     const dropdownRef = useRef(null);
+    const [selectedLanguage, setSelectedLanguage] = useState('');
 
+    useEffect(() => {
+        // Load the selected language from the cookie when the component mounts
+        setSelectedLanguage(Cookies.get('selectedLanguage') || '');
+    }, []);
+
+    const setLanguageCookie = (languageCode) => {
+        Cookies.set('selectedLanguage', languageCode, { expires: 7 });
+        setSelectedLanguage(languageCode); // Update the selected language in the state
+    };
 
     const handleLogout = async () => {
         await logout();
@@ -22,12 +33,13 @@ function Navbar() {
     const handleLanguageButtonClick = () => {
         setDropdownVisible(!dropdownVisible);
     };
-
-    // Update the user's language when a flag is clicked
     const handleLanguageChange = (languageCode) => {
+        setLanguageCookie(languageCode);
+
+
         if (user) {
             console.log("userid " + user.id);
-            const data = { language: languageCode };
+           // const data = { language: languageCode };
 
             axios
                 .post(`/api/updateUserLanguage?userId=${user.id}&language=${languageCode}`)
@@ -37,8 +49,8 @@ function Navbar() {
                         const updatedUser = { ...user, language: languageCode };
                         setUser(updatedUser);
                         console.log("UpdatedUser kieli: " + updatedUser.language);
+                        fetchUserData()
 
-                        setDropdownVisible(false);
                     } else {
                         console.error('Failed to update user language:', response.statusText);
                     }
@@ -47,9 +59,10 @@ function Navbar() {
                     console.error('An error occurred while updating language:', error);
                 });
         } else {
-            console.error('User not found.');
-            // You might also want to return or handle this case gracefully, depending on your application's requirements.
+            setSelectedLanguage(languageCode);
+
         }
+        setDropdownVisible(false);
     };
 
 
@@ -67,6 +80,7 @@ function Navbar() {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
                 setDropdownVisible(false);
             }
+
         };
 
         document.addEventListener('mousedown', handleClickOutside);
@@ -75,6 +89,8 @@ function Navbar() {
         };
     }, []);
 
+
+    //const selectedLanguage = Cookies.get('selectedLanguage');
     const getRemainingLanguages = (selectedLanguage) => {
         const allLanguages = ['fi_FI', 'sv_SE', 'ja_JP'];
         const selectedLangIndex = allLanguages.indexOf(selectedLanguage);
@@ -119,8 +135,20 @@ function Navbar() {
                     <div className={styles.languageDropdown}>
                         <button onClick={handleLanguageButtonClick} className={styles.langButton}>
                             <img
-                                src={user ? `lang/${user.language}.png` : 'lang/default.png'}
-                                alt={user ? `${user.language} language` : 'Default language'}
+                                src={
+                                    user
+                                        ? `lang/${user.language}.png`
+                                        : selectedLanguage
+                                            ? `lang/${selectedLanguage}.png`
+                                            : 'lang/default.png'
+                                }
+                                alt={
+                                    user
+                                        ? `${user.language} language`
+                                        : selectedLanguage
+                                            ? `${selectedLanguage} language`
+                                            : 'Default language'
+                                }
                                 className={styles.langImage}
                             />
                             <span className={styles.langText}>Language</span>
