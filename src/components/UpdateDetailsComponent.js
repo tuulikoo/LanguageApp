@@ -27,21 +27,6 @@ function UpdateDetailsComponent({setUser}) {
     const [avatarHovered, setAvatarHovered] = useState(false);
     const [isDeleteModalVisible, setDeleteModalVisible] = useState(false);
     const router = useRouter();
-    const selectedLanguage = getSelectedLanguage();
-
-    const [state, setState] = useState({
-        value: "fi_FI"
-    });
-
-    useEffect(() => {
-        import(`../locales/${selectedLanguage}.json`)
-            .then((translationModule) => setTranslations(translationModule.default))
-            .catch((error) => {
-                console.error(`Failed to load translation for ${selectedLanguage}.`, error);
-            });
-    }, [selectedLanguage]);
-
-
 
 
     const avatars = [
