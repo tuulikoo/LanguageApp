@@ -1,16 +1,13 @@
-import {UserProvider, useUser} from '@/utils/userContext';
+import { UserProvider, useUser } from '@/utils/userContext';
 import styles from '../styles/UpdateDetailsComponent.module.scss';
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import UserPointsComponent from '@/components/UserPointsComponent';
-import {useRouter} from "next/router";
-import Cookies from "js-cookie";
-import {getSelectedLanguage} from "@/utils/selectedLanguage";
-import { useTranslation } from 'react-i18next';
-import i18n, {t} from "i18next";
+import { useRouter } from "next/router";
+import i18n, { t } from "i18next";
 
 
-function UpdateDetailsComponent({setUser}) {
+function UpdateDetailsComponent({ setUser }) {
     const [isUpdateRowVisible, setUpdateRowVisible] = useState(false);
     const [isUsernameRowVisible, setUsernameRowVisible] = useState(false);
     const [isPasswordRowVisible, setPasswordRowVisible] = useState(false);
@@ -23,17 +20,16 @@ function UpdateDetailsComponent({setUser}) {
     const [newFirstName, setNewFirstName] = useState('');
     const [newUserName, setNewUserName] = useState('');
     const [newAvatar, setNewAvatar] = useState('');
-    const {user, loading} = useUser();
+    const { user, loading } = useUser();
     const [avatarHovered, setAvatarHovered] = useState(false);
     const [isDeleteModalVisible, setDeleteModalVisible] = useState(false);
     const router = useRouter();
 
-
     const avatars = [
-        {id: 1, src: 'avatars/avatar1.png'},
-        {id: 2, src: 'avatars/avatar2.png'},
-        {id: 3, src: 'avatars/avatar3.png'},
-        {id: 4, src: 'avatars/avatar4.png'},
+        { id: 1, src: 'avatars/avatar1.png' },
+        { id: 2, src: 'avatars/avatar2.png' },
+        { id: 3, src: 'avatars/avatar3.png' },
+        { id: 4, src: 'avatars/avatar4.png' },
     ];
 
 
@@ -99,7 +95,7 @@ function UpdateDetailsComponent({setUser}) {
         // Update details if there's something to update
         if (Object.keys(dataToUpdate).length > 0) {
             try {
-                await updateUserDetails({userId: user.id, ...dataToUpdate});
+                await updateUserDetails({ userId: user.id, ...dataToUpdate });
 
                 // Reload the page after successful update
                 window.location.reload();
@@ -142,10 +138,10 @@ function UpdateDetailsComponent({setUser}) {
         <div id="section-container" className={styles.container}>
             <div id="currentDetails" className={styles.currentDetails}>
                 <h1 className={styles.welcome}>{t("welcome")} {user.username}</h1>
-                <br/>
+                <br />
                 <h2 className={styles.welcome}>{t("userPoints")} {user.userPoints}</h2>
                 <h2 className={styles.welcome}>{t("level")} {user.lastLevel}</h2>
-                <br/>
+                <br />
                 <p> {t("updateDetails")}</p>
                 <h3>Etunimesi on {user.firstName}</h3>
                 <h3>käyttiksesi on {user.username}</h3>
@@ -269,7 +265,7 @@ function UpdateDetailsComponent({setUser}) {
                                             src={avatar.src}
                                             alt="Avatar"
                                             className={`${styles.avatarImage} ${selectedAvatarId === avatar.id ? styles.selectedAvatar : ''
-                                            }`}
+                                                }`}
                                             onClick={() => setSelectedAvatarId(avatar.id)}
                                         />
                                     </div>
@@ -285,7 +281,7 @@ function UpdateDetailsComponent({setUser}) {
 
             )}
             <div className={styles.points}>
-            <UserPointsComponent/>
+                <UserPointsComponent />
             </div>
             <div>
                 <button className={`${styles.deleteButton} ${styles.customDeleteButton}`} onClick={handleDeleteAccount}>
@@ -311,11 +307,11 @@ function UpdateDetailsComponent({setUser}) {
 }
 
 export default function UpdateDetails() {
-    const {setUser} = useUser();
+    const { setUser } = useUser();
 
     return (
         <UserProvider>
-            <UpdateDetailsComponent setUser={setUser}/> {/* Pass setUser as a prop */}
+            <UpdateDetailsComponent setUser={setUser} /> {/* Pass setUser as a prop */}
         </UserProvider>
     );
 }

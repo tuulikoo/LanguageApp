@@ -3,7 +3,7 @@ import game4 from '../utils/wordlists/game4.json';
 import { useUser } from '../utils/userContext';
 import styles from '../styles/Game4Component.module.scss';
 import { textToSpeech } from '../utils/mimicApi';
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 import Cookies from 'js-cookie';
 
 
@@ -58,7 +58,8 @@ function Game4Component() { // Pass onLevelCompletion as a prop
                             headers: {
                                 'Content-Type': 'application/json',
                             },
-                            body: JSON.stringify({ userId: user.id,
+                            body: JSON.stringify({
+                                userId: user.id,
                                 lastLevel: nextLevel,
                             }),
                         })
@@ -265,7 +266,7 @@ function Game4Component() { // Pass onLevelCompletion as a prop
                                 fontSize: '16px', // Adjust font size if needed
                             }}
                         >
-                            <img src="https://cdn.pixabay.com/photo/2017/01/29/22/16/cycle-2019530_640.png" alt="Continue to next set"/>
+                            <img src="https://cdn.pixabay.com/photo/2017/01/29/22/16/cycle-2019530_640.png" alt="Continue to next set" />
                         </button>
                     </div>
                 )}

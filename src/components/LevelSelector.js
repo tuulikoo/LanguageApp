@@ -22,7 +22,7 @@ const LevelSelector = () => {
                 english:
                     "Learn with flashcards, both in Finnish and English. This level is an excellent starting point for English language learners.",
                 finnish:
-                    "oppiminen korttien  mukaan, saat sanan suomeksi, kuin englanniksi. Tällä tasolla on hyvä aloittaa englannin kielen opiskelu.",
+                    "Oppiminen korttien  mukaan, saat sanan suomeksi, kuin englanniksi. Tällä tasolla on hyvä aloittaa englannin kielen opiskelu.",
             },
             route: "/Flashcards",
             image: "/svg/blob.svg",
@@ -34,9 +34,9 @@ const LevelSelector = () => {
             },
             description: {
                 english:
-                    "An easy task for children: pick the correct word based on the image. It's a great way to check how well you've learned from the previous level and if you remember the words. Earn points for correct answers on the first try.",
+                    "ick the correct word based on the image. It's a great way to check how well you've learned from the previous level and if you remember the words",
                 finnish:
-                    "Tehtävänä valita oikea sana kuvan perusteella. Tämä on hyvä tapa tarkistaa, kuinka hyvin olet oppinut edellisestä tasosta ja muistatko sanat. Saat pisteitä oikeista vastauksista.",
+                    "Tehtävänä valita oikea sana kuvan perusteella. Tämä on hyvä tapa tarkistaa, kuinka hyvin olet oppinut edellisestä tasosta ja muistatko sanat.",
             },
             route: "/Game4",
             image: "/svg/blob2.svg",
@@ -62,9 +62,9 @@ const LevelSelector = () => {
             },
             description: {
                 english:
-                    "Listening exercise: listen the sentence and choose correct words. Earn points for correct answers",
+                    "Listening exercise: listen the sentence and choose correct words.",
                 finnish:
-                    "Kuunteluharjoitus: kuuntele lause ja valitse oikeat sanat. Saat pisteitä oikeista vastauksista.",
+                    "Kuunteluharjoitus: kuuntele lause ja valitse oikeat sanat.",
             },
             route: "/Game5",
             image: "/svg/blob4.svg",
@@ -76,14 +76,14 @@ const LevelSelector = () => {
             },
             description: {
                 english:
-                "Listening exercise: listen and read the story and choose correct aswers. Earn points for correct answers",
+                    "Listening exercise: listen and read the story and choose correct aswers.",
                 finnish:
-                "Kuunteluharjoitus: kuuntele ja lue tarina ja valitse oikeat vastaukset. Saat pisteitä oikeista vastauksista.",
+                    "Kuunteluharjoitus: kuuntele ja lue tarina ja valitse oikeat vastaukset.",
             },
             route: "/Story",
             image: "/svg/blob5.svg",
         }
-        
+
     ];
 
     return (

@@ -33,8 +33,8 @@ i18n.use(LanguageDetector).init({
 
         ja_JP: {
             translations: {
-                welcome: "自分のページ {username} へようこそ",
-                userPoints: "あなたのスコアは {userPoints} です",
+                welcome: "自分のページ へようこそ",
+                userPoints: "あなたのスコアは です",
                 level: "あなたは {lastLevel} にいます",
                 updateDetails: "ここで情報を変更します",
                 updateDetailsButton: "保存",
