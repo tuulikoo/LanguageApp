@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import styles from "../styles/RegistrationForm.module.scss";
 
 
+
 function RegistrationForm() {
     const {
         register,
