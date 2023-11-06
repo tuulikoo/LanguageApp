@@ -1,0 +1,19 @@
+{
+  "startStudying": "勉強を始める",
+  "trainingMessage": "あなたは {{totalTime}} 分勉強しました",
+  "greatJobMessage": "素晴らしい！あなたは {{totalTime}} 分勉強しました",
+  "keepGoingMessage": "この調子で続けてください！あなたは {{totalTime}} 分勉強しました",
+  "welcome": "自分のページ へようこそ",
+  "userPoints": "あなたのスコアは です",
+  "level": "あなたは {{lastLevel}} にいます",
+  "updateDetails": "ここで情報を変更します",
+  "updateDetailsButton": "保存",
+  "deleteAccount": "データを削除する",
+  "deleteAccountConfirmation": "アカウントを削除してもよろしいですか?",
+  "yes": "はい",
+  "no": "いいえ",
+  "startLearning": "始めに",
+  "languageStudy": "言語学習",
+  "heroButton": "今すぐ始める",
+  "levelsTitle": "レベル"
+}

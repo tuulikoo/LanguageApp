@@ -1,0 +1,19 @@
+{
+  "startStudying": "Börja studera",
+  "trainingMessage": "Du har studerat {{totalTime}} minuter",
+  "greatJobMessage": "Bra jobbat! Du har studerat {{totalTime}} minuter",
+  "keepGoingMessage": "Fortsätt så! Du har studerat {{totalTime}} minuter",
+  "welcome": "Välkommen till din egen sida",
+  "userPoints": "Dina poäng",
+  "level": "Du är på level",
+  "updateDetails": "Göra ändringar till dina uppgifter här",
+  "updateDetailsButton": "Spara",
+  "deleteAccount": "Avlägsna data",
+  "deleteAccountConfirmation": "Är du säkert att du vill avlägsna din konto?",
+  "yes": "Ja",
+  "no": "Nej",
+  "startLearning": "Börja",
+  "languageStudy": "Språkstudier",
+  "heroButton": "Börja Nu",
+  "levelsTitle": "nivåer"
+}
