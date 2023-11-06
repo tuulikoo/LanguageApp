@@ -5,8 +5,6 @@ import { RefreshOutlined } from "@mui/icons-material";
 import { useUser } from "@/utils/userContext";
 
 const Levels = () => {
-  // get user language from userContext and set it to defaultLanguage
-  //fi_FI=finnish, sv_SE=swedish, ja_JP=japanese
   const { user } = useUser();
   switch (user?.language) {
     case "fi_FI":
@@ -32,12 +30,12 @@ const Levels = () => {
     const currentLanguage = currentLanguages[index];
 
     // Determine the next language to switch to.
-    const nextLanguage =
-      currentLanguage === "english"
-        ? "finnish"
-        : currentLanguage === "finnish"
-        ? "japanese"
-        : "english";
+    const nextLanguage = {
+      english: "finnish",
+      finnish: "swedish",
+      swedish: "japanese",
+      japanese: "english",
+    }[currentLanguage];
 
     // Update the state with the new language for the clicked item.
     setCurrentLanguages(
@@ -50,6 +48,7 @@ const Levels = () => {
         english: "Learning Level",
         finnish: "Perustaso",
         japanese: "初級",
+        swedish: "Grundnivå",
       },
       description: {
         english:
@@ -58,6 +57,8 @@ const Levels = () => {
           "oppiminen korttien  mukaan, saat sanan suomeksi, kuin englanniksi. Tällä tasolla on hyvä aloittaa englannin kielen opiskelu.",
         japanese:
           "フラッシュカードで学習する。このレベルは英語学習者にとって最適な出発点です。",
+        swedish:
+          "Lär dig med flashcards, både på finska och engelska. Denna nivå är en utmärkt utgångspunkt för engelska språkinlärare.",
       },
       route: "/Level1",
     },
@@ -66,6 +67,7 @@ const Levels = () => {
         english: "Image exercise",
         finnish: "Kuvaharjoituksia",
         japanese: "画像演習",
+        swedish: "Bildövning",
       },
       description: {
         english:
@@ -74,6 +76,8 @@ const Levels = () => {
           "Tehtävänä valita oikea sana kuvan perusteella. Tämä on hyvä tapa tarkistaa, kuinka hyvin olet oppinut edellisestä tasosta ja muistatko sanat. Saat pisteitä oikeista vastauksista.",
         japanese:
           "画像に基づいて正しい単語を選択します。これは、前のレベルからどれだけよく学んだか、そして単語を覚えているかどうかを確認するのに最適な方法です。正しい答えを最初に入力すると、ポイントを獲得します。",
+        swedish:
+          "Uppgiften är att välja rätt ord utifrån bilden. Det här är ett bra sätt att kontrollera hur väl du har lärt dig från föregående nivå och om du kommer ihåg orden. Du får poäng för rätt svar.",
       },
       route: "/Game4",
     },
@@ -82,6 +86,7 @@ const Levels = () => {
         english: "Listening exercise",
         finnish: "Kuunteluharjoituksia",
         japanese: "リスニング演習",
+        swedish: "Lyssningsövningar",
       },
       description: {
         english:
@@ -90,22 +95,23 @@ const Levels = () => {
           "Kuunteluharjoitus: kuuntele sana ja kirjoita se. Saat pisteita oikeista vastauksista.",
         japanese:
           "リスニング演習：単語を聞いて書き留めます。正しい答えのポイントを獲得します。",
+        swedish:
+                'Lyssningsövning: lyssna på ordet och skriv det. Du får poäng för rätt svar.'
+            
+
       },
       route: "/Game2",
     },
   ];
-  const getButtonText = (language) => {
-    switch (language) {
-      case "english":
-        return "In Finnish";
-      case "finnish":
-        return "In Japanese";
-      case "japanese":
-        return "In English";
-      default:
-        return "In Finnish";
-    }
-  };
+   const getButtonText = (language) => {
+        switch (language) {
+            case 'english': return 'Suomeksi'; 
+            case 'finnish': return 'På Svenska'; 
+            case 'swedish': return '日本語で';
+            case 'japanese': return 'In English'; 
+            default: return 'Suomeksi'; 
+        }
+    };
 
   return (
     <div className={styles.levels_container}>
