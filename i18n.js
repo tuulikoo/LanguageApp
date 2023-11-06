@@ -1,67 +1,34 @@
-import i18n from "i18next";
-import LanguageDetector from "i18next-browser-languagedetector";
+import i18n from 'i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
+import HttpApi from 'i18next-http-backend';
 
-i18n.use(LanguageDetector).init({
-    // we init with resources
-    resources: {
-        fi_FI: {
-            translations: {
-                welcome: "Tervetuloa omalle sivullesi",
-                userPoints: "Pisteesi on ",
-                level: "Olet tasolla ",
-                updateDetails: "Tee tietoihisi muutoksia tästä",
-                updateDetailsButton: "Tallenna",
-                deleteAccount: "Poista tietoni",
-                deleteAccountConfirmation: "Haluatko varmasti poistaa tilisi?",
-                yes: "Kyllä",
-                no: "Ei"
-            }
-        },
-        sv_SE: {
-            translations: {
-                welcome: "Välkommen till din egen sida",
-                userPoints: "Dina poäng",
-                level: "Du är på level",
-                updateDetails: "Göra ändringar till dina uppgifter här",
-                updateDetailsButton: "Spara",
-                deleteAccount: "Avlägsna data",
-                deleteAccountConfirmation: "Är du säkert att du vill avlägsna din konto?",
-                yes: "Ja",
-                no: "Nej"
-            }
+i18n
+    .use(HttpApi) // use http backend
+    .use(LanguageDetector) // detect user language
+    .init({
+        // don't define resources here
+        fallbackLng: 'fi',
+        debug: true,
+
+        // have a common namespace used around the full app
+        ns: ['common'],
+        defaultNS: 'common',
+
+        keySeparator: false, // we use content as keys
+
+        interpolation: {
+            escapeValue: false, // not needed for react as it escapes by default
         },
 
-        ja_JP: {
-            translations: {
-                welcome: "自分のページ へようこそ",
-                userPoints: "あなたのスコアは です",
-                level: "あなたは {lastLevel} にいます",
-                updateDetails: "ここで情報を変更します",
-                updateDetailsButton: "保存",
-                deleteAccount: "データを削除する",
-                deleteAccountConfirmation: "アカウントを削除してもよろしいですか?",
-                yes: "はい",
-                no: "いいえ"
-            }
-        }
-    },
-    fallbackLng: "fi_FI",
-    debug: true,
+        react: {
+            wait: true,
+        },
 
-    // have a common namespace used around the full app
-    ns: ["translations"],
-    defaultNS: "translations",
-
-    keySeparator: false, // we use content as keys
-
-    interpolation: {
-        escapeValue: false, // not needed for react!!
-        formatSeparator: ","
-    },
-
-    react: {
-        wait: true
-    }
-});
+        backend: {
+            // path where resources get loaded from
+            loadPath: '/locales/{{lng}}/{{ns}}.json',
+        },
+    });
 
 export default i18n;
+

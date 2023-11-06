@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext, createContext } from "react";
 import { useUser } from "../utils/userContext";
 import styles from "../styles/NotificationWrapper.module.scss";
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import BookIcon from '@mui/icons-material/Book';
-import StarIcon from '@mui/icons-material/Star';
-import CoffeeIcon from '@mui/icons-material/LocalCafe';
-
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import BookIcon from "@mui/icons-material/Book";
+import StarIcon from "@mui/icons-material/Star";
+import CoffeeIcon from "@mui/icons-material/LocalCafe";
+import { useTranslation } from "react-i18next";
 
 const NotificationContext = createContext();
 
@@ -18,37 +18,36 @@ const NotificationWrapper = ({ children }) => {
     const [message, setMessage] = useState("");
     const { user } = useUser();
     const [icon, setIcon] = useState();
+    const { t } = useTranslation();
 
     useEffect(() => {
-        //wait for user to be loaded
+        // wait for user to be loaded
         if (!user) return;
         const timeSpent = user?.timeSpent || 0;
         const totalTime = Math.floor(timeSpent / 600);
 
         if (timeSpent === 0) {
-            setMessage("Aloita englannin kielen opsiskelu!");
+            setMessage(t("startStudying")); // Use the t function for translation
             setIcon(<BookIcon />);
         } else if (timeSpent > 0 && timeSpent <= 600) {
-            setMessage(`Olet treenannut ${totalTime} minuuttia! Jatka samaan malliin`);
+            setMessage(t("trainingMessage", { totalTime })); // Pass in variables for interpolation
             setIcon(<StarIcon />);
         } else if (timeSpent > 600 && timeSpent <= 1200) {
-            setMessage(`Loistavaa! Olet harjoitellut jo ${totalTime} minuuttia. Jatka samaan malliin!`);
+            setMessage(t("greatJobMessage", { totalTime }));
             setIcon(<CoffeeIcon />);
         } else {
-            setMessage(`Oho! olet harjoitellut jo ${totalTime} minuuttia. Jatka samaan malliin!`);
+            setMessage(t("keepGoingMessage", { totalTime }));
             setIcon(<ThumbUpIcon />);
         }
 
         setIsOpen(true);
-
 
         const timeoutId = setTimeout(() => {
             setIsOpen(false);
         }, 5000);
 
         return () => clearTimeout(timeoutId);
-    }, [user]);
-
+    }, [user, t]);
     const showNotification = (msg) => {
         setMessage(msg);
         setIsOpen(true);
