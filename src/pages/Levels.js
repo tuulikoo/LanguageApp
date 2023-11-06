@@ -3,9 +3,13 @@ import styles from "@/styles/Levels.module.css";
 import { Button, Link } from "@mui/material";
 import { RefreshOutlined } from "@mui/icons-material";
 import { useUser } from "@/utils/userContext";
+import { useTranslation } from "react-i18next";
 
 const Levels = () => {
+
   const { user } = useUser();
+  const { t } = useTranslation();
+
   switch (user?.language) {
     case "fi_FI":
       var defaultLanguage = "finnish";
@@ -96,26 +100,29 @@ const Levels = () => {
         japanese:
           "リスニング演習：単語を聞いて書き留めます。正しい答えのポイントを獲得します。",
         swedish:
-                'Lyssningsövning: lyssna på ordet och skriv det. Du får poäng för rätt svar.'
-            
-
+          "Lyssningsövning: lyssna på ordet och skriv det. Du får poäng för rätt svar.",
       },
       route: "/Game2",
     },
   ];
-   const getButtonText = (language) => {
-        switch (language) {
-            case 'english': return 'Suomeksi'; 
-            case 'finnish': return 'På Svenska'; 
-            case 'swedish': return '日本語で';
-            case 'japanese': return 'In English'; 
-            default: return 'Suomeksi'; 
-        }
-    };
+  const getButtonText = (language) => {
+    switch (language) {
+      case "english":
+        return "Suomeksi";
+      case "finnish":
+        return "På Svenska";
+      case "swedish":
+        return "日本語で";
+      case "japanese":
+        return "In English";
+      default:
+        return "Suomeksi";
+    }
+  };
 
   return (
     <div className={styles.levels_container}>
-      <h1 className={styles.header}>Harjoituksia</h1>
+      <h1 className={styles.header}>{t("levelsTitle")}</h1>
       <ul className={styles.levels_list}>
         {levelsData.map((level, index) => (
           <li key={index} className={styles.levels_item}>
