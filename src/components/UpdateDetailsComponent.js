@@ -4,10 +4,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import UserPointsComponent from '@/components/UserPointsComponent';
 import { useRouter } from "next/router";
-import i18n, { t } from "i18next";
+import { useTranslation } from 'react-i18next';
 
 
 function UpdateDetailsComponent({ setUser }) {
+
+    const { t } = useTranslation();
+
     const [isUpdateRowVisible, setUpdateRowVisible] = useState(false);
     const [isUsernameRowVisible, setUsernameRowVisible] = useState(false);
     const [isPasswordRowVisible, setPasswordRowVisible] = useState(false);
@@ -65,7 +68,7 @@ function UpdateDetailsComponent({ setUser }) {
     }
 
     if (!user) {
-        return <div>{t("welcome")}</div>;
+        return <div>{t("g4welcome")}</div>;
     }
 
     function toggleVisibility(setVisibilityState) {
@@ -136,18 +139,18 @@ function UpdateDetailsComponent({ setUser }) {
     return (
         <div id="section-container" className={styles.container}>
             <div id="currentDetails" className={styles.currentDetails}>
-                <h1 className={styles.welcome}>{t("welcome")} {user.username}</h1>
+                <h1 className={styles.welcome}>{t("UPwelcome", { username: user.username })}</h1>
                 <br />
-                <h2 className={styles.welcome}>{t("userPoints")} {user.userPoints}</h2>
-                <h2 className={styles.welcome}>{t("level")} {user.lastLevel}</h2>
+                <h2 className={styles.welcome}>{t("UPuserPoints", { userPoints: user.userPoints })}</h2>
+                <h2 className={styles.welcome}>{t("UPlevel", { lastLevel: user.lastLevel })}</h2>
                 <br />
-                <p> {t("updateDetails")}</p>
-                <h3>Etunimesi on {user.firstName}</h3>
-                <h3>käyttiksesi on {user.username}</h3>
-                <h3>emailisi on {user.email}</h3>
-                <h3>Kielesi on {user.language}</h3>
+                <p> {t("UPcheckDetails")}</p>
+                <h3>{t("UPfirstName", { firstName: user.firstName })}</h3>
+                <h3>{t("UPuserName", { username: user.username })}</h3>
+                <h3>{t("UPemail", { email: user.email })}</h3>
+                <h3>{t("UPlanguage")}</h3>
                 <h3>
-                    Avatarisi on{' '}
+                    {t("UPavatar")}{' '}
                     <img
                         src={`avatars/avatar${user.avatarId}.png`}
                         alt={`${user.username} Avatar`}
@@ -158,9 +161,8 @@ function UpdateDetailsComponent({ setUser }) {
             <button
                 id="adjust"
                 className={styles.adjustButton}
-                onClick={() => toggleVisibility(setUpdateRowVisible)}
-            >
-                Tee tietoihisi muutoksia
+                onClick={() => toggleVisibility(setUpdateRowVisible)}>
+                {t("UPupdate")}
             </button>
             {isUpdateRowVisible && (
                 <div id="updateBox" className={styles.updateBox}>
@@ -168,9 +170,8 @@ function UpdateDetailsComponent({ setUser }) {
                         <button
                             id="username"
                             className={styles.showButton}
-                            onClick={() => toggleVisibility(setUsernameRowVisible)}
-                        >
-                            Päivitä käyttäjänimesi
+                            onClick={() => toggleVisibility(setUsernameRowVisible)}>
+                            {t("UPupdateUsername")}
                         </button>
                         {isUsernameRowVisible && (
                             <div>
@@ -189,9 +190,8 @@ function UpdateDetailsComponent({ setUser }) {
                         <button
                             id="password"
                             className={styles.showButton}
-                            onClick={() => toggleVisibility(setPasswordRowVisible)}
-                        >
-                            Muuta salasanaa
+                            onClick={() => toggleVisibility(setPasswordRowVisible)}>
+                            {t("UPchangePassword")}
                         </button>
                         {isPasswordRowVisible && (
                             <div>
@@ -210,9 +210,8 @@ function UpdateDetailsComponent({ setUser }) {
                         <button
                             id="email"
                             className={styles.showButton}
-                            onClick={() => toggleVisibility(setEmailRowVisible)}
-                        >
-                            Päivitä sähköpostiosoitteesi
+                            onClick={() => toggleVisibility(setEmailRowVisible)}>
+                            {t("UPupdateEmail")}
                         </button>
                         {isEmailRowVisible && (
                             <div>
@@ -231,9 +230,8 @@ function UpdateDetailsComponent({ setUser }) {
                         <button
                             id="firstname"
                             className={styles.showButton}
-                            onClick={() => toggleVisibility(setFirstNameRowVisible)}
-                        >
-                            Muuta etunimesi
+                            onClick={() => toggleVisibility(setFirstNameRowVisible)}>
+                            {t("UPupdateFirstname")}
                         </button>
                         {isFirstNameRowVisible && (
                             <div>
@@ -252,9 +250,8 @@ function UpdateDetailsComponent({ setUser }) {
                         <button
                             id="avatarupdate"
                             className={styles.showButton}
-                            onClick={() => toggleVisibility(setAvatarRowVisible)}
-                        >
-                            Valitse uusi kaveri
+                            onClick={() => toggleVisibility(setAvatarRowVisible)}>
+                            {t("UPupdateAvatar")}
                         </button>
                         {isAvatarRowVisible && (
                             <div className={styles.avatarContainer}>
@@ -274,7 +271,7 @@ function UpdateDetailsComponent({ setUser }) {
                     </div>
 
                     <button className={styles.saveButton} id="saveButton" onClick={handleSaveClick}>
-                        Tallenna
+                        {t("save")}
                     </button>
                 </div>
 
@@ -284,12 +281,12 @@ function UpdateDetailsComponent({ setUser }) {
             </div>
             <div>
                 <button className={`${styles.deleteButton} ${styles.customDeleteButton}`} onClick={handleDeleteAccount}>
-                    Poista tietoni
+                    {t("UPdelete")}
                 </button>
             </div>
             {isDeleteModalVisible && (
                 <div className={styles.deleteModal}>
-                    <p>Haluatko varmasti poistaa tilisi?</p>
+                    <p>{t("UPconfirmDelete")}</p>
                     <div className={styles.deleteModalButtons}>
                         <button className={styles.deleteModalButton} onClick={handleConfirmDelete}>
                             Kyllä

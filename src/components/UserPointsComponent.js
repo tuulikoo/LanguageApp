@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from "../styles/UserPointsComponent.module.scss";
 import { useRouter } from 'next/router'; // Import useRouter from Next.js
+import { useTranslation } from 'react-i18next';
 
 function UserPointsComponent() {
     const [userPoints, setUserPoints] = useState(null);
@@ -11,6 +12,8 @@ function UserPointsComponent() {
 
     // Get the router instance
     const router = useRouter();
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         const fetchUserPoints = async () => {
@@ -82,7 +85,7 @@ function UserPointsComponent() {
 
         return (
             <div className={styles.rewardsContainer}>
-                <h3>Palkintosi</h3>
+                <h3>{t("UPprizes2")}</h3>
                 <div className={styles.rewardGrid}>{rewardGrid}</div>
                 {selectedReward !== null && (
                     <div className={styles.rewardModal}>
@@ -107,17 +110,17 @@ function UserPointsComponent() {
 
     let message = '';
     if (userPoints >= 200) {
-        message = 'U-P-E-A! Olet kielen oppimisen supertähti!';
+        message = t("UPpoints200");
     } else if (userPoints >= 100) {
-        message = 'WOW! Olet kovassa vauhdissa! Jatka fantastista työtäsi!';
+        message = t("UPpoints100");
     } else if (userPoints >= 50) {
-        message = 'Olet hyvässä vauhdissa, mestari! Jatka samaan malliin!';
+        message = t("UPpoints50");
     } else if (userPoints >= 11) {
-        message = 'Olet todella tehnyt kovasti töitä. Olemme ylpeitä sinusta!';
+        message = t("UPpoints10");
     } else if (userPoints >= 1) {
-        message = 'Hieno alku! Jatka harjoittelua ansaitaksesi lisää pisteitä!';
+        message = t("UPpoints1");
     } else {
-        message = 'Aloitetaan oppiminen! Mitä enemmän harjoittelet, sitä enemmän pisteitä ansaitset!';
+        message = t("UPpoints0");
     }
 
     const handleStartPracticeClick = () => {
@@ -128,7 +131,7 @@ function UserPointsComponent() {
     return (
         <div className={styles.userPointsContainer}>
             <div className={styles.userPointsHeader}>
-                <h2>Pisteesi</h2>
+                <h2>{t("UPpoints")}</h2>
                 <div className={styles.pointsVisual}>
                     <div className={styles.starIcon}>
                         <span role="img" aria-label="Star">⭐</span>
@@ -141,9 +144,9 @@ function UserPointsComponent() {
             </div>
             <p className={styles.motivationMessage}>{message}</p>
             <div className={styles.buttonsContainer}>
-                <button className={styles.practiceButton} onClick={handleStartPracticeClick}>Aloita harjoittelu</button>
+                <button className={styles.practiceButton} onClick={handleStartPracticeClick}>{t("UPstart")}</button>
                 <button className={styles.rewardsButton} onClick={toggleRewardsGrid}>
-                    Näytä palkinnot
+                    {t("UPprizes")}
                 </button>
             </div>
             {renderRewardsGrid()}
