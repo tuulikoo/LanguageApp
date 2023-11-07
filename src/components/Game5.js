@@ -1,13 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import {
-    Container, Typography, Box, Grid, Paper, Button, Snackbar, Alert
-} from '@mui/material';
-import { textToSpeech } from '@/utils/mimicApi';
-import wordPairs from '../utils/wordlists/Game5wordlist.json';
-import styles from '../styles/Game5.module.scss';
-import updateUserPoints from '../helpers/PointAdder';
-import { useUser } from '@/utils/userContext';
-
+    Container,
+    Typography,
+    Box,
+    Grid,
+    Paper,
+    Button,
+    Snackbar,
+    Alert,
+} from "@mui/material";
+import { textToSpeech } from "@/utils/mimicApi";
+import wordPairs from "../utils/wordlists/Game5wordlist.json";
+import styles from "../styles/Game5.module.scss";
+import updateUserPoints from "../helpers/PointAdder";
+import { useUser } from "@/utils/userContext";
 
 function Game5() {
     const [currentPair, setCurrentPair] = useState(null);
@@ -44,7 +50,9 @@ function Game5() {
         newDroppedWords[idx] = word;
         setDroppedWords(newDroppedWords);
 
-        if (JSON.stringify(newDroppedWords) === JSON.stringify(currentPair.answers)) {
+        if (
+            JSON.stringify(newDroppedWords) === JSON.stringify(currentPair.answers)
+        ) {
             setIsCorrect(true);
             const pointsToAdd = 1;
             updateUserPoints(user.id, pointsToAdd).then((updatedPoints) => {
@@ -80,13 +88,17 @@ function Game5() {
                                         component="span"
                                         onDrop={(e) => handleDrop(e, index)}
                                         onDragOver={(e) => e.preventDefault()}
-                                        className={`${styles.dropBox} ${droppedWords[index] ? (droppedWords[index] === currentPair.answers[index] ? styles.hasWord : styles.wrongAnswer) : styles.empty}`}
+                                        className={`${styles.dropBox} ${droppedWords[index]
+                                            ? droppedWords[index] === currentPair.answers[index]
+                                                ? styles.hasWord
+                                                : styles.wrongAnswer
+                                            : styles.empty
+                                            }`}
                                     >
                                         {droppedWords[index]}
                                     </Box>
-
                                 </>
-                            )
+                            ),
                         )}
                     </Typography>
 
@@ -129,7 +141,11 @@ function Game5() {
                         autoHideDuration={3000}
                         onClose={handleCloseSnackbar}
                     >
-                        <Alert onClose={handleCloseSnackbar} severity="success" className={styles.feedback}>
+                        <Alert
+                            onClose={handleCloseSnackbar}
+                            severity="success"
+                            className={styles.feedback}
+                        >
                             Oikein!
                         </Alert>
                     </Snackbar>
@@ -137,7 +153,6 @@ function Game5() {
             )}
         </Container>
     );
-
 }
 
 export default Game5;

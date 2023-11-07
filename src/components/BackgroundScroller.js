@@ -14,8 +14,7 @@ const BackgroundScroller = () => {
         const speedFactor = 0.02;
         const newScrollY = window.scrollY * speedFactor;
         setScrollY(newScrollY);
-    };
-
+    }
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, { passive: true });
 

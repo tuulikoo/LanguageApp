@@ -32,7 +32,6 @@ function UpdateDetailsComponent({ setUser }) {
         { id: 4, src: 'avatars/avatar4.png' },
     ];
 
-
     const updateUserDetails = async (data) => {
         try {
             data.avatarId = selectedAvatarId;

@@ -1,15 +1,14 @@
 import React from 'react';
 import MainPage from './MainPage'
-import {UserProvider} from "@/utils/userContext";
-import MyApp from './_app'
+import { UserProvider } from "@/utils/userContext";
 
 const IndexPage = () => {
     return (
 
         <UserProvider>
-        <div>
-            <MainPage/>
-        </div>
+            <div>
+                <MainPage />
+            </div>
         </UserProvider>
     );
 };
