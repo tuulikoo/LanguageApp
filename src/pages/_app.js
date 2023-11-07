@@ -7,16 +7,18 @@ import i18n from "/i18n";
 
 function MyApp({ Component, pageProps }) {
     return (
-        <UserProvider>
-            <I18nextProvider i18n={i18n}>
-                <SessionTimer>
-                    <>
-                        <Navbar />
-                        <Component {...pageProps} />
-                    </>
-                </SessionTimer>
-            </I18nextProvider>
-        </UserProvider>
+        <div className="appContainer">
+            <UserProvider>
+                <I18nextProvider i18n={i18n}>
+                    <SessionTimer>
+                        <>
+                            <Navbar />
+                            <Component {...pageProps} />
+                        </>
+                    </SessionTimer>
+                </I18nextProvider>
+            </UserProvider>
+        </div>
     );
 }
 

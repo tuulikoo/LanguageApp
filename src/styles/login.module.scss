@@ -2,7 +2,7 @@
   width: 300px;
   margin: 50px auto;
   padding: 40px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -10,6 +10,9 @@
   align-items: center;
   margin-top: 10%;
 }
+  
+
+
 .loginHeader {
   font-size: 1.5rem;
   font-weight: bold;
@@ -18,7 +21,29 @@
 
 .inputGroup {
   margin-bottom: 15px;
+  position: relative;
   font-weight: bold;
+
+  
+  @keyframes shake {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    50% {
+      transform: translateX(5px);
+    }
+    75% {
+      transform: translateX(-5px);
+    }
+  }
+
+  
+  &.error {
+    animation: shake 0.3s ease-in-out 3;
+  }
 }
 
 .formControl {
@@ -35,19 +60,31 @@
   }
 }
 
+@keyframes ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.5);
+  }
+}
+.shake {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
 .formError {
   color: #d9534f;
   font-size: 12px;
   margin-top: 5px;
 }
 
-.loginError {
-  color: #d9534f;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.loginAttemptsError {
+.loginError, .loginAttemptsError {
   color: #d9534f;
   margin-bottom: 10px;
   text-align: center;
@@ -61,10 +98,16 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 
   &:hover {
     background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    background-color: #004085;
+    transform: translateY(1px);
   }
 
   &:disabled {
@@ -78,3 +121,20 @@
   margin-bottom: 10px;
   text-align: center;
 }
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-10px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(10px);
+  }
+}
+
+.loginContainer.hasError {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
