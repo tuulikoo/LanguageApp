@@ -27,10 +27,10 @@ const NotificationWrapper = ({ children }) => {
         const totalTime = Math.floor(timeSpent / 600);
 
         if (timeSpent === 0) {
-            setMessage(t("startStudying")); // Use the t function for translation
+            setMessage(t("startStudying"));
             setIcon(<BookIcon />);
         } else if (timeSpent > 0 && timeSpent <= 600) {
-            setMessage(t("trainingMessage", { totalTime })); // Pass in variables for interpolation
+            setMessage(t("trainingMessage", { totalTime }));
             setIcon(<StarIcon />);
         } else if (timeSpent > 600 && timeSpent <= 1200) {
             setMessage(t("greatJobMessage", { totalTime }));
