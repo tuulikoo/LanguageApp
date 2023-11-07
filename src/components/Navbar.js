@@ -7,7 +7,7 @@ import Cookies from "js-cookie";
 import { useTranslation } from "react-i18next";
 
 function Navbar() {
-    const { t, i18n } = useTranslation();
+    const { i18n } = useTranslation();
     const { user, logout, loading, setUser } = useUser();
     const router = useRouter();
     const [avatarHovered, setAvatarHovered] = useState(false);
@@ -19,8 +19,10 @@ function Navbar() {
         setSelectedLanguage(Cookies.get("selectedLanguage") || "");
     }, []);
 
+    const { t } = useTranslation();
     const setLanguageCookie = (languageCode) => {
-        Cookies.set("selectedLanguage", languageCode, { expires: 7 });
+        if(!user){
+        Cookies.set("selectedLanguage", languageCode, { expires: 1 });}
         setSelectedLanguage(languageCode);
     };
 
@@ -179,24 +181,21 @@ function Navbar() {
 
                 <button
                     className={styles.navButton}
-                    onClick={() => router.push("/MainPage")}
-                >
-                    Etusivu
+                    onClick={() => router.push("/MainPage")}>
+                    {t("Frontpage")}
                 </button>
 
                 {loading ? null : !user ? (
                     <>
                         <button
                             className={styles.navButton}
-                            onClick={() => router.push("/Login")}
-                        >
-                            Kirjaudu sisään
+                            onClick={() => router.push("/Login")}>
+                            {t("SignIn")}
                         </button>
                         <button
                             className={styles.navButton}
-                            onClick={() => router.push("/Registration")}
-                        >
-                            Rekisteröidy
+                            onClick={() => router.push("/Registration")}>
+                            {t("Register")}
                         </button>
                     </>
                 ) : (
