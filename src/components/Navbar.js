@@ -91,13 +91,7 @@ function Navbar() {
         setDropdownVisible(false);
     };
 
-    const fetchUserData = async () => {
-        try {
-            const response = await axios.get("/api/user");
-        } catch (error) {
-            console.error("Error fetching user data:", error);
-        }
-    };
+
 
     useEffect(() => {
         const handleClickOutside = (event) => {
