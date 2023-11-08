@@ -44,7 +44,10 @@
     "startLearning": "Aloita",
     "languageStudy": "Kielen Opiskelu",
     "levelsTitle": "Tasot",
-    "Frontpage": "Etusivu",
-    "SignIn": "Kirjaudu sisään",
-    "Register": "Rekisteröidy"
+    "NavbarFrontpage": "Etusivu",
+    "NavbarSignIn": "Kirjaudu sisään",
+    "NavbarRegister": "Rekisteröidy",
+    "NavbarSignOut": "Kirjaudu ulos",
+    "NavbarLevels": "Tasot",
+    "NavbarAdmin": "Admin"
 }

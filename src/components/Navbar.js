@@ -204,7 +204,7 @@ function Navbar() {
                 <button
                     className={styles.navButton}
                     onClick={() => router.push("/MainPage")}>
-                    {t("Frontpage")}
+                    {t("NavbarFrontpage")}
                 </button>
 
                 {loading ? null : !user ? (
@@ -212,12 +212,12 @@ function Navbar() {
                         <button
                             className={styles.navButton}
                             onClick={() => router.push("/Login")}>
-                            {t("SignIn")}
+                            {t("NavbarSignIn")}
                         </button>
                         <button
                             className={styles.navButton}
                             onClick={() => router.push("/Registration")}>
-                            {t("Register")}
+                            {t("NavbarRegister")}
                         </button>
                     </>
                 ) : (
@@ -227,21 +227,21 @@ function Navbar() {
                                 className={styles.navButton}
                                 onClick={() => router.push("/Admin")}
                             >
-                                Admin
+                                {t("NavbarAdmin")}
                             </button>
                         )}
                         <button
                             className={styles.navButton}
                             onClick={() => router.push("/LevelSelection")}
                         >
-                            Tehtävät
+                            {t("NavbarLevels")}
                         </button>
                         <button
                             className={styles.navButton}
                             id="signout"
                             onClick={handleLogout}
                         >
-                            Kirjaudu ulos
+                            {t("NavbarSignOut")}
                         </button>
                     </>
                 )}
