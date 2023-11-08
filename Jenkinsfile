@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    
 
     environment {
         NODE_ENV = 'dev'
@@ -56,7 +57,7 @@ pipeline {
         stage('Run Next.js App') {
             steps {
                 sh 'npm start &'
-                sleep 15  
+                sleep 15
             }
         }
 

@@ -1,12 +1,12 @@
-const { PrismaClient } = require('@prisma/client');
-const fs = require('fs').promises;
+const { PrismaClient } = require("@prisma/client");
+const fs = require("fs").promises;
 
 const prisma = new PrismaClient();
 
 async function importGameData() {
     try {
         // Read the game data JSON file
-        const gameData = require('../utils/wordlists/game4.json');
+        const gameData = require("../utils/wordlists/game4.json");
 
         // Delete all existing game4 records
         await prisma.game4.deleteMany();
@@ -21,16 +21,16 @@ async function importGameData() {
             });
         }
 
-        console.log('Game data imported and updated successfully.');
+        console.log("Game data imported and updated successfully.");
     } catch (error) {
-        console.error('Error importing and updating game data:', error);
+        console.error("Error importing and updating game data:", error);
     }
 }
 
 async function importListeningData() {
     try {
         // Read the listening data JSON file
-        const listeningData = require('../utils/wordlists/listeningData.json');
+        const listeningData = require("../utils/wordlists/listeningData.json");
 
         // Iterate through categories in listening data
         for (const category in listeningData) {
@@ -63,16 +63,16 @@ async function importListeningData() {
             }
         }
 
-        console.log('Listening data imported and updated successfully.');
+        console.log("Listening data imported and updated successfully.");
     } catch (error) {
-        console.error('Error importing and updating listening data:', error);
+        console.error("Error importing and updating listening data:", error);
     }
 }
 
 async function importSchoolLevel2() {
     try {
         // Read the school_level2 JSON file
-        const schoolLevel2Data = require('../utils/wordlists/school_level2.json');
+        const schoolLevel2Data = require("../utils/wordlists/school_level2.json");
 
         // Delete all existing SchoolItem records
         await prisma.schoolItem.deleteMany();
@@ -84,16 +84,16 @@ async function importSchoolLevel2() {
             });
         }
 
-        console.log('School Level 2 data imported and updated successfully.');
+        console.log("School Level 2 data imported and updated successfully.");
     } catch (error) {
-        console.error('Error importing and updating School Level 2 data:', error);
+        console.error("Error importing and updating School Level 2 data:", error);
     }
 }
 
 async function importFruitsLevel2() {
     try {
         // Read the fruits_level2 JSON file
-        const fruitsLevel2Data = require('../utils/wordlists/imgFruits.json');
+        const fruitsLevel2Data = require("../utils/wordlists/imgFruits.json");
 
         // Delete all existing FruitItem records
         await prisma.fruitItem.deleteMany();
@@ -105,16 +105,16 @@ async function importFruitsLevel2() {
             });
         }
 
-        console.log('Fruits Level 2 data imported and updated successfully.');
+        console.log("Fruits Level 2 data imported and updated successfully.");
     } catch (error) {
-        console.error('Error importing and updating Fruits Level 2 data:', error);
+        console.error("Error importing and updating Fruits Level 2 data:", error);
     }
 }
 
 async function importAnimalsLevel2() {
     try {
         // Read the animals_level2 JSON file
-        const animalsLevel2Data = require('../utils/wordlists/animals_level2.json');
+        const animalsLevel2Data = require("../utils/wordlists/animals_level2.json");
 
         // Delete all existing AnimalItem records
         await prisma.animalItem.deleteMany();
@@ -126,16 +126,16 @@ async function importAnimalsLevel2() {
             });
         }
 
-        console.log('Animals Level 2 data imported and updated successfully.');
+        console.log("Animals Level 2 data imported and updated successfully.");
     } catch (error) {
-        console.error('Error importing and updating Animals Level 2 data:', error);
+        console.error("Error importing and updating Animals Level 2 data:", error);
     }
 }
 
 async function importFlashcardsanat() {
     try {
         // Read the flashcardsanat JSON file
-        const flashcardsanatData = require('../utils/wordlists/flashcardsanat.json');
+        const flashcardsanatData = require("../utils/wordlists/flashcardsanat.json");
 
         // Delete all existing Flashcardsanat records
         await prisma.flashcardsanat.deleteMany();
@@ -145,9 +145,9 @@ async function importFlashcardsanat() {
             data: flashcardsanatData,
         });
 
-        console.log('Flashcardsanat data imported and updated successfully.');
+        console.log("Flashcardsanat data imported and updated successfully.");
     } catch (error) {
-        console.error('Error importing and updating Flashcardsanat data:', error);
+        console.error("Error importing and updating Flashcardsanat data:", error);
     }
 }
 
@@ -166,3 +166,4 @@ async function main() {
 }
 
 main();
+
