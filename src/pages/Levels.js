@@ -64,7 +64,7 @@ const Levels = () => {
                 swedish:
                     "Lär dig med flashcards, både på finska och engelska. Denna nivå är en utmärkt utgångspunkt för engelska språkinlärare.",
             },
-            route: "/Level1",
+            route: "/Flashcards",
         },
         {
             title: {
