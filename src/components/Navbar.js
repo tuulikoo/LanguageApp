@@ -5,6 +5,7 @@ import { useUser } from "@/utils/userContext";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useTranslation } from "react-i18next";
+import { debounce } from "lodash";
 
 function Navbar() {
     const { i18n } = useTranslation();
@@ -14,6 +15,24 @@ function Navbar() {
     const [dropdownVisible, setDropdownVisible] = useState(false);
     const dropdownRef = useRef(null);
     const [selectedLanguage, setSelectedLanguage] = useState("");
+    const [navbarVisible, setNavbarVisible] = useState(true);
+
+    // handler for navbar visibility
+    const handleScroll = debounce(() => {
+        const scrollThreshold = 50;
+        if (window.scrollY > scrollThreshold && navbarVisible) {
+            setNavbarVisible(false);
+        } else if (window.scrollY < scrollThreshold && !navbarVisible) {
+            setNavbarVisible(true);
+        }
+    }, 100);
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }
+        , [navbarVisible, handleScroll]);
+
 
     useEffect(() => {
         setSelectedLanguage(Cookies.get("selectedLanguage") || "");
@@ -21,8 +40,9 @@ function Navbar() {
 
     const { t } = useTranslation();
     const setLanguageCookie = (languageCode) => {
-        if(!user){
-        Cookies.set("selectedLanguage", languageCode, { expires: 1 });}
+        if (!user) {
+            Cookies.set("selectedLanguage", languageCode, { expires: 1 });
+        }
         setSelectedLanguage(languageCode);
     };
 
@@ -92,6 +112,8 @@ function Navbar() {
         };
     }, []);
 
+    const navbarClasses = `${styles.navbar} ${navbarVisible ? "" : styles.navbarHidden}`;
+
     //const selectedLanguage = Cookies.get('selectedLanguage');
     const getRemainingLanguages = (selectedLanguage) => {
         const allLanguages = ["fi_FI", "sv_SE", "ja_JP"];
@@ -132,7 +154,7 @@ function Navbar() {
             : getRemainingLanguages(user.language);
 
     return (
-        <div className={styles.navbar}>
+        <div className={navbarClasses}>
             <div className={styles.navItems}>
                 <div className={styles.langContainer}>
                     <div className={styles.languageDropdown}>
