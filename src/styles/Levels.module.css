@@ -86,8 +86,8 @@
   padding: 10px;
   z-index: 2; 
   border: none; 
-  border-radius: 20px; 
-  background-color: #ffcd1f; 
+  border-radius: 20px;
+  background-color: #fff;
   color: #3c3b37; 
   cursor: pointer;
   transition: transform 0.5s ease;
