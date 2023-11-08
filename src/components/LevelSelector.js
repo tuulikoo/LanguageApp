@@ -3,9 +3,17 @@ import styles from "@/styles/LevelSelector.module.scss";
 import { Button, Link as MuiLink } from "@mui/material";
 import { RefreshOutlined } from "@mui/icons-material";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 const LevelSelector = () => {
-    const [flippedStates, setFlippedStates] = useState([true, true, true, true, true]);
+    const [flippedStates, setFlippedStates] = useState([
+        true,
+        true,
+        true,
+        true,
+        true,
+    ]);
+    const { t } = useTranslation();
 
     const handleItemClick = (index) => {
         const newFlippedStates = [...flippedStates];
@@ -63,8 +71,7 @@ const LevelSelector = () => {
             description: {
                 english:
                     "Listening exercise: listen the sentence and choose correct words.",
-                finnish:
-                    "Kuunteluharjoitus: kuuntele lause ja valitse oikeat sanat.",
+                finnish: "Kuunteluharjoitus: kuuntele lause ja valitse oikeat sanat.",
             },
             route: "/Game5",
             image: "/svg/blob4.svg",
@@ -82,8 +89,7 @@ const LevelSelector = () => {
             },
             route: "/Story",
             image: "/svg/blob5.svg",
-        }
-
+        },
     ];
 
     return (

@@ -19,7 +19,7 @@ function Navbar() {
 
     // handler for navbar visibility
     const handleScroll = debounce(() => {
-        const scrollThreshold = 50;
+        const scrollThreshold = 100;
         if (window.scrollY > scrollThreshold && navbarVisible) {
             setNavbarVisible(false);
         } else if (window.scrollY < scrollThreshold && !navbarVisible) {
