@@ -50,17 +50,17 @@ Navigate to Userpage
     Click    .Navbar_avatarButton__FSunb
 
 Verify That UserPage Is Visible
-    Get Text    body    contains    Etunimesi on
+    Get Text    body    contains    UPfirstName
     Get Url    ==    ${USERURL}
 
 Verify Delete-button exists
-    Get Text    body    contains    Poista tietoni
+    Get Text    body    contains    UPdelete
 
 Click Delete-button
     Click    xpath=//*[@id="section-container"]/div[3]/button
 
 Verify Confirm Deletion Text Appears
-    Get Text    body    contains    Haluatko varmasti poistaa tilisi
+    Get Text    body    contains    UPconfirmDelete
 
 Click Confirm Deletion-button
     Click    xpath=//*[@id="section-container"]/div[4]/div/button[1]
