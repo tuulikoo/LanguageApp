@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import styles from '../styles/Login.module.scss';
+import styles from '../styles/login.module.scss';
 import { useUser } from '../utils/userContext';
 
 const MAX_LOGIN_ATTEMPTS = 5;
