@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
         NODE_ENV = 'dev'
+        // Define additional environment variables if needed
     }
     triggers {
         cron('0 * * * *') // Run every hour
@@ -40,54 +41,53 @@ pipeline {
             }
         }
         stage('Setup Robot Framework') {
-    steps {
-        dir('/var/jenkins_home/workspace/LanguageApp/robot') {
-            sh '''
-                #!/bin/bash
-                python3 -m venv venv_robot
-                source venv_robot/bin/activate
-                pip install robotframework robotframework-browser robotframework-seleniumlibrary
-                rfbrowser init
-            ''', returnStdout: true
-        }
-    }
-}
-        stage('Run Next.js App') {
             steps {
-                sh 'npm start &'
-                sleep 15
+                dir('robot') {
+                    sh '''
+                        python3 -m venv venv_robot
+                        . venv_robot/bin/activate
+                        pip install robotframework robotframework-browser robotframework-seleniumlibrary
+                        rfbrowser init
+                    '''
+                }
             }
         }
-         stage('Run Robot Tests') {
-    steps {
-        dir('/var/jenkins_home/workspace/LanguageApp/robot') {
-            sh '''#!/bin/bash
-                source venv_robot/bin/activate
-                robot .
-            ''', returnStdout: true
+        stage('Run Next.js App') {
+            steps {
+                sh '''
+                    npm start > app.log 2>&1 &
+                    echo $! > PID
+                    sleep 15
+                '''
+            }
         }
-    }
-}
-       stage('Build and Deploy') {
+        stage('Run Robot Tests') {
+            steps {
+                dir('robot') {
+                    sh '''
+                        . ../venv_robot/bin/activate
+                        robot .
+                    '''
+                }
+            }
+        }
+        stage('Build and Deploy') {
             steps {
                 sh 'docker-compose up -d --build'
             }
         }
         stage('Cleanup') {
             steps {
-                sh 'docker system prune -f'
+                sh 'docker system prune -af --volumes'
             }
         }
     }
     post {
         always {
-            robot outputPath: '.', logFileName: 'log.html', outputFileName: 'output.xml', reportFileName: 'report.html'
-            sh 'pkill -f "next start" || true'
+            sh 'cat app.log' 
+            sh 'if [ -f PID ]; then kill $(cat PID); rm PID; fi' 
+            robot outputPath: 'robot', logFileName: 'log.html', outputFileName: 'output.xml', reportFileName: 'report.html'
         }
     }
 }
 
-
-
-
-       
