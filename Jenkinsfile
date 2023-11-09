@@ -2,7 +2,6 @@ pipeline {
     agent any
     environment {
         NODE_ENV = 'dev'
-        // Define additional environment variables if needed
     }
     triggers {
         cron('0 * * * *') // Run every hour
@@ -71,6 +70,18 @@ pipeline {
                 }
             }
         }
+        stage('Run Robot Tests') {
+         steps {
+        dir('/var/jenkins_home/workspace/LanguageApp/robot') {
+            sh '''#!/bin/bash
+                source venv_robot/bin/activate
+                robot .
+            '''
+            }
+        }
+    }
+      
+
         stage('Build and Deploy') {
             steps {
                 sh 'docker-compose up -d --build'
