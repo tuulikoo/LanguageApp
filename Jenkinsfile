@@ -70,6 +70,16 @@ pipeline {
             '''
             }
         }
+        stage('Build and Deploy') {
+            steps {
+                sh 'docker-compose up -d --build'
+            }
+        }
+        stage('Cleanup') {
+            steps {
+                sh 'docker system prune -a -f'
+            }
+        }
     }
 
 }
