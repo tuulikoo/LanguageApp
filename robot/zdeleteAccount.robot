@@ -41,7 +41,7 @@ Enter Password
     Fill Text    id=login_password    txt=${PASSWORD}
 
 Submit Login Form
-    Click    .Login_loginButton
+    Click    id:loginButton
 
 Verify That MainPage Is Visible
     Get Url    ==    ${MAINURL}
