@@ -40,34 +40,35 @@ pipeline {
             }
         }
         stage('Setup Robot Framework') {
-            steps {
-                dir('/var/jenkins_home/workspace/LanguageApp/robot') {
-                    sh '''
-                        python3 -m venv venv_robot
-                        . venv_robot/bin/activate
-                        pip install robotframework robotframework-browser robotframework-seleniumlibrary
-                        rfbrowser init
-                    '''
-                }
-            }
+    steps {
+        dir('/var/jenkins_home/workspace/LanguageApp/robot') {
+            sh '''
+                #!/bin/bash
+                python3 -m venv venv_robot
+                source venv_robot/bin/activate
+                pip install robotframework robotframework-browser robotframework-seleniumlibrary
+                rfbrowser init
+            ''', returnStdout: true
         }
+    }
+}
         stage('Run Next.js App') {
             steps {
                 sh 'npm start &'
                 sleep 15
             }
         }
-        stage('Run Robot Tests') {
-            steps {
-                dir('/var/jenkins_home/workspace/LanguageApp/robot') {
-                    sh '''
-                        source venv_robot/bin/activate
-                        robot .
-                    '''
-                }
-            }
+         stage('Run Robot Tests') {
+    steps {
+        dir('/var/jenkins_home/workspace/LanguageApp/robot') {
+            sh '''#!/bin/bash
+                source venv_robot/bin/activate
+                robot .
+            ''', returnStdout: true
         }
-        stage('Build and Deploy') {
+    }
+}
+       stage('Build and Deploy') {
             steps {
                 sh 'docker-compose up -d --build'
             }
