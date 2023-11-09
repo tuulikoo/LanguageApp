@@ -17,7 +17,7 @@ WORKDIR /usr/src/app
 RUN apt-get update && apt-get install -y git
 
 # Clone the repository and switch to the desired branch
-RUN git clone -b ui/ux https://github.com/tuulikoo/LanguageApp.git .
+RUN git clone -b master https://github.com/tuulikoo/LanguageApp.git .
 
 # Install dependencies and build the app
 RUN npm install
