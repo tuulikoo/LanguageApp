@@ -10,8 +10,6 @@
   align-items: center;
   margin-top: 10%;
 }
-  
-
 
 .loginHeader {
   font-size: 1.5rem;
@@ -24,9 +22,9 @@
   position: relative;
   font-weight: bold;
 
-  
   @keyframes shake {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateX(0);
     }
     25% {
@@ -40,7 +38,6 @@
     }
   }
 
-  
   &.error {
     animation: shake 0.3s ease-in-out 3;
   }
@@ -69,13 +66,27 @@
   }
 }
 .shake {
-  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
-  20%, 40%, 60%, 80% { transform: translateX(10px); }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(10px);
+  }
 }
 
 .formError {
@@ -84,14 +95,15 @@
   margin-top: 5px;
 }
 
-.loginError, .loginAttemptsError {
+.loginError,
+.loginAttemptsError {
   color: #d9534f;
   margin-bottom: 10px;
   text-align: center;
 }
 .error {
   color: #d9534f;
-    text-align: center;
+  text-align: center;
 }
 
 .loginButton {
@@ -102,7 +114,9 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 
   &:hover {
     background-color: #0056b3;
@@ -127,18 +141,25 @@
 }
 
 @keyframes shake {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(0);
   }
-  10%, 30%, 50%, 70%, 90% {
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
     transform: translateX(-10px);
   }
-  20%, 40%, 60%, 80% {
+  20%,
+  40%,
+  60%,
+  80% {
     transform: translateX(10px);
   }
 }
 
 .loginContainer.hasError {
-  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
-
