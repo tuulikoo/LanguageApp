@@ -14,8 +14,17 @@ function Navbar() {
     const [avatarHovered, setAvatarHovered] = useState(false);
     const [dropdownVisible, setDropdownVisible] = useState(false);
     const dropdownRef = useRef(null);
-    const [selectedLanguage, setSelectedLanguage] = useState("");
+    const [selectedLanguage, setSelectedLanguage] = useState(
+        Cookies.get("selectedLanguage") || "fi_FI",
+    );
     const [navbarVisible, setNavbarVisible] = useState(true);
+    const { t } = useTranslation();
+
+    // Update the cookie and the i18n language setting
+    const setLanguageCookie = (languageCode) => {
+        Cookies.set("i18next", languageCode, { expires: 1 });
+        setSelectedLanguage(languageCode);
+    };
 
     // handler for navbar visibility
     const handleScroll = debounce(() => {
@@ -30,21 +39,11 @@ function Navbar() {
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-    }
-        , [navbarVisible, handleScroll]);
-
+    }, [navbarVisible, handleScroll]);
 
     useEffect(() => {
         setSelectedLanguage(Cookies.get("selectedLanguage") || "");
     }, []);
-
-    const { t } = useTranslation();
-    const setLanguageCookie = (languageCode) => {
-        if (!user) {
-            Cookies.set("selectedLanguage", languageCode, { expires: 1 });
-        }
-        setSelectedLanguage(languageCode);
-    };
 
     const handleLogout = async () => {
         await logout();
@@ -56,42 +55,27 @@ function Navbar() {
     const handleLanguageButtonClick = () => {
         setDropdownVisible(!dropdownVisible);
     };
-    const handleLanguageChange = (languageCode) => {
+    const handleLanguageChange = async (languageCode) => {
         setLanguageCookie(languageCode);
         i18n.changeLanguage(languageCode);
 
         if (user) {
-            console.log("userid " + user.id);
-            // const data = { language: languageCode };
-
-            axios
-                .post(
+            try {
+                const response = await axios.post(
                     `/api/updateUserLanguage?userId=${user.id}&language=${languageCode}`,
-                )
-                .then((response) => {
-                    if (response.status === 200) {
-                        // Set the user context with the updated language
-                        const updatedUser = { ...user, language: languageCode };
-                        setUser(updatedUser);
-                        console.log("UpdatedUser kieli: " + updatedUser.language);
-                        fetchUserData();
-                    } else {
-                        console.error(
-                            "Failed to update user language:",
-                            response.statusText,
-                        );
-                    }
-                })
-                .catch((error) => {
-                    console.error("An error occurred while updating language:", error);
-                });
-        } else {
-            setSelectedLanguage(languageCode);
+                );
+                if (response.status === 200) {
+                    // Update the user context with the updated language
+                    const updatedUser = { ...user, language: languageCode };
+                    setUser(updatedUser);
+                    // FetchUserData if needed or handle the update
+                }
+            } catch (error) {
+                console.error("An error occurred while updating language:", error);
+            }
         }
         setDropdownVisible(false);
     };
-
-
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -106,7 +90,8 @@ function Navbar() {
         };
     }, []);
 
-    const navbarClasses = `${styles.navbar} ${navbarVisible ? "" : styles.navbarHidden}`;
+    const navbarClasses = `${styles.navbar} ${navbarVisible ? "" : styles.navbarHidden
+        }`;
 
     //const selectedLanguage = Cookies.get('selectedLanguage');
     const getRemainingLanguages = (selectedLanguage) => {
@@ -197,7 +182,8 @@ function Navbar() {
 
                 <button
                     className={styles.navButton}
-                    onClick={() => router.push("/MainPage")}>
+                    onClick={() => router.push("/MainPage")}
+                >
                     {t("NavbarFrontpage")}
                 </button>
 
@@ -205,12 +191,14 @@ function Navbar() {
                     <>
                         <button
                             className={styles.navButton}
-                            onClick={() => router.push("/Login")}>
+                            onClick={() => router.push("/Login")}
+                        >
                             {t("NavbarSignIn")}
                         </button>
                         <button
                             className={styles.navButton}
-                            onClick={() => router.push("/Registration")}>
+                            onClick={() => router.push("/Registration")}
+                        >
                             {t("NavbarRegister")}
                         </button>
                     </>
