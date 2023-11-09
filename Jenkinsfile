@@ -75,7 +75,7 @@ pipeline {
 
         stage('Build and Deploy') {
             steps {
-                sh 'docker-compose up -d --build'
+                sh '/usr/local/bin/docker-compose up -d --build'
             }
         }
         stage('Cleanup') {
