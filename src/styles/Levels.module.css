@@ -1,102 +1,87 @@
 .levels_container {
   max-width: 800px;
-  margin: 50px 20% 50px 10%; 
+  margin: 50px 20px 20px 80px;
   padding: 20px;
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-  overflow: hidden; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .header {
-  font-size: 2rem; 
-  font-weight: bold;
-  color: #3c3b37; 
+  font-size: 2.5rem;
+  font-weight: 700; 
+  color: #3c3b37;
   margin-bottom: 30px;
   text-align: center;
 }
 
-/* List styling */
+
 .levels_list {
   list-style: none;
   padding: 0;
-  margin: 0; 
+  margin: 0;
 }
 
 .levels_item {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   padding: 20px;
-  background-color: #f7f7f7; 
+  background-color: #f4f4f4; 
+  border-left: 5px solid #58cced; 
   border-radius: 8px;
-  transition: box-shadow 2s ease, transform 1s ease;
-  position: relative; 
-  overflow: hidden; 
-}
-
-.levels_item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background-color: #58cced;
-  transition: left 1.5s ease;
-  z-index: 0;
-}
-
-.levels_item:hover::before {
-  left: 0;
+  transition: transform 0.3s ease; 
+  position: relative;
+  overflow: hidden;
+  cursor: pointer; 
 }
 
 .levels_item:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transform: translateY(-3px); 
+  transform: translateY(-5px); 
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); 
 }
 
 .levels_link {
   text-decoration: none;
-  display: block; 
-  position: relative; 
+  display: block;
+  position: relative;
+  color: #3c3b37; 
 }
 
-.level_title, .level_description {
-  position: relative; 
+.level_title,
+.level_description {
+  position: relative;
   z-index: 1;
 }
 
 .level_title {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: bold;
-  color: #3c3b37;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .level_description {
   font-size: 1rem;
   font-weight: normal;
-  color: #3c3b37;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .level_button {
   position: top;
-  top: 10px;
-  right: 10px;
-  padding: 10px;
-  z-index: 2; 
-  border: none; 
+  top: 20px;
+    margin-bottom: 15px;
+  right: 20px;
+  padding: 10px 15px; 
+  z-index: 2;
+  border: none;
   border-radius: 20px;
-  background-color: #fff;
-  color: #3c3b37; 
+  background-color: #1cb0f6;
+  color: #fff;
   cursor: pointer;
-  transition: transform 0.5s ease;
+  transition: background-color 0.3s ease; 
 }
 
 .level_button:hover {
-  transform: scale(1.05);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    background-color: #f7f7f7;
+  background-color: #49a6d6; 
 }
 
 
@@ -121,11 +106,15 @@
   }
 
   .header {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .level_title {
-    font-size: 1.3rem;
+    font-size: 1.5rem; 
+  }
+
+  .level_button {
+    top: 10px; 
+    right: 10px;
   }
 }
-
