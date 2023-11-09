@@ -68,7 +68,7 @@ export default function Login() {
                     {errors.password && <p className={styles.error}>{errors.password.message}</p>}
                 </div>
                 {loginError && <div className={styles.error}>{loginError}</div>}
-                <button type="submit" disabled={isSubmitting} className={styles.loginButton}>
+                <button type="submit" id='loginButton' disabled={isSubmitting} className={styles.loginButton}>
                     Kirjaudu
                 </button>
             </form>
