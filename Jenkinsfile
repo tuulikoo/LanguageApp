@@ -4,7 +4,6 @@ pipeline {
         NODE_ENV = 'dev'
     }
     triggers {
-        cron('0 * * * *') // Run every hour
         pollSCM('H/5 * * * *') // Poll SCM every 5 minutes
     }
     stages {
