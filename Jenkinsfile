@@ -4,7 +4,8 @@ pipeline {
         NODE_ENV = 'dev'
     }
     triggers {
-        pollSCM('H/5 * * * *') // Poll SCM every 5 minutes
+        //Poll SCM every 5 hours
+        pollSCM('H H/5 * * *')
     }
     stages {
         stage('Checkout Code') {
