@@ -32,7 +32,7 @@ pipeline {
         stage('Setup Robot Framework') {
             steps {
                 dir('robot') {
-                    sh '''
+                    sh '''#!/bin/bash
                         python3 -m venv venv_robot
                         source venv_robot/bin/activate
                         pip3 install robotframework robotframework-browser robotframework-seleniumlibrary
@@ -53,7 +53,7 @@ pipeline {
         stage('Run Robot Tests') {
             steps {
                 dir('robot') {
-                    sh '''
+                    sh '''#!/bin/bash
                         source venv_robot/bin/activate
                         robot .
                     '''
