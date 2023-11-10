@@ -4,28 +4,18 @@ pipeline {
         NODE_ENV = 'dev'
     }
     triggers {
-        //Poll SCM every 5 hours
-        pollSCM('H H/5 * * *')
+        pollSCM('H H/5 * * *') // Poll SCM every 5 hours
     }
     stages {
         stage('Checkout Code') {
             steps {
-                checkout([
-                    $class: 'GitSCM', 
-                    branches: [[name: '*/master']], 
-                    doGenerateSubmoduleConfigurations: false, 
-                    extensions: [], 
-                    submoduleCfg: [], 
-                    userRemoteConfigs: [[url: 'https://github.com/tuulikoo/LanguageApp.git']]
-                ])
+                git 'https://github.com/tuulikoo/LanguageApp.git'
             }
         }
         stage('Setup Environment') {
             steps {
-                script {
-                    nodejs(nodeJSInstallationName: 'Node20', configId: null) {
-                        sh 'npm ci'
-                    }
+                nodejs(nodeJSInstallationName: 'Node20') {
+                    sh 'npm ci'
                 }
             }
         }
@@ -44,7 +34,7 @@ pipeline {
                 dir('robot') {
                     sh '''
                         python3 -m venv venv_robot
-                        . venv_robot/bin/activate
+                        source venv_robot/bin/activate
                         pip3 install robotframework robotframework-browser robotframework-seleniumlibrary
                         rfbrowser init
                     '''
@@ -60,19 +50,16 @@ pipeline {
                 '''
             }
         }
-     
         stage('Run Robot Tests') {
-         steps {
-        dir('/var/jenkins_home/workspace/LanguageApp/robot') {
-            sh '''#!/bin/bash
-                source venv_robot/bin/activate
-                robot .
-            '''
+            steps {
+                dir('robot') {
+                    sh '''
+                        source venv_robot/bin/activate
+                        robot .
+                    '''
+                }
             }
         }
-    }
-      
-
         stage('Build and Deploy') {
             steps {
                 sh 'docker-compose up -d --build'
@@ -86,8 +73,8 @@ pipeline {
     }
     post {
         always {
-            sh 'cat app.log' 
-            sh 'if [ -f PID ]; then kill $(cat PID); rm PID; fi' 
+            sh 'cat app.log'
+            sh 'if [ -f PID ]; then kill $(cat PID); rm PID; fi'
             robot outputPath: 'robot', logFileName: 'log.html', outputFileName: 'output.xml', reportFileName: 'report.html'
         }
     }
