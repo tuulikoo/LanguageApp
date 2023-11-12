@@ -5,9 +5,11 @@ import styles from '../styles/Game4Component.module.scss';
 import { textToSpeech } from '../utils/mimicApi';
 import { useRouter } from "next/router";
 import Cookies from 'js-cookie';
+import { useTranslation } from 'react-i18next';
 
 
 function Game4Component() { // Pass onLevelCompletion as a prop
+    const { t } = useTranslation();
     const { user } = useUser();
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -82,9 +84,8 @@ function Game4Component() { // Pass onLevelCompletion as a prop
     const handleOptionClick = async (option) => {
         if (!hasAnsweredCorrectly && option === data[currentQuestion].correctOption) {
             setScore(score + 1);
-            setResult('Oikein!');
+            setResult(t("G4correct"));
             setHasAnsweredCorrectly(true);
-
             if (user) {
                 try {
                     const response = await fetch('/api/updatePoints', {
@@ -114,9 +115,11 @@ function Game4Component() { // Pass onLevelCompletion as a prop
             }, 1000);
         } else {
             if (incorrectAttempts === 0) {
-                setResult('Väärin, yritä uudelleen!');
+                setResult(t("G4wrong"));
+
             } else {
-                setResult(`Vastasit väärin, oikea vastaus oli ${data[currentQuestion].correctOption}`);
+                setResult(t("G4wrong2", { correctOption: data[currentQuestion].correctOption }));
+
                 setTimeout(() => {
                     handleNextQuestion();
                 }, 2000);

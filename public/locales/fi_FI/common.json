@@ -49,5 +49,8 @@
     "NavbarRegister": "Rekisteröidy",
     "NavbarSignOut": "Kirjaudu ulos",
     "NavbarLevels": "Tasot",
-    "NavbarAdmin": "Admin"
+    "NavbarAdmin": "Admin",
+    "G4wrong": "Väärin, yritä uudelleen!",
+    "G4wrong2": "Vastasit väärin. Oikea vastaus oli {{correctOption}}",
+    "G4correct": "Oikein!"
 }

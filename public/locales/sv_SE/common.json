@@ -42,5 +42,8 @@
     "NavbarRegister": "Registrera",
     "NavbarSignOut": "Logga ut",
     "NavbarLevels": "Nivåer",
-    "NavbarAdmin": "Admin"
+    "NavbarAdmin": "Admin",
+    "G4wrong": "Fel, försök igen!",
+    "G4wrong2": "Du svarade fel. Det rätta svaret var {{correctOption}}",
+    "G4correct": "Korrekt!"
 }

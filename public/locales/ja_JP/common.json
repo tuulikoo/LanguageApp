@@ -42,5 +42,8 @@
     "NavbarRegister": "登録",
     "NavbarSignOut": "サインアウト",
     "NavbarLevels": "レベル",
-    "NavbarAdmin": "管理者"
+    "NavbarAdmin": "管理者",
+    "G4wrong": "間違えた、もう一度！",
+    "G4wrong2": "あなたは間違った答えをしました。正解は{{correctOption}}でした。",
+    "G4correct": "その通りだ！!"
 }

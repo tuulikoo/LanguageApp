@@ -91,7 +91,7 @@ function Navbar() {
     }, []);
 
     const navbarClasses = `${styles.navbar} ${navbarVisible ? "" : styles.navbarHidden
-        }`;
+    }`;
 
     //const selectedLanguage = Cookies.get('selectedLanguage');
     const getRemainingLanguages = (selectedLanguage) => {
@@ -244,7 +244,7 @@ function Navbar() {
                             }
                             alt={user ? `${user.username} Avatar` : "Default Avatar"}
                             className={`${styles.avatar} ${avatarHovered ? styles.avatarHovered : ""
-                                }`}
+                            }`}
                         />
                     </button>
                 )}
