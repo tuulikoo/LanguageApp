@@ -5,9 +5,11 @@ import styles from '../styles/Game4Component.module.scss';
 import { textToSpeech } from '../utils/mimicApi';
 import { useRouter } from "next/router";
 import Cookies from 'js-cookie';
+import { useTranslation } from 'react-i18next';
 
 
 function Game4Component() { // Pass onLevelCompletion as a prop
+    const { t } = useTranslation();
     const { user } = useUser();
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -82,9 +84,8 @@ function Game4Component() { // Pass onLevelCompletion as a prop
     const handleOptionClick = async (option) => {
         if (!hasAnsweredCorrectly && option === data[currentQuestion].correctOption) {
             setScore(score + 1);
-            setResult('Oikein!');
+            setResult(t("G4correct"));
             setHasAnsweredCorrectly(true);
-
             if (user) {
                 try {
                     const response = await fetch('/api/updatePoints', {
@@ -114,9 +115,11 @@ function Game4Component() { // Pass onLevelCompletion as a prop
             }, 1000);
         } else {
             if (incorrectAttempts === 0) {
-                setResult('Väärin, yritä uudelleen!');
+                setResult(t("G4wrong"));
+
             } else {
-                setResult(`Vastasit väärin, oikea vastaus oli ${data[currentQuestion].correctOption}`);
+                setResult(t("G4wrong2", { correctOption: data[currentQuestion].correctOption }));
+
                 setTimeout(() => {
                     handleNextQuestion();
                 }, 2000);
@@ -136,7 +139,7 @@ function Game4Component() { // Pass onLevelCompletion as a prop
                 // Check if user.lastLevel is a number
                 if (typeof user.lastLevel === 'number') {
                     const nextSectionNumber = user.lastLevel + 1;
-                    const newLastLevel = nextSectionNumber - 1; // Fix this line
+                    const newLastLevel = nextSectionNumber - 1;
 
                     // If the section is completed, set the state variable
                     if ((nextSectionNumber - 1) * questionsPerSection >= currentQuestion) {
@@ -219,7 +222,7 @@ function Game4Component() { // Pass onLevelCompletion as a prop
         <div className={styles.pageContainer}>
             <div className={styles.textContainer}>
                 {currentQuestion < (data.length || 0) && (
-                    <h1 className={`font-custom`}>Valitse oikea sana</h1>
+                    <h1 className={`font-custom`}>{t("G4pick")}</h1>
                 )}
             </div>
             <div className={styles.gameContainer}>
@@ -232,7 +235,7 @@ function Game4Component() { // Pass onLevelCompletion as a prop
                                 alt="Speaker Button"
                                 onClick={handleSpeakButtonClick}
                             />
-                            <h2>Kuuntele</h2>
+                            <h2>{t("G4listen")}</h2>
                         </div>
                         <div className={styles.imgContainer}>
                             <div className={styles.imgWrapper}>
@@ -241,7 +244,7 @@ function Game4Component() { // Pass onLevelCompletion as a prop
                                         src={data[currentQuestion]?.src}
                                         alt={`Image ${data[currentQuestion]?.Id}`}
                                     />
-                                    <p className={`${styles.result} ${result === 'Oikein!' ? styles.correct : ''}`}>
+                                    <p className={`${styles.result} ${result === 'Oikein!' || result === 'その通りだ！!' || result === 'Korrekt!' ? styles.correct : ''}`}>
                                         {result}
                                     </p>
                                 </div>
@@ -249,15 +252,15 @@ function Game4Component() { // Pass onLevelCompletion as a prop
                                     {renderOptions()}
                                 </div>
                             </div>
-                            <p className={`${styles.result} ${result === 'Oikein!' ? styles.correct : ''}`}>
+                            <p className={`${styles.result} ${result === 'Oikein!'|| result === 'その通りだ！!' || result === 'Korrekt!' ? styles.correct : ''}`}>
                                 {result}
                             </p>
                         </div>
                     </>
                 ) : (
                     <div className={styles.harjoitusValmis}>
-                        <h2 className={`font-custom`}>Harjoitus valmis!</h2>
-                        <p className={`font-custom`}>Sait {score} pistettä / {(data.length || 0)}.</p>
+                        <h2 className={`font-custom`}>{t("G4ready")}</h2>
+                        <p className={`font-custom`}>{t("G4scored")} {score}/{(data.length || 0)}</p>
                         <button
                             onClick={handleNextSet}
                             style={{
@@ -273,22 +276,22 @@ function Game4Component() { // Pass onLevelCompletion as a prop
                 {sectionCompleted && (
                     <div className={styles.pointsDisplay}>
                         {user ? (
-                            <div className={`font-custom`}>Kokonaispisteesi: {currentUserPoints}</div>
+                            <div className={`font-custom`}>{t("G4totalPoints")} {currentUserPoints}</div>
                         ) : null}
                         {user ? (
-                            <div className={`font-custom`}>Olet tehtävätasolla: {user.lastLevel}</div>
+                            <div className={`font-custom`}>{t("G4atLevel")} {user.lastLevel}</div>
                         ) : null}
                         {user ? (
-                            <div className={`font-custom`}>Tämän tehtävän pisteet: {score}</div>
+                            <div className={`font-custom`}>{t("G4score2")} {score}</div>
                         ) : null}
                     </div>
                 )}
             </div>
             <div className={styles.backArrows}>
-                <button className={styles.backToMain} onClick={handleBackToMainPage} data-tooltip="Takaisin kotisivulle">
+                <button className={styles.backToMain} onClick={handleBackToMainPage} data-tooltip={t("G4backHome")}>
                     <img src="https://cdn.pixabay.com/photo/2012/04/02/16/10/arrow-24848_640.png" alt="Back to MainPage" />
                 </button>
-                <button onClick={handleBackToPreviousQuestion} data-tooltip="Edellinen kysymys" className={styles.backToPrevious}>
+                <button onClick={handleBackToPreviousQuestion} data-tooltip={t("G4previous")} className={styles.backToPrevious}>
                     <img src="https://cdn.pixabay.com/photo/2012/04/01/12/48/arrow-23284_640.png" alt="Back to Previous Question" />
                 </button>
             </div>

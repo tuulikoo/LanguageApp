@@ -68,7 +68,7 @@ function UpdateDetailsComponent({ setUser }) {
     }
 
     if (!user) {
-        return <div>{t("g4welcome")}</div>;
+        return <div>{t("UPwelcome")}</div>;
     }
 
     function toggleVisibility(setVisibilityState) {

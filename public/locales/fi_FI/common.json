@@ -49,5 +49,17 @@
     "NavbarRegister": "Rekisteröidy",
     "NavbarSignOut": "Kirjaudu ulos",
     "NavbarLevels": "Tasot",
-    "NavbarAdmin": "Admin"
+    "NavbarAdmin": "Admin",
+    "G4wrong": "Väärin, yritä uudelleen!",
+    "G4wrong2": "Vastasit väärin. Oikea vastaus oli {{correctOption}}",
+    "G4correct": "Oikein!",
+    "G4pick": "Valitse oikea sana",
+    "G4listen": "Kuuntele",
+    "G4ready": "Harjoitus valmis",
+    "G4scored": "Sait pisteitä: ",
+    "G4totalPoints": "Kokonaispisteesi: ",
+    "G4atLevel": "Olet tehtävätasolla ",
+    "G4score2": "Tämän tehtävän pisteet: ",
+    "G4backHome": "Takaisin kotisivulle",
+    "G4previous": "Edellinen kysymys"
 }
