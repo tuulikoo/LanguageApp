@@ -40,7 +40,7 @@ const ExerciseComponent = () => {
 
     const [currentWordList, setCurrentWordList] = useState([]);
     const [inputWord, setInputWord] = useState("");
-    const [, setAudioURL] = useState(null);
+    const setAudioURL = useState(null);
     const [result, setResult] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0); // Initialize to 0 initially
     const [isLoading, setIsLoading] = useState(false);
@@ -112,7 +112,6 @@ const ExerciseComponent = () => {
 
         return currentWordList.indexOf(newWord);
     };
-
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -141,6 +140,12 @@ const ExerciseComponent = () => {
 
         fetchData();
     }, [userPointsState, currentWordListKey]);
+
+    const handleInputChange = (e) => {
+        setInputWord(e.target.value);
+    };
+
+
 
     const setNextWord = useCallback(() => {
         const newIndex = getNextWordIndex();
@@ -186,18 +191,19 @@ const ExerciseComponent = () => {
     );
 
 
-
-    const ExerciseForm = ({ t, inputWord, onInputChange, onSubmit }) => (
+    const ExerciseForm = ({ t, inputWord, handleInputChange, onSubmit }) => (
         <form onSubmit={onSubmit}>
             <input
                 className={styles.input}
                 value={inputWord}
-                onChange={(e) => onInputChange(e.target.value)}
+                onChange={handleInputChange}
                 placeholder={t("G2Placeholder")}
             />
             <button type="submit"></button>
         </form>
     );
+
+
 
     const ResultDisplay = ({ result, t }) => (
         result && (
