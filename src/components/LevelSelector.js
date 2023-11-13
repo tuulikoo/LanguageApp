@@ -122,8 +122,6 @@ const LevelSelector = () => {
     const initialLanguage = formatLanguageCode(getSelectedLanguage());
     const [currentLanguage, setCurrentLanguage] = useState(initialLanguage);
 
-
-
     // Initialize language states for each level
     const [languageStates, setLanguageStates] = useState(
         Array(levelsData.length).fill(formatLanguageCode()),
@@ -147,21 +145,22 @@ const LevelSelector = () => {
         return languages[(currentIndex + 1) % languages.length];
     };
 
-    const getLanguageContent = (level) => {
-        const language = level.title[currentLanguage] ? currentLanguage : "english";
+    const getLanguageContent = (level, index) => {
+        // Use the language from the languageStates for each specific level
+        const language = languageStates[index];
         return {
-            title: level.title[language],
-            description: level.description[language],
+            title: level.title[language] || level.title.english,
+            description: level.description[language] || level.description.english,
         };
     };
+
 
     return (
         <div className={styles.levels_container}>
             <ul className={styles.levels_list}>
                 {levelsData.map((level, index) => {
                     const { title, description } = getLanguageContent(
-                        level,
-                        languageStates[index],
+                        level, index
                     );
 
                     return (
