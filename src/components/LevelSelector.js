@@ -122,6 +122,8 @@ const LevelSelector = () => {
         }
     };
 
+
+
     // Initialize language states for each level
     const [languageStates, setLanguageStates] = useState(
         Array(levelsData.length).fill(formatLanguageCode()),
@@ -149,6 +151,7 @@ const LevelSelector = () => {
         title: level.title[language],
         description: level.description[language],
     });
+
 
     return (
         <div className={styles.levels_container}>
@@ -189,6 +192,6 @@ const LevelSelector = () => {
             </ul>
         </div>
     );
-};
+}
 
 export default LevelSelector;
