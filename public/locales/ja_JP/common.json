@@ -45,5 +45,14 @@
     "NavbarAdmin": "管理者",
     "G4wrong": "間違えた、もう一度！",
     "G4wrong2": "あなたは間違った答えをしました。正解は{{correctOption}}でした。",
-    "G4correct": "その通りだ！!"
+    "G4correct": "その通りだ！!",
+    "G4pick": "正しい言葉を選ぶ",
+    "G4listen": "聴く",
+    "G4ready": "エクササイズ完了",
+    "G4scored": "あなたの得点: ",
+    "G4totalPoints": "あなたの合計ポイント：",
+    "G4atLevel": "あなたはタスクレベルにいます",
+    "G4score2": "このタスクのスコア: ",
+    "G4backHome": "ホームに戻る",
+    "G4previous": "前の質問"
 }

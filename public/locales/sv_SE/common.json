@@ -45,5 +45,17 @@
     "NavbarAdmin": "Admin",
     "G4wrong": "Fel, försök igen!",
     "G4wrong2": "Du svarade fel. Det rätta svaret var {{correctOption}}",
-    "G4correct": "Korrekt!"
+    "G4correct": "Korrekt!",
+    "G4pick": "Välj rätt ord",
+    "G4listen": "Lyssna",
+    "G4ready": "Träning färdig",
+    "G4scored": "Du fick poäng: ",
+    "G4totalPoints": "Din totala poäng: ",
+    "G4atLevel": "Du befinner dig på uppgiftsnivå ",
+    "G4score2": "Poäng för denna uppgift: ",
+    "G4backHome": "Tillbaka till startsidan",
+    "G4previous": "Tidigare fråga"
+
+
+
 }
