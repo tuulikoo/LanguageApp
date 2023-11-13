@@ -41,7 +41,7 @@ Enter Password
     Fill Text    id=login_password    txt=${PASSWORD}
 
 Submit Login Form
-    Click    id=loginButton
+    Click    id=login_loginButton
 
 Verify That MainPage Is Visible
     Get Url    ==    ${MAINURL}
@@ -50,17 +50,17 @@ Navigate to Userpage
     Click    .Navbar_avatarButton__FSunb
 
 Verify That UserPage Is Visible
-    Get Text    body    contains    UPfirstName
+    Get Text    body    contains    Etunimesi on
     Get Url    ==    ${USERURL}
 
 Verify Delete-button exists
-    Get Text    body    contains    UPdelete
+    Get Text    body    contains    Poista tietoni
 
 Click Delete-button
     Click    xpath=//*[@id="section-container"]/div[3]/button
 
 Verify Confirm Deletion Text Appears
-    Get Text    body    contains    UPconfirmDelete
+    Get Text    body    contains    Haluatko varmasti poistaa tilisi
 
 Click Confirm Deletion-button
     Click    xpath=//*[@id="section-container"]/div[4]/div/button[1]
