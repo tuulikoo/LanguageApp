@@ -14,6 +14,7 @@ import wordPairs from "../utils/wordlists/Game5wordlist.json";
 import styles from "../styles/Game5.module.scss";
 import updateUserPoints from "../helpers/PointAdder";
 import { useUser } from "@/utils/userContext";
+import { useTranslation } from "react-i18next";
 
 function Game5() {
     const [currentPair, setCurrentPair] = useState(null);
@@ -22,6 +23,7 @@ function Game5() {
     const [openSnackbar, setOpenSnackbar] = useState(false);
     const [, setUserpoints] = useState(0);
     const { user } = useUser();
+    const { t } = useTranslation();
 
     useEffect(() => {
         loadNewQuestion();
@@ -93,7 +95,7 @@ function Game5() {
                                                 ? styles.hasWord
                                                 : styles.wrongAnswer
                                             : styles.empty
-                                            }`}
+                                        }`}
                                     >
                                         {droppedWords[index]}
                                     </Box>
@@ -124,7 +126,7 @@ function Game5() {
                             className={styles.playButton}
                             onClick={speakSentence}
                         >
-                            Kuuntele lause
+                            {t("G5play")}
                         </Button>
 
                         <Button
@@ -132,7 +134,7 @@ function Game5() {
                             className={styles.nextButton}
                             onClick={loadNewQuestion}
                         >
-                            Suraava
+                            {t("G5next")}
                         </Button>
                     </div>
 
@@ -146,7 +148,7 @@ function Game5() {
                             severity="success"
                             className={styles.feedback}
                         >
-                            Oikein!
+                            {t("G5correct")}
                         </Alert>
                     </Snackbar>
                 </>
