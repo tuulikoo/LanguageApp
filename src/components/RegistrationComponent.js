@@ -66,7 +66,7 @@ function RegistrationForm() {
 
             {[
                 {
-                    label: t("RegUsername"),
+                    label: t("Username"),
                     type: "text",
                     id: "username",
                     validation: { required: t("RegUsernameRequired") },
@@ -90,7 +90,7 @@ function RegistrationForm() {
                     validation: { required: t("RegFirstnameRequired") },
                 },
                 {
-                    label: t("RegPassword"),
+                    label: t("Password"),
                     type: "password",
                     id: "password",
                     validation: {
