@@ -50,14 +50,17 @@ const Level1 = () => {
                 {selectedCategory && (
                     <div className={styles.flashcardContainer}>
 
-                        <h2 className={`${styles.selectedCategoryTitle} font-custom`}>{selectedCategory}</h2>
+                        {/* Dynamic title based on selectedCategory */}
+                        <h2 className={`${styles.selectedCategoryTitle} font-custom`}>
+                            {selectedCategory === 'people' && t("people")}
+                            {selectedCategory === 'food' && t("food")}
+                            {selectedCategory === 'animals' && t("animals")}
+                        </h2>
 
                         <FlashcardDeckComponent flashcards={flashcardsData.flashcards[selectedCategory]} />
                     </div>
                 )}
             </div>
-
-
         </div>
     );
 };

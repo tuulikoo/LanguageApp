@@ -77,5 +77,8 @@
     "RegNewUser": "Ny användare",
     "InsertUser": "Ange användarnamn",
     "InsertPassword": "Ange lösenord",
-    "Logga in": "Logga in"
+    "Logga in": "Logga in",
+    "people": "människor",
+    "food": "mat",
+    "animals": "djur"
 }
