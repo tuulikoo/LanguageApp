@@ -21,18 +21,34 @@ Verify new email is saved after updating it to user-details
     Navigate to Userpage
     Sleep    4s    just to check if page opened
     Verify That UserPage Is Visible
-    Verify Delete-button exists
-    Click Delete-button
-    Verify Confirm Deletion Text Appears
-    Click Confirm Deletion-button
-    Sleep    10s
-    Verify That MainPage Is Visible
+    Open adjust-fields
+    Sleep    4s
+    Open email input fields
+    Enter new setup email
+    Sleep    2s    just to check if page opened
+    Save new email
+    Sleep    7s
+    Verify current email-address
+    Sleep    2s
+    Reload Page
+    Sleep    3s
+    Open adjust-fields
+    Open email input fields
+    Enter new email
+    Save new email
+    Sleep    6s
+    Reload Page
+    Sleep    5s    just to check if page opened
+    Verify That email has been updated
 
 
 *** Keywords ***
 Open Browser To Login Page
     New Browser    headless=${True}
     New Page    ${LOGINURL}
+
+Wait for Login Page
+    Get Url    ==    ${LOGINURL}
 
 Enter Username
     Fill Text    id=login_username    txt=${USERNAME}
@@ -53,14 +69,32 @@ Verify That UserPage Is Visible
     Get Text    body    contains    Etunimesi on
     Get Url    ==    ${USERURL}
 
-Verify Delete-button exists
-    Get Text    body    contains    Poista tietoni
+Verify current email-address
+    Get Text    body    contains    test@test.com
 
-Click Delete-button
-    Click    xpath=//*[@id="section-container"]/div[3]/button
+Open adjust-fields
+    Click    id=adjust
 
-Verify Confirm Deletion Text Appears
-    Get Text    body    contains    Haluatko varmasti poistaa tilisi
+Open email input fields
+    Click    id=email
 
-Click Confirm Deletion-button
-    Click    xpath=//*[@id="section-container"]/div[4]/div/button[1]
+Enter new setup email
+    Fill Text    id=emailinput    txt=test@test.com
+
+Enter new email
+    Fill Text    id=emailinput    txt=updated@test.com
+
+Save new email
+    Click    id=saveButton
+
+Sign out
+    Click    id=signout
+
+Verify That Login Page Is Visible
+    Get Url    ==    ${LOGINURL}/
+
+Verify That email has been updated
+    Get Text    body    contains    on updated@test.com
+
+Reload Page
+    Browser.Reload

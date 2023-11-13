@@ -25,7 +25,7 @@ Verify new email is saved after updating it to user-details
     Click Delete-button
     Verify Confirm Deletion Text Appears
     Click Confirm Deletion-button
-    Sleep    10s
+    Sleep    3s
     Verify That MainPage Is Visible
 
 
