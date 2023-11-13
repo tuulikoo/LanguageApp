@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "@/styles/LevelSelector.module.scss";
 import { Button } from "@mui/material";
 import { RefreshOutlined } from "@mui/icons-material";
@@ -105,13 +105,8 @@ const levelsData = [
 ];
 
 const LevelSelector = () => {
-
-    const languages = ["finnish", "english", "swedish", "japanese"];
-
     const formatLanguageCode = () => {
-        switch (
-        getSelectedLanguage()
-        ) {
+        switch (getSelectedLanguage()) {
             case "fi_FI":
                 return "finnish";
             case "sv_SE":
@@ -122,6 +117,10 @@ const LevelSelector = () => {
                 return "english";
         }
     };
+
+    const languages = ["finnish", "english", "swedish", "japanese"];
+    const initialLanguage = formatLanguageCode(getSelectedLanguage());
+    const [currentLanguage, setCurrentLanguage] = useState(initialLanguage);
 
 
 
@@ -148,11 +147,13 @@ const LevelSelector = () => {
         return languages[(currentIndex + 1) % languages.length];
     };
 
-    const getLanguageContent = (level, language) => ({
-        title: level.title[language],
-        description: level.description[language],
-    });
-
+    const getLanguageContent = (level) => {
+        const language = level.title[currentLanguage] ? currentLanguage : "english";
+        return {
+            title: level.title[language],
+            description: level.description[language],
+        };
+    };
 
     return (
         <div className={styles.levels_container}>
@@ -193,6 +194,6 @@ const LevelSelector = () => {
             </ul>
         </div>
     );
-}
+};
 
 export default LevelSelector;
