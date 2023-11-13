@@ -50,7 +50,7 @@ export default function Login() {
             <h2 className={styles.loginHeader}>{t("SignIn")}</h2>
             <form onSubmit={handleSubmit(onSubmit)} className={loginError ? styles.shake : ''}>
                 <div className={styles.inputGroup}>
-                    <label htmlFor="login_username">{t("Username")}</label>
+                    <label htmlFor="login_username">{t("SignInUsername")}</label>
                     <input
                         type="text"
                         id="login_username"
@@ -60,11 +60,11 @@ export default function Login() {
                     {errors.username && <p className={styles.error}>{errors.username.message}</p>}
                 </div>
                 <div className={styles.inputGroup}>
-                    <label htmlFor="login_password">{t("Password")}</label>
+                    <label htmlFor="login_password">{t("SignInPassword")}</label>
                     <input
                         type="password"
                         id="login_password"
-                        {...register('password', { required: t("InsertPassword") })}
+                        {...register('password', { required: t('SignInsertPassword') })}
                         className={errors.password ? styles.formControlError : styles.formControl}
                     />
                     {errors.password && <p className={styles.error}>{errors.password.message}</p>}

@@ -63,9 +63,9 @@
     "G4backHome": "Takaisin kotisivulle",
     "G4previous": "Edellinen kysymys",
     "G2correct": "Oikein!",
-    "G2wrong": "Väärin, yritä uudelleen!",
-    "G2next": "Seuraava",
-    "G2placeholder": "Kirjoita vastaus tähän",
+    "G2Wrong": "Väärin, yritä uudelleen!",
+    "G2Next": "Seuraava",
+    "G2Placeholder": "Kirjoita vastaus tähän",
     "G5play": "Kuuntele lause",
     "G5correct": "Oikein!",
     "G5next": "Seuraava",
@@ -95,5 +95,9 @@
     "RegChooseFriend": "Valitse kaverisi",
     "Loading": "Ladataan...",
     "RegNewUser": "Uusi käyttäjä",
-    "SignIn": "Kirjaudu sisään"
+    "SignIn": "Kirjaudu sisään",
+    "SignInUsername": "Käyttäjänimi",
+    "SignInPassword": "Salasana",
+    "SignInsertPassword": "Kirjoita salasana",
+    "Login": "Kirjaudu"
 }

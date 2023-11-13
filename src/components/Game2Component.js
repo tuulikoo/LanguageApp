@@ -178,9 +178,45 @@ const ExerciseComponent = () => {
             handleCorrectAnswer,
             t,
         ],
+    )
+    const AudioButton = ({ onPlay }) => (
+        <button className={styles.audioButton} onClick={onPlay}>
+            <img src="images/audio.png" alt="Play Audio" />
+        </button>
     );
+
+
+
+    const ExerciseForm = ({ t, inputWord, onInputChange, onSubmit }) => (
+        <form onSubmit={onSubmit}>
+            <input
+                className={styles.input}
+                value={inputWord}
+                onChange={(e) => onInputChange(e.target.value)}
+                placeholder={t("G2Placeholder")}
+            />
+            <button type="submit"></button>
+        </form>
+    );
+
+    const ResultDisplay = ({ result, t }) => (
+        result && (
+            <p
+                className={`${styles.result} ${result === t("G2correct") ? styles.correct : styles.incorrect}`}
+            >
+                {result}
+            </p>
+        )
+    );
+
+    const NextButton = ({ onNext, t }) => (
+        <button className={styles.nextButton} onClick={onNext}>
+            {t("G2Next")}
+        </button>
+    );
+
     return (
-        <div className={styles.container} t={t}>
+        <div className={styles.container}>
             {isLoading ? (
                 <CircularProgress />
             ) : (
@@ -189,21 +225,16 @@ const ExerciseComponent = () => {
                         <div className={styles.correctMessage}>{t("G2correct")}</div>
                     ) : (
                         <>
-                            <AudioButton onPlay={playAudio} />
-                            <div
-                                id="spoken-word"
-                                data-spoken-word={currentWordList[currentIndex]}
-                            ></div>
+                            <AudioButton onPlay={() => playAudio(currentIndex, currentWordList, setAudioURL)} />
+                            <div id="spoken-word" data-spoken-word={currentWordList[currentIndex]}></div>
                             <ExerciseForm
                                 t={t}
                                 inputWord={inputWord}
                                 onInputChange={setInputWord}
-                                onSubmit={handleSubmit}
+                                onSubmit={(e) => handleSubmit(e, inputWord, currentIndex, currentWordList, setResult, setShowCorrect)}
                             />
                             <ResultDisplay result={result} t={t} />
-                            {currentIndex < currentWordList.length - 1 && (
-                                <NextButton onNext={setNextWord} />
-                            )}
+                            <NextButton onNext={() => setNextWord(currentIndex, setCurrentIndex, currentWordList)} t={t} />
                         </>
                     )}
                 </>
@@ -211,38 +242,7 @@ const ExerciseComponent = () => {
         </div>
     );
 };
-const AudioButton = ({ onPlay }) => (
-    <button className={styles.audioButton} onClick={onPlay}>
-        <img src="images/audio.png" alt="Play Audio" />
-    </button>
-);
-
-const ExerciseForm = ({ t, inputWord, onInputChange, onSubmit }) => (
-    <form onSubmit={onSubmit}>
-        <input
-            className={styles.input}
-            value={inputWord}
-            onChange={(e) => onInputChange(e.target.value)}
-            placeholder={t("G2placeholder")}
-        />
-        <button type="submit"></button>
-    </form>
-);
-
-const ResultDisplay = ({ result, t }) =>
-    result && (
-        <p
-            className={`${styles.result} ${result === t("G2correct") ? styles.correct : ""
-                }`}
-        >
-            {result}
-        </p>
-    );
-
-const NextButton = ({ onNext, t }) => (
-    <button className={styles.seuraavaButton} onClick={onNext}>
-        {t("G2next")}
-    </button>
-);
 
 export default ExerciseComponent;
+
+
