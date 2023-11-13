@@ -59,5 +59,20 @@
     "FCchooseCategory":"どのフラッシュカードのカテゴリーを勉強しますか？",
     "FCanimals": "動物",
     "FCfood": "食べ物",
-    "FCpeople": "人"
+    "FCpeople": "人",
+    "RegUsername": "ユーザー名",
+    "RegUsernameRequired": "ユーザー名必須",
+    "RegEmail": "メールアドレス",
+    "RegEmailRequired": "メールアドレス必須",
+    "RegEmailWrong": "メールアドレスが正しい形式ではありません",
+    "RegFirstname": "あなたのファーストネーム",
+    "RegFirstnameRequired": "姓は必須です",
+    "RegPassword": "パスワード",
+    "RegPasswordRequired":"パスワード必須」",
+    "RegPasswordLength": "パスワードは8文字以上でなければなりません",
+    "RegChooseLang": "言語を選択",
+    "RegChangeFriend": "友達を変更",
+    "RegChooseFriend": "友達を選択",
+    "Loading": "ロード中...",
+    "RegNewUser": "新しいユーザー"
 }

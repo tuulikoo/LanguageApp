@@ -59,8 +59,20 @@
     "FCchooseCategory": "Vilken flashcard-kategori vill du studera?",
     "FCanimals": "Djur",
     "FCfood": "Livsmedel",
-    "FCpeople": "Människor"
-
-
-
+    "FCpeople": "Människor",
+    "RegUsername": "Användarnamn",
+    "RegUsernameRequired": "Användarnamn krävs",
+    "RegEmail": "E-post",
+    "RegEmailRequired": "E-postadress krävs",
+    "RegEmailWrong": "E-postadressen är inte i rätt format",
+    "RegFirstname": "Ditt förnamn",
+    "RegFirstnameRequired": "Förnamn krävs",
+    "RegPassword": "Lösenord",
+    "RegPasswordRequired": "Lösenord krävs",
+    "RegPasswordLength": "Lösenordet måste vara minst 8 tecken långt",
+    "RegChooseLang": "Välj språk",
+    "RegChangeFriend": "Ändra vän",
+    "RegChooseFriend": "Välj din vän",
+    "Loading": "Laddar...",
+    "RegNewUser": "Ny användare"
 }

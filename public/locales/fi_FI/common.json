@@ -66,5 +66,24 @@
     "FCchooseCategory": "Mitä flashcard kategoriaa haluat opiskella?",
     "FCanimals": "Eläimet",
     "FCfood": "Ruoka",
-    "FCpeople": "Ihmiset"
+    "FCpeople": "Ihmiset",
+    "RegUsername": "Käyttäjänimi",
+    "RegUsernameRequired": "Käyttäjänimi tarvitaan",
+    "RegEmail": "Sähköposti",
+    "RegEmailRequired": "Sähköpostiosoite tarvitaan",
+    "RegEmailWrong": "Sähköpostiosoite ei ole oikeassa muodossa",
+    "RegFirstname": "Etunimesi",
+    "RegFirstnameRequired": "Etunimi tarvitaan",
+    "RegPassword": "Salasana",
+    "RegPasswordRequired": "Salasana tarvitaan",
+    "RegPasswordLength": "Salasanan pitää olla vähintään 8 merkkiä",
+    "RegChooseLang": "Valitse kieli",
+    "RegChangeFriend": "Vaihda Kaveria",
+    "RegChooseFriend": "Valitse kaverisi",
+    "Loading": "Ladataan...",
+    "RegNewUser": "Uusi käyttäjä"
+
+
+
+
 }

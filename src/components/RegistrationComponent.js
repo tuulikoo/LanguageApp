@@ -3,10 +3,12 @@ import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import styles from "../styles/RegistrationForm.module.scss";
+import {useTranslation} from "react-i18next";
 
 
 
 function RegistrationForm() {
+    const { t } = useTranslation();
     const {
         register,
         handleSubmit,
@@ -64,36 +66,36 @@ function RegistrationForm() {
 
             {[
                 {
-                    label: "Käyttäjänimi",
+                    label: t("RegUsername"),
                     type: "text",
                     id: "username",
-                    validation: { required: "Käyttäjänimi tarvitaan" },
+                    validation: { required: t("RegUsernameRequired") },
                 },
                 {
-                    label: "Sähköposti",
+                    label: t("RegEmail"),
                     type: "email",
                     id: "email",
                     validation: {
-                        required: "Sähköpostiosoite tarvitaan",
+                        required: t("RegEmailRequired"),
                         pattern: {
                             value: /\S+@\S+\.\S+/,
-                            message: "Sähköpostiosoite ei ole oikeassa muodossa",
+                            message: t("RegEmailWrong"),
                         },
                     },
                 },
                 {
-                    label: "Etunimesi",
+                    label: t("RegFirstname"),
                     type: "text",
                     id: "firstName",
-                    validation: { required: "Etunimi tarvitaan" },
+                    validation: { required: t("RegFirstnameRequired") },
                 },
                 {
-                    label: "Salasana",
+                    label: t("RegPassword"),
                     type: "password",
                     id: "password",
                     validation: {
-                        required: "Salasana tarvitaan",
-                        minLength: { 8: "Salasanan pitää olla vähintään 8 merkkiä" },
+                        required: t("RegPasswordRequired"),
+                        minLength: { 8: t("RegPasswordLength") },
                     },
                 },
             ].map((field) => (
@@ -110,42 +112,50 @@ function RegistrationForm() {
                 </div>
             ))}
             <div className={styles.languageSelection}>
-                <label>Valitse kieli:</label>
-                <input
-                    type="radio"
-                    name="language"
-                    value="fi_FI"
-                    id="language-fi"
-                    {...register("language", { required: "Select a language" })}
-                    checked={selectedLanguage === "fi_FI"}
-                    onChange={() => setSelectedLanguage("fi_FI")}
-                />
-                <label htmlFor="language-fi">
-                    <img src="https://cdn.pixabay.com/photo/2020/02/28/02/21/finland-4886331_1280.png" style={{ maxWidth: "60px" }} alt="Finnish Flag" />
-                </label>
-                <input
-                    type="radio"
-                    name="language"
-                    value="sv_SE"
-                    id="language-se"
-                    {...register("language", { required: "Select a language" })}
-                    checked={selectedLanguage === "sv_SE"}
-                    onChange={() => setSelectedLanguage("sv_SE")}
-                />
-                <label htmlFor="language-se"></label>
-                <img src="https://cdn.pixabay.com/photo/2014/02/03/20/48/flag-257636_1280.png" style={{ maxWidth: "60px" }} alt="Swedish Flag" />
-                <input
-                    type="radio"
-                    name="language"
-                    value="ja_JP"
-                    id="language-jp"
-                    {...register("language", { required: "Select a language" })}
-                    checked={selectedLanguage === "ja_JP"}
-                    onChange={() => setSelectedLanguage("ja_JP")}
-                />
-                <label htmlFor="language-jp"></label>
-                <img src="https://cdn.pixabay.com/photo/2012/04/13/12/23/flag-32177_1280.png" style={{ maxWidth: "60px" }} alt="Japanese Flag" />
-            </div>
+    <label>{t("RegChooseLang")}</label>
+    <div>
+        <input
+            type="radio"
+            name="language"
+            value="fi_FI"
+            id="language-fi"
+            {...register("language", { required: "Select a language" })}
+            checked={selectedLanguage === "fi_FI"}
+            onChange={() => setSelectedLanguage("fi_FI")}
+        />
+        <label htmlFor="language-fi">
+            <img src="https://cdn.pixabay.com/photo/2020/02/28/02/21/finland-4886331_1280.png" style={{ maxWidth: "60px" }} alt="Finnish Flag" />
+        </label>
+    </div>
+    <div>
+        <input
+            type="radio"
+            name="language"
+            value="sv_SE"
+            id="language-se"
+            {...register("language", { required: "Select a language" })}
+            checked={selectedLanguage === "sv_SE"}
+            onChange={() => setSelectedLanguage("sv_SE")}
+        />
+        <label htmlFor="language-se">
+            <img src="https://cdn.pixabay.com/photo/2014/02/03/20/48/flag-257636_1280.png" style={{ maxWidth: "60px" }} alt="Swedish Flag" />
+        </label>
+    </div>
+    <div>
+        <input
+            type="radio"
+            name="language"
+            value="ja_JP"
+            id="language-jp"
+            {...register("language", { required: "Select a language" })}
+            checked={selectedLanguage === "ja_JP"}
+            onChange={() => setSelectedLanguage("ja_JP")}
+        />
+        <label htmlFor="language-jp">
+            <img src="https://cdn.pixabay.com/photo/2012/04/13/12/23/flag-32177_1280.png" style={{ maxWidth: "60px" }} alt="Japanese Flag" />
+        </label>
+    </div>
+</div>
             <input
                 type="hidden"
                 validation={{ required: "Valitse avatar" }}
@@ -184,10 +194,10 @@ function RegistrationForm() {
                     type="submit"
                     disabled={loading}
                 >
-                    {loading ? "Ladataan..." : "Uusi käyttäjä"}
+                    {loading ? t("Loading"): t("RegNewUser")}
                 </button>
                 <button className={styles.selectAvatarButton} type="button" onClick={() => setIsModalOpen(true)}>
-                    {selectedAvatar ? "Vaihda Kaveria" : "Valitse Kaverisi"}
+                    {selectedAvatar ? t("RegChangeFriend") : t("RegChooseFriend")}
                 </button>
 
             </div>
