@@ -99,5 +99,7 @@
     "SignInUsername": "Käyttäjänimi",
     "SignInPassword": "Salasana",
     "SignInsertPassword": "Kirjoita salasana",
-    "Login": "Kirjaudu"
+    "Login": "Kirjaudu",
+    "InsertUser": "Kirjoita käyttäjänimi",
+    "LoginError": "Väärä käyttäjänimi tai salasana"
 }

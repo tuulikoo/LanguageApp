@@ -93,5 +93,6 @@
     "Login": "ログイン",
     "SignInUsername": "ユーザー名",
     "SignInPassword": "パスワード",
-    "SigninInsertPassword": "パスワードを入力してください"
+    "SignInsertPassword": "パスワードを入力してください",
+    "LoginError": "ユーザー名またはパスワードの間違い"
 }
