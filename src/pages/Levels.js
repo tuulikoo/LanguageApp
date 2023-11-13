@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styles from "@/styles/Levels.module.css";
-import { Button, Link } from "@mui/material";
+import { Button } from "@mui/material";
 import { RefreshOutlined } from "@mui/icons-material";
 import { useUser } from "@/utils/userContext";
 import { useTranslation } from "react-i18next";
+import Link from "next/link";
 
 const levelsData = [
     {

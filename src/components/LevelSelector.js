@@ -1,9 +1,10 @@
 import { useState } from "react";
 import styles from "@/styles/LevelSelector.module.scss";
-import { Button, Link as MuiLink } from "@mui/material";
+import { Button } from "@mui/material";
 import { RefreshOutlined } from "@mui/icons-material";
 import Image from "next/image";
 import { getSelectedLanguage } from "@/utils/selectedLanguage";
+import Link from "next/link";
 
 const levelsData = [
     {
@@ -164,7 +165,7 @@ const LevelSelector = () => {
 
                     return (
                         <li key={index} className={styles.levels_item}>
-                            <MuiLink href={level.route} className={styles.levels_link}>
+                            <Link href={level.route} className={styles.levels_link}>
                                 <Image
                                     src={level.image}
                                     alt="level"
@@ -185,7 +186,7 @@ const LevelSelector = () => {
                                 >
                                     {getNextLanguage(languageStates[index])}
                                 </Button>
-                            </MuiLink>
+                            </Link>
                         </li>
                     );
                 })}
