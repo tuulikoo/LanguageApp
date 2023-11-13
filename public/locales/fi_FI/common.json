@@ -61,5 +61,10 @@
     "G4atLevel": "Olet tehtävätasolla ",
     "G4score2": "Tämän tehtävän pisteet: ",
     "G4backHome": "Takaisin kotisivulle",
-    "G4previous": "Edellinen kysymys"
+    "G4previous": "Edellinen kysymys",
+    "FClevel1": "Taso 1 Flashcards",
+    "FCchooseCategory": "Mitä flashcard kategoriaa haluat opiskella?",
+    "FCanimals": "Eläimet",
+    "FCfood": "Ruoka",
+    "FCpeople": "Ihmiset"
 }

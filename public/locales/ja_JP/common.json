@@ -54,5 +54,10 @@
     "G4atLevel": "あなたはタスクレベルにいます",
     "G4score2": "このタスクのスコア: ",
     "G4backHome": "ホームに戻る",
-    "G4previous": "前の質問"
+    "G4previous": "前の質問",
+    "FClevel1": "レベル1フラッシュカード",
+    "FCchooseCategory":"どのフラッシュカードのカテゴリーを勉強しますか？",
+    "FCanimals": "動物",
+    "FCfood": "食べ物",
+    "FCpeople": "人"
 }

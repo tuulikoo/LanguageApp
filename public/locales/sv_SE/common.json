@@ -54,7 +54,12 @@
     "G4atLevel": "Du befinner dig på uppgiftsnivå ",
     "G4score2": "Poäng för denna uppgift: ",
     "G4backHome": "Tillbaka till startsidan",
-    "G4previous": "Tidigare fråga"
+    "G4previous": "Tidigare fråga",
+    "FClevel1": "Nivå 1 Flashcards",
+    "FCchooseCategory": "Vilken flashcard-kategori vill du studera?",
+    "FCanimals": "Djur",
+    "FCfood": "Livsmedel",
+    "FCpeople": "Människor"
 
 
 
