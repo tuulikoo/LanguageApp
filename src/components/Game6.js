@@ -12,6 +12,7 @@ import { textToSpeech } from "@/utils/mimicApi";
 import styles from "../styles/Game6Component.module.scss";
 import updateUserPoints from "../helpers/PointAdder";
 import { useUser } from "@/utils/userContext";
+import { useTranslation } from "react-i18next";
 
 function GameStoryComponent() {
     const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
@@ -21,6 +22,7 @@ function GameStoryComponent() {
     const [isStoryStarted, setIsStoryStarted] = useState(false);
     const [isTextRevealed, setIsTextRevealed] = useState(false);
     const { user } = useUser();
+    const { t } = useTranslation();
 
     const loadNewStory = () => {
         setCurrentStoryIndex((prevIndex) => (prevIndex + 1) % stories.length);
@@ -58,17 +60,17 @@ function GameStoryComponent() {
 
     const handleSubmit = () => {
         if (selectedAnswer == stories[currentStoryIndex].correctAnswer) {
-            setFeedback("Oikein");
+            setFeedback(t("G6correct"));
             updateUserPoints(user.id, 2);
         } else {
-            setFeedback("Väärin, yritä uudelleen");
+            setFeedback(t("G6incorrect"));
         }
     };
 
     return (
         <Container className={styles.container}>
             <Typography variant="h5" gutterBottom>
-                Kuuntele lyhyt tarina ja valitse vastaus tarinan mukaan
+                {t("G6title")}
             </Typography>
             {!isStoryStarted ? (
                 <div className={styles.startButton}>
@@ -77,7 +79,7 @@ function GameStoryComponent() {
                         variant="contained"
                         className={styles.primaryButton}
                     >
-                        Aloita Tarina
+                        {t("G6start")}
                     </Button>
                 </div>
             ) : (
@@ -113,7 +115,7 @@ function GameStoryComponent() {
                                     variant="contained"
                                     className={styles.primaryButton}
                                 >
-                                    Vastaa
+                                    {t("G6submit")}
                                 </Button>
                                 <Button
                                     onClick={loadNewStory}
@@ -121,7 +123,7 @@ function GameStoryComponent() {
                                     style={{ marginLeft: "10px" }}
                                     className={styles.primaryButton}
                                 >
-                                    Seuraava tarina
+                                    {t("G6next")}
                                 </Button>
                             </>
                         )}

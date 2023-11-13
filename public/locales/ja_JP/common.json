@@ -54,5 +54,18 @@
     "G4atLevel": "あなたはタスクレベルにいます",
     "G4score2": "このタスクのスコア: ",
     "G4backHome": "ホームに戻る",
-    "G4previous": "前の質問"
+    "G4previous": "前の質問",
+    "G2correct": "オイケイン！",
+    "G2wrong": "虐待！",
+    "G2next": "次のページ",
+    "G2placeholder": "ここに文章を書く",
+    "G5play": "文章を聞く",
+    "G5correct": "オイケイン！",
+    "G5next": "次のページ",
+    "G6correct": "オイケイン！",
+    "G6wrong": "虐待！",
+    "G6title": "話を聞き、質問に答える",
+    "G6start": "開始",
+    "G6submit": "提出",
+    "G6next": "次のページ"
 }

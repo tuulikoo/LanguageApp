@@ -1,8 +1,9 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { useUser } from '@/utils/userContext';
-import { convertTextToSpeech } from '@/utils/mimicApi';
-import styles from '../styles/Exec.module.scss';
-import CircularProgress from '@mui/material/CircularProgress';
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { useUser } from "@/utils/userContext";
+import { convertTextToSpeech } from "@/utils/mimicApi";
+import styles from "../styles/Exec.module.scss";
+import CircularProgress from "@mui/material/CircularProgress";
+import { useTranslation } from "react-i18next";
 
 const POINT_LEVELS = [
     { threshold: 10, key: "listening1.1" },
@@ -31,60 +32,69 @@ const ExerciseComponent = () => {
     const [userPointsState, setUserPointsState] = useState(initialUserPoints);
 
     // Determine the key for fetching the word list regardless of the user's login status
-    const currentWordListKey = useMemo(() => getWordListKey(userPointsState), [userPointsState]);
+    const currentWordListKey = useMemo(
+        () => getWordListKey(userPointsState),
+        [userPointsState],
+    );
 
     const [currentWordList, setCurrentWordList] = useState([]);
-    const [inputWord, setInputWord] = useState('');
+    const [inputWord, setInputWord] = useState("");
     const [, setAudioURL] = useState(null);
     const [result, setResult] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0); // Initialize to 0 initially
     const [isLoading, setIsLoading] = useState(false);
     const [showCorrect, setShowCorrect] = useState(false);
     const [remainingWords, setRemainingWords] = useState(currentWordList);
+    const { t } = useTranslation();
 
     const updateUserPoints = useCallback(async () => {
         const pointsToAdd = 1;
         setIsLoading(true);
         try {
             // Update user points regardless of whether the user is logged in or not
-            const response = await fetch('/api/updatePoints', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userId: user?.id, newPoints: pointsToAdd })
+            const response = await fetch("/api/updatePoints", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ userId: user?.id, newPoints: pointsToAdd }),
             });
 
             if (response.ok) {
                 const data = await response.json();
                 setUserPointsState(data.updatedPoints);
             } else {
-                throw new Error('Failed to update points');
+                throw new Error("Failed to update points");
             }
         } catch (error) {
-            console.error('Error:', error.message);
+            console.error("Error:", error.message);
         }
         setIsLoading(false);
     }, [user?.id]);
 
     const playAudio = useCallback(async () => {
-        console.log('Playing audio...');
-        console.log('Current index:', currentIndex);
-        console.log('Current word list:', currentWordList);
+        console.log("Playing audio...");
+        console.log("Current index:", currentIndex);
+        console.log("Current word list:", currentWordList);
 
         if (currentWordList.length > 0) {
             // Check if currentIndex is valid
             if (currentIndex >= 0 && currentIndex < currentWordList.length) {
-                const audioBlob = await convertTextToSpeech(currentWordList[currentIndex]);
+                const audioBlob = await convertTextToSpeech(
+                    currentWordList[currentIndex],
+                );
                 const objectURL = URL.createObjectURL(audioBlob);
                 setAudioURL(objectURL);
                 new Audio(objectURL).play();
             } else {
                 // If currentIndex is invalid, reset it to a valid index (e.g., 0)
-                const newIndex = Math.max(0, Math.floor(Math.random() * currentWordList.length));
-                console.warn('Resetting index to a valid value:', newIndex);
+                const newIndex = Math.max(
+                    0,
+                    Math.floor(Math.random() * currentWordList.length),
+                );
+                console.warn("Resetting index to a valid value:", newIndex);
                 setCurrentIndex(newIndex);
             }
         } else {
-            console.warn('Cannot play audio: Empty word list.');
+            console.warn("Cannot play audio: Empty word list.");
         }
     }, [currentIndex, currentWordList]);
 
@@ -96,7 +106,9 @@ const ExerciseComponent = () => {
         const randomIndex = Math.floor(Math.random() * remainingWords.length);
         const newWord = remainingWords[randomIndex];
 
-        setRemainingWords(prevWords => prevWords.filter(word => word !== newWord));
+        setRemainingWords((prevWords) =>
+            prevWords.filter((word) => word !== newWord),
+        );
 
         return currentWordList.indexOf(newWord);
     };
@@ -105,21 +117,23 @@ const ExerciseComponent = () => {
         const fetchData = async () => {
             try {
                 setIsLoading(true);
-                const response = await fetch(`/api/getWordsListening?category=${currentWordListKey}`);
+                const response = await fetch(
+                    `/api/getWordsListening?category=${currentWordListKey}`,
+                );
                 if (response.ok) {
                     const words = await response.json();
-                    console.log('Fetched words:', words); // Log the fetched words
+                    console.log("Fetched words:", words); // Log the fetched words
                     setCurrentWordList(words);
 
                     // Set currentIndex after fetching the word list
                     const newIndex = Math.floor(Math.random() * words.length);
-                    console.log('New index:', newIndex); // Log the new index
+                    console.log("New index:", newIndex); // Log the new index
                     setCurrentIndex(newIndex); // Set currentIndex here
                 } else {
-                    throw new Error('Failed to fetch words.');
+                    throw new Error("Failed to fetch words.");
                 }
             } catch (error) {
-                console.error('Error fetching words:', error.message);
+                console.error("Error fetching words:", error.message);
             } finally {
                 setIsLoading(false);
             }
@@ -138,34 +152,62 @@ const ExerciseComponent = () => {
         setResult(null);
         setTimeout(() => {
             setShowCorrect(false);
-            setInputWord('');
+            setInputWord("");
             setNextWord();
         }, 2000);
     }, [setNextWord]);
 
-    const handleSubmit = useCallback(async (e) => {
-        e.preventDefault();
-        if (inputWord.toLowerCase() === currentWordList[currentIndex].toLowerCase()) {
-            await updateUserPoints();
-            handleCorrectAnswer();
-        } else {
-            setInputWord('');
-            setResult('väärin, yritä uudelleen!');
-        }
-    }, [inputWord, currentIndex, currentWordList, updateUserPoints, handleCorrectAnswer]);
+    const handleSubmit = useCallback(
+        async (e) => {
+            e.preventDefault();
+            if (
+                inputWord.toLowerCase() === currentWordList[currentIndex].toLowerCase()
+            ) {
+                await updateUserPoints();
+                handleCorrectAnswer();
+            } else {
+                setInputWord("");
+                setResult(t("G2wrong"));
+            }
+        },
+        [
+            inputWord,
+            currentIndex,
+            currentWordList,
+            updateUserPoints,
+            handleCorrectAnswer,
+        ],
+    );
     return (
         <div className={styles.container}>
-            {isLoading ? <CircularProgress /> :
+            {isLoading ? (
+                <CircularProgress />
+            ) : (
                 <>
-                    {showCorrect ? <div className={styles.correctMessage}>Oikein!</div> :
+                    {showCorrect ? (
+                        <div className={styles.correctMessage}>Oikein!</div>
+                    ) : (
                         <>
                             <AudioButton onPlay={playAudio} />
-                            <div id="spoken-word" data-spoken-word={currentWordList[currentIndex]}></div>
-                            <ExerciseForm inputWord={inputWord} onInputChange={setInputWord} onSubmit={handleSubmit} />
-                            <ResultDisplay result={result} />
-                            {currentIndex < currentWordList.length - 1 && <NextButton onNext={setNextWord} />}
-                        </>}
-                </>}
+                            <div
+                                id="spoken-word"
+                                data-spoken-word={currentWordList[currentIndex]}
+                            ></div>
+                            <ExerciseForm
+                                t={t}
+                                inputWord={inputWord}
+                                onInputChange={setInputWord}
+                                onSubmit={handleSubmit}
+                            />
+                            <ResultDisplay result={result}
+                                t={t} />
+                            {currentIndex < currentWordList.length - 1 && (
+                                <NextButton onNext={setNextWord} />
+                            )}
+                        </>
+                    )}
+                </>
+            )}
         </div>
     );
 };
@@ -175,26 +217,32 @@ const AudioButton = ({ onPlay }) => (
     </button>
 );
 
-const ExerciseForm = ({ inputWord, onInputChange, onSubmit }) => (
+const ExerciseForm = ({ t, inputWord, onInputChange, onSubmit }) => (
     <form onSubmit={onSubmit}>
         <input
             className={styles.input}
             value={inputWord}
             onChange={(e) => onInputChange(e.target.value)}
-            placeholder="Kirjoita kuulemasi sana tähän"
+            placeholder={t("G2placeholder")}
         />
         <button type="submit"></button>
     </form>
 );
 
-const ResultDisplay = ({ result }) => (
+const ResultDisplay = ({ result, t }) =>
     result && (
-        <p className={`${styles.result} ${result === 'Oikein!' ? styles.correct : ''}`}>{result}</p>
-    )
+        <p
+            className={`${styles.result} ${result === t("G2right") ? styles.correct : ""
+                }`}
+        >
+            {result}
+        </p>
+    );
+
+const NextButton = ({ onNext, t }) => (
+    <button className={styles.seuraavaButton} onClick={onNext}>
+        ({t("G2next")}
+    </button>
 );
 
-const NextButton = ({ onNext }) => <button className={styles.seuraavaButton} onClick={onNext}>Seuraava</button>;
-
-
 export default ExerciseComponent;
-

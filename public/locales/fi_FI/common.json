@@ -61,5 +61,18 @@
     "G4atLevel": "Olet tehtävätasolla ",
     "G4score2": "Tämän tehtävän pisteet: ",
     "G4backHome": "Takaisin kotisivulle",
-    "G4previous": "Edellinen kysymys"
+    "G4previous": "Edellinen kysymys",
+    "G2correct": "Oikein!",
+    "G2wrong": "Väärin, yritä uudelleen!",
+    "G2next": "Seuraava",
+    "G2placeholder": "Kirjoita vastaus tähän",
+    "G5play": "Kuuntele lause",
+    "G5correct": "Oikein!",
+    "G5next": "Seuraava",
+    "G6correct": "Oikein!",
+    "G6wrong": "Väärin",
+    "G6title": "Kuuntele tarina ja vastaa kysymyksiin",
+    "G6start": "Aloita",
+    "G6submit": "Vastaa",
+    "G6next": "Seuraava"
 }

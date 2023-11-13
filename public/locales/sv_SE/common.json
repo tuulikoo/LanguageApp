@@ -54,8 +54,18 @@
     "G4atLevel": "Du befinner dig på uppgiftsnivå ",
     "G4score2": "Poäng för denna uppgift: ",
     "G4backHome": "Tillbaka till startsidan",
-    "G4previous": "Tidigare fråga"
-
-
-
+    "G4previous": "Tidigare fråga",
+    "G2correct": "Korrekt!",
+    "G2wrong": "Fel, försök igen!",
+    "G2next": "Nästa fråga",
+    "G2placehold": "Skriv ditt svar här",
+    "G5play": "Spela",
+    "G5correct": "Korrekt!",
+    "G5next": "Nästa fråga",
+    "G6correct": "Korrekt!",
+    "G6wrong": "Fel, försök igen!",
+    "G6title": "yssna på berättelsen och svara på frågor",
+    "G6start": "Starta",
+    "G6submit": "Svara här",
+    "G6next": "Nästa fråga"
 }
