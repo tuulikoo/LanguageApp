@@ -30,7 +30,6 @@ const ExerciseComponent = () => {
     const { user } = useUser();
     const initialUserPoints = user ? user.userPoints : 0;
     const [userPointsState, setUserPointsState] = useState(initialUserPoints);
-    const { t } = useTranslation();
 
     // Determine the key for fetching the word list regardless of the user's login status
     const currentWordListKey = useMemo(
@@ -40,7 +39,7 @@ const ExerciseComponent = () => {
 
     const [currentWordList, setCurrentWordList] = useState([]);
     const [inputWord, setInputWord] = useState("");
-    const setAudioURL = useState(null);
+    const [, setAudioURL] = useState(null);
     const [result, setResult] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0); // Initialize to 0 initially
     const [isLoading, setIsLoading] = useState(false);
@@ -69,6 +68,8 @@ const ExerciseComponent = () => {
         }
         setIsLoading(false);
     }, [user?.id]);
+
+    const { t } = useTranslation();
 
     const playAudio = useCallback(async () => {
         console.log("Playing audio...");
@@ -112,6 +113,7 @@ const ExerciseComponent = () => {
 
         return currentWordList.indexOf(newWord);
     };
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -141,12 +143,6 @@ const ExerciseComponent = () => {
         fetchData();
     }, [userPointsState, currentWordListKey]);
 
-    const handleInputChange = (e) => {
-        setInputWord(e.target.value);
-    };
-
-
-
     const setNextWord = useCallback(() => {
         const newIndex = getNextWordIndex();
         setCurrentIndex(newIndex);
@@ -172,7 +168,7 @@ const ExerciseComponent = () => {
                 handleCorrectAnswer();
             } else {
                 setInputWord("");
-                setResult(t("G2wrong"));
+                setResult(t("G2Wrong"));
             }
         },
         [
@@ -181,44 +177,8 @@ const ExerciseComponent = () => {
             currentWordList,
             updateUserPoints,
             handleCorrectAnswer,
-            t,
+            t
         ],
-    )
-    const AudioButton = ({ onPlay }) => (
-        <button className={styles.audioButton} onClick={onPlay}>
-            <img src="images/audio.png" alt="Play Audio" />
-        </button>
-    );
-
-
-    const ExerciseForm = ({ t, inputWord, handleInputChange, onSubmit }) => (
-        <form onSubmit={onSubmit}>
-            <input
-                className={styles.input}
-                value={inputWord}
-                onChange={handleInputChange}
-                placeholder={t("G2Placeholder")}
-            />
-            <button type="submit"></button>
-        </form>
-    );
-
-
-
-    const ResultDisplay = ({ result, t }) => (
-        result && (
-            <p
-                className={`${styles.result} ${result === t("G2correct") ? styles.correct : styles.incorrect}`}
-            >
-                {result}
-            </p>
-        )
-    );
-
-    const NextButton = ({ onNext, t }) => (
-        <button className={styles.nextButton} onClick={onNext}>
-            {t("G2Next")}
-        </button>
     );
 
     return (
@@ -228,19 +188,24 @@ const ExerciseComponent = () => {
             ) : (
                 <>
                     {showCorrect ? (
-                        <div className={styles.correctMessage}>{t("G2correct")}</div>
+                        <div className={styles.correctMessage}>{t("G2Correct")}</div>
                     ) : (
                         <>
-                            <AudioButton onPlay={() => playAudio(currentIndex, currentWordList, setAudioURL)} />
-                            <div id="spoken-word" data-spoken-word={currentWordList[currentIndex]}></div>
+                            <AudioButton onPlay={playAudio} t={t} />
+                            <div
+                                id="spoken-word"
+                                data-spoken-word={currentWordList[currentIndex]}
+                            ></div>
                             <ExerciseForm
-                                t={t}
                                 inputWord={inputWord}
                                 onInputChange={setInputWord}
-                                onSubmit={(e) => handleSubmit(e, inputWord, currentIndex, currentWordList, setResult, setShowCorrect)}
+                                onSubmit={handleSubmit}
+                                t={t}
                             />
                             <ResultDisplay result={result} t={t} />
-                            <NextButton onNext={() => setNextWord(currentIndex, setCurrentIndex, currentWordList)} t={t} />
+                            {currentIndex < currentWordList.length - 1 && (
+                                <NextButton onNext={setNextWord} t={t} />
+                            )}
                         </>
                     )}
                 </>
@@ -249,6 +214,38 @@ const ExerciseComponent = () => {
     );
 };
 
+const AudioButton = ({ onPlay, t }) => (
+    <button className={styles.audioButton} onClick={onPlay}>
+        <img src="images/audio.png" alt={t("PlayAudio")} />
+    </button>
+);
+
+const ExerciseForm = ({ inputWord, onInputChange, onSubmit, t }) => (
+    <form onSubmit={onSubmit}>
+        <input
+            className={styles.input}
+            value={inputWord}
+            onChange={(e) => onInputChange(e.target.value)}
+            placeholder={t("G2Placeholder")}
+        />
+        <button type="submit"></button>
+    </form>
+);
+
+const ResultDisplay = ({ result, t }) =>
+    result && (
+        <p
+            className={`${styles.result} ${result === t("G2Correct") ? styles.correct : styles.incorrect
+                }`}
+        >
+            {result}
+        </p>
+    );
+
+const NextButton = ({ onNext, t }) => (
+    <button className={styles.nextButton} onClick={onNext}>
+        {t("G2Next")}
+    </button>
+);
+
 export default ExerciseComponent;
-
-

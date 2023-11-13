@@ -90,5 +90,8 @@
     "RegNewUser": "Ny användare",
     "InsertUser": "Ange användarnamn",
     "InsertPassword": "Ange lösenord",
-    "Login": "Logga in"
+    "Login": "Logga in",
+    "SignInUsername": "Användarnamn",
+    "SignInPassword": "Lösenord",
+    "SignInsertPassword": "Ange lösenord"
 }
