@@ -3,60 +3,80 @@
     "id": 0,
     "imageUrl": "school/pencil.jpg",
     "eng": "Pencil",
-    "fin": "Lyijykynä"
+    "fin": "Lyijykynä",
+    "swe": "Penna",
+    "jap": "鉛筆"
   },
   {
     "id": 1,
     "imageUrl": "school/pen.jpg",
     "eng": "Pen",
-    "fin": "Kynä"
+    "fin": "Kynä",
+    "swe": "Penna",
+    "jap": "ペン"
   },
   {
     "id": 2,
     "imageUrl": "school/book.jpg",
     "eng": "Book",
-    "fin": "Kirja"
+    "fin": "Kirja",
+    "swe": "bok",
+    "jap": "本"
   },
   {
     "id": 3,
     "imageUrl": "school/ruler.jpg",
     "eng": "Ruler",
-    "fin": "Viivotin"
+    "fin": "Viivotin",
+    "swe": "Linjal",
+    "jap": "ルーラー"
   },
   {
     "id": 4,
     "imageUrl": "school/eraser.jpg",
     "eng": "Eraser",
-    "fin": "Pyyhekumi"
+    "fin": "Pyyhekumi",
+    "swe": "Suddgummi",
+    "jap": "消しゴム"
   },
   {
     "id": 5,
     "imageUrl": "school/desk.webp",
     "eng": "Desk",
-    "fin": "Työpöytä"
+    "fin": "Työpöytä",
+    "swe": "Skrivbord",
+    "jap": "机"
   },
   {
     "id": 6,
-    "imageUrl":  "school/sharpener.jpg",
+    "imageUrl": "school/sharpener.jpg",
     "eng": "Sharpener",
-    "fin": "Teroitin"
+    "fin": "Teroitin",
+    "swe": "Pennvässare",
+    "jap": "削り器"
   },
   {
     "id": 7,
     "imageUrl": "school/notebook.jpg",
     "eng": "Notebook",
-    "fin": "Muistikirja"
+    "fin": "Muistikirja",
+    "swe": "Anteckningsbok",
+    "jap": "ノート"
   },
   {
     "id": 8,
     "imageUrl": "school/chair.jpg",
     "eng": "Chair",
-    "fin": "Tuoli"
+    "fin": "Tuoli",
+    "swe": "Stol",
+    "jap": "椅子"
   },
   {
     "id": 9,
     "imageUrl": "school/backpack.png",
     "eng": "Backpack",
-    "fin": "Reppu"
+    "fin": "Reppu",
+    "swe": "Ryggsäck",
+    "jap": "バックパック"
   }
 ]
