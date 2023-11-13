@@ -193,7 +193,7 @@ function Navbar() {
                             className={styles.navButton}
                             onClick={() => router.push("/Login")}
                         >
-                            {t("NavbarSignIn")}
+                            {t("SignIn")}
                         </button>
                         <button
                             className={styles.navButton}

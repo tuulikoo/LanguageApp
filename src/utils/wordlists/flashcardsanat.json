@@ -3,59 +3,111 @@
     "food": [
       {
         "word": "cake",
-        "definition": "kakku"
+        "definitions": {
+          "fi_FI": "kakku",
+          "sv_SE": "tårta",
+          "ja_JP": "ケーキ"
+        }
       },
       {
         "word": "food",
-        "definition": "ruoka"
+        "definitions": {
+          "fi_FI": "ruoka",
+          "sv_SE": "mat",
+          "ja_JP": "食べ物"
+        }
       },
       {
         "word": "drink",
-        "definition": "juoma"
+        "definitions": {
+          "fi_FI": "juoma",
+          "sv_SE": "dryck",
+          "ja_JP": "飲み物"
+        }
       },
       {
         "word": "fruit",
-        "definition": "hedelmä"
+        "definitions": {
+          "fi_FI": "hedelmä",
+          "sv_SE": "frukt",
+          "ja_JP": "フルーツ"
+        }
       },
       {
         "word": "ice cream",
-        "definition": "jäätelö"
+        "definitions": {
+          "fi_FI": "jäätelö",
+          "sv_SE": "glass",
+          "ja_JP": "アイスクリーム"
+        }
       }
     ],
     "people": [
       {
         "word": "friend",
-        "definition": "ystävä"
+        "definitions": {
+          "fi_FI": "ystävä",
+          "sv_SE": "vän",
+          "ja_JP": "友達"
+        }
       },
       {
         "word": "family",
-        "definition": "perhe"
+        "definitions": {
+          "fi_FI": "perhe",
+          "sv_SE": "familj",
+          "ja_JP": "家族"
+        }
       },
       {
         "word": "teacher",
-        "definition": "opettaja"
+        "definitions": {
+          "fi_FI": "opettaja",
+          "sv_SE": "lärare",
+          "ja_JP": "先生"
+        }
       }
     ],
     "animals": [
       {
         "word": "dog",
-        "definition": "koira"
+        "definitions": {
+          "fi_FI": "koira",
+          "sv_SE": "hund",
+          "ja_JP": "犬"
+        }
       },
       {
         "word": "cat",
-        "definition": "kissa"
+        "definitions": {
+          "fi_FI": "kissa",
+          "sv_SE": "katt",
+          "ja_JP": "猫"
+        }
       },
       {
         "word": "bird",
-        "definition": "lintu"
+        "definitions": {
+          "fi_FI": "lintu",
+          "sv_SE": "fågel",
+          "ja_JP": "鳥"
+        }
       },
       {
         "word": "fish",
-        "definition": "kala"
+        "definitions": {
+          "fi_FI": "kala",
+          "sv_SE": "fisk",
+          "ja_JP": "魚"
+        }
       },
       {
         "word": "rabbit",
-        "definition": "kani"
+        "definitions": {
+          "fi_FI": "kani",
+          "sv_SE": "kanin",
+          "ja_JP": "うさぎ"
+        }
       }
     ]
   }

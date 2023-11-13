@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import FlashcardDeckComponent from "@/components/FlashcardDeckComponent";
 import styles from '../styles/level1.module.css';
-import flashcardsData from "../utils/wordlists/flshcardsanat.json";
+import flashcardsData from "../utils/wordlists/flashcardsanat.json";
+import { useTranslation } from 'react-i18next';
 
 
 const Level1 = () => {
     const [selectedCategory, setSelectedCategory] = useState(null);
+    const { t } = useTranslation();
 
     const handleCategorySelect = (category) => {
         setSelectedCategory(category);
@@ -18,28 +20,28 @@ const Level1 = () => {
 
     return (
         <div className={styles.pageContainer}>
-            <h1 className={`${styles.pageTitle} font-custom`}>Level 1 Flashcards</h1>
+            <h1 className={`${styles.pageTitle} font-custom`}>{t("FClevel1")}</h1>
 
             <div className={styles.categorySelector}>
-                <p className="font-custom">Mitä flashcard kategoriaa haluat opiskella?</p>
+                <p className="font-custom">{t("FCchooseCategory")}</p>
                 <div className={styles.categoryButtons}>
                     <button
                         className={getCategoryButtonClassName('animals')}
                         onClick={() => handleCategorySelect('animals')}
                     >
-                        Elaimet
+                        {t("FCanimals")}
                     </button>
                     <button
                         className={getCategoryButtonClassName('food')}
                         onClick={() => handleCategorySelect('food')}
                     >
-                        Ruoka
+                        {t("FCfood")}
                     </button>
                     <button
                         className={getCategoryButtonClassName('people')}
                         onClick={() => handleCategorySelect('people')}
                     >
-                        Ihmiset
+                        {t("FCpeople")}
                     </button>
                 </div>
             </div>
