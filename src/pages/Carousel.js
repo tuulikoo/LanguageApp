@@ -21,11 +21,10 @@ export default function ResponsiveCarousel() {
                     className={styles.mySwiper}
                     swipeable={true}
                 >
-                    {items.map(({ id, quote_finnish, quote_english }) => (
+                    {items.map(({ id, quote_english }) => (
                         <div key={id} className={styles.swipItem}>
                             <div className={styles.detail}>
-                                <h2>{quote_finnish}</h2>
-                                <p>{quote_english}</p>
+                                <h2>{quote_english}</h2>
                             </div>
                         </div>
                     ))}
