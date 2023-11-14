@@ -6,6 +6,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { useTranslation } from "react-i18next";
 import { debounce } from "lodash";
+import { getSelectedLanguage } from "@/utils/selectedLanguage";
 
 function Navbar() {
     const { i18n } = useTranslation();
@@ -14,8 +15,7 @@ function Navbar() {
     const [avatarHovered, setAvatarHovered] = useState(false);
     const [dropdownVisible, setDropdownVisible] = useState(false);
     const dropdownRef = useRef(null);
-    const [selectedLanguage, setSelectedLanguage] = useState(
-        Cookies.get("selectedLanguage") || "fi_FI",
+    const [selectedLanguage, setSelectedLanguage] = useState(getSelectedLanguage() || "fi_FI"
     );
     const [navbarVisible, setNavbarVisible] = useState(true);
     const { t } = useTranslation();
@@ -42,7 +42,7 @@ function Navbar() {
     }, [navbarVisible, handleScroll]);
 
     useEffect(() => {
-        setSelectedLanguage(Cookies.get("selectedLanguage") || "");
+        setSelectedLanguage(Cookies.get("") || "");
     }, []);
 
     const handleLogout = async () => {
@@ -93,7 +93,7 @@ function Navbar() {
     }, []);
 
     const navbarClasses = `${styles.navbar} ${navbarVisible ? "" : styles.navbarHidden
-    }`;
+        }`;
 
     //const selectedLanguage = Cookies.get('selectedLanguage');
     const getRemainingLanguages = (selectedLanguage) => {
@@ -246,7 +246,7 @@ function Navbar() {
                             }
                             alt={user ? `${user.username} Avatar` : "Default Avatar"}
                             className={`${styles.avatar} ${avatarHovered ? styles.avatarHovered : ""
-                            }`}
+                                }`}
                         />
                     </button>
                 )}
