@@ -99,7 +99,7 @@ const ExerciseComponent = () => {
         }
     }, [currentIndex, currentWordList]);
 
-    const getNextWordIndex = () => {
+    const getNextWordIndex = useCallback(() => {
         if (remainingWords.length === 0) {
             setRemainingWords(currentWordList);
         }
@@ -112,7 +112,7 @@ const ExerciseComponent = () => {
         );
 
         return currentWordList.indexOf(newWord);
-    };
+    }, [currentWordList, remainingWords]);
 
     useEffect(() => {
         const fetchData = async () => {
