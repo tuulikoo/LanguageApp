@@ -1,9 +1,6 @@
-import Cookies from 'js-cookie';
-
+import Cookies from "js-cookie";
 
 export function getSelectedLanguage() {
-
-        const selectedLanguage = Cookies.get('selectedLanguage');
-        return selectedLanguage || 'fi_FI';
+    return Cookies.get("i18next") || "fi_FI";
 
 }

@@ -91,8 +91,7 @@ function Navbar() {
 
     const navbarClasses = `${styles.navbar} ${navbarVisible ? "" : styles.navbarHidden
         }`;
-
-    //const selectedLanguage = Cookies.get('selectedLanguage');
+    
     const getRemainingLanguages = (selectedLanguage) => {
         const allLanguages = ["fi_FI", "sv_SE", "ja_JP"];
         const selectedLangIndex = allLanguages.indexOf(selectedLanguage);
