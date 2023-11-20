@@ -2,7 +2,7 @@ version: '3'
 
 services:
   languageapp:
-    container_name: languageapp.xyz
+    container_name: langapp.xyz
     build:
       context: .
       dockerfile: Dockerfile
