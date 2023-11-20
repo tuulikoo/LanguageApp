@@ -3,9 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import styles from "../styles/RegistrationForm.module.scss";
-import {useTranslation} from "react-i18next";
-
-
+import { useTranslation } from "react-i18next";
 
 function RegistrationForm() {
     const { t } = useTranslation();
@@ -27,7 +25,6 @@ function RegistrationForm() {
         { id: 3, src: "avatars/avatar3.png" },
         { id: 4, src: "avatars/avatar4.png" },
     ];
-
 
     const router = useRouter();
 
@@ -55,7 +52,10 @@ function RegistrationForm() {
                 }, 2000);
             }
         } catch (error) {
-            setApiFeedback({ type: "error", message: error.response.data.message });
+            setApiFeedback({
+                type: "error",
+                message: error.response.data.message,
+            });
         } finally {
             setLoading(false);
         }
@@ -63,7 +63,6 @@ function RegistrationForm() {
     //TODO: errormessage if no avatar selected
     return (
         <form className={styles.formWrapper} onSubmit={handleSubmit(onSubmit)}>
-
             {[
                 {
                     label: t("Username"),
@@ -107,55 +106,75 @@ function RegistrationForm() {
                         {...register(field.id, field.validation)}
                     />
                     {errors[field.id] && (
-                        <p className={styles.inputError}>{errors[field.id].message}</p>
+                        <p className={styles.inputError}>
+                            {errors[field.id].message}
+                        </p>
                     )}
                 </div>
             ))}
             <div className={styles.languageSelection}>
-    <label>{t("RegChooseLang")}</label>
-    <div>
-        <input
-            type="radio"
-            name="language"
-            value="fi_FI"
-            id="language-fi"
-            {...register("language", { required: "Select a language" })}
-            checked={selectedLanguage === "fi_FI"}
-            onChange={() => setSelectedLanguage("fi_FI")}
-        />
-        <label htmlFor="language-fi">
-            <img src="https://cdn.pixabay.com/photo/2020/02/28/02/21/finland-4886331_1280.png" style={{ maxWidth: "60px" }} alt="Finnish Flag" />
-        </label>
-    </div>
-    <div>
-        <input
-            type="radio"
-            name="language"
-            value="sv_SE"
-            id="language-se"
-            {...register("language", { required: "Select a language" })}
-            checked={selectedLanguage === "sv_SE"}
-            onChange={() => setSelectedLanguage("sv_SE")}
-        />
-        <label htmlFor="language-se">
-            <img src="https://cdn.pixabay.com/photo/2014/02/03/20/48/flag-257636_1280.png" style={{ maxWidth: "60px" }} alt="Swedish Flag" />
-        </label>
-    </div>
-    <div>
-        <input
-            type="radio"
-            name="language"
-            value="ja_JP"
-            id="language-jp"
-            {...register("language", { required: "Select a language" })}
-            checked={selectedLanguage === "ja_JP"}
-            onChange={() => setSelectedLanguage("ja_JP")}
-        />
-        <label htmlFor="language-jp">
-            <img src="https://cdn.pixabay.com/photo/2012/04/13/12/23/flag-32177_1280.png" style={{ maxWidth: "60px" }} alt="Japanese Flag" />
-        </label>
-    </div>
-</div>
+                <label>{t("RegChooseLang")}</label>
+                <div>
+                    <input
+                        type="radio"
+                        name="language"
+                        value="fi_FI"
+                        id="language-fi"
+                        {...register("language", {
+                            required: "Select a language",
+                        })}
+                        checked={selectedLanguage === "fi_FI"}
+                        onChange={() => setSelectedLanguage("fi_FI")}
+                    />
+                    <label htmlFor="language-fi">
+                        <img
+                            src="https://cdn.pixabay.com/photo/2020/02/28/02/21/finland-4886331_1280.png"
+                            style={{ maxWidth: "60px" }}
+                            alt="Finnish Flag"
+                        />
+                    </label>
+                </div>
+                <div>
+                    <input
+                        type="radio"
+                        name="language"
+                        value="sv_SE"
+                        id="language-se"
+                        {...register("language", {
+                            required: "Select a language",
+                        })}
+                        checked={selectedLanguage === "sv_SE"}
+                        onChange={() => setSelectedLanguage("sv_SE")}
+                    />
+                    <label htmlFor="language-se">
+                        <img
+                            src="https://cdn.pixabay.com/photo/2014/02/03/20/48/flag-257636_1280.png"
+                            style={{ maxWidth: "60px" }}
+                            alt="Swedish Flag"
+                        />
+                    </label>
+                </div>
+                <div>
+                    <input
+                        type="radio"
+                        name="language"
+                        value="ja_JP"
+                        id="language-jp"
+                        {...register("language", {
+                            required: "Select a language",
+                        })}
+                        checked={selectedLanguage === "ja_JP"}
+                        onChange={() => setSelectedLanguage("ja_JP")}
+                    />
+                    <label htmlFor="language-jp">
+                        <img
+                            src="https://cdn.pixabay.com/photo/2012/04/13/12/23/flag-32177_1280.png"
+                            style={{ maxWidth: "60px" }}
+                            alt="Japanese Flag"
+                        />
+                    </label>
+                </div>
+            </div>
             <input
                 type="hidden"
                 validation={{ required: "Valitse avatar" }}
@@ -173,18 +192,24 @@ function RegistrationForm() {
                                         setSelectedAvatar(avatar);
                                         setIsModalOpen(false);
                                     }}
-
                                 >
                                     <img
                                         src={avatar.src}
                                         alt="Avatar"
-                                        className={`${styles.avatarImage} ${selectedAvatar === avatar ? styles.selectedAvatar : ""
+                                        className={`${styles.avatarImage} ${selectedAvatar === avatar
+                                                ? styles.selectedAvatar
+                                                : ""
                                             }`}
                                     />
                                 </div>
                             ))}
                         </div>
-                        <button className={styles.closeModalButton} onClick={() => setIsModalOpen(false)}>Close</button>
+                        <button
+                            className={styles.closeModalButton}
+                            onClick={() => setIsModalOpen(false)}
+                        >
+                            Close
+                        </button>
                     </div>
                 </div>
             )}
@@ -194,12 +219,17 @@ function RegistrationForm() {
                     type="submit"
                     disabled={loading}
                 >
-                    {loading ? t("Loading"): t("RegNewUser")}
+                    {loading ? t("Loading") : t("RegNewUser")}
                 </button>
-                <button className={styles.selectAvatarButton} type="button" onClick={() => setIsModalOpen(true)}>
-                    {selectedAvatar ? t("RegChangeFriend") : t("RegChooseFriend")}
+                <button
+                    className={styles.selectAvatarButton}
+                    type="button"
+                    onClick={() => setIsModalOpen(true)}
+                >
+                    {selectedAvatar
+                        ? t("RegChangeFriend")
+                        : t("RegChooseFriend")}
                 </button>
-
             </div>
             {apiFeedback && (
                 <p
@@ -214,8 +244,6 @@ function RegistrationForm() {
             )}
         </form>
     );
-
-
 }
 
 export default RegistrationForm;

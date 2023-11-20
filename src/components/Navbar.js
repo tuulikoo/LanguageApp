@@ -41,9 +41,6 @@ function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [navbarVisible, handleScroll]);
 
-    useEffect(() => {
-        setSelectedLanguage(Cookies.get("") || "");
-    }, []);
 
     const handleLogout = async () => {
         await logout();
@@ -56,7 +53,6 @@ function Navbar() {
         setDropdownVisible(!dropdownVisible);
     };
     const handleLanguageChange = async (languageCode) => {
-        //force reload to change language
         setLanguageCookie(languageCode);
         i18n.changeLanguage(languageCode);
 
