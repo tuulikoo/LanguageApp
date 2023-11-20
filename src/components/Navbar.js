@@ -56,6 +56,7 @@ function Navbar() {
         setDropdownVisible(!dropdownVisible);
     };
     const handleLanguageChange = async (languageCode) => {
+        //force reload to change language
         setLanguageCookie(languageCode);
         i18n.changeLanguage(languageCode);
 

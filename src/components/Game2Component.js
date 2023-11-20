@@ -34,7 +34,7 @@ const ExerciseComponent = () => {
     // Determine the key for fetching the word list regardless of the user's login status
     const currentWordListKey = useMemo(
         () => getWordListKey(userPointsState),
-        [userPointsState],
+        [userPointsState]
     );
 
     const [currentWordList, setCurrentWordList] = useState([]);
@@ -54,7 +54,10 @@ const ExerciseComponent = () => {
             const response = await fetch("/api/updatePoints", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ userId: user?.id, newPoints: pointsToAdd }),
+                body: JSON.stringify({
+                    userId: user?.id,
+                    newPoints: pointsToAdd,
+                }),
             });
 
             if (response.ok) {
@@ -80,7 +83,7 @@ const ExerciseComponent = () => {
             // Check if currentIndex is valid
             if (currentIndex >= 0 && currentIndex < currentWordList.length) {
                 const audioBlob = await convertTextToSpeech(
-                    currentWordList[currentIndex],
+                    currentWordList[currentIndex]
                 );
                 const objectURL = URL.createObjectURL(audioBlob);
                 setAudioURL(objectURL);
@@ -89,7 +92,7 @@ const ExerciseComponent = () => {
                 // If currentIndex is invalid, reset it to a valid index (e.g., 0)
                 const newIndex = Math.max(
                     0,
-                    Math.floor(Math.random() * currentWordList.length),
+                    Math.floor(Math.random() * currentWordList.length)
                 );
                 console.warn("Resetting index to a valid value:", newIndex);
                 setCurrentIndex(newIndex);
@@ -108,7 +111,7 @@ const ExerciseComponent = () => {
         const newWord = remainingWords[randomIndex];
 
         setRemainingWords((prevWords) =>
-            prevWords.filter((word) => word !== newWord),
+            prevWords.filter((word) => word !== newWord)
         );
 
         return currentWordList.indexOf(newWord);
@@ -119,7 +122,7 @@ const ExerciseComponent = () => {
             try {
                 setIsLoading(true);
                 const response = await fetch(
-                    `/api/getWordsListening?category=${currentWordListKey}`,
+                    `/api/getWordsListening?category=${currentWordListKey}`
                 );
                 if (response.ok) {
                     const words = await response.json();
@@ -162,7 +165,8 @@ const ExerciseComponent = () => {
         async (e) => {
             e.preventDefault();
             if (
-                inputWord.toLowerCase() === currentWordList[currentIndex].toLowerCase()
+                inputWord.toLowerCase() ===
+                currentWordList[currentIndex].toLowerCase()
             ) {
                 await updateUserPoints();
                 handleCorrectAnswer();
@@ -177,8 +181,8 @@ const ExerciseComponent = () => {
             currentWordList,
             updateUserPoints,
             handleCorrectAnswer,
-            t
-        ],
+            t,
+        ]
     );
 
     return (
@@ -188,7 +192,9 @@ const ExerciseComponent = () => {
             ) : (
                 <>
                     {showCorrect ? (
-                        <div className={styles.correctMessage}>{t("G2Correct")}</div>
+                        <div className={styles.correctMessage}>
+                            {t("G2Correct")}
+                        </div>
                     ) : (
                         <>
                             <AudioButton onPlay={playAudio} t={t} />

@@ -1,11 +1,11 @@
 /* UserPointsComponent.module.scss */
 @font-face {
     font-family: "Dela Gothic One"; /* Specify the font family name */
-    src: url('../../public/fonts/DelaGothicOne-Regular.ttf') format('truetype'); /* Specify the path to your TTF font file */
+    src: url("../../public/fonts/DelaGothicOne-Regular.ttf") format("truetype"); /* Specify the path to your TTF font file */
 }
 
 .custom-font {
-    font-family: 'Dela Gothic One', sans-serif; /* Use the imported font family name */
+    font-family: "Dela Gothic One", sans-serif; /* Use the imported font family name */
 }
 
 .userPointsContainer {
@@ -40,7 +40,6 @@
 .rewardImage {
     max-width: 100%; /* Ensure the image doesn't exceed the reward item */
 }
-
 
 .userPointsHeader {
     display: flex;
@@ -100,7 +99,12 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    background-color: rgba(
+        0,
+        0,
+        0,
+        0.7
+    ); /* Semi-transparent black background */
     z-index: 999; /* Ensure modal is on top of everything */
     overflow: auto;
 }
@@ -132,5 +136,3 @@
     display: block;
     margin: 0 auto;
 }
-
-
