@@ -55,10 +55,11 @@
     "G4score2": "Poäng för denna uppgift: ",
     "G4backHome": "Tillbaka till startsidan",
     "G4previous": "Tidigare fråga",
-    "G2Correct": "Korrekt!",
-    "G2Wrong": "Fel, försök igen!",
-    "G2Next": "Nästa fråga",
-    "G2Placeholder": "Skriv ditt svar här",
+
+    "G2correct": "Korrekt!",
+    "G2wrong": "Fel, försök igen!",
+    "G2next": "Nästa fråga",
+    "G2placehold": "Skriv ditt svar här",
     "G5play": "Spela",
     "G5correct": "Korrekt!",
     "G5next": "Nästa fråga",
@@ -90,8 +91,5 @@
     "RegNewUser": "Ny användare",
     "InsertUser": "Ange användarnamn",
     "InsertPassword": "Ange lösenord",
-    "Login": "Logga in",
-    "SignInUsername": "Användarnamn",
-    "SignInPassword": "Lösenord",
-    "SignInsertPassword": "Ange lösenord"
+    "Logga in": "Logga in"
 }

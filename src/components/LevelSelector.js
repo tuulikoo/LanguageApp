@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "@/styles/LevelSelector.module.scss";
-import { Button } from "@mui/material";
+import { Button, Link as MuiLink } from "@mui/material";
 import { RefreshOutlined } from "@mui/icons-material";
 import Image from "next/image";
 import { getSelectedLanguage } from "@/utils/selectedLanguage";
-import Link from "next/link";
 
 const levelsData = [
     {
@@ -105,8 +104,13 @@ const levelsData = [
 ];
 
 const LevelSelector = () => {
+
+    const languages = ["finnish", "english", "swedish", "japanese"];
+
     const formatLanguageCode = () => {
-        switch (getSelectedLanguage()) {
+        switch (
+        getSelectedLanguage()
+        ) {
             case "fi_FI":
                 return "finnish";
             case "sv_SE":
@@ -118,9 +122,7 @@ const LevelSelector = () => {
         }
     };
 
-    const languages = ["finnish", "english", "swedish", "japanese"];
-    const initialLanguage = formatLanguageCode(getSelectedLanguage());
-    const [currentLanguage, setCurrentLanguage] = useState(initialLanguage);
+
 
     // Initialize language states for each level
     const [languageStates, setLanguageStates] = useState(
@@ -145,14 +147,10 @@ const LevelSelector = () => {
         return languages[(currentIndex + 1) % languages.length];
     };
 
-    const getLanguageContent = (level, index) => {
-        // Use the language from the languageStates for each specific level
-        const language = languageStates[index];
-        return {
-            title: level.title[language] || level.title.english,
-            description: level.description[language] || level.description.english,
-        };
-    };
+    const getLanguageContent = (level, language) => ({
+        title: level.title[language],
+        description: level.description[language],
+    });
 
 
     return (
@@ -160,12 +158,13 @@ const LevelSelector = () => {
             <ul className={styles.levels_list}>
                 {levelsData.map((level, index) => {
                     const { title, description } = getLanguageContent(
-                        level, index
+                        level,
+                        languageStates[index],
                     );
 
                     return (
                         <li key={index} className={styles.levels_item}>
-                            <Link href={level.route} className={styles.levels_link}>
+                            <MuiLink href={level.route} className={styles.levels_link}>
                                 <Image
                                     src={level.image}
                                     alt="level"
@@ -186,13 +185,13 @@ const LevelSelector = () => {
                                 >
                                     {getNextLanguage(languageStates[index])}
                                 </Button>
-                            </Link>
+                            </MuiLink>
                         </li>
                     );
                 })}
             </ul>
         </div>
     );
-};
+}
 
 export default LevelSelector;

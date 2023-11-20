@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styles from "@/styles/Levels.module.css";
-import { Button } from "@mui/material";
+import { Button, Link } from "@mui/material";
 import { RefreshOutlined } from "@mui/icons-material";
 import { useUser } from "@/utils/userContext";
 import { useTranslation } from "react-i18next";
-import Link from "next/link";
-import { getSelectedLanguage } from "@/utils/selectedLanguage";
 
 const levelsData = [
     {
@@ -71,32 +69,35 @@ const Levels = () => {
     const { user } = useUser();
     const { t } = useTranslation();
 
+    // Function to map user language to component language
     const getLanguageCode = (language) => {
         const languageMap = {
             fi_FI: "finnish",
             sv_SE: "swedish",
             ja_JP: "japanese",
+            // Default to Finnish if user language is not on the list
             default: "finnish",
         };
         return languageMap[language] || languageMap.default;
     };
 
-    const getUserLanguage = () => {
-        return user?.language ? getLanguageCode(user.language) : getLanguageCode(getSelectedLanguage());
-    };
-
+    // Set the initial state to the default language or the user's language if logged in
+    const initialLanguage = getLanguageCode(user?.language);
     const [currentLanguages, setCurrentLanguages] = useState(
-        new Array(levelsData.length).fill(getUserLanguage()),
+        new Array(levelsData.length).fill(initialLanguage),
     );
 
-
-
     useEffect(() => {
-        const languagePreference = getUserLanguage();
-        setCurrentLanguages(new Array(levelsData.length).fill(languagePreference));
-    }, [user?.language]);
+        // This effect runs only on the client and updates the state if the user's language changes
+        const userLanguage = getLanguageCode(user?.language);
+        if (userLanguage !== initialLanguage) {
+            setCurrentLanguages(new Array(levelsData.length).fill(userLanguage));
+        }
+        // The empty dependency array ensures this effect runs only once on mount
+    }, []);
 
     const handleLanguageToggle = (index) => {
+        // Mapping to determine the next language
         const nextLanguage = {
             english: "finnish",
             finnish: "swedish",

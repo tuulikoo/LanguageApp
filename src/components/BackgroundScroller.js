@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const svgList = [
-    "abstrakt-design-132.png",
-    "abstrakt-design-332.png",
-    "abstrakt-design-458.png",
+
+    'abstrakt-design-132.png',
+    'abstrakt-design-332.png',
+    'abstrakt-design-458.png',
 ];
 
 const BackgroundScroller = () => {
@@ -13,50 +14,43 @@ const BackgroundScroller = () => {
         const speedFactor = 0.02;
         const newScrollY = window.scrollY * speedFactor;
         setScrollY(newScrollY);
-    };
+    }
     useEffect(() => {
-        window.addEventListener("scroll", handleScroll, { passive: true });
+        window.addEventListener('scroll', handleScroll, { passive: true });
 
         return () => {
-            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener('scroll', handleScroll);
         };
     }, []);
 
     return (
-        <div
-            style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                overflow: "hidden",
-            }}
-        >
+        <div style={{ position: "absolute", top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden' }}>
             {svgList.map((svg, index) => {
+
                 const baseOffset = index * 100;
 
                 return (
                     <div
                         key={svg}
                         style={{
-                            position: "absolute",
+                            position: 'absolute',
                             top: `${baseOffset - 39 - scrollY * (index + 1)}vh`,
-                            [index % 2 === 0 ? "left" : "right"]: 0,
-                            width: "50%",
-                            height: "100%",
+                            [index % 2 === 0 ? 'left' : 'right']: 0,
+                            width: '50%',
+                            height: '100%',
                             backgroundImage: `url('/svg/${svg}')`,
-                            backgroundSize: "contain",
-                            backgroundRepeat: "no-repeat",
-                            backgroundPosition: "center",
-                            transition: "background 0.3s ease-in-out",
-                            zIndex: -1,
+                            backgroundSize: 'contain',
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'center',
+                            transition: 'background 0.3s ease-in-out',
+                            zIndex: -1
                         }}
                     ></div>
                 );
             })}
         </div>
     );
-};
+}
 
 export default BackgroundScroller;
+

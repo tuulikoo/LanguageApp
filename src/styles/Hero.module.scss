@@ -1,11 +1,13 @@
 @font-face {
     font-family: "Dela Gothic One"; /* Specify the font family name */
-    src: url("../../public/fonts/DelaGothicOne-Regular.ttf") format("truetype"); /* Specify the path to your TTF font file */
+    src: url('../../public/fonts/DelaGothicOne-Regular.ttf') format('truetype'); /* Specify the path to your TTF font file */
 }
 
 .custom-font {
-    font-family: "Dela Gothic One", sans-serif; /* Use the imported font family name */
+    font-family: 'Dela Gothic One', sans-serif; /* Use the imported font family name */
 }
+
+
 
 .hero_container {
     position: relative;
@@ -56,10 +58,10 @@
     cursor: pointer;
 }
 
-.hero_button:hover,
-.hero_button:focus {
+.hero_button:hover, .hero_button:focus {
     background-color: #ff4f4f; /* Darker background color on hover for emphasis */
-    transform: scale(
-        1.05
-    ); /* Slightly scale up the button on hover for interaction */
+    transform: scale(1.05); /* Slightly scale up the button on hover for interaction */
 }
+
+
+

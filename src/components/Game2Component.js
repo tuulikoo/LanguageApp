@@ -30,11 +30,12 @@ const ExerciseComponent = () => {
     const { user } = useUser();
     const initialUserPoints = user ? user.userPoints : 0;
     const [userPointsState, setUserPointsState] = useState(initialUserPoints);
+    const { t } = useTranslation();
 
     // Determine the key for fetching the word list regardless of the user's login status
     const currentWordListKey = useMemo(
         () => getWordListKey(userPointsState),
-        [userPointsState]
+        [userPointsState],
     );
 
     const [currentWordList, setCurrentWordList] = useState([]);
@@ -54,10 +55,7 @@ const ExerciseComponent = () => {
             const response = await fetch("/api/updatePoints", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    userId: user?.id,
-                    newPoints: pointsToAdd,
-                }),
+                body: JSON.stringify({ userId: user?.id, newPoints: pointsToAdd }),
             });
 
             if (response.ok) {
@@ -72,8 +70,6 @@ const ExerciseComponent = () => {
         setIsLoading(false);
     }, [user?.id]);
 
-    const { t } = useTranslation();
-
     const playAudio = useCallback(async () => {
         console.log("Playing audio...");
         console.log("Current index:", currentIndex);
@@ -83,7 +79,7 @@ const ExerciseComponent = () => {
             // Check if currentIndex is valid
             if (currentIndex >= 0 && currentIndex < currentWordList.length) {
                 const audioBlob = await convertTextToSpeech(
-                    currentWordList[currentIndex]
+                    currentWordList[currentIndex],
                 );
                 const objectURL = URL.createObjectURL(audioBlob);
                 setAudioURL(objectURL);
@@ -92,7 +88,7 @@ const ExerciseComponent = () => {
                 // If currentIndex is invalid, reset it to a valid index (e.g., 0)
                 const newIndex = Math.max(
                     0,
-                    Math.floor(Math.random() * currentWordList.length)
+                    Math.floor(Math.random() * currentWordList.length),
                 );
                 console.warn("Resetting index to a valid value:", newIndex);
                 setCurrentIndex(newIndex);
@@ -102,7 +98,7 @@ const ExerciseComponent = () => {
         }
     }, [currentIndex, currentWordList]);
 
-    const getNextWordIndex = useCallback(() => {
+    const getNextWordIndex = () => {
         if (remainingWords.length === 0) {
             setRemainingWords(currentWordList);
         }
@@ -111,18 +107,18 @@ const ExerciseComponent = () => {
         const newWord = remainingWords[randomIndex];
 
         setRemainingWords((prevWords) =>
-            prevWords.filter((word) => word !== newWord)
+            prevWords.filter((word) => word !== newWord),
         );
 
         return currentWordList.indexOf(newWord);
-    }, [currentWordList, remainingWords]);
+    };
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 setIsLoading(true);
                 const response = await fetch(
-                    `/api/getWordsListening?category=${currentWordListKey}`
+                    `/api/getWordsListening?category=${currentWordListKey}`,
                 );
                 if (response.ok) {
                     const words = await response.json();
@@ -165,14 +161,13 @@ const ExerciseComponent = () => {
         async (e) => {
             e.preventDefault();
             if (
-                inputWord.toLowerCase() ===
-                currentWordList[currentIndex].toLowerCase()
+                inputWord.toLowerCase() === currentWordList[currentIndex].toLowerCase()
             ) {
                 await updateUserPoints();
                 handleCorrectAnswer();
             } else {
                 setInputWord("");
-                setResult(t("G2Wrong"));
+                setResult(t("G2wrong"));
             }
         },
         [
@@ -182,35 +177,32 @@ const ExerciseComponent = () => {
             updateUserPoints,
             handleCorrectAnswer,
             t,
-        ]
+        ],
     );
-
     return (
-        <div className={styles.container}>
+        <div className={styles.container} t={t}>
             {isLoading ? (
                 <CircularProgress />
             ) : (
                 <>
                     {showCorrect ? (
-                        <div className={styles.correctMessage}>
-                            {t("G2Correct")}
-                        </div>
+                        <div className={styles.correctMessage}>{t("G2correct")}</div>
                     ) : (
                         <>
-                            <AudioButton onPlay={playAudio} t={t} />
+                            <AudioButton onPlay={playAudio} />
                             <div
                                 id="spoken-word"
                                 data-spoken-word={currentWordList[currentIndex]}
                             ></div>
                             <ExerciseForm
+                                t={t}
                                 inputWord={inputWord}
                                 onInputChange={setInputWord}
                                 onSubmit={handleSubmit}
-                                t={t}
                             />
                             <ResultDisplay result={result} t={t} />
                             {currentIndex < currentWordList.length - 1 && (
-                                <NextButton onNext={setNextWord} t={t} />
+                                <NextButton onNext={setNextWord} />
                             )}
                         </>
                     )}
@@ -219,20 +211,19 @@ const ExerciseComponent = () => {
         </div>
     );
 };
-
-const AudioButton = ({ onPlay, t }) => (
+const AudioButton = ({ onPlay }) => (
     <button className={styles.audioButton} onClick={onPlay}>
-        <img src="images/audio.png" alt={t("PlayAudio")} />
+        <img src="images/audio.png" alt="Play Audio" />
     </button>
 );
 
-const ExerciseForm = ({ inputWord, onInputChange, onSubmit, t }) => (
+const ExerciseForm = ({ t, inputWord, onInputChange, onSubmit }) => (
     <form onSubmit={onSubmit}>
         <input
             className={styles.input}
             value={inputWord}
             onChange={(e) => onInputChange(e.target.value)}
-            placeholder={t("G2Placeholder")}
+            placeholder={t("G2placeholder")}
         />
         <button type="submit"></button>
     </form>
@@ -241,7 +232,7 @@ const ExerciseForm = ({ inputWord, onInputChange, onSubmit, t }) => (
 const ResultDisplay = ({ result, t }) =>
     result && (
         <p
-            className={`${styles.result} ${result === t("G2Correct") ? styles.correct : styles.incorrect
+            className={`${styles.result} ${result === t("G2correct") ? styles.correct : ""
                 }`}
         >
             {result}
@@ -249,8 +240,8 @@ const ResultDisplay = ({ result, t }) =>
     );
 
 const NextButton = ({ onNext, t }) => (
-    <button className={styles.nextButton} onClick={onNext}>
-        {t("G2Next")}
+    <button className={styles.seuraavaButton} onClick={onNext}>
+        {t("G2next")}
     </button>
 );
 

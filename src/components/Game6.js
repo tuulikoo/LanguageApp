@@ -92,20 +92,16 @@ function GameStoryComponent() {
                             <>
                                 <RadioGroup
                                     value={selectedAnswer}
-                                    onChange={(e) =>
-                                        setSelectedAnswer(e.target.value)
-                                    }
+                                    onChange={(e) => setSelectedAnswer(e.target.value)}
                                 >
-                                    {stories[currentStoryIndex].options.map(
-                                        (option, index) => (
-                                            <FormControlLabel
-                                                key={index}
-                                                value={`${index}`}
-                                                control={<Radio />}
-                                                label={option}
-                                            />
-                                        )
-                                    )}
+                                    {stories[currentStoryIndex].options.map((option, index) => (
+                                        <FormControlLabel
+                                            key={index}
+                                            value={`${index}`}
+                                            control={<Radio />}
+                                            label={option}
+                                        />
+                                    ))}
                                 </RadioGroup>
                                 <Typography
                                     color="primary"
@@ -138,4 +134,3 @@ function GameStoryComponent() {
     );
 }
 export default GameStoryComponent;
-
