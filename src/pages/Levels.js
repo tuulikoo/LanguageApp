@@ -119,7 +119,7 @@ const Levels = () => {
             case "finnish":
                 return "På Svenska";
             case "swedish":
-                return "日本語で";
+                return "日本語で"
             case "japanese":
                 return "In English";
             default:
