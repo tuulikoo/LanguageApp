@@ -16,7 +16,7 @@ Test Convert Text To Speech With Valid Input
     ${MIMIC3_SERVER}=    Get Environment Variable    NEXT_PUBLIC_MIMIC3_SERVER
     Create Session    ${SESSION_NAME}    ${MIMIC3_SERVER}
     ${params}=    Create Dictionary    text=Hello, world.    voice=${DEFAULT_VOICE}    ssml=true
-    ${response}=    POST On Session    ${SESSION_NAME}    /tts?    data=${params}    expected_status=200
+    ${response}=    POST On Session    ${SESSION_NAME}    /tts?    data=${params}    expected_status=200    timeout=10
     ${content_type}=    Get From Dictionary    ${response.headers}    Content-Type
     Should Contain    ${content_type}    audio
 
