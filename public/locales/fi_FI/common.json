@@ -95,5 +95,6 @@
     "RegChooseFriend": "Valitse kaverisi",
     "Loading": "Ladataan...",
     "RegNewUser": "Uusi käyttäjä",
-    "SignIn": "Kirjaudu sisään"
+    "SignIn": "Kirjaudu sisään",
+    "userCreatedSuccessfully": "Käyttäjä luotu onnistuneesti!"
 }

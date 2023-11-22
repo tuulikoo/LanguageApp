@@ -91,5 +91,6 @@
     "RegNewUser": "Ny användare",
     "InsertUser": "Ange användarnamn",
     "InsertPassword": "Ange lösenord",
-    "Logga in": "Logga in"
+    "Logga in": "Logga in",
+    "userCreatedSuccessfully": "Användaren skapades framgångsrikt!"
 }

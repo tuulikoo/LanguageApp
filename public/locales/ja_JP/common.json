@@ -90,5 +90,6 @@
     "RegNewUser": "新しいユーザー",
     "InsertUser": "ユーザー名を入力してください",
     "InsertPassword": "パスワードを入力",
-    "Login": "ログイン"
+    "Login": "ログイン",
+    "userCreatedSuccessfully": "ユーザー作成成功！"
 }

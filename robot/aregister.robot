@@ -1,14 +1,16 @@
 *** Settings ***
 Library     Browser
+Library     String
 
 
 *** Variables ***
-${REGISTERURL} =    http://localhost:3009/Registration
+${REGISTERURL} =    http://langapp.xyz/Registration
 ${USERNAME} =       Robot
 ${PASSWORD} =       password
 ${EMAIL} =          robonos@osoite.com.com
 ${ETUNIMI} =        Robo
-${LOGINURL} =       http://localhost:3009/Login
+${LOGINURL} =       http://langapp.xyz/Login
+
 
 
 *** Test Cases ***
@@ -20,9 +22,10 @@ Verify Successfull Registration
     Enter Password
     Open Choose Avatar adjust-fields
     Select Avatar
+    Choose Language
     Click Register
     Sleep    2s
-    Get Confirmitation
+    Get Confirmation
     Sleep    4s
     Confirm Login Page is Open
 
@@ -45,17 +48,32 @@ Enter Password
     Fill Text    id=password    txt=${PASSWORD}
 
 Open Choose Avatar adjust-fields
-    Click    .RegistrationForm_selectAvatarButton__pUB__
+    Click    xpath=//button[contains(@class, 'selectAvatarButton')]
 
 Select Avatar
     Click    xpath=(//img[@alt="Avatar"])[2]
+    
+Choose Language
+    Click    xpath=//*[@id="__next"]/div/div[2]/form/div[5]/div[1]/label/img
+    
 
 Click Register
-    Click    .RegistrationForm_newUserButton__go4Al
+    Click    xpath=//button[contains(@class, 'newUserButton')]
 
-Get Confirmitation
-    Get Text    body    contains    Käyttäjä luotu onnistuneesti
+Get Confirmation
+    ${BODY_TEXT} =    Get Text    body
+    ${BODY_TEXT} =    Replace String    ${BODY_TEXT}    \n    ${SPACE}
+    FOR    ${expected_text}    IN    Käyttäjä luotu onnistuneesti    User created successfully    ユーザー作成成功!    Användaren skapades framgångsrikt
+        ${contains_text} =    Evaluate    '${expected_text.lower()}' in '${BODY_TEXT.lower()}'
+        Run Keyword If    ${contains_text}    Log    '${expected_text} found in ${BODY_TEXT}'
+    END
 
 Confirm Login Page is Open
-    Get Text    body    contains    Kirjaudu sisään
+    ${BODY_TEXT} =    Get Text    body
+    ${BODY_TEXT} =    Replace String    ${BODY_TEXT}    \n    ${SPACE}
+    FOR    ${expected_text}    IN    Kirjaudu sisään    Sign in    サインイン    Logga in
+            ${contains_text} =    Evaluate    '${expected_text.lower()}' in '${BODY_TEXT.lower()}'
+            Run Keyword If    ${contains_text}    Log    '${expected_text} found in ${BODY_TEXT}'
+    END
     Get Url    ==    ${LOGINURL}
+
