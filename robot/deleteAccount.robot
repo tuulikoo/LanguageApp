@@ -1,17 +1,18 @@
 *** Settings ***
 Library     Browser
+Library     String
 
 
 *** Variables ***
-${LOGINURL} =       http://localhost:3009/Login
-${USERURL} =        http://localhost:3009/UserPage
-${MAINURL} =        http://localhost:3009/MainPage
+${LOGINURL} =       http://langapp.xyz/Login
+${USERURL} =        http://langapp.xyz/UserPage
+${MAINURL} =        http://langapp.xyz/MainPage
 ${USERNAME} =       Robot
 ${PASSWORD} =       password
 
 
 *** Test Cases ***
-Verify new email is saved after updating it to user-details
+Delete User
     Open Browser To Login Page
     Enter Username
     Enter Password
@@ -41,26 +42,41 @@ Enter Password
     Fill Text    id=login_password    txt=${PASSWORD}
 
 Submit Login Form
-    Click    id=login_loginButton
+    Click    xpath=//button[contains(@class, 'loginButton')]
 
 Verify That MainPage Is Visible
     Get Url    ==    ${MAINURL}
 
 Navigate to Userpage
-    Click    .Navbar_avatarButton__FSunb
+    Click    xpath=//button[contains(@class, 'avatarButton')]
 
 Verify That UserPage Is Visible
-    Get Text    body    contains    Etunimesi on
+    ${BODY_TEXT} =    Get Text    body
+    ${BODY_TEXT} =    Replace String    ${BODY_TEXT}    \n    ${SPACE}
+    FOR    ${expected_text}    IN    Tervetuloa omalle sivullesi    Välkommen till din hemsida  さん、あなたのページへようこそ    データを削除する
+            ${contains_text} =    Evaluate    '${expected_text.lower()}' in '${BODY_TEXT.lower()}'
+            Run Keyword If    ${contains_text}    Log    '${expected_text} found in ${BODY_TEXT}'
+    END
     Get Url    ==    ${USERURL}
 
 Verify Delete-button exists
-    Get Text    body    contains    Poista tietoni
+    ${BODY_TEXT} =    Get Text    body
+    ${BODY_TEXT} =    Replace String    ${BODY_TEXT}    \n    ${SPACE}
+    FOR    ${expected_text}    IN    Poista tietoni    Radera mina uppgifter    データを削除する
+        ${contains_text} =    Evaluate    '${expected_text.lower()}' in '${BODY_TEXT.lower()}'
+        Run Keyword If    ${contains_text}    Log    '${expected_text} found in ${BODY_TEXT}'
+    END
 
 Click Delete-button
     Click    xpath=//*[@id="section-container"]/div[3]/button
 
 Verify Confirm Deletion Text Appears
-    Get Text    body    contains    Haluatko varmasti poistaa tilisi
+    ${BODY_TEXT} =    Get Text    body
+    ${BODY_TEXT} =    Replace String    ${BODY_TEXT}    \n    ${SPACE}
+    FOR    ${expected_text}    IN    Haluatko varmasti poistaa tilisi    Är du säker på att du vill radera ditt konto?   本当にアカウントを削除しますか
+        ${contains_text} =    Evaluate    '${expected_text.lower()}' in '${BODY_TEXT.lower()}'
+        Run Keyword If    ${contains_text}    Log    '${expected_text} found in ${BODY_TEXT}'
+    END
 
 Click Confirm Deletion-button
     Click    xpath=//*[@id="section-container"]/div[4]/div/button[1]

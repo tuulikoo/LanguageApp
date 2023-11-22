@@ -292,10 +292,10 @@ function UpdateDetailsComponent({ setUser }) {
                     <p>{t("UPconfirmDelete")}</p>
                     <div className={styles.deleteModalButtons}>
                         <button className={styles.deleteModalButton} onClick={handleConfirmDelete}>
-                            Kyllä
+                            {t("yes")}
                         </button>
                         <button className={styles.deleteModalButton} onClick={handleCancelDelete}>
-                            Ei
+                            {t("no")}
                         </button>
                     </div>
                 </div>
