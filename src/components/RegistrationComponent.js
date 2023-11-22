@@ -45,7 +45,7 @@ function RegistrationForm() {
             if (response.status === 200) {
                 setApiFeedback({
                     type: "success",
-                    message: "Käyttäjä luotu onnistuneesti!",
+                    message: t("userCreatedSuccessfully"),
                 });
                 setTimeout(() => {
                     router.push("/Login");
