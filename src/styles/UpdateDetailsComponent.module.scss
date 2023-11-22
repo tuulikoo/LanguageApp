@@ -246,3 +246,10 @@
     width: 100%;
   }
 }
+.loading_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+

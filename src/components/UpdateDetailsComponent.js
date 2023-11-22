@@ -5,6 +5,7 @@ import axios from 'axios';
 import UserPointsComponent from '@/components/UserPointsComponent';
 import { useRouter } from "next/router";
 import { useTranslation } from 'react-i18next';
+import { CircularProgress } from "@mui/material";
 
 
 function UpdateDetailsComponent({ setUser }) {
@@ -64,7 +65,9 @@ function UpdateDetailsComponent({ setUser }) {
     };
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div className={styles.loading_container}>
+            <CircularProgress />
+        </div>;
     }
 
     if (!user) {

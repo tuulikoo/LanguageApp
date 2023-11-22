@@ -1,9 +1,12 @@
 import { useState } from "react";
 import styles from "@/styles/LevelSelector.module.scss";
-import { Button, Link as MuiLink } from "@mui/material";
+import { Button } from "@mui/material";
+import Link from "next/link";
 import { RefreshOutlined } from "@mui/icons-material";
 import Image from "next/image";
 import { getSelectedLanguage } from "@/utils/selectedLanguage";
+import { useUser } from "@/utils/userContext";
+import { CircularProgress } from "@mui/material";
 
 const levelsData = [
     {
@@ -76,7 +79,8 @@ const levelsData = [
         description: {
             english:
                 "Listening exercise: listen the sentence and choose correct words.",
-            finnish: "Kuunteluharjoitus: kuuntele lause ja valitse oikeat sanat.",
+            finnish:
+                "Kuunteluharjoitus: kuuntele lause ja valitse oikeat sanat.",
             swedish: "Lyssningsövning: lyssna på meningen och välj rätt ord.",
             japanese: "リスニング演習：文を聞いて正しい単語を選択します。",
         },
@@ -95,8 +99,10 @@ const levelsData = [
                 "Listening exercise: listen and read the story and choose correct aswers.",
             finnish:
                 "Kuunteluharjoitus: kuuntele ja lue tarina ja valitse oikeat vastaukset.",
-            swedish: "Lyssningsövning: lyssna och läs historien och välj rätt svar.",
-            japanese: "リスニング演習：物語を聞いて読んで正しい答えを選択します。",
+            swedish:
+                "Lyssningsövning: lyssna och läs historien och välj rätt svar.",
+            japanese:
+                "リスニング演習：物語を聞いて読んで正しい答えを選択します。",
         },
         route: "/Story",
         image: "/svg/blob5.svg",
@@ -104,13 +110,25 @@ const levelsData = [
 ];
 
 const LevelSelector = () => {
-
     const languages = ["finnish", "english", "swedish", "japanese"];
+    const { user, loading } = useUser();
+    const pointTresholds = [0, 50, 100, 130, 200];
+
+    if (loading) {
+        return <div className={styles.loading_container}>
+            <CircularProgress />
+        </div>;
+    }
+
+
+
+    const isLevelAvailable = (levelIndex) => {
+        console.log(`Level ${levelIndex}: Required Points: ${pointTresholds[levelIndex]}, User Points: ${user.userPoints}`);
+        return user.userPoints >= pointTresholds[levelIndex];
+    };
 
     const formatLanguageCode = () => {
-        switch (
-        getSelectedLanguage()
-        ) {
+        switch (getSelectedLanguage()) {
             case "fi_FI":
                 return "finnish";
             case "sv_SE":
@@ -122,14 +140,20 @@ const LevelSelector = () => {
         }
     };
 
-
-
     // Initialize language states for each level
     const [languageStates, setLanguageStates] = useState(
-        Array(levelsData.length).fill(formatLanguageCode()),
+        Array(levelsData.length).fill(formatLanguageCode())
     );
 
-    const handleItemClick = (index) => {
+    const handleItemClick = (index, e) => {
+        // Prevent the link navigation
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (!isLevelAvailable(index)) {
+            return; // Do nothing if the level is not available
+        }
+
         const nextLanguage = (currentLanguage) => {
             const currentIndex = languages.indexOf(currentLanguage);
             return languages[(currentIndex + 1) % languages.length];
@@ -137,8 +161,8 @@ const LevelSelector = () => {
 
         setLanguageStates((prevStates) =>
             prevStates.map((lang, idx) =>
-                idx === index ? nextLanguage(lang) : lang,
-            ),
+                idx === index ? nextLanguage(lang) : lang
+            )
         );
     };
 
@@ -157,14 +181,26 @@ const LevelSelector = () => {
         <div className={styles.levels_container}>
             <ul className={styles.levels_list}>
                 {levelsData.map((level, index) => {
+                    const isAvailable = isLevelAvailable(index);
+                    const itemClass = isAvailable
+                        ? styles.levels_item
+                        : `${styles.levels_item} ${styles.levels_item_unavailable}`;
                     const { title, description } = getLanguageContent(
                         level,
-                        languageStates[index],
+                        languageStates[index]
                     );
 
                     return (
-                        <li key={index} className={styles.levels_item}>
-                            <MuiLink href={level.route} className={styles.levels_link}>
+                        <li key={index} className={itemClass}>
+                            <Link
+                                href={isAvailable ? level.route : "#"}
+                                className={styles.levels_link}
+                                onClick={
+                                    isAvailable
+                                        ? null
+                                        : (e) => e.preventDefault()
+                                }
+                            >
                                 <Image
                                     src={level.image}
                                     alt="level"
@@ -173,19 +209,19 @@ const LevelSelector = () => {
                                     className={styles.level_image}
                                 />
                                 <h2 className={styles.level_title}>{title}</h2>
-                                <p className={styles.level_description}>{description}</p>
+                                <p className={styles.level_description}>
+                                    {description}
+                                </p>
                                 <Button
+                                    disabled={!isAvailable} // Disable the button if the level is not available
                                     className={styles.level_button}
                                     size="small"
                                     startIcon={<RefreshOutlined />}
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        handleItemClick(index);
-                                    }}
+                                    onClick={(e) => handleItemClick(index, e)}
                                 >
                                     {getNextLanguage(languageStates[index])}
                                 </Button>
-                            </MuiLink>
+                            </Link>
                         </li>
                     );
                 })}
@@ -193,5 +229,4 @@ const LevelSelector = () => {
         </div>
     );
 }
-
 export default LevelSelector;
