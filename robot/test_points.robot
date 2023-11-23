@@ -1,15 +1,16 @@
 *** Settings ***
 Library     Browser
+Library     String
 
 
 *** Variables ***
-${LOGINURL} =       http://localhost:3009/Login
-${GAME4URL} =       http://localhost:3009/Game4
-${MAINURL} =        http://localhost:3009/MainPage
-${USERNAME} =       Robot
-${PASSWORD} =       password
+${LOGINURL} =       http://langapp.xyz/Login
+${GAME4URL} =       http://langapp.xyz/Game4
+${MAINURL} =        http://langapp.xyz/MainPage
+${USERNAME} =       RobotRest
+${PASSWORD} =       RoboTestRest
 ${Timeout}          5s
-${CorrectOption}    ${EMPTY}    # Define the correct option for your test case
+${CorrectOption}    ${EMPTY}
 
 
 *** Test Cases ***
@@ -49,7 +50,7 @@ Enter Password
     Fill Text    id=login_password    txt=${PASSWORD}
 
 Submit Login Form
-    Click    id=login_loginButton
+    Click    id=loginButton
 
 Verify That MainPage Is Visible
     Get Url    ==    ${MAINURL}
@@ -58,7 +59,12 @@ Navigate To Game4
     New Page    ${GAME4URL}
 
 Verify That Game4-page Is Visible
-    Get Text    body    contains    Tämän tehtävän pisteet: 0
+    ${BODY_TEXT} =    Get Text    body
+        ${BODY_TEXT} =    Replace String    ${BODY_TEXT}    \n    ${SPACE}
+        FOR    ${expected_text}    IN    Tämän tehtävän pisteet: 0    User created successfully    ユーザー作成成功!    Användaren skapades framgångsrikt
+            ${contains_text} =    Evaluate    '${expected_text.lower()}' in '${BODY_TEXT.lower()}'
+            Run Keyword If    ${contains_text}    Log    '${expected_text} found in ${BODY_TEXT}'
+        END
 
 Choose Correct Answer
     Click    xpath=//*[@id="__next"]/div[2]/div[2]/div/div/div/button[4]

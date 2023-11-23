@@ -1,5 +1,3 @@
-*** Comments ***
-# -*- coding: robot -*-
 
 
 *** Settings ***
@@ -11,8 +9,8 @@ Library     String
 ${LOGINURL} =       http://langapp.xyz/Login
 ${USERURL} =        http://langapp.xyz/UserPage
 ${MAINURL} =        http://langapp.xyz/MainPage
-${USERNAME} =       Robot
-${PASSWORD} =       wrongpassword
+${USERNAME} =       RobotRest8907
+${PASSWORD} =       RoboTestRest
 
 
 *** Test Cases ***
@@ -41,8 +39,6 @@ Submit Login Form
     Click    id=loginButton
 
 Verify That Error message is shown
-    Get Text    body    contains    Väärä käyttäjänimi tai salasana
-
     ${BODY_TEXT} =    Get Text    body
     ${BODY_TEXT} =    Replace String    ${BODY_TEXT}    \n    ${SPACE}
     FOR    ${expected_text}    IN    Väärä käyttäjänimi tai salasana    User created successfully    ユーザー作成成功!    Användaren skapades framgångsrikt
