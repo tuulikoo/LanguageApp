@@ -7,7 +7,6 @@ import { useUser } from '../utils/userContext';
 import { useTranslation } from 'react-i18next';
 
 const MAX_LOGIN_ATTEMPTS = 5;
-const ERROR_MESSAGE = 'Väärä käyttäjänimi tai salasana';
 const TIMEOUT_DURATION = 6000;
 
 export default function Login() {
@@ -17,6 +16,7 @@ export default function Login() {
     const [loginAttempts, setLoginAttempts] = useState(0);
     const { setUser } = useUser();
     const router = useRouter();
+    const ERROR_MESSAGE = t("UsernameOrPWwrong")
 
     useEffect(() => {
         let timer;

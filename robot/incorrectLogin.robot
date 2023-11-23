@@ -4,13 +4,14 @@
 
 *** Settings ***
 Library     Browser
+Library     String
 
 
 *** Variables ***
 ${LOGINURL} =       http://langapp.xyz/Login
 ${USERURL} =        http://langapp.xyz/UserPage
 ${MAINURL} =        http://langapp.xyz/MainPage
-${USERNAME} =       Tester1
+${USERNAME} =       Robot
 ${PASSWORD} =       wrongpassword
 
 
@@ -37,10 +38,17 @@ Enter Password
     Fill Text    id=login_password    txt=${PASSWORD}
 
 Submit Login Form
-    Click    id=login_loginButton
+    Click    id=loginButton
 
 Verify That Error message is shown
     Get Text    body    contains    Väärä käyttäjänimi tai salasana
+
+    ${BODY_TEXT} =    Get Text    body
+    ${BODY_TEXT} =    Replace String    ${BODY_TEXT}    \n    ${SPACE}
+    FOR    ${expected_text}    IN    Väärä käyttäjänimi tai salasana    User created successfully    ユーザー作成成功!    Användaren skapades framgångsrikt
+        ${contains_text} =    Evaluate    '${expected_text.lower()}' in '${BODY_TEXT.lower()}'
+        Run Keyword If    ${contains_text}    Log    '${expected_text} found in ${BODY_TEXT}'
+    END
 
 Verify that url is same
     Get Url    ==    ${LOGINURL}

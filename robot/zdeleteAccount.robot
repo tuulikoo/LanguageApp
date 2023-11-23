@@ -2,17 +2,20 @@
 Library     Browser
 Library     String
 
+Resource    common_keywords.robot
+Test Setup    Run Tests Setup
 
 *** Variables ***
 ${LOGINURL} =       http://langapp.xyz/Login
 ${USERURL} =        http://langapp.xyz/UserPage
 ${MAINURL} =        http://langapp.xyz/MainPage
-${USERNAME} =       Robot
+${USERNAME} =       RobotD
 ${PASSWORD} =       password
 
 
 *** Test Cases ***
 Delete User
+    Run Tests Setup
     Open Browser To Login Page
     Enter Username
     Enter Password

@@ -2,6 +2,9 @@
 Library     Browser
 Library     String
 
+Test Teardown    Run Tests Teardown
+
+Resource    common_keywords.robot
 
 *** Variables ***
 ${REGISTERURL} =    http://langapp.xyz/Registration
@@ -10,8 +13,6 @@ ${PASSWORD} =       password
 ${EMAIL} =          robonos@osoite.com.com
 ${ETUNIMI} =        Robo
 ${LOGINURL} =       http://langapp.xyz/Login
-
-
 
 *** Test Cases ***
 Verify Successfull Registration
@@ -42,7 +43,7 @@ Enter Email
     Fill Text    id=email    txt=${EMAIL}
 
 Enter Firstname
-    Fill Text    id=firstName    txt=${USERNAME}
+    Fill Text    id=firstName    txt=${ETUNIMI}
 
 Enter Password
     Fill Text    id=password    txt=${PASSWORD}
@@ -76,4 +77,6 @@ Confirm Login Page is Open
             Run Keyword If    ${contains_text}    Log    '${expected_text} found in ${BODY_TEXT}'
     END
     Get Url    ==    ${LOGINURL}
+
+
 
