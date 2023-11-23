@@ -1,5 +1,5 @@
 from robot import common_keywords.robot
 
 *** Settings ***
-Suite Setup    Run Tests Setup
+Suite Setup    Create Testuser1
 Suite Teardown    Run Tests Teardown

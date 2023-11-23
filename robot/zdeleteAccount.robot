@@ -3,19 +3,18 @@ Library     Browser
 Library     String
 
 Resource    common_keywords.robot
-Test Setup    Run Tests Setup
+Test Setup    Create Testuser
 
 *** Variables ***
 ${LOGINURL} =       http://langapp.xyz/Login
 ${USERURL} =        http://langapp.xyz/UserPage
 ${MAINURL} =        http://langapp.xyz/MainPage
-${USERNAME} =       RobotD
-${PASSWORD} =       password
+${USERNAME} =       RoboTester2
+${PASSWORD} =       PasswordTest2
 
 
 *** Test Cases ***
 Delete User
-    Run Tests Setup
     Open Browser To Login Page
     Enter Username
     Enter Password
@@ -37,6 +36,7 @@ Delete User
 Open Browser To Login Page
     New Browser    headless=${True}
     New Page    ${LOGINURL}
+    Sleep    3s
 
 Enter Username
     Fill Text    id=login_username    txt=${USERNAME}

@@ -2,15 +2,15 @@
 Library     Browser
 Library     String
 
-Test Teardown    Run Tests Teardown
+Test Teardown    DeleteUser
 
 Resource    common_keywords.robot
 
 *** Variables ***
 ${REGISTERURL} =    http://langapp.xyz/Registration
-${USERNAME} =       Robot
-${PASSWORD} =       password
-${EMAIL} =          robonos@osoite.com.com
+${USERNAME} =       RobotTester1
+${PASSWORD} =       passwordTest1
+${EMAIL} =          robotester1@osoite.com
 ${ETUNIMI} =        Robo
 ${LOGINURL} =       http://langapp.xyz/Login
 

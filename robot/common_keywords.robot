@@ -7,21 +7,22 @@ ${LOGINURL} =       http://langapp.xyz/Login
 ${USERURL} =        http://langapp.xyz/UserPage
 ${MAINURL} =        http://langapp.xyz/MainPage
 ${REGISTERURL} =    http://langapp.xyz/Registration
-${USERNAME1} =       Robot
-${PASSWORD1} =       password
-${USERNAME2} =       RobotD
-${PASSWORD2} =       password
-${EMAIL2} =          robondos@osoite.com
+${USERNAME1} =       RobotTester1
+${PASSWORD1} =       passwordTest1
+${USERNAME2} =       RoboTester2
+${PASSWORD2} =       PasswordTest2
+${EMAIL2} =          roboTester2@osoite.com
 ${FIRSTNAME2} =       Robert
 
 *** Keywords ***
-Run Tests Setup
+Create Testuser
     New Browser    headless=${True}
     New Page    ${REGISTERURL}
     Fill Text    id=username    txt=${USERNAME2}
     Fill Text    id=email    txt=${EMAIL2}
     Fill Text    id=firstName    txt=${FIRSTNAME2}
     Fill Text    id=password    txt=${PASSWORD2}
+    Sleep    1s
     Click    xpath=//button[contains(@class, 'selectAvatarButton')]
     Sleep   1s
     Click    xpath=(//img[@alt="Avatar"])[2]
@@ -36,7 +37,7 @@ Run Tests Setup
 
 
 
-Run Tests Teardown
+DeleteUser
     New Browser    headless=${True}
     New Page    ${LOGINURL}
     Sleep    1s
