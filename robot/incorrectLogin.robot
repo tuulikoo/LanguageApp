@@ -7,9 +7,9 @@ Library     Browser
 
 
 *** Variables ***
-${LOGINURL} =       http://localhost:3009/Login
-${USERURL} =        http://localhost:3009/UserPage
-${MAINURL} =        http://localhost:3009/MainPage
+${LOGINURL} =       http://langapp.xyz/Login
+${USERURL} =        http://langapp.xyz/UserPage
+${MAINURL} =        http://langapp.xyz/MainPage
 ${USERNAME} =       Tester1
 ${PASSWORD} =       wrongpassword
 
