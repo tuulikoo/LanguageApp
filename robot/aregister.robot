@@ -62,8 +62,6 @@ Choose Language
 Click Register
     Click    xpath=//button[contains(@class, 'newUserButton')]
 
-*** Keywords ***
-*** Keywords ***
 Get Confirmation
     ${BODY_TEXT} =    Get Text    body
     ${BODY_TEXT} =    Replace String    ${BODY_TEXT}    \n    ${SPACE}

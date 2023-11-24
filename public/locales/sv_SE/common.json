@@ -92,5 +92,6 @@
     "InsertUser": "Ange användarnamn",
     "InsertPassword": "Ange lösenord",
     "Logga in": "Logga in",
-    "userCreatedSuccessfully": "Användaren skapades framgångsrikt!"
+    "userCreatedSuccessfully": "Användaren skapades framgångsrikt!",
+    "UsernameOrPWwrong": "Felaktigt användarnamn eller lösenord"
 }

@@ -91,5 +91,6 @@
     "InsertUser": "ユーザー名を入力してください",
     "InsertPassword": "パスワードを入力",
     "Login": "ログイン",
-    "userCreatedSuccessfully": "ユーザー作成成功！"
+    "userCreatedSuccessfully": "ユーザー作成成功！",
+    "UsernameOrPWwrong": "ユーザー名またはパスワードが間違っています"
 }

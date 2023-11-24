@@ -13,15 +13,19 @@ ${USERURL} =        http://langapp.xyz/UserPage
 ${MAINURL} =        http://langapp.xyz/MainPage
 ${USERNAME} =       RobotRest
 ${PASSWORD} =       RoboTestWrong
+${condition_met} =    False
 
 
 *** Test Cases ***
 Verify User Cannot Login With Incorrect Password
     Open Browser To Login Page
+    Sleep    1s
     Enter Username
+    Sleep    1s
     Enter Password
+    Sleep    1s
     Submit Login Form
-    Sleep    4s    just to wait for error message
+    Sleep    5s    just to wait for error message
     Verify That Error message is shown
     Verify that url is same
 
@@ -38,15 +42,24 @@ Enter Password
     Fill Text    id=login_password    txt=${PASSWORD}
 
 Submit Login Form
-    Click    id=loginButton
+    Click    xpath=//button[contains(@class, 'loginButton')]
 
 Verify That Error message is shown
     ${BODY_TEXT} =    Get Text    body
     ${BODY_TEXT} =    Replace String    ${BODY_TEXT}    \n    ${SPACE}
-    FOR    ${expected_text}    IN    Väärä käyttäjänimi tai salasana    User created successfully    ユーザー作成成功!    Användaren skapades framgångsrikt
-        ${contains_text} =    Evaluate    '${expected_text.lower()}' in '${BODY_TEXT.lower()}'
-        Run Keyword If    ${contains_text}    Log    '${expected_text} found in ${BODY_TEXT}'
-    END
+        IF    'väärä käyttäjänimi tai salasana' in $BODY_TEXT.lower()
+            Set Variable    ${condition_met}    ${True}
+        ELSE IF    'incorrect' in $BODY_TEXT.lower()
+            Set Variable    ${condition_met}    ${True}
+        ELSE IF    'ユーザー名またはパスワードが間違っています' in $BODY_TEXT
+            Set Variable    ${condition_met}    ${True}
+        ELSE IF    'felaktigt användarnamn eller lösenord' in $BODY_TEXT.lower()
+            Set Variable    ${condition_met}    ${True}
+        ELSE IF     'usernameorpwwrong' in $BODY_TEXT.lower()
+            Set Variable    ${condition_met}    ${True}
+        ELSE
+            Fail    Log    'None of the expected texts found in ${BODY_TEXT}'
+        END
 
 Verify that url is same
     Get Url    ==    ${LOGINURL}

@@ -17,10 +17,13 @@ ${condition_met}=   Fail
 *** Test Cases ***
 Delete User
     Open Browser To Login Page
+    Sleep    1s
     Enter Username
+    Sleep    1s
     Enter Password
+    Sleep    1s
     Submit Login Form
-    Sleep    4s    just to check if page opened
+    Sleep    5s    just to check if page opened
     Verify That MainPage Is Visible
     Navigate to Userpage
     Sleep    4s    just to check if page opened
@@ -95,14 +98,14 @@ Click Delete-button
 Verify Confirm Deletion Text Appears
     ${BODY_TEXT} =    Get Text    body
     ${BODY_TEXT} =    Replace String    ${BODY_TEXT}    \n    ${SPACE}
-
+    Sleep    2s
     IF    'haluatko varmasti poistaa tilisi' in $BODY_TEXT.lower()
         Set Variable    ${condition_met}    ${True}
     ELSE IF    'är du säker på att du vill radera ditt konto' in $BODY_TEXT.lower()
         Set Variable    ${condition_met}    ${True}
     ELSE IF    '本当にアカウントを削除しますか' in $BODY_TEXT
         Set Variable    ${condition_met}    ${True}
-    ELSE IF    'UPconfirmDelete' in $BODY_TEXT
+    ELSE IF    'upconfirmDelete' in $BODY_TEXT.lower()
          Set Variable    ${condition_met}    ${True}
 
     ELSE

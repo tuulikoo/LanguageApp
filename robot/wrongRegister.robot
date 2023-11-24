@@ -1,13 +1,15 @@
 *** Settings ***
 Library     Browser
+Library     String
 
 
 *** Variables ***
-${REGISTERURL} =    http://localhost:3009/Registration
-${USERNAME} =       RobotTester
+${REGISTERURL} =    http://langapp.xyz/Registration
+${USERNAME} =       RobotTester9970
 ${PASSWORD} =       Password
-${EMAIL} =          virheellinen@osoite
+${EMAIL} =          virheellinen9970@osoite
 ${ETUNIMI} =        Robo
+${condition_met} =   False
 
 
 *** Test Cases ***
@@ -19,6 +21,7 @@ Verify Incorrect Email Will Not Work For Registering
     Enter Password
     Open Choose Avatar adjust-fields
     Select Avatar
+    Choose Language
     Click Register
     Get Error
 
@@ -41,13 +44,31 @@ Enter Password
     Fill Text    id=password    txt=${PASSWORD}
 
 Open Choose Avatar adjust-fields
-    Click    .RegistrationForm_selectAvatarButton__pUB__
+    Click    xpath=//button[contains(@class, 'selectAvatarButton')]
 
 Select Avatar
     Click    xpath=(//img[@alt="Avatar"])[2]
 
+Choose Language
+    Click    xpath=//*[@id="__next"]/div/div[2]/form/div[5]/div[1]/label/img
+
 Click Register
-    Click    .RegistrationForm_newUserButton__go4Al
+    Click    xpath=//button[contains(@class, 'newUserButton')]
 
 Get Error
-    Get Text    body    contains    Sähköpostiosoite ei ole oikeassa muodossa
+    ${BODY_TEXT} =    Get Text    body
+        ${BODY_TEXT} =    Replace String    ${BODY_TEXT}    \n    ${SPACE}
+
+        IF    'sähköpostiosoite ei ole oikeassa muodossa' in $BODY_TEXT.lower()
+            Set Variable    ${condition_met}    ${True}
+        ELSE IF    'incorrect' in $BODY_TEXT.lower()
+            Set Variable    ${condition_met}    ${True}
+        ELSE IF    'メールアドレスが正しい形式ではありません' in $BODY_TEXT
+            Set Variable    ${condition_met}    ${True}
+        ELSE IF    'e-postadressen är inte i rätt format' in $BODY_TEXT.lower()
+            Set Variable    ${condition_met}    ${True}
+        ELSE IF     'regemailwrong' in $BODY_TEXT.lower()
+            Set Variable    ${condition_met}    ${True}
+        ELSE
+            Fail    Log    'None of the expected texts found in ${BODY_TEXT}'
+        END
