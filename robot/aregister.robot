@@ -13,6 +13,7 @@ ${PASSWORD} =       passwordTest1
 ${EMAIL} =          robotester1@osoite.com
 ${ETUNIMI} =        Robo
 ${LOGINURL} =       http://langapp.xyz/Login
+${condition_met} =      False
 
 *** Test Cases ***
 Verify Successfull Registration
@@ -61,21 +62,29 @@ Choose Language
 Click Register
     Click    xpath=//button[contains(@class, 'newUserButton')]
 
+*** Keywords ***
+*** Keywords ***
 Get Confirmation
     ${BODY_TEXT} =    Get Text    body
     ${BODY_TEXT} =    Replace String    ${BODY_TEXT}    \n    ${SPACE}
-    FOR    ${expected_text}    IN    Käyttäjä luotu onnistuneesti    User created successfully    ユーザー作成成功!    Användaren skapades framgångsrikt
-        ${contains_text} =    Evaluate    '${expected_text.lower()}' in '${BODY_TEXT.lower()}'
-        Run Keyword If    ${contains_text}    Log    '${expected_text} found in ${BODY_TEXT}'
+
+    IF    'käyttäjä luotu' in $BODY_TEXT.lower()
+        Set Variable    ${condition_met}    ${True}
+    ELSE IF    'user created' in $BODY_TEXT.lower()
+        Set Variable    ${condition_met}    ${True}
+    ELSE IF    'ユーザー作成成功!' in $BODY_TEXT
+        Set Variable    ${condition_met}    ${True}
+    ELSE IF    'användaren skapades framgångsrikt' in $BODY_TEXT.lower()
+        Set Variable    ${condition_met}    ${True}
+    ELSE IF     'userCreatedSuccessfully' in $BODY_TEXT
+        Set Variable    ${condition_met}    ${True}
+    ELSE
+        Fail    Log    'None of the expected texts found in ${BODY_TEXT}'
     END
 
+
+
 Confirm Login Page is Open
-    ${BODY_TEXT} =    Get Text    body
-    ${BODY_TEXT} =    Replace String    ${BODY_TEXT}    \n    ${SPACE}
-    FOR    ${expected_text}    IN    Kirjaudu sisään    Sign in    サインイン    Logga in
-            ${contains_text} =    Evaluate    '${expected_text.lower()}' in '${BODY_TEXT.lower()}'
-            Run Keyword If    ${contains_text}    Log    '${expected_text} found in ${BODY_TEXT}'
-    END
     Get Url    ==    ${LOGINURL}
 
 

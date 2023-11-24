@@ -11,6 +11,7 @@ ${USERURL} =        http://langapp.xyz/UserPage
 ${MAINURL} =        http://langapp.xyz/MainPage
 ${USERNAME} =       RoboTester2
 ${PASSWORD} =       PasswordTest2
+${condition_met}=   Fail
 
 
 *** Test Cases ***
@@ -53,21 +54,39 @@ Verify That MainPage Is Visible
 Navigate to Userpage
     Click    xpath=//button[contains(@class, 'avatarButton')]
 
+
 Verify That UserPage Is Visible
     ${BODY_TEXT} =    Get Text    body
     ${BODY_TEXT} =    Replace String    ${BODY_TEXT}    \n    ${SPACE}
-    FOR    ${expected_text}    IN    Tervetuloa omalle sivullesi    Välkommen till din hemsida  さん、あなたのページへようこそ    データを削除する
-            ${contains_text} =    Evaluate    '${expected_text.lower()}' in '${BODY_TEXT.lower()}'
-            Run Keyword If    ${contains_text}    Log    '${expected_text} found in ${BODY_TEXT}'
+
+    IF    'tervetuloa omalle' in $BODY_TEXT.lower()
+        Set Variable    ${condition_met}    ${True}
+    ELSE IF    'välkommen till din hemsida' in $BODY_TEXT.lower()
+        Set Variable    ${condition_met}    ${True}
+    ELSE IF    'さん、あなたのページへようこそ' in $BODY_TEXT
+        Set Variable    ${condition_met}    ${True}
+    ELSE IF    'UPwelcome' in $BODY_TEXT
+        Set Variable    ${condition_met}    ${True}
+    ELSE
+        Fail    Log    'None of the expected texts found in ${BODY_TEXT}'
     END
     Get Url    ==    ${USERURL}
+
 
 Verify Delete-button exists
     ${BODY_TEXT} =    Get Text    body
     ${BODY_TEXT} =    Replace String    ${BODY_TEXT}    \n    ${SPACE}
-    FOR    ${expected_text}    IN    Poista tietoni    Radera mina uppgifter    データを削除する
-        ${contains_text} =    Evaluate    '${expected_text.lower()}' in '${BODY_TEXT.lower()}'
-        Run Keyword If    ${contains_text}    Log    '${expected_text} found in ${BODY_TEXT}'
+
+    IF    'poista tietoni' in $BODY_TEXT.lower()
+        Set Variable    ${condition_met}    ${True}
+    ELSE IF    'radera mina uppgifter' in $BODY_TEXT.lower()
+        Set Variable    ${condition_met}    ${True}
+    ELSE IF    'データを削除する' in $BODY_TEXT
+        Set Variable    ${condition_met}    ${True}
+    ELSE IF    'UPdelete' in $BODY_TEXT
+         Set Variable    ${condition_met}    ${True}
+    ELSE
+        Fail    Log    'None of the expected texts found in ${BODY_TEXT}'
     END
 
 Click Delete-button
@@ -76,9 +95,18 @@ Click Delete-button
 Verify Confirm Deletion Text Appears
     ${BODY_TEXT} =    Get Text    body
     ${BODY_TEXT} =    Replace String    ${BODY_TEXT}    \n    ${SPACE}
-    FOR    ${expected_text}    IN    Haluatko varmasti poistaa tilisi    Är du säker på att du vill radera ditt konto?   本当にアカウントを削除しますか
-        ${contains_text} =    Evaluate    '${expected_text.lower()}' in '${BODY_TEXT.lower()}'
-        Run Keyword If    ${contains_text}    Log    '${expected_text} found in ${BODY_TEXT}'
+
+    IF    'haluatko varmasti poistaa tilisi' in $BODY_TEXT.lower()
+        Set Variable    ${condition_met}    ${True}
+    ELSE IF    'är du säker på att du vill radera ditt konto' in $BODY_TEXT.lower()
+        Set Variable    ${condition_met}    ${True}
+    ELSE IF    '本当にアカウントを削除しますか' in $BODY_TEXT
+        Set Variable    ${condition_met}    ${True}
+    ELSE IF    'UPconfirmDelete' in $BODY_TEXT
+         Set Variable    ${condition_met}    ${True}
+
+    ELSE
+        Fail    Log    'None of the expected texts found in ${BODY_TEXT}'
     END
 
 Click Confirm Deletion-button
