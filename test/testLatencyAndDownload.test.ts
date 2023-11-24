@@ -17,10 +17,8 @@ test('Measure Download and Latency for LangApp', async ({ browser }, testInfo) =
             'http://langapp.xyz/Game5'
         ];
 
-        // Loop through each
         for (const url of urlsToTest) {
             try {
-                // Navigate to the URL and wait for the 'load' event
                 await page.goto(url, { waitUntil: 'load' });
 
                 // Measure Latency and Download
@@ -37,12 +35,12 @@ test('Measure Download and Latency for LangApp', async ({ browser }, testInfo) =
                 console.log('Latency:', metrics.latency, 'ms');
                 console.log('Download Time:', metrics.downloadTime);
 
-                // Check if testInfo.attachments is defined before using it
+
                 if (testInfo.attachments) {
-                    // Convert the string to a Buffer
+
                     const metricsBuffer = Buffer.from(JSON.stringify(metrics));
 
-                    // Set the content type for the attachment
+
                     const contentType = 'application/json';
 
                     await testInfo.attachments.push({ name: `Network Performance metrics for ${url}`, body: metricsBuffer, contentType });
@@ -51,7 +49,7 @@ test('Measure Download and Latency for LangApp', async ({ browser }, testInfo) =
                 }
             } catch (error) {
                 console.error(`Error measuring metrics for ${url}:`, error);
-                // Continue to the next URL even if there's an error
+
             }
         }
     } catch (error) {
