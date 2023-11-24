@@ -21,8 +21,10 @@ function Navbar() {
     const { t } = useTranslation();
 
     // Update the cookie and the i18n language setting
-    const setLanguageCookie = (languageCode) => {
-        Cookies.set("i18next", languageCode, { expires: 1 });
+    const setLanguageCookie = async (languageCode) => {
+        if (!user) {
+            Cookies.set("i18next", languageCode, { expires: 1 });
+        }
         setSelectedLanguage(languageCode);
     };
 
