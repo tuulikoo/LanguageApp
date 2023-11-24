@@ -7,7 +7,7 @@ i18n
     .use(LanguageDetector) // detect user language
     .init({
         // don't define resources here
-        fallbackLng: 'fi',
+        fallbackLng: 'fi_FI',
         debug: true,
 
         // have a common namespace used around the full app
@@ -21,7 +21,7 @@ i18n
         },
 
         react: {
-            useSuspense: false,
+            useSuspense: true,
         },
 
         backend: {
