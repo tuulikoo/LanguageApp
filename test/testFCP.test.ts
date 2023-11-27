@@ -1,5 +1,5 @@
 import { chromium } from 'playwright';
-import { test } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
 test('Measure FCP for LangApp', async ({ page }, testInfo) => {
     const browser = await chromium.launch();
@@ -18,6 +18,9 @@ test('Measure FCP for LangApp', async ({ page }, testInfo) => {
 
         console.log('First Contentful Paint (FCP):', fcpMetrics);
 
+        expect(fcpMetrics).not.toBeNull();
+        expect(fcpMetrics).toBeLessThan(3000);
+
         if (testInfo.attachments) {
             const metricsBuffer = Buffer.from(JSON.stringify(fcpMetrics));
 
@@ -32,4 +35,5 @@ test('Measure FCP for LangApp', async ({ page }, testInfo) => {
     } finally {
         await browser.close();
     }
+
 });
