@@ -6,8 +6,8 @@ Library     Browser
 ${LOGINURL} =       http://langapp.xyz/Login
 ${USERURL} =        http://langapp.xyz/UserPage
 ${MAINURL} =        http://langapp.xyz/MainPage
-${USERNAME} =       RobotRest
-${PASSWORD} =       RoboTestRest
+${USERNAME} =       RobotLogin
+${PASSWORD} =       RoboTestLogin
 
 *** Test Cases ***
 Verify Succesfull Login
