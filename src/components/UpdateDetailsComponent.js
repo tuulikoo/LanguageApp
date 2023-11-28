@@ -22,7 +22,7 @@ function UpdateDetailsComponent({ setUser }) {
     const [newPassword, setNewPassword] = useState('');
     const [newEmail, setNewEmail] = useState('');
     const [newFirstName, setNewFirstName] = useState('');
-    const [newUserName, setNewUserName] = useState('');
+    const [newUsername, setNewUsername] = useState('');
     const [newAvatar, setNewAvatar] = useState('');
     const { user, loading } = useUser();
     const [avatarHovered, setAvatarHovered] = useState(false);
@@ -80,8 +80,8 @@ function UpdateDetailsComponent({ setUser }) {
 
     const handleSaveClick = async () => {
         const dataToUpdate = {};
-        if (newUserName !== '') {
-            dataToUpdate.newUserName = newUserName;
+        if (newUsername !== '') {
+            dataToUpdate.newUsername = newUsername;
         }
         if (newPassword !== '') {
             dataToUpdate.newPassword = newPassword;
@@ -183,8 +183,8 @@ function UpdateDetailsComponent({ setUser }) {
                                     id="text"
                                     type="text"
                                     placeholder="Enter new username"
-                                    value={newUserName}
-                                    onChange={(e) => setNewUserName(e.target.value)}
+                                    value={newUsername}
+                                    onChange={(e) => setNewUsername(e.target.value)}
                                 />
                             </div>
                         )}
