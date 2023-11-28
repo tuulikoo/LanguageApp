@@ -116,13 +116,7 @@ const LevelSelector = () => {
     const pointThresholds = [0, 50, 100, 130, 200];
     const languages = ['finnish', 'english', 'swedish', 'japanese']; // Define your languages
 
-    if (loading) {
-        return (
-            <div className={styles.loading_container}>
-                <CircularProgress />
-            </div>
-        );
-    }
+
 
     const isLevelAvailable = (levelIndex) => {
         return user.userPoints >= pointThresholds[levelIndex];
@@ -148,6 +142,14 @@ const LevelSelector = () => {
     useEffect(() => {
         setLanguageStates(Array(levelsData.length).fill(formatLanguageCode(selectedLanguage)));
     }, [selectedLanguage]);
+
+    if (loading) {
+        return (
+            <div className={styles.loading_container}>
+                <CircularProgress />
+            </div>
+        );
+    }
 
     const handleItemClick = (index, e) => {
         e.preventDefault();
