@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import styles from "@/styles/Levels.module.css";
+import styles from "@/styles/Levels.module.scss";
 import { Link } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useSelectedLanguage } from "@/utils/selectedLanguage";

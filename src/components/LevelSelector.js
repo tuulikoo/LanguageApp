@@ -114,9 +114,7 @@ const LevelSelector = () => {
     const { user, loading } = useUser();
     const selectedLanguage = useSelectedLanguage();
     const pointThresholds = [0, 50, 100, 130, 200];
-    const languages = ['finnish', 'english', 'swedish', 'japanese']; // Define your languages
-
-
+    const languages = ["finnish", "english", "swedish", "japanese"]; // Define your languages
 
     const isLevelAvailable = (levelIndex) => {
         return user.userPoints >= pointThresholds[levelIndex];
@@ -124,14 +122,14 @@ const LevelSelector = () => {
 
     const formatLanguageCode = (languageCode) => {
         switch (languageCode) {
-            case 'fi_FI':
-                return 'finnish';
-            case 'sv_SE':
-                return 'swedish';
-            case 'ja_JP':
-                return 'japanese';
+            case "fi_FI":
+                return "finnish";
+            case "sv_SE":
+                return "swedish";
+            case "ja_JP":
+                return "japanese";
             default:
-                return 'english';
+                return "english";
         }
     };
 
@@ -140,7 +138,9 @@ const LevelSelector = () => {
     );
 
     useEffect(() => {
-        setLanguageStates(Array(levelsData.length).fill(formatLanguageCode(selectedLanguage)));
+        setLanguageStates(
+            Array(levelsData.length).fill(formatLanguageCode(selectedLanguage))
+        );
     }, [selectedLanguage]);
 
     if (loading) {
@@ -196,10 +196,21 @@ const LevelSelector = () => {
 
                     return (
                         <li key={index} className={itemClass}>
-                            <Link href={isAvailable ? level.route : '#'} className={styles.levels_link}>
-                                <Image src={level.image} alt="level" width={200} height={200} className={styles.level_image} />
+                            <Link
+                                href={isAvailable ? level.route : "#"}
+                                className={styles.levels_link}
+                            >
+                                <Image
+                                    src={level.image}
+                                    alt="level"
+                                    width={200}
+                                    height={200}
+                                    className={styles.level_image}
+                                />
                                 <h2 className={styles.level_title}>{title}</h2>
-                                <p className={styles.level_description}>{description}</p>
+                                <p className={styles.level_description}>
+                                    {description}
+                                </p>
                                 <Button
                                     disabled={!isAvailable}
                                     className={styles.level_button}
@@ -219,5 +230,3 @@ const LevelSelector = () => {
 };
 
 export default LevelSelector;
-
-
