@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:20
 
 # Accept build arguments
 ARG DATABASE_URL
@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y git
 RUN git clone -b master https://github.com/tuulikoo/LanguageApp.git .
 
 # Install dependencies and build the app
+RUN npm install -g npm@latest
 RUN npm install
 RUN npm run build
 

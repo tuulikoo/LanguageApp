@@ -6,16 +6,19 @@ Library     Browser
 ${LOGINURL} =       http://langapp.xyz/Login
 ${USERURL} =        http://langapp.xyz/UserPage
 ${MAINURL} =        http://langapp.xyz/MainPage
-${USERNAME} =       Robot
-${PASSWORD} =       password
+${USERNAME} =       RobotLogin
+${PASSWORD} =       RoboTestLogin
 
 *** Test Cases ***
 Verify Succesfull Login
     Open Browser To Login Page
+    Sleep    1s
     Enter Username
+    Sleep    1s
     Enter Password
+    Sleep    1s
     Submit Login Form
-    Sleep    4s    just to check if page opened
+    Sleep    5s    just to check if page opened
     Verify That MainPage Is Visible
 
 

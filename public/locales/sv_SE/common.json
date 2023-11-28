@@ -55,7 +55,7 @@
     "G4score2": "Poäng för denna uppgift: ",
     "G4backHome": "Tillbaka till startsidan",
     "G4previous": "Tidigare fråga",
-
+    "Login": "Logga in",
     "G2correct": "Korrekt!",
     "G2wrong": "Fel, försök igen!",
     "G2next": "Nästa fråga",
@@ -92,5 +92,6 @@
     "InsertUser": "Ange användarnamn",
     "InsertPassword": "Ange lösenord",
     "Logga in": "Logga in",
-    "userCreatedSuccessfully": "Användaren skapades framgångsrikt!"
+    "userCreatedSuccessfully": "Användaren skapades framgångsrikt!",
+    "UsernameOrPWwrong": "Felaktigt användarnamn eller lösenord"
 }

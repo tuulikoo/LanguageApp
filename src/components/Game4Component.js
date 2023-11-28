@@ -112,7 +112,7 @@ function Game4Component() { // Pass onLevelCompletion as a prop
 
             setTimeout(() => {
                 handleNextQuestion();
-            }, 1000);
+            }, 700);
         } else {
             if (incorrectAttempts === 0) {
                 setResult(t("G4wrong"));
@@ -122,7 +122,7 @@ function Game4Component() { // Pass onLevelCompletion as a prop
 
                 setTimeout(() => {
                     handleNextQuestion();
-                }, 2000);
+                }, 1000);
             }
             setIncorrectAttempts(incorrectAttempts + 1);
         }

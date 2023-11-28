@@ -94,12 +94,9 @@
   gap: 10px; /* Add some spacing between buttons */
 }
 
-/* ... other styles ... */
-
-/* Style result messages */
 .result {
-  margin-top: 20px;
-  margin-bottom: -20px;
+  margin-top: 30px;
+  margin-bottom: -5px;
   position: absolute;
   bottom: 10px; /* Adjust the distance from the bottom */
   transform: translateX(-30%); /* Center result text horizontally */

@@ -96,6 +96,7 @@
     "Loading": "Ladataan...",
     "RegNewUser": "Uusi käyttäjä",
     "SignIn": "Kirjaudu sisään",
+    "Login": "Kirjaudu",
     "userCreatedSuccessfully": "Käyttäjä luotu onnistuneesti!",
     "UsernameOrPWwrong": "Väärä käyttäjänimi tai salasana"
 }

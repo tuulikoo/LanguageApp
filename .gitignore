@@ -64,4 +64,7 @@ myenv
 myrobotenv
 output.html
 /browser
-
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
