@@ -1,11 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import styles from "@/styles/Levels.module.scss";
-import { Link } from "@mui/material";
+import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { useSelectedLanguage } from "@/utils/selectedLanguage";
 import levelsData from "../utils/wordlists/LevelsData";
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const Levels = () => {
     const selectedLanguage = useSelectedLanguage();
@@ -21,7 +21,6 @@ const Levels = () => {
         console.log("Selected language changed to:", selectedLanguage);
         setLevelLanguages(new Array(levelsData.length).fill(selectedLanguage));
     }, [selectedLanguage]);
-
 
     const languages = ["en_GB", "fi_FI", "ja_JP", "sv_SE"];
     const toggleLevelLanguage = (index) => {
@@ -51,14 +50,16 @@ const Levels = () => {
                                 )}
                             </p>
                         </Link>
-                        <button className={styles.level_button}
-                            onClick={() => toggleLevelLanguage(index)}>
+                        <button
+                            className={styles.level_button}
+                            onClick={() => toggleLevelLanguage(index)}
+                        >
                             <ArrowForwardIosIcon />
                         </button>
                     </li>
                 ))}
             </ul>
-        </div >
+        </div>
     );
 };
 

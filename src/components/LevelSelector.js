@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styles from "@/styles/LevelSelector.module.scss";
-import { Button } from "@mui/material";
 import Link from "next/link";
 import { RefreshOutlined } from "@mui/icons-material";
 import Image from "next/image";
@@ -211,7 +210,7 @@ const LevelSelector = () => {
                                 <p className={styles.level_description}>
                                     {description}
                                 </p>
-                                <Button
+                                <button
                                     disabled={!isAvailable}
                                     className={styles.level_button}
                                     size="small"
@@ -219,7 +218,7 @@ const LevelSelector = () => {
                                     onClick={(e) => handleItemClick(index, e)}
                                 >
                                     {getNextLanguage(languageStates[index])}
-                                </Button>
+                                </button>
                             </Link>
                         </li>
                     );
