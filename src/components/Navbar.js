@@ -15,8 +15,7 @@ function Navbar() {
     const [avatarHovered, setAvatarHovered] = useState(false);
     const [dropdownVisible, setDropdownVisible] = useState(false);
     const dropdownRef = useRef(null);
-    const [selectedLanguage, setSelectedLanguage] = useState(
-        18n.language || getSelectedLanguage()
+    const [selectedLanguage, setSelectedLanguage] = useState(getSelectedLanguage() || "fi_FI"
     );
     const [navbarVisible, setNavbarVisible] = useState(true);
     const { t } = useTranslation();
@@ -44,6 +43,7 @@ function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [navbarVisible, handleScroll]);
 
+
     const handleLogout = async () => {
         await logout();
         router.push("/Login");
@@ -57,12 +57,11 @@ function Navbar() {
     const handleLanguageChange = async (languageCode) => {
         setLanguageCookie(languageCode);
         i18n.changeLanguage(languageCode);
-        router.reload();
 
         if (user) {
             try {
                 const response = await axios.post(
-                    `/api/updateUserLanguage?userId=${user.id}&language=${languageCode}`
+                    `/api/updateUserLanguage?userId=${user.id}&language=${languageCode}`,
                 );
                 if (response.status === 200) {
                     // Update the user context with the updated language
@@ -71,22 +70,16 @@ function Navbar() {
                     // FetchUserData if needed or handle the update
                 }
             } catch (error) {
-                console.error(
-                    "An error occurred while updating language:",
-                    error
-                );
+                console.error("An error occurred while updating language:", error);
             }
         }
         setDropdownVisible(false);
     };
 
     useEffect(() => {
-        if (typeof window !== "undefined") {
+        if (typeof window !== 'undefined') {
             const handleClickOutside = (event) => {
-                if (
-                    dropdownRef.current &&
-                    !dropdownRef.current.contains(event.target)
-                ) {
+                if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
                     setDropdownVisible(false);
                 }
             };
@@ -154,7 +147,7 @@ function Navbar() {
                                         ? `lang/${user.language}.png`
                                         : selectedLanguage
                                             ? `lang/${selectedLanguage}.png`
-                                            : "lang/fi_FI.png"
+                                            : "lang/default.png"
                                 }
                                 alt={
                                     user
@@ -168,25 +161,18 @@ function Navbar() {
                             <span className={styles.langText}>Language</span>
                         </button>
                         {dropdownVisible && (
-                            <div
-                                ref={dropdownRef}
-                                className={styles.languageOptions}
-                            >
+                            <div ref={dropdownRef} className={styles.languageOptions}>
                                 {remainingLanguages.map((lang) => (
                                     <div
                                         key={lang.code}
-                                        onClick={() =>
-                                            handleLanguageChange(lang.code)
-                                        }
+                                        onClick={() => handleLanguageChange(lang.code)}
                                     >
                                         <img
                                             src={lang.image}
                                             alt={lang.name}
                                             className={styles.flagOption}
                                         />
-                                        <span
-                                            className={styles.optionText}
-                                        ></span>
+                                        <span className={styles.optionText}></span>
                                     </div>
                                 ))}
                             </div>
@@ -256,11 +242,7 @@ function Navbar() {
                                     ? `avatars/avatar${user.avatarId}.png`
                                     : "avatars/default.png"
                             }
-                            alt={
-                                user
-                                    ? `${user.username} Avatar`
-                                    : "Default Avatar"
-                            }
+                            alt={user ? `${user.username} Avatar` : "Default Avatar"}
                             className={`${styles.avatar} ${avatarHovered ? styles.avatarHovered : ""
                                 }`}
                         />
