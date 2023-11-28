@@ -1,9 +1,13 @@
-import Cookies from "js-cookie";
-import { user } from "@/utils/userContext";
+import { useUser } from '@/utils/userContext';
+import Cookies from 'js-cookie';
 
+export function useSelectedLanguage() {
+    const { user } = useUser();
 
-export function getSelectedLanguage() {
-    if (user) {
+    if (user && user.language) {
         return user.language;
-    } else return Cookies.get("i18next") || "fi_FI";
+    }
+    return Cookies.get('i18next') || 'fi_FI';
+
 }
+

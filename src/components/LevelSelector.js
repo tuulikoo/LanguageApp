@@ -4,9 +4,10 @@ import { Button } from "@mui/material";
 import Link from "next/link";
 import { RefreshOutlined } from "@mui/icons-material";
 import Image from "next/image";
-import { getSelectedLanguage } from "@/utils/selectedLanguage";
+import { useSelectedLanguage } from "@/utils/selectedLanguage";
 import { useUser } from "@/utils/userContext";
 import { CircularProgress } from "@mui/material";
+import { useEffect } from "react";
 
 const levelsData = [
     {
@@ -110,48 +111,50 @@ const levelsData = [
 ];
 
 const LevelSelector = () => {
-    const languages = ["finnish", "english", "swedish", "japanese"];
     const { user, loading } = useUser();
-    const pointTresholds = [0, 50, 100, 130, 200];
+    const selectedLanguage = useSelectedLanguage();
+    const pointThresholds = [0, 50, 100, 130, 200];
+    const languages = ['finnish', 'english', 'swedish', 'japanese']; // Define your languages
 
     if (loading) {
-        return <div className={styles.loading_container}>
-            <CircularProgress />
-        </div>;
+        return (
+            <div className={styles.loading_container}>
+                <CircularProgress />
+            </div>
+        );
     }
 
-
-
     const isLevelAvailable = (levelIndex) => {
-        console.log(`Level ${levelIndex}: Required Points: ${pointTresholds[levelIndex]}, User Points: ${user.userPoints}`);
-        return user.userPoints >= pointTresholds[levelIndex];
+        return user.userPoints >= pointThresholds[levelIndex];
     };
 
-    const formatLanguageCode = () => {
-        switch (getSelectedLanguage()) {
-            case "fi_FI":
-                return "finnish";
-            case "sv_SE":
-                return "swedish";
-            case "ja_JP":
-                return "japanese";
+    const formatLanguageCode = (languageCode) => {
+        switch (languageCode) {
+            case 'fi_FI':
+                return 'finnish';
+            case 'sv_SE':
+                return 'swedish';
+            case 'ja_JP':
+                return 'japanese';
             default:
-                return "english";
+                return 'english';
         }
     };
 
-    // Initialize language states for each level
     const [languageStates, setLanguageStates] = useState(
-        Array(levelsData.length).fill(formatLanguageCode())
+        Array(levelsData.length).fill(formatLanguageCode(selectedLanguage))
     );
 
+    useEffect(() => {
+        setLanguageStates(Array(levelsData.length).fill(formatLanguageCode(selectedLanguage)));
+    }, [selectedLanguage]);
+
     const handleItemClick = (index, e) => {
-        // Prevent the link navigation
         e.preventDefault();
         e.stopPropagation();
 
         if (!isLevelAvailable(index)) {
-            return; // Do nothing if the level is not available
+            return;
         }
 
         const nextLanguage = (currentLanguage) => {
@@ -176,7 +179,6 @@ const LevelSelector = () => {
         description: level.description[language],
     });
 
-
     return (
         <div className={styles.levels_container}>
             <ul className={styles.levels_list}>
@@ -192,28 +194,12 @@ const LevelSelector = () => {
 
                     return (
                         <li key={index} className={itemClass}>
-                            <Link
-                                href={isAvailable ? level.route : "#"}
-                                className={styles.levels_link}
-                                onClick={
-                                    isAvailable
-                                        ? null
-                                        : (e) => e.preventDefault()
-                                }
-                            >
-                                <Image
-                                    src={level.image}
-                                    alt="level"
-                                    width={200}
-                                    height={200}
-                                    className={styles.level_image}
-                                />
+                            <Link href={isAvailable ? level.route : '#'} className={styles.levels_link}>
+                                <Image src={level.image} alt="level" width={200} height={200} className={styles.level_image} />
                                 <h2 className={styles.level_title}>{title}</h2>
-                                <p className={styles.level_description}>
-                                    {description}
-                                </p>
+                                <p className={styles.level_description}>{description}</p>
                                 <Button
-                                    disabled={!isAvailable} // Disable the button if the level is not available
+                                    disabled={!isAvailable}
                                     className={styles.level_button}
                                     size="small"
                                     startIcon={<RefreshOutlined />}
@@ -228,5 +214,8 @@ const LevelSelector = () => {
             </ul>
         </div>
     );
-}
+};
+
 export default LevelSelector;
+
+

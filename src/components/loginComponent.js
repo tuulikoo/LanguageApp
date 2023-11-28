@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import styles from '../styles/login.module.scss';
 import { useUser } from '../utils/userContext';
 import { useTranslation } from 'react-i18next';
+import Cookies from 'js-cookie';
 
 const MAX_LOGIN_ATTEMPTS = 5;
 const TIMEOUT_DURATION = 6000;
@@ -36,6 +37,7 @@ export default function Login() {
             const response = await axios.post('/api/login', data);
             if (response.status === 200) {
                 setUser(response.data.user);
+                Cookies.remove('i18next');
                 router.push('/MainPage');
             } else {
                 handleLoginError();

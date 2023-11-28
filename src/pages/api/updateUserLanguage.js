@@ -2,8 +2,8 @@ import prisma from '../../utils/prisma';
 
 
 const updateUserLanguage = async (req, res) => {
-    const userId = req.query.userId; // Extract user ID from the query parameter
-    const newLanguage = req.query.language;
+    const userId = req.body.userId;
+    const newLanguage = req.body.language;
 
     try {
         const existingUser = await prisma.user.findUnique({

@@ -1,18 +1,16 @@
-import i18n from 'i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
-import HttpApi from 'i18next-http-backend';
+import i18n from "i18next";
+import HttpApi from "i18next-http-backend";
 
-i18n
-    .use(HttpApi) // use http backend
-    .use(LanguageDetector) // detect user language
+i18n.use(HttpApi) // use http backend
     .init({
         // don't define resources here
-        fallbackLng: 'fi_FI',
+        fallbackLng: "fi_FI",
         debug: true,
+        supportedLngs: ["en_GB", "fi_FI", "ja_JP", "sv_SE"],
 
         // have a common namespace used around the full app
-        ns: ['common'],
-        defaultNS: 'common',
+        ns: ["common"],
+        defaultNS: "common",
 
         keySeparator: false, // we use content as keys
 
@@ -25,10 +23,10 @@ i18n
         },
 
         backend: {
-            // path where resources get loaded from
-            loadPath: '/locales/{{lng}}/{{ns}}.json',
+            loadPath: function(lngs, namespaces) {
+                return `/locales/${lngs[0]}/${namespaces[0]}.json`;
+            },
         },
     });
 
 export default i18n;
-
