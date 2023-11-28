@@ -5,7 +5,7 @@ test('Measure FCP for LangApp', async ({ page }, testInfo) => {
     const browser = await chromium.launch();
 
     try {
-        const url = 'http://langapp.xyz'; // You can make this configurable
+        const url = 'http://langapp.xyz';
 
         await page.goto(url);
 

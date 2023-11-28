@@ -1,6 +1,9 @@
 import Cookies from "js-cookie";
+import { user } from "@/utils/userContext";
+
 
 export function getSelectedLanguage() {
-    return Cookies.get("i18next") || "fi_FI";
-
+    if (user) {
+        return user.language;
+    } else return Cookies.get("i18next") || "fi_FI";
 }
