@@ -1,28 +1,38 @@
-import { describe, it, expect, vi } from 'vitest';
-import { getSelectedLanguage } from '../src/utils/selectedLanguage';
-import Cookies from 'js-cookie';
+import { describe, it, expect, vi, beforeEach } from "vitest";
+import { useSelectedLanguage } from "../src/utils/selectedLanguage";
+import { useUser } from "@/utils/userContext";
+import Cookies from "js-cookie";
 
-vi.mock('js-cookie', async () => {
-    const actual = await vi.importActual('js-cookie'); return {
-        ...actual,
-        get: vi.fn(),
-    };
-});
+vi.mock("@/utils/userContext", () => ({
+    useUser: vi.fn(),
+}));
 
-describe('getSelectedLanguage', () => {
-    it('should return the value of the i18next cookie if it exists', () => {
-
-        Cookies.get = vi.fn((key) => key === 'i18next' ? 'sv_SE' : null);
-
-
-        expect(getSelectedLanguage()).toBe('sv_SE');
+describe("useSelectedLanguage", () => {
+    beforeEach(() => {
+        vi.clearAllMocks();
+        Cookies.get = vi.fn();
     });
 
-    it('should return "fi_FI" if the i18next cookie does not exist', () => {
+    it("returns user language if user object exists and has language property", () => {
+        useUser.mockReturnValue({ user: { language: "ja_JP" } });
+        expect(useSelectedLanguage()).toBe("ja_JP");
+    });
 
-        Cookies.get = vi.fn(() => null);
+    it("returns cookie language if user object exists but has no language property", () => {
+        useUser.mockReturnValue({ user: {} });
+        Cookies.get.mockReturnValue("ja_JP");
+        expect(useSelectedLanguage()).toBe("ja_JP");
+    });
 
+    it("returns cookie language if user object does not exist", () => {
+        useUser.mockReturnValue({});
+        Cookies.get.mockReturnValue("sv_SE");
+        expect(useSelectedLanguage()).toBe("sv_SE");
+    });
 
-        expect(getSelectedLanguage()).toBe('fi_FI');
+    it("returns default language if no user object and no cookie", () => {
+        useUser.mockReturnValue({});
+        Cookies.get.mockReturnValue(null);
+        expect(useSelectedLanguage()).toBe("fi_FI");
     });
 });
