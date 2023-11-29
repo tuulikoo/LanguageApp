@@ -101,7 +101,7 @@ function LanguageDropdown({ user, setUser }) {
                                     ? "Suomeksi"
                                     : lang === "sv_SE"
                                         ? "På svenska"
-                                        : "Japaniksi"}
+                                        : "日本語"}
                             </span>
                         </div>
                     ))}
