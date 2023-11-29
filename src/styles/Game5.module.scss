@@ -1,106 +1,121 @@
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2em;
-  background-color: #f5f5f5;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    //position on middle of screen
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
 }
 
 .sentence {
-  font-weight: bold;
-  margin-bottom: 2em;
-  color: #333;
+    font-weight: bold;
+    margin-bottom: 2em;
+    color: #333;
 }
 
 .dropBox {
-  display: inline-block;
-  min-width: 150px;
-  height: 40px;
-  border: 1px dashed #9d9d9d;
-  cursor: pointer;
-  margin-left: 5px;
-  margin-right: 5px;
-  line-height: 40px;
-  text-align: center;
-  background-color: #fff;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+    display: inline-block;
+    min-width: 150px;
+    height: 40px;
+    border: 1px dashed #9d9d9d;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 
-  &.hasWord {
-    background-color: #d4edda;
-    border: 1px solid #c3e6cb;
-    color: #155724;
-  }
-
-  &.empty {
-    &:hover {
-      background-color: #eaeaea;
+    &.hasWord {
+        background-color: #d4edda;
+        border: 1px solid #c3e6cb;
+        color: #155724;
     }
-  }
+
+    &.empty {
+        &:hover {
+            background-color: #eaeaea;
+        }
+    }
 }
 .wrongAnswer {
-  background-color: #f8d7da;
-  border: 1px solid #f5c6cb;
-  color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
 }
 
 .wordsContainer {
-  margin-top: 2em;
+    margin-top: 2em;
 }
 
 .wordCard {
-  padding: 10px;
-  cursor: pointer;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  font-weight: bold;
-  color: #333;
-  transition: background-color 0.3s ease;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    color: #333;
+    transition: background-color 0.3s ease;
 
-  &:hover {
-    background-color: #eaeaea;
-  }
+    &:hover {
+        background-color: #eaeaea;
+    }
 }
 
 .feedback {
-  margin-top: 2em;
+    margin-top: 2em;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 1em;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-  &.correct {
-    color: #58cc02;
-  }
+
+    &.correct {
+        color: #58cc02;
+    }
 }
 
 .buttons {
-  margin-top: 2em;
-  display: flex;
-  justify-content: space-between;
+    margin-top: 2em;
+    display: flex;
+    justify-content: space-between;
 }
 
 .playButton {
-  background-color: #58cc02;
-  color: #fff;
-  font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 8px;
-  margin-right: 10px;
-  transition: background-color 0.3s ease;
+    background-color: #58cc02;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
 
-  &:hover {
-    background-color: #4ba902;
-  }
+    &:hover {
+        background-color: #4ba902;
+    }
 }
 
 .nextButton {
-  background-color: #ffd700;
-  color: #333;
-  font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
+    background-color: #ffd700;
+    color: #333;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
 
-  &:hover {
-    background-color: #ffc300;
-  }
+    &:hover {
+        background-color: #ffc300;
+    }
 }

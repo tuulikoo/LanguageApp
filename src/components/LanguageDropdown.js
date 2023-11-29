@@ -51,12 +51,15 @@ function LanguageDropdown({ user, setUser }) {
     };
 
     useEffect(() => {
-        if (!user) {
+        if (user && user.language) {
+            i18n.changeLanguage(user.language);
+        } else {
             const cookieLanguage = Cookies.get("i18next");
-            if (cookieLanguage && i18n.language !== cookieLanguage) {
+            if (cookieLanguage) {
                 i18n.changeLanguage(cookieLanguage);
             }
         }
+
         const handleClickOutside = (event) => {
             if (
                 dropdownRef.current &&

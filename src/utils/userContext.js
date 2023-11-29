@@ -18,6 +18,7 @@ export const UserProvider = ({ children }) => {
         try {
             await axios.post("/api/logout");
             setUser(null);
+            Cookies.remove("i18next");
         } catch (error) {
             console.error("Error during logout:", error);
         }
