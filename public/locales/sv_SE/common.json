@@ -93,5 +93,7 @@
     "InsertPassword": "Ange lösenord",
     "Logga in": "Logga in",
     "userCreatedSuccessfully": "Användaren skapades framgångsrikt!",
-    "UsernameOrPWwrong": "Felaktigt användarnamn eller lösenord"
+    "UsernameOrPWwrong": "Felaktigt användarnamn eller lösenord",
+    "NavSelectLanguage": "Välj språk",
+    "NavChangeLanguage": "Ändra språk"
 }

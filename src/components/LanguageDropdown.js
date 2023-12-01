@@ -2,24 +2,28 @@ import React, { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie";
 import styles from "../styles/Navbar.module.scss";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 function LanguageDropdown({ user, setUser }) {
     const [dropdownVisible, setDropdownVisible] = useState(false);
     const dropdownRef = useRef(null);
     const { i18n } = useTranslation();
-    const availableLanguages = ["fi_FI", "sv_SE", "ja_JP"];
+    const availableLanguages = [
+        { code: "fi_FI", label: "Suomeksi" },
+        { code: "sv_SE", label: "På svenska" },
+        { code: "ja_JP", label: "日本語" },
+    ];
 
     const handleLanguageChange = async (languageCode) => {
         if (i18n.language !== languageCode) {
             i18n.changeLanguage(languageCode);
-
-            if (!user) {
-                Cookies.set("i18next", languageCode, { expires: 1 });
+            setDropdownVisible(false);
+            if (user) {
+                await updateUserLanguage(languageCode);
             } else {
-                updateUserLanguage(languageCode);
+                Cookies.set("i18next", languageCode, { expires: 1 });
             }
         }
-        setDropdownVisible(false);
     };
 
     const updateUserLanguage = async (languageCode) => {
@@ -51,15 +55,14 @@ function LanguageDropdown({ user, setUser }) {
     };
 
     useEffect(() => {
-        if (user && user.language) {
-            i18n.changeLanguage(user.language);
-        } else {
-            const cookieLanguage = Cookies.get("i18next");
-            if (cookieLanguage) {
-                i18n.changeLanguage(cookieLanguage);
+        const initializeLanguage = () => {
+            const language = user?.language || Cookies.get("i18next");
+            if (language) {
+                i18n.changeLanguage(language);
             }
-        }
+        };
 
+        initializeLanguage();
         const handleClickOutside = (event) => {
             if (
                 dropdownRef.current &&
@@ -74,37 +77,34 @@ function LanguageDropdown({ user, setUser }) {
             document.removeEventListener("mousedown", handleClickOutside);
     }, [user, i18n]);
 
+    const buttonLabel = i18n.language
+        ? i18n.t("NavChangeLanguage")
+        : i18n.t("NavSelectLanguage");
+
     return (
         <div className={styles.languageDropdown}>
             <button
                 onClick={() => setDropdownVisible(!dropdownVisible)}
                 className={styles.langButton}
             >
-                <img
-                    src={`lang/${i18n.language}.png`}
-                    alt={`${i18n.language} language`}
-                    className={styles.langImage}
-                />
+                {buttonLabel}
+                <ArrowDropDownIcon />
             </button>
             {dropdownVisible && (
                 <div ref={dropdownRef} className={styles.languageOptions}>
                     {availableLanguages.map((lang) => (
                         <div
-                            key={lang}
-                            onClick={() => handleLanguageChange(lang)}
+                            key={lang.code}
+                            onClick={() => handleLanguageChange(lang.code)}
                             className={styles.languageOption}
                         >
                             <img
-                                src={`lang/${lang}.png`}
-                                alt={lang}
+                                src={`lang/${lang.code}.png`}
+                                alt={`${lang.label} flag`}
                                 className={styles.flagOption}
                             />
                             <span className={styles.optionText}>
-                                {lang === "fi_FI"
-                                    ? "Suomeksi"
-                                    : lang === "sv_SE"
-                                        ? "På svenska"
-                                        : "日本語"}
+                                {lang.label}
                             </span>
                         </div>
                     ))}

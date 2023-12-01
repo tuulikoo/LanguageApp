@@ -69,7 +69,7 @@
     "G6submit": "提出",
     "G6next": "次のページ",
     "FClevel1": "レベル1フラッシュカード",
-    "FCchooseCategory":"どのフラッシュカードのカテゴリーを勉強します",
+    "FCchooseCategory": "どのフラッシュカードのカテゴリーを勉強します",
     "FCanimals": "動物",
     "FCfood": "食べ物",
     "FCpeople": "人",
@@ -92,5 +92,7 @@
     "InsertPassword": "パスワードを入力",
     "Login": "ログイン",
     "userCreatedSuccessfully": "ユーザー作成成功！",
-    "UsernameOrPWwrong": "ユーザー名またはパスワードが間違っています"
+    "UsernameOrPWwrong": "ユーザー名またはパスワードが間違っています",
+    "NavSelectLanguage": "言語を選択",
+    "NavChangeLanguage": "言語を変更"
 }

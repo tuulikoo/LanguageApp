@@ -98,5 +98,7 @@
     "SignIn": "Kirjaudu sisään",
     "Login": "Kirjaudu",
     "userCreatedSuccessfully": "Käyttäjä luotu onnistuneesti!",
-    "UsernameOrPWwrong": "Väärä käyttäjänimi tai salasana"
+    "UsernameOrPWwrong": "Väärä käyttäjänimi tai salasana",
+    "NavChangeLanguage": "Vaihda kieli",
+    "NavSelectLanguage": "Valitse kieli"
 }
