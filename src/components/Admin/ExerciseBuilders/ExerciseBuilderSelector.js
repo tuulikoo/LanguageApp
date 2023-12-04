@@ -1,3 +1,19 @@
+/**
+ * ExerciseBuilderSelector is a component that allows users to select and manage different types of exercises, such as listening and image-based exercises. 
+ * It provides a dropdown menu to choose an exercise type and dynamically renders the appropriate exercise builder component based on the selection. 
+ * The component makes API calls to fetch necessary data for the selected exercise type.
+ *
+ * @component
+ * @example
+ * return (
+ *   <ExerciseBuilderSelector />
+ * )
+ *
+ * @returns {React.ReactElement} A React component that renders a selector for different exercise builders.
+ * Depending on the user's selection, it displays the corresponding exercise builder, 
+ * which provides specific functionalities for creating and managing exercises of that type.
+ */
+
 import React, { useEffect, useState } from "react";
 import ExerciseBuilder from "./ExerciseBuilder";
 import ImageExerciseBuilder from "./ImageExerciseBuilder";

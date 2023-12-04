@@ -1,6 +1,22 @@
+/**
+ * ExerciseBuilder is a component designed for managing language learning exercises.
+ * It allows administrators to choose a file and a category within that file, view and edit items in the category,
+ * add new words, and delete selected words. The component fetches and updates exercise data through API calls.
+ *
+ * @component
+ * @example
+ * return (
+ *   <ExerciseBuilder />
+ * )
+ *
+ * @returns {React.ReactElement} A React component that renders an interface for building and managing language exercises.
+ * It includes functionalities to select files and categories, display items in the selected category,
+ * and provides options to add or delete words. It interacts with server-side APIs to fetch and update exercise data.
+ */
+
 import React, { useEffect, useState } from "react";
 import { MenuItem, Select } from "@mui/material";
-import { FormControl, InputLabel } from "@mui/material";
+import { InputLabel } from "@mui/material";
 import styles from "../../../styles/Admin.ExerciseBuilder.module.scss";
 
 const ExerciseBuilder = () => {
@@ -21,7 +37,7 @@ const ExerciseBuilder = () => {
         fetch(`/api/words?file=${selectedFile}`)
             .then((res) => res.json())
             .then((data) => setData(data));
-    }, []);
+    }, [selectedFile]);
 
     const handleFileChange = (e) => {
         setSelectedFile(e.target.value);
@@ -63,7 +79,10 @@ const ExerciseBuilder = () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ category: selectedCategory, word: newWord }),
+                body: JSON.stringify({
+                    category: selectedCategory,
+                    word: newWord,
+                }),
             });
             setNewWord("");
         });
@@ -86,41 +105,48 @@ const ExerciseBuilder = () => {
                 })
             );
 
-            // Also, delete words from the database using Prisma
             const deleteDatabaseRequests = selectedItems.map((word) =>
                 fetch(`/api/deleteDB?file=${selectedFile}`, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({ categoryToDelete: selectedCategory, wordToDelete: word }),
+                    body: JSON.stringify({
+                        categoryToDelete: selectedCategory,
+                        wordToDelete: word,
+                    }),
                 })
             );
 
-            Promise.all([...deleteRequests, ...deleteDatabaseRequests]).then(() => {
-                setData((prevData) => {
-                    if (prevData[selectedCategory]) {
-                        return {
-                            ...prevData,
-                            [selectedCategory]: prevData[selectedCategory].filter(
-                                (word) => !selectedItems.includes(word)
-                            ),
-                        };
-                    }
-                    return prevData; // Category not found, return unchanged data
-                });
+            Promise.all([...deleteRequests, ...deleteDatabaseRequests]).then(
+                () => {
+                    setData((prevData) => {
+                        if (prevData[selectedCategory]) {
+                            return {
+                                ...prevData,
+                                [selectedCategory]: prevData[
+                                    selectedCategory
+                                ].filter(
+                                    (word) => !selectedItems.includes(word)
+                                ),
+                            };
+                        }
+                        return prevData; // Category not found, return unchanged data
+                    });
 
-                setSelectedItems([]); // Clear the selected items
-            });
+                    setSelectedItems([]); // Clear the selected items
+                }
+            );
         } catch (error) {
             console.error("Error in handleDeleteSelectedWords:", error);
-
         }
     };
 
     return (
         <div className={styles.exerciseBuilder}>
-            <InputLabel id="ExerciseBuilder-select-label">Choose file</InputLabel>
+            <InputLabel id="ExerciseBuilder-select-label">
+                Choose file
+            </InputLabel>
             <Select
                 className={styles.select}
                 onChange={handleFileChange}
@@ -135,7 +161,9 @@ const ExerciseBuilder = () => {
                     </MenuItem>
                 ))}
             </Select>
-            <InputLabel id="ExerciseBuilder-select-label">Choose category</InputLabel>
+            <InputLabel id="ExerciseBuilder-select-label">
+                Choose category
+            </InputLabel>
             <Select
                 className={styles.select}
                 onChange={handleCategoryChange}
@@ -157,7 +185,11 @@ const ExerciseBuilder = () => {
                         <button
                             key={item}
                             onClick={() => handleItemClick(item)}
-                            className={selectedItems.includes(item) ? styles.selected : ""}
+                            className={
+                                selectedItems.includes(item)
+                                    ? styles.selected
+                                    : ""
+                            }
                             onDoubleClick={() => handleItemClick(item)}
                         >
                             {item}

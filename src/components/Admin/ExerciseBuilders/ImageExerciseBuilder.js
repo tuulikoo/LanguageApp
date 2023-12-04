@@ -1,3 +1,18 @@
+/**
+ * ImageExerciseBuilder is a component for creating and managing image-based language learning exercises. 
+ * It allows administrators to select a file, add new image-based items with English and Finnish words, and view a list of existing items.
+ * The component provides functionalities to submit new items to a database, preview images, and delete existing items.
+ *
+ * @component
+ * @example
+ * return (
+ *   <ImageExerciseBuilder />
+ * )
+ *
+ * @returns {React.ReactElement} A React component that renders an interface for building and managing image-based exercises.
+ * It includes a file selector, input fields for image URLs and words, and a list of current items with options to add new ones or delete existing ones.
+ */
+
 import React, { useEffect, useState } from "react";
 import styles from "../../../styles/Admin.ExerciseBuilder.module.scss";
 
