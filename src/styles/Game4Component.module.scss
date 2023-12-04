@@ -1,260 +1,245 @@
-//CSS TÄNNE
-@font-face {
-  font-family: "Dela Gothic One"; /* Specify the font family name */
-  src: url('../../public/fonts/DelaGothicOne-Regular.ttf') format('truetype'); /* Specify the path to your TTF font file */
-}
-
-.custom-font {
-  font-family: 'Dela Gothic One', sans-serif; /* Use the imported font family name */
-}
-
 .imgContainer {
-  padding: 10px;
-  max-width: 800px;
-  margin: 20px auto;
-  text-align: center; /* Center the content horizontally */
-  display: flex; /* Use flexbox for centering vertically */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  flex-direction: column; /* Stack elements vertically */
+    padding: 10px;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center; /* Center the content horizontally */
+    display: flex; /* Use flexbox for centering vertically */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-direction: column; /* Stack elements vertically */
 }
 
 .imgWrapper {
-  display: inline-block; /* Make the wrapper inline-block to center its content */
-  text-align: center; /* Center the content horizontally */
+    display: inline-block; /* Make the wrapper inline-block to center its content */
+    text-align: center; /* Center the content horizontally */
 }
 
 .imgWrapper img {
-  max-width: 100%;
-  max-height: 300px;
-  object-fit: contain;
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
 }
 
 .pageContainer {
-  background-color: #549a0a;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center vertically */
-  align-items: center; /* Center horizontally */
-  text-align: center;
-  padding-bottom: 80px;
-  min-height: 100vh; /* Ensure the container takes up the full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
+.gameContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    height: 50vh;
+    width: 50vw;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
-
-.textContainer {
-  text-align: left;
-  padding-top: 50px;
+    .textContainer {
+        text-align: left;
+        padding-top: 50px;
+    }
 }
 
 /* Update the SCSS for the buttons */
 .buttonStyle {
-  border: 2px solid black;
-  background-color: #fd6a6a;
-  color: white;
-  padding: 10px 20px;
-  margin: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 5px;
-  transition: background-color 0.3s,
-  color 0.3s;
-  font-family: "Dela Gothic One";
-  text-shadow: #2a2a65;
-
-  &:hover {
-    background-color: #ff69b4;
+    border: 2px solid black;
+    background-color: #fd6a6a;
     color: white;
-  }
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    font-family: "Dela Gothic One";
+    text-shadow: #2a2a65;
+
+    &:hover {
+        background-color: #ff69b4;
+        color: white;
+    }
 }
 
 /* Update the class name for the button container */
 .speakButton {
-  width: 70px; /* Adjust the width to match your image size */
-  height: 70px; /* Adjust the height to match your image size */
-  cursor: pointer;
+    width: 70px; /* Adjust the width to match your image size */
+    height: 70px; /* Adjust the height to match your image size */
+    cursor: pointer;
 }
 
 .centeredContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: "Dela Gothic One";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Dela Gothic One";
 }
-
 
 /* Update the class name for the button container */
 .buttonContainerWrapper {
-  padding-top: 60px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px; /* Add some spacing between buttons */
+    padding-top: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Add some spacing between buttons */
 }
 
 .result {
-  margin-top: 30px;
-  margin-bottom: -5px;
-  position: absolute;
-  bottom: 10px; /* Adjust the distance from the bottom */
-  transform: translateX(-30%); /* Center result text horizontally */
-  color: #000000;
-  height: 40px;
-  background-color: #ff0000;
-  font-weight: bold;
-  font-size: 22px;
-  text-align: center;
-  animation: bounce 0.5s;
-  animation-delay: 0.5s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  font-family: "Dela Gothic One";
-
-  &:hover {
-    animation: scale 0.5s infinite;
-  }
-
-  &.correct {
-    font-size: 28px;
+    margin-top: 30px;
+    margin-bottom: -5px;
+    position: absolute;
+    bottom: 150px; /* Adjust the distance from the bottom */
+    transform: translateX(-30%); /* Center result text horizontally */
     color: #000000;
-    background-color: #00ff2b;
-    animation: bounce 0.5s 3 alternate;
+    height: 40px;
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+    animation: bounce 0.5s;
+    animation-delay: 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
     font-family: "Dela Gothic One";
-  }
+
+
+
+    &.correct {
+        font-size: 28px;
+        color: #000000;
+        animation: bounce 0.5s 3 alternate;
+        font-family: "Dela Gothic One";
+    }
 }
 
 .pageContainer .kuuntelu h2 {
-  background-color: #82ec73;
-  max-width: 200px;
-  flex-direction: column;
+    background-color: #82ec73;
+    max-width: 200px;
+    flex-direction: column;
 }
 
-/* Additional styles */
 .pointsDisplay {
-  font-size: 30px;
-  margin-bottom: 20px;
-  font-family: "Dela Gothic One",Serif;
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-family: "Dela Gothic One", Serif;
 }
 
-.pageContainer h1{
-  font-size: 40px;
-  font-family: "Dela Gothic One";
+.pageContainer h1 {
+    font-size: 40px;
+    font-family: "Dela Gothic One";
 }
 
-/* for hiding the speak button */
 .hiddenSpeakButton {
-  display: none;
+    display: none;
 }
 
 .audioContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px; /* Add spacing between the audio button and text */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .audioText {
-  font-size: 18px; /* Adjust the font size as needed */
-  margin-top: 10px; /* Add spacing between the audio button and text */
-  color: #000; /* Set the text color */
+    font-size: 18px;
+    margin-top: 10px;
+    color: #000;
 }
 
 .backArrows {
-  position: fixed;
-  bottom: 10px; /* Adjust the distance from the bottom as needed */
-  left: 10px; /* Adjust the distance from the left as needed */
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* Add some spacing between the buttons */
+    position: fixed;
+    bottom: 10px; /* Adjust the distance from the bottom as needed */
+    left: 10px; /* Adjust the distance from the left as needed */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Add some spacing between the buttons */
 }
 
 .backArrows button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
 }
 
 .backArrows button img {
-  width: 50px; /* Adjust the width as needed */
-  height: 50px; /* Adjust the height as needed */
+    width: 50px; /* Adjust the width as needed */
+    height: 50px; /* Adjust the height as needed */
 }
-
 
 /* Add styles for "Harjoitus valmis!" text when the game is completed */
 .harjoitusValmis {
-  text-align: center; /* Center text horizontally */
-  padding: 20px; /* Add padding for spacing */
-  background-color: #ff8800; /* Background color */
-  border-radius: 10px; /* Rounded edges */
+    text-align: center; /* Center text horizontally */
+    padding: 20px; /* Add padding for spacing */
+    background-color: #ff8800; /* Background color */
+    border-radius: 10px; /* Rounded edges */
 
-  max-width: 600px; /* Limit the maximum width */
-  margin: 0 auto; /* Center the element horizontally */
-  font-size: 30px; /* Increase the font size */
+    max-width: 600px; /* Limit the maximum width */
+    margin: 0 auto; /* Center the element horizontally */
+    font-size: 30px; /* Increase the font size */
 }
 
 .backToMain::before,
 .backToPrevious::before {
-  content: attr(data-tooltip); /* Set the tooltip text from the data-tooltip attribute */
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 5px;
-  border-radius: 4px;
-  font-size: 14px;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s;
-  z-index: 1;
+    content: attr(
+        data-tooltip
+    ); /* Set the tooltip text from the data-tooltip attribute */
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 14px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1;
 }
 
-/* Position the tooltip above the button */
 .backToMain::before {
-  bottom: 30px; /* Adjust the distance from the button */
-  left: 50%;
-  transform: translateX(-50%);
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-/* Position the tooltip above the button */
 .backToPrevious::before {
-  bottom: 30px; /* Adjust the distance from the button */
-  left: 50%;
-  transform: translateX(-50%);
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-/* Show the tooltip on hover */
 .backToMain:hover::before,
 .backToPrevious:hover::before {
-  visibility: visible;
-  opacity: 1;
+    visibility: visible;
+    opacity: 1;
 }
-
-
 
 /* Keyframes for animations */
 @keyframes bounce {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-0.5rem);
-  }
-  100% {
-    transform: translateY(0);
-  }
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-0.5rem);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 @keyframes scale {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
-
