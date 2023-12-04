@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie";
 import styles from "../styles/Navbar.module.scss";
+import LanguageIcon from '@mui/icons-material/Language';
 
 function LanguageDropdown({ user, setUser }) {
     const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -87,6 +88,7 @@ function LanguageDropdown({ user, setUser }) {
                 className={styles.langButton}
             >
                 {buttonLabel}
+                <LanguageIcon className={styles.langIcon} />
             </button>
             {dropdownVisible && (
                 <div ref={dropdownRef} className={styles.languageOptions}>

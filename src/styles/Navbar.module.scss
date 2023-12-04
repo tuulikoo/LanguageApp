@@ -104,6 +104,13 @@
     transition: all 0.3s ease;
 }
 
+.langIcon {
+    width: 24px;
+    height: 24px;
+    padding-bottom: 3px;
+    margin-left: 5px;
+}
+
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
