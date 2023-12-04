@@ -1,3 +1,23 @@
+/**
+ * UserMenu is a navigation component that displays different menu options based on user authentication status.
+ * For unauthenticated users, it shows options to navigate to the main page, login, and registration pages.
+ * Authenticated users get additional options like accessing user-specific pages or an admin panel if they have admin privileges,
+ * as well as the ability to log out. The component also displays the user's avatar if they are logged in.
+ *
+ * @component
+ * @example
+ * const router = useRouter();
+ * return (
+ *   <UserMenu router={router} />
+ * )
+ *
+ * @param {Object} props - The props for the UserMenu component.
+ * @param {Object} props.router - The Next.js router object for navigation.
+ *
+ * @returns {React.ReactElement} A React component that renders a dynamic user navigation menu,
+ * adjusting its content based on the user's authentication status and role.
+ */
+
 import React from 'react';
 import { useTranslation } from "react-i18next";
 import styles from "../styles/Navbar.module.scss";

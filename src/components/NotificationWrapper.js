@@ -1,3 +1,24 @@
+/**
+ * NotificationWrapper is a component that provides notification functionality across the application.
+ * It utilizes a context to allow child components to trigger notifications. Notifications include
+ * customizable messages and icons that change based on the user's time spent on the application.
+ * The notifications automatically hide after a certain duration.
+ *
+ * @component
+ * @example
+ * return (
+ *   <NotificationWrapper>
+ *     <ChildComponent />
+ *   </NotificationWrapper>
+ * )
+ *
+ * @param {Object} props - The props for the NotificationWrapper component.
+ * @param {React.ReactNode} props.children - Child components that will have access to the notification context.
+ *
+ * @returns {React.ReactElement} A React component that renders a notification context provider and displays 
+ * notifications based on the provided messages and user interaction within the application.
+ */
+
 import React, { useState, useEffect, useContext, createContext } from "react";
 import { useUser } from "../utils/userContext";
 import styles from "../styles/NotificationWrapper.module.scss";

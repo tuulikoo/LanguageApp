@@ -1,3 +1,19 @@
+/**
+ * RegistrationForm is a component for user registration. It includes input fields for username, email, 
+ * first name, password, and language selection. Users can also select an avatar from a modal window. 
+ * The form handles submissions by making an API request to create a new user, displaying feedback based on the response.
+ *
+ * @component
+ * @example
+ * return (
+ *   <RegistrationForm />
+ * )
+ *
+ * @returns {React.ReactElement} A React component that renders a user registration form. 
+ * It includes validation for each input field and provides visual feedback for form submission. 
+ * The form also features language selection and avatar choice, enhancing user engagement and personalization.
+ */
+
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import axios from "axios";
@@ -197,8 +213,8 @@ function RegistrationForm() {
                                         src={avatar.src}
                                         alt="Avatar"
                                         className={`${styles.avatarImage} ${selectedAvatar === avatar
-                                                ? styles.selectedAvatar
-                                                : ""
+                                            ? styles.selectedAvatar
+                                            : ""
                                             }`}
                                     />
                                 </div>

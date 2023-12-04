@@ -1,3 +1,22 @@
+/**
+ * UpdateDetailsComponent is a component for updating user details, including username, email, password, first name, and avatar.
+ * It provides a dynamic form that allows users to modify their information. The component also includes a section to display
+ * current user details and options to delete the user account. Changes are submitted to an API endpoint and the user's data is updated accordingly.
+ *
+ * @component
+ * @example
+ * const { setUser } = useUser();
+ * return (
+ *   <UpdateDetailsComponent setUser={setUser} />
+ * )
+ *
+ * @param {Object} props - The props for the UpdateDetailsComponent.
+ * @param {Function} props.setUser - Function to update the user context after details have been changed.
+ *
+ * @returns {React.ReactElement} A React component that renders a form for users to update their personal details.
+ * It provides an interactive interface for modifying user information, along with the functionality to delete the user account.
+ */
+
 import { UserProvider, useUser } from '@/utils/userContext';
 import styles from '../styles/UpdateDetailsComponent.module.scss';
 import React, { useState, useEffect } from 'react';

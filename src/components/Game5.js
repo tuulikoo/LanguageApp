@@ -1,3 +1,18 @@
+/**
+ * Game5 is a language learning game component that involves dragging and dropping words into the correct positions 
+ * in a sentence. It displays feedback on correct or incorrect answers, and allows users to hear the sentence spoken aloud.
+ *
+ * @component
+ * @example
+ * return (
+ *   <Game5 />
+ * )
+ *
+ * @returns {React.ReactElement} A React component that renders a drag-and-drop sentence completion game.
+ * It presents sentences with missing words, and users need to drag the correct words from a given set into these blanks.
+ * Correct answers are validated, and users can listen to the complete sentence using text-to-speech functionality.
+ */
+
 import React, { useState, useEffect } from "react";
 import {
     Container,
@@ -95,7 +110,7 @@ function Game5() {
                                                 ? styles.hasWord
                                                 : styles.wrongAnswer
                                             : styles.empty
-                                        }`}
+                                            }`}
                                     >
                                         {droppedWords[index]}
                                     </Box>

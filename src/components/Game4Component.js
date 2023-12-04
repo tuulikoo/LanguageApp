@@ -1,3 +1,19 @@
+/**
+ * Game4Component is a language learning game component that presents users with questions and options.
+ * Users can listen to the pronunciation of words, select answers, and navigate through questions.
+ * It tracks user's score, updates user points, and handles navigation back to the main page or previous questions.
+ *
+ * @component
+ * @example
+ * return (
+ *   <Game4Component />
+ * )
+ *
+ * @returns {React.ReactElement} A React component that renders an interactive language learning game.
+ * It displays images, plays audio for words, presents multiple choice questions, and provides
+ * feedback on user's answers. Additionally, it manages user's progress through different levels and sections.
+ */
+
 import React, { useEffect, useState } from 'react';
 import game4 from '../utils/wordlists/game4.json';
 import { useUser } from '../utils/userContext';
@@ -252,7 +268,7 @@ function Game4Component() { // Pass onLevelCompletion as a prop
                                     {renderOptions()}
                                 </div>
                             </div>
-                            <p className={`${styles.result} ${result === 'Oikein!'|| result === 'その通りだ！!' || result === 'Korrekt!' ? styles.correct : ''}`}>
+                            <p className={`${styles.result} ${result === 'Oikein!' || result === 'その通りだ！!' || result === 'Korrekt!' ? styles.correct : ''}`}>
                                 {result}
                             </p>
                         </div>

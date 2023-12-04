@@ -1,9 +1,29 @@
+/**
+ * FlashcardDeck component for displaying a deck of flashcards. 
+ * It includes functionality to flip cards, move to the next card, and a button to trigger text-to-speech for the current word.
+ *
+ * @component
+ * @example
+ * const flashcards = [
+ *   { word: "Hello", definitions: { en: "A greeting" } },
+ *   { word: "World", definitions: { en: "The earth" } }
+ * ];
+ * return (
+ *   <FlashcardDeck flashcards={flashcards} />
+ * )
+ *
+ * @param {Object} props - The props for the FlashcardDeck component.
+ * @param {Array} props.flashcards - An array of flashcard objects containing words and their definitions.
+ *
+ * @returns {React.ReactElement} A React component that renders a deck of flashcards with controls.
+ */
+
 import React, { useState } from "react";
 import styles from "../styles/flashcards.module.css";
 import { textToSpeech } from "@/utils/mimicApi";
 import { Image } from "react-bootstrap";
 import { useTranslation } from 'react-i18next';
-import {t} from "i18next";
+import { t } from "i18next";
 
 const Flashcard = ({ word, definition, isFlipped, onFlip, onNext, lang }) => {
     const { t } = useTranslation();

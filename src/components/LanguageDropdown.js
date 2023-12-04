@@ -1,3 +1,25 @@
+/**
+* LanguageDropdown is a component that allows users to switch the application's language. 
+* It supports changing languages on the fly and updating user preferences accordingly.
+* The component provides a dropdown menu with available language options, updating the 
+* application's internationalization settings upon selection.
+*
+* @component
+* @example
+* const user = { id: '123', language: 'en_US' };
+* const setUser = (user) => { /* user state update logic *\/ };
+* return (
+*   <LanguageDropdown user={user} setUser={setUser} />
+* )
+*
+* @param {Object} props - The props for the LanguageDropdown component.
+* @param {Object} props.user - The current user object.
+* @param {Function} props.setUser - Function to update the current user object.
+*
+* @returns {React.ReactElement} A React component that renders a language selection dropdown menu.
+* Users can select a language from the dropdown to change the application's language setting.
+*/
+
 import React, { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie";

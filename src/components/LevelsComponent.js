@@ -1,3 +1,19 @@
+/**
+ * Levels is a component that displays a list of language learning levels. Each level is represented by a title and 
+ * description, and users can interact with each level to toggle through different available languages. The component 
+ * dynamically updates language display based on user's selection and utilizes internationalization for multilingual support.
+ *
+ * @component
+ * @example
+ * return (
+ *   <Levels />
+ * )
+ *
+ * @returns {React.ReactElement} A React component that renders a list of levels for language learning.
+ * It allows users to view and interact with different levels, changing the language of each level's title and description.
+ * The component supports multilingual display, adapting to the selected language preference of the user.
+ */
+
 import React from "react";
 import { useState, useEffect } from "react";
 import styles from "@/styles/Levels.module.scss";

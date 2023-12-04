@@ -1,3 +1,20 @@
+/**
+ * Login is a component that provides a user login interface. It includes input fields for username and password,
+ * submits login requests to an API, and handles responses. The component implements error handling for login attempts,
+ * including a maximum attempt limit and a timeout duration after which the error message is reset. 
+ * It also integrates with the user context for setting the authenticated user's data.
+ *
+ * @component
+ * @example
+ * return (
+ *   <Login />
+ * )
+ *
+ * @returns {React.ReactElement} A React component that renders a login form. 
+ * It validates user input, handles form submission, and provides feedback on login attempts. 
+ * Successful logins redirect the user to the main page, while failed attempts display an error message.
+ */
+
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';

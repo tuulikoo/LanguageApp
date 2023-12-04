@@ -1,3 +1,20 @@
+/**
+ * GameStoryComponent is a language learning game component that presents users with stories and quizzes.
+ * Users listen to stories read aloud and then answer comprehension questions. The component provides
+ * feedback based on user's answers and allows progression to new stories.
+ *
+ * @component
+ * @example
+ * return (
+ *   <GameStoryComponent />
+ * )
+ *
+ * @returns {React.ReactElement} A React component that renders an interactive language learning game
+ * focused on story comprehension. It includes functionality to play a story's audio, display the story text,
+ * present multiple-choice questions for comprehension, and provide feedback on user's answers.
+ * Users can navigate between different stories and their respective quizzes.
+ */
+
 import React, { useState, useEffect } from "react";
 import {
     Button,

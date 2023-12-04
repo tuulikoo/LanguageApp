@@ -1,3 +1,18 @@
+/**
+ * ExerciseComponent is a React component for language learning exercises.
+ * It fetches a list of words based on the user's points and provides functionalities to play audio,
+ * submit answers, and navigate through the words. It displays feedback and updates user points.
+ *
+ * @component
+ * @example
+ * return (
+ *   <ExerciseComponent />
+ * )
+ *
+ * @returns {React.ReactElement} A React component that renders the language learning exercise interface,
+ * including word audio playback, input form for answers, and navigation controls.
+ */
+
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useUser } from "@/utils/userContext";
 import { convertTextToSpeech } from "@/utils/mimicApi";
@@ -211,12 +226,32 @@ const ExerciseComponent = () => {
         </div>
     );
 };
+/**
+ * AudioButton is a component for playing audio of a word.
+ *
+ * @component
+ * @param {Object} props - The props for the AudioButton component.
+ * @param {Function} props.onPlay - Callback function to trigger audio playback.
+ *
+ * @returns {React.ReactElement} A button component used to play audio.
+ */
+
 const AudioButton = ({ onPlay }) => (
     <button className={styles.audioButton} onClick={onPlay}>
         <img src="images/audio.png" alt="Play Audio" />
     </button>
 );
-
+/**
+ * ExerciseForm is a component for user input during the exercise.
+ *
+ * @component
+ * @param {Object} props - The props for the ExerciseForm component.
+ * @param {string} props.inputWord - The current word input by the user.
+ * @param {Function} props.onInputChange - Callback function to handle input changes.
+ * @param {Function} props.onSubmit - Callback function to handle form submission.
+ *
+ * @returns {React.ReactElement} A form component where users can input their answers.
+ */
 const ExerciseForm = ({ t, inputWord, onInputChange, onSubmit }) => (
     <form onSubmit={onSubmit}>
         <input
@@ -229,6 +264,16 @@ const ExerciseForm = ({ t, inputWord, onInputChange, onSubmit }) => (
     </form>
 );
 
+/**
+ * ResultDisplay is a component to display the result of the user's input.
+ *
+ * @component
+ * @param {Object} props - The props for the ResultDisplay component.
+ * @param {string|null} props.result - The result to display (e.g., "Correct" or "Incorrect").
+ *
+ * @returns {React.ReactElement} A component that displays feedback based on the user's input.
+ */
+
 const ResultDisplay = ({ result, t }) =>
     result && (
         <p
@@ -238,6 +283,15 @@ const ResultDisplay = ({ result, t }) =>
             {result}
         </p>
     );
+/**
+ * NextButton is a component to navigate to the next word in the exercise.
+ *
+ * @component
+ * @param {Object} props - The props for the NextButton component.
+ * @param {Function} props.onNext - Callback function to trigger moving to the next word.
+ *
+ * @returns {React.ReactElement} A button component used to navigate to the next word.
+ */
 
 const NextButton = ({ onNext, t }) => (
     <button className={styles.seuraavaButton} onClick={onNext}>

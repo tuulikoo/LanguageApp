@@ -1,3 +1,18 @@
+/**
+ * BackgroundScroller component for creating a parallax scrolling effect with SVG images.
+ * It listens to the window scroll event and adjusts the position of SVG images accordingly.
+ *
+ * @component
+ * @example
+ * return (
+ *   <BackgroundScroller />
+ * )
+ *
+ * @returns {React.ReactElement} A React component that renders a full-screen, absolute positioned 
+ * container with a series of SVG images. The images move at different speeds as the user scrolls, 
+ * creating a parallax effect.
+ */
+
 import { useEffect, useState } from 'react';
 
 const svgList = [
