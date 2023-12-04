@@ -138,6 +138,7 @@ function Game5() {
                     <div className={styles.buttons}>
                         <Button
                             variant="contained"
+                            color="primary"
                             className={styles.playButton}
                             onClick={speakSentence}
                         >
@@ -146,6 +147,7 @@ function Game5() {
 
                         <Button
                             variant="contained"
+                            color="primary"
                             className={styles.nextButton}
                             onClick={loadNewQuestion}
                         >
