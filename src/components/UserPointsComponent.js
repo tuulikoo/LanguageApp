@@ -106,7 +106,6 @@ function UserPointsComponent() {
 
         return (
             <div className={styles.rewardsContainer}>
-                {t("UPprizes2")}
                 <div className={styles.rewardGrid}>{rewardGrid}</div>
                 {selectedReward !== null && (
                     <div className={styles.rewardModal}>
