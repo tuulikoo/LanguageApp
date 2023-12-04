@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #2b70c9;
+    background-color: #ffffff;
     color: #ffffff;
     display: flex;
     justify-content: space-between;
@@ -8,6 +8,7 @@
     top: 0;
     z-index: 100;
     transition: all 0.5s ease;
+    border-bottom: 2px solid #ddd;
 }
 
 
@@ -21,7 +22,8 @@
 
 .navButton, .langButton {
     background-color: #ffffff;
-    color: #3f51b5;
+    color: #333;
+    font-weight: bold;
     border: none;
     padding: 8px 12px;
     border-radius: 4px;
