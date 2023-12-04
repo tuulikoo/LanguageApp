@@ -8,18 +8,16 @@
  *   <BackgroundScroller />
  * )
  *
- * @returns {React.ReactElement} A React component that renders a full-screen, absolute positioned 
- * container with a series of SVG images. The images move at different speeds as the user scrolls, 
+ * @returns {React.ReactElement} A React component that renders a full-screen, absolute positioned
+ * container with a series of SVG images. The images move at different speeds as the user scrolls,
  * creating a parallax effect.
  */
-
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 const svgList = [
-
-    'abstrakt-design-132.png',
-    'abstrakt-design-332.png',
-    'abstrakt-design-458.png',
+    "abstrakt-design-132.png",
+    "abstrakt-design-332.png",
+    "abstrakt-design-458.png",
 ];
 
 const BackgroundScroller = () => {
@@ -29,43 +27,51 @@ const BackgroundScroller = () => {
         const speedFactor = 0.02;
         const newScrollY = window.scrollY * speedFactor;
         setScrollY(newScrollY);
-    }
+    };
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll, { passive: true });
+        window.addEventListener("scroll", handleScroll, { passive: true });
 
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener("scroll", handleScroll);
         };
     }, []);
 
+    const backgroundStyle = {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        overflow: "hidden",
+        background: 'linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(240, 248, 255, 1) 100%)',
+        zIndex: -2,
+    };
+
     return (
-        <div style={{ position: "absolute", top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden' }}>
+        <div style={backgroundStyle}>
             {svgList.map((svg, index) => {
-
                 const baseOffset = index * 100;
-
                 return (
                     <div
                         key={svg}
                         style={{
-                            position: 'absolute',
+                            position: "absolute",
                             top: `${baseOffset - 39 - scrollY * (index + 1)}vh`,
-                            [index % 2 === 0 ? 'left' : 'right']: 0,
-                            width: '50%',
-                            height: '100%',
+                            [index % 2 === 0 ? "left" : "right"]: 0,
+                            width: "50%",
+                            height: "100%",
                             backgroundImage: `url('/svg/${svg}')`,
-                            backgroundSize: 'contain',
-                            backgroundRepeat: 'no-repeat',
-                            backgroundPosition: 'center',
-                            transition: 'background 0.3s ease-in-out',
-                            zIndex: -1
+                            backgroundSize: "contain",
+                            backgroundRepeat: "no-repeat",
+                            backgroundPosition: "center",
+                            transition: "background 0.3s ease-in-out",
+                            zIndex: -1,
                         }}
                     ></div>
                 );
             })}
         </div>
     );
-}
+};
 
 export default BackgroundScroller;
-
