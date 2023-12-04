@@ -21,7 +21,6 @@ import { UserProvider, useUser } from '@/utils/userContext';
 import styles from '../styles/UpdateDetailsComponent.module.scss';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import UserPointsComponent from '@/components/UserPointsComponent';
 import { useRouter } from "next/router";
 import { useTranslation } from 'react-i18next';
 import { CircularProgress } from "@mui/material";
@@ -299,7 +298,6 @@ function UpdateDetailsComponent({ setUser }) {
 
             )}
             <div className={styles.points}>
-                <UserPointsComponent />
             </div>
             <div>
                 <button className={`${styles.deleteButton} ${styles.customDeleteButton}`} onClick={handleDeleteAccount}>
