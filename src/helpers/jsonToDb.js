@@ -1,5 +1,20 @@
+/**
+ * Script for importing and updating various sets of language learning data into a database using Prisma ORM.
+ * It handles different categories of data such as game data, listening exercises, school and fruit level data, 
+ * animals level data, and flashcards data. The script reads from JSON files, clears existing records in the database,
+ * and populates the database with new records.
+ *
+ * @module
+ * @function importGameData - Imports game-related data from a JSON file into the database.
+ * @function importListeningData - Imports listening exercise data from a JSON file into the database.
+ * @function importSchoolLevel2 - Imports school level 2 data from a JSON file into the database.
+ * @function importFruitsLevel2 - Imports fruits level 2 data from a JSON file into the database.
+ * @function importAnimalsLevel2 - Imports animals level 2 data from a JSON file into the database.
+ * @function importFlashcardsanat - Imports flashcards data from a JSON file into the database.
+ * @function main - Main function that executes all data import functions and manages database connection.
+ */
+
 const { PrismaClient } = require("@prisma/client");
-const fs = require("fs").promises;
 
 const prisma = new PrismaClient();
 

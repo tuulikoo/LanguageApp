@@ -1,3 +1,7 @@
+/**
+ * @module userPoints
+ * @description Module for fetching user points from the backend.
+ */
 export async function getUserPoints() {
     try {
         const response = await fetch('/api/user');
