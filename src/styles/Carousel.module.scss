@@ -1,58 +1,60 @@
 .carousel_container {
-  max-width: 800px;
-  border-radius: 8px;
-  margin: 50px auto;
-  padding: 20px;
-  text-align: center;
-  background-color: #fff;
-  margin: 50px auto 50px 500px;
+    max-width: 800px;
+    border-radius: 8px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    background-color:rgba($color: #89e219, $alpha: 0.8);
+    margin: 50px auto 50px 500px;
+    box-shadow: 0 4px 19px rgba(0, 0, 0, 0.2);
 }
 
 .carousel_title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 20px;
-  text-transform: uppercase;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
 .container {
-  background-color: #fff;
-  padding: 0;
-  box-shadow: none;
+    padding: 0;
+    box-shadow: none;
+    position: relative;
 }
 
 .mySwiper {
-  .carousel .slide {
-    background: none;
-  }
+    .carousel .slide {
+        background: none;
+    }
 
-  .carousel .control-arrow {
-    display: none;
-  }
+    .carousel .control-arrow {
+        display: none;
+    }
 }
 
 .swipItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #fff;
+    display: flex;
+    color: #fff;
+    flex-direction: column;
+    align-items: center;
+    
 
-  .detail {
-    text-align: center;
-    width: 100%;
+    .detail {
+        text-align: center;
+        width: 100%;
 
-    h2 {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 10px;
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #f7f7f7;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #333;
+        }
     }
-
-    p {
-      font-size: 1rem;
-      font-weight: 400;
-      color: #666;
-    }
-  }
 }
