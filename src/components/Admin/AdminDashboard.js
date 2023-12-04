@@ -1,5 +1,5 @@
 /**
- * AdminDashboard is a component for the administrative section of a language learning application. 
+ * AdminDashboard is a component for the administrative section of a language learning application.
  * It includes navigation buttons for switching between different administrative views such as user management, statistics, and exercise builder.
  * The component dynamically renders the selected view, providing a centralized interface for various administrative tasks.
  *
@@ -9,8 +9,8 @@
  *   <AdminDashboard />
  * )
  *
- * @returns {React.ReactElement} A React component that renders an administrative dashboard. 
- * It includes buttons for navigating between user management, statistics, and exercise building functionalities, 
+ * @returns {React.ReactElement} A React component that renders an administrative dashboard.
+ * It includes buttons for navigating between user management, statistics, and exercise building functionalities,
  * with each section being rendered based on the current selected view.
  */
 
@@ -69,7 +69,9 @@ const AdminDashboard = () => {
             <Box className={styles.mainView}>
                 {currentView === "users" && <UserSearch />}
                 {currentView === "Statistics" && <Statistics />}
-                {currentView === "ExerciseBuilder" && <ExerciseBuilderSelector />}
+                {currentView === "ExerciseBuilder" && (
+                    <ExerciseBuilderSelector />
+                )}
             </Box>
         </Box>
     );

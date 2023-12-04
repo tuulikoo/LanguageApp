@@ -75,17 +75,12 @@ function UserPointsComponent() {
             { id: 2, src: "rewards/reward2.png" },
             { id: 3, src: "rewards/reward3.png" },
             { id: 4, src: "rewards/reward4.png" },
-            { id: 5, src: "rewards/reward5.jpg" },
+            { id: 5, src: "rewards/reward5.png" },
             { id: 6, src: "rewards/reward6.png" },
             { id: 7, src: "rewards/reward7.png" },
             { id: 8, src: "rewards/reward8.png" },
             { id: 9, src: "rewards/reward9.png" },
             { id: 10, src: "rewards/reward10.png" },
-            { id: 11, src: "rewards/reward11.png" },
-            { id: 12, src: "rewards/reward12.png" },
-            { id: 13, src: "rewards/reward13.png" },
-            { id: 14, src: "rewards/reward14.png" },
-            { id: 15, src: "rewards/reward15.png" },
         ];
 
         const maxRewardsToShow = Math.min(
@@ -111,7 +106,7 @@ function UserPointsComponent() {
 
         return (
             <div className={styles.rewardsContainer}>
-                <h3>{t("UPprizes2")}</h3>
+                {t("UPprizes2")}
                 <div className={styles.rewardGrid}>{rewardGrid}</div>
                 {selectedReward !== null && (
                     <div className={styles.rewardModal}>
@@ -157,17 +152,15 @@ function UserPointsComponent() {
     return (
         <div className={styles.userPointsContainer}>
             <div className={styles.userPointsHeader}>
-                <h2>{t("UPpoints")}</h2>
+                {t("UPpoints")}
                 <div className={styles.pointsVisual}>
                     <div className={styles.starIcon}>
                         <span role="img" aria-label="Star">
-                            ⭐
                         </span>
                     </div>
                     <div className={styles.pointsCount}>{userPoints}</div>
                     <div className={styles.starIcon}>
                         <span role="img" aria-label="Star">
-                            ⭐
                         </span>
                     </div>
                 </div>
