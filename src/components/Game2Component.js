@@ -1,3 +1,10 @@
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { useUser } from "@/utils/userContext";
+import { convertTextToSpeech } from "@/utils/mimicApi";
+import styles from "../styles/Exec.module.scss";
+import CircularProgress from "@mui/material/CircularProgress";
+import { useTranslation } from "react-i18next";
+
 /**
  * ExerciseComponent is a React component for language learning exercises.
  * It fetches a list of words based on the user's points and provides functionalities to play audio,
@@ -12,13 +19,6 @@
  * @returns {React.ReactElement} A React component that renders the language learning exercise interface,
  * including word audio playback, input form for answers, and navigation controls.
  */
-
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { useUser } from "@/utils/userContext";
-import { convertTextToSpeech } from "@/utils/mimicApi";
-import styles from "../styles/Exec.module.scss";
-import CircularProgress from "@mui/material/CircularProgress";
-import { useTranslation } from "react-i18next";
 
 const POINT_LEVELS = [
     { threshold: 10, key: "listening1.1" },
@@ -50,7 +50,7 @@ const ExerciseComponent = () => {
     // Determine the key for fetching the word list regardless of the user's login status
     const currentWordListKey = useMemo(
         () => getWordListKey(userPointsState),
-        [userPointsState],
+        [userPointsState]
     );
 
     const [currentWordList, setCurrentWordList] = useState([]);
@@ -70,7 +70,10 @@ const ExerciseComponent = () => {
             const response = await fetch("/api/updatePoints", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ userId: user?.id, newPoints: pointsToAdd }),
+                body: JSON.stringify({
+                    userId: user?.id,
+                    newPoints: pointsToAdd,
+                }),
             });
 
             if (response.ok) {
@@ -94,7 +97,7 @@ const ExerciseComponent = () => {
             // Check if currentIndex is valid
             if (currentIndex >= 0 && currentIndex < currentWordList.length) {
                 const audioBlob = await convertTextToSpeech(
-                    currentWordList[currentIndex],
+                    currentWordList[currentIndex]
                 );
                 const objectURL = URL.createObjectURL(audioBlob);
                 setAudioURL(objectURL);
@@ -103,7 +106,7 @@ const ExerciseComponent = () => {
                 // If currentIndex is invalid, reset it to a valid index (e.g., 0)
                 const newIndex = Math.max(
                     0,
-                    Math.floor(Math.random() * currentWordList.length),
+                    Math.floor(Math.random() * currentWordList.length)
                 );
                 console.warn("Resetting index to a valid value:", newIndex);
                 setCurrentIndex(newIndex);
@@ -122,7 +125,7 @@ const ExerciseComponent = () => {
         const newWord = remainingWords[randomIndex];
 
         setRemainingWords((prevWords) =>
-            prevWords.filter((word) => word !== newWord),
+            prevWords.filter((word) => word !== newWord)
         );
 
         return currentWordList.indexOf(newWord);
@@ -133,7 +136,7 @@ const ExerciseComponent = () => {
             try {
                 setIsLoading(true);
                 const response = await fetch(
-                    `/api/getWordsListening?category=${currentWordListKey}`,
+                    `/api/getWordsListening?category=${currentWordListKey}`
                 );
                 if (response.ok) {
                     const words = await response.json();
@@ -176,7 +179,8 @@ const ExerciseComponent = () => {
         async (e) => {
             e.preventDefault();
             if (
-                inputWord.toLowerCase() === currentWordList[currentIndex].toLowerCase()
+                inputWord.toLowerCase() ===
+                currentWordList[currentIndex].toLowerCase()
             ) {
                 await updateUserPoints();
                 handleCorrectAnswer();
@@ -192,7 +196,7 @@ const ExerciseComponent = () => {
             updateUserPoints,
             handleCorrectAnswer,
             t,
-        ],
+        ]
     );
     return (
         <div className={styles.container} t={t}>
@@ -201,7 +205,9 @@ const ExerciseComponent = () => {
             ) : (
                 <>
                     {showCorrect ? (
-                        <div className={styles.correctMessage}>{t("G2correct")}</div>
+                        <div className={styles.correctMessage}>
+                            {t("G2correct")}
+                        </div>
                     ) : (
                         <>
                             <AudioButton onPlay={playAudio} />

@@ -1,5 +1,5 @@
-import { join } from 'path';
-import fs from 'fs';
+import { join } from "path";
+import fs from "fs";
 
 /**
  * API endpoint to manage wordlist data in JSON files for GET, POST, and DELETE operations.
@@ -27,15 +27,17 @@ import fs from 'fs';
  * - Returns a 500 status code with an error message in case of a server error.
  */
 
-
-const getFilePath = (fileName) => join(process.cwd(), 'src', 'utils', 'wordlists', fileName);
+const getFilePath = (fileName) =>
+    join(process.cwd(), "src", "utils", "wordlists", fileName);
 
 const readData = (fileName) => {
     try {
-        const rawData = fs.readFileSync(getFilePath(fileName), 'utf8');
+        const rawData = fs.readFileSync(getFilePath(fileName), "utf8");
         return JSON.parse(rawData);
     } catch (error) {
-        throw new Error(`Error reading the JSON data from ${fileName}: ${error.message}`);
+        throw new Error(
+            `Error reading the JSON data from ${fileName}: ${error.message}`
+        );
     }
 };
 
@@ -48,10 +50,10 @@ const writeData = (data, fileName) => {
 };
 
 export default function handler(req, res) {
-    const fileName = req.query.file || 'listeningData.json';
+    const fileName = req.query.file || "listeningData.json";
 
-    if (!fileName.endsWith('.json')) {
-        return res.status(400).json({ error: 'Invalid file type.' });
+    if (!fileName.endsWith(".json")) {
+        return res.status(400).json({ error: "Invalid file type." });
     }
 
     let data;
@@ -62,16 +64,17 @@ export default function handler(req, res) {
         return res.status(500).json({ error: error.message });
     }
 
-
     switch (req.method) {
-        case 'GET':
+        case "GET":
             return res.status(200).json(data);
 
-        case 'POST':
+        case "POST":
             const { category, word } = req.body;
 
             if (!category || !word) {
-                return res.status(400).json({ error: 'Category and word are required.' });
+                return res
+                    .status(400)
+                    .json({ error: "Category and word are required." });
             }
 
             if (!data[category]) {
@@ -87,18 +90,29 @@ export default function handler(req, res) {
                 return res.status(500).json({ error: error.message });
             }
 
-        case 'DELETE':
+        case "DELETE":
             const { categoryToDelete, wordToDelete } = req.body;
 
             if (!categoryToDelete || !wordToDelete) {
-                return res.status(400).json({ error: 'Category and word to delete are required.' });
+                return res
+                    .status(400)
+                    .json({
+                        error: "Category and word to delete are required.",
+                    });
             }
 
-            if (!data[categoryToDelete] || !data[categoryToDelete].includes(wordToDelete)) {
-                return res.status(400).json({ error: 'Invalid category or word to delete.' });
+            if (
+                !data[categoryToDelete] ||
+                !data[categoryToDelete].includes(wordToDelete)
+            ) {
+                return res
+                    .status(400)
+                    .json({ error: "Invalid category or word to delete." });
             }
 
-            data[categoryToDelete] = data[categoryToDelete].filter(item => item !== wordToDelete);
+            data[categoryToDelete] = data[categoryToDelete].filter(
+                (item) => item !== wordToDelete
+            );
 
             try {
                 writeData(data, fileName);
@@ -111,4 +125,3 @@ export default function handler(req, res) {
             return res.status(405).end();
     }
 }
-

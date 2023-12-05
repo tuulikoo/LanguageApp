@@ -1,3 +1,13 @@
+//CSS TÄNNE
+@font-face {
+    font-family: "Dela Gothic One"; /* Specify the font family name */
+    src: url("../../public/fonts/DelaGothicOne-Regular.ttf") format("truetype"); /* Specify the path to your TTF font file */
+}
+
+.custom-font {
+    font-family: "Dela Gothic One", sans-serif; /* Use the imported font family name */
+}
+
 .imgContainer {
     padding: 10px;
     max-width: 800px;
@@ -7,6 +17,8 @@
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     flex-direction: column; /* Stack elements vertically */
+    background-color: rgba(0, 0, 138, 0.4);
+    border-radius: 10px;
 }
 
 .imgWrapper {
@@ -23,27 +35,16 @@
 .pageContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    text-align: center;
+    padding-bottom: 80px;
+    min-height: 100vh; /* Ensure the container takes up the full viewport height */
 }
-.gameContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-    height: 50vh;
-    width: 50vw;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    border: 1px solid #000000;
 
-    .textContainer {
-        text-align: left;
-        padding-top: 50px;
-    }
+.textContainer {
+    text-align: left;
+    padding-top: 50px;
 }
 
 /* Update the SCSS for the buttons */
@@ -71,6 +72,11 @@
     width: 70px; /* Adjust the width to match your image size */
     height: 70px; /* Adjust the height to match your image size */
     cursor: pointer;
+    transition: transform 0.3s; 
+    
+    &:hover {
+        transform: scale(1.1); 
+    }
 }
 
 .centeredContainer {
@@ -93,13 +99,11 @@
 
 .result {
     margin-top: 30px;
-    margin-bottom: -5px;
-    position: absolute;
-    bottom: 150px; /* Adjust the distance from the bottom */
+    bottom: 10px; /* Adjust the distance from the bottom */
     transform: translateX(-30%); /* Center result text horizontally */
-    color: #000000;
-    border-radius: 10px;
     height: 40px;
+    background-color: #ff0000;
+    border-radius: 10px;
     font-weight: bold;
     font-size: 22px;
     text-align: center;
@@ -109,12 +113,10 @@
     animation-fill-mode: forwards;
     font-family: "Dela Gothic One";
 
-
-
-
     &.correct {
         font-size: 28px;
         color: #000000;
+        background-color: #00ff2b;
         animation: bounce 0.5s 3 alternate;
         font-family: "Dela Gothic One";
     }
@@ -126,6 +128,7 @@
     flex-direction: column;
 }
 
+/* Additional styles */
 .pointsDisplay {
     font-size: 30px;
     margin-bottom: 20px;
@@ -137,6 +140,7 @@
     font-family: "Dela Gothic One";
 }
 
+/* for hiding the speak button */
 .hiddenSpeakButton {
     display: none;
 }
@@ -145,13 +149,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Add spacing between the audio button and text */
 }
 
 .audioText {
-    font-size: 18px;
-    margin-top: 10px;
-    color: #000;
+    font-size: 18px; /* Adjust the font size as needed */
+    margin-top: 10px; /* Add spacing between the audio button and text */
+    color: #000; /* Set the text color */
 }
 
 .backArrows {
@@ -204,18 +208,21 @@
     z-index: 1;
 }
 
+/* Position the tooltip above the button */
 .backToMain::before {
-    bottom: 30px;
+    bottom: 30px; /* Adjust the distance from the button */
     left: 50%;
     transform: translateX(-50%);
 }
 
+/* Position the tooltip above the button */
 .backToPrevious::before {
-    bottom: 30px;
+    bottom: 30px; /* Adjust the distance from the button */
     left: 50%;
     transform: translateX(-50%);
 }
 
+/* Show the tooltip on hover */
 .backToMain:hover::before,
 .backToPrevious:hover::before {
     visibility: visible;

@@ -23,7 +23,6 @@ import prisma from "../../utils/prisma";
  * - Returns a 500 status code with an error message in case of a server error.
  */
 
-
 export default async function handler(req, res) {
     const category = req.query.category;
 

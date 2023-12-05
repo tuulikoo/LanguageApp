@@ -1,5 +1,5 @@
-import prisma from '../../utils/prisma';
-import jwt from 'jsonwebtoken';
+import prisma from "../../utils/prisma";
+import jwt from "jsonwebtoken";
 
 /**
  * API endpoint to fetch authenticated user's details from the database.
@@ -26,10 +26,8 @@ import jwt from 'jsonwebtoken';
  * - Returns a 500 status code with an error message in case of a server error.
  */
 
-
-
 export default async function handle(req, res) {
-    if (req.method !== 'GET') {
+    if (req.method !== "GET") {
         return res.status(405).end();
     }
 
@@ -37,20 +35,20 @@ export default async function handle(req, res) {
     const token = req.cookies.token; // Get token from cookies
 
     if (!token) {
-        return res.status(401).json({ error: 'Authentication required' });
+        return res.status(401).json({ error: "Authentication required" });
     }
 
     let decoded;
     try {
         decoded = jwt.verify(token, process.env.JWT_SECRET); // Verify the token
     } catch (error) {
-        return res.status(401).json({ error: 'Invalid token' });
+        return res.status(401).json({ error: "Invalid token" });
     }
 
     try {
         const user = await prisma.user.findUnique({
             where: {
-                id: decoded.id
+                id: decoded.id,
             },
             select: {
                 id: true,
@@ -63,18 +61,17 @@ export default async function handle(req, res) {
                 lastLevel: true,
                 timeSpent: true,
                 userRole: true,
-
             },
         });
 
         if (!user) {
-            return res.status(404).json({ error: 'User not found' });
+            return res.status(404).json({ error: "User not found" });
         }
 
         return res.json(user);
     } catch (error) {
         console.error(error);
-        return res.status(500).json({ error: 'Internal server error' });
+        return res.status(500).json({ error: "Internal server error" });
     } finally {
         await prisma.$disconnect();
     }

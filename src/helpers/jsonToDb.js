@@ -1,7 +1,7 @@
 import prisma from "../utils/prisma";
 /**
  * Script for importing and updating various sets of language learning data into a database using Prisma ORM.
- * It handles different categories of data such as game data, listening exercises, school and fruit level data, 
+ * It handles different categories of data such as game data, listening exercises, school and fruit level data,
  * animals level data, and flashcards data. The script reads from JSON files, clears existing records in the database,
  * and populates the database with new records.
  *
@@ -14,8 +14,6 @@ import prisma from "../utils/prisma";
  * @function importFlashcardsanat - Imports flashcards data from a JSON file into the database.
  * @function main - Main function that executes all data import functions and manages database connection.
  */
-
-
 
 async function importGameData() {
     try {
@@ -100,7 +98,10 @@ async function importSchoolLevel2() {
 
         console.log("School Level 2 data imported and updated successfully.");
     } catch (error) {
-        console.error("Error importing and updating School Level 2 data:", error);
+        console.error(
+            "Error importing and updating School Level 2 data:",
+            error
+        );
     }
 }
 
@@ -121,7 +122,10 @@ async function importFruitsLevel2() {
 
         console.log("Fruits Level 2 data imported and updated successfully.");
     } catch (error) {
-        console.error("Error importing and updating Fruits Level 2 data:", error);
+        console.error(
+            "Error importing and updating Fruits Level 2 data:",
+            error
+        );
     }
 }
 
@@ -142,7 +146,10 @@ async function importAnimalsLevel2() {
 
         console.log("Animals Level 2 data imported and updated successfully.");
     } catch (error) {
-        console.error("Error importing and updating Animals Level 2 data:", error);
+        console.error(
+            "Error importing and updating Animals Level 2 data:",
+            error
+        );
     }
 }
 
@@ -161,7 +168,10 @@ async function importFlashcardsanat() {
 
         console.log("Flashcardsanat data imported and updated successfully.");
     } catch (error) {
-        console.error("Error importing and updating Flashcardsanat data:", error);
+        console.error(
+            "Error importing and updating Flashcardsanat data:",
+            error
+        );
     }
 }
 
@@ -180,4 +190,3 @@ async function main() {
 }
 
 main();
-
