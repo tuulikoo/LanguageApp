@@ -33,7 +33,7 @@
 }
 
 .navButton:hover, .langButton:hover {
-    background-color: #ddd;
+    background-color: rgba(137,266,25,0.9);
 }
 
 
@@ -89,6 +89,7 @@
 
 .languageOption:hover {
     background-color: #f0f0f0;
+    border-radius: 4px;
 }
 
 .flagOption {

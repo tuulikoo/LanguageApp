@@ -41,6 +41,7 @@
 
 .levels_item:hover {
     transform: translateY(-10px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.35);
 }
 
 .level_title {
@@ -60,13 +61,16 @@
 .level_button {
     background-color: #58cc02;
     color: white;
-    padding: 5px 10px;
+    padding: 8px 20px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.2s;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    margin-top: 149% 
+
 }
 
 .level_button:hover {
