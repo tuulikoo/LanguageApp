@@ -9,7 +9,7 @@ import { CircularProgress } from "@mui/material";
 import { useEffect } from "react";
 import levelsData2 from "@/utils/wordlists/levelsData2";
 /**
- * LevelSelector is a component that displays a list of language learning levels. 
+ * LevelSelector is a component that displays a list of language learning levels.
  * Each level is represented by an image, title, and description, and can be interacted with to cycle through
  * available languages. The component checks user points to determine level availability and updates the display
  * language based on the user's selection.
@@ -20,11 +20,10 @@ import levelsData2 from "@/utils/wordlists/levelsData2";
  *   <LevelSelector />
  * )
  *
- * @returns {React.ReactElement} A React component that renders a list of levels for language learning. 
- * It allows users to view and interact with different levels, changing the language of the level's content. 
+ * @returns {React.ReactElement} A React component that renders a list of levels for language learning.
+ * It allows users to view and interact with different levels, changing the language of the level's content.
  * Levels are unlocked based on the user's points, and unavailable levels are visually distinguished.
  */
-
 
 const LevelSelector = () => {
     const { user, loading } = useUser();

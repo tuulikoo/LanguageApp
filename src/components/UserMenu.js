@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { useTranslation } from "react-i18next";
 import styles from "../styles/Navbar.module.scss";
 import { useUser } from "@/utils/userContext";
@@ -21,7 +21,6 @@ import { useUser } from "@/utils/userContext";
  * @returns {React.ReactElement} A React component that renders a dynamic user navigation menu,
  * adjusting its content based on the user's authentication status and role.
  */
-
 
 function UserMenu({ router }) {
     const { t } = useTranslation();
@@ -92,8 +91,16 @@ function UserMenu({ router }) {
                         className={styles.avatarButton}
                     >
                         <img
-                            src={user ? `avatars/avatar${user.avatarId}.png` : "avatars/default.png"}
-                            alt={user ? `${user.username} Avatar` : "Default Avatar"}
+                            src={
+                                user
+                                    ? `avatars/avatar${user.avatarId}.png`
+                                    : "avatars/default.png"
+                            }
+                            alt={
+                                user
+                                    ? `${user.username} Avatar`
+                                    : "Default Avatar"
+                            }
                             className={styles.avatar}
                         />
                     </button>
@@ -104,4 +111,3 @@ function UserMenu({ router }) {
 }
 
 export default UserMenu;
-

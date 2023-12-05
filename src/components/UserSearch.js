@@ -1,5 +1,3 @@
-
-
 import { useEffect, useState } from "react";
 import {
     Container,
@@ -14,7 +12,7 @@ import {
 } from "@mui/material";
 import styles from "../styles/AdminPanel.module.scss";
 /**
- * UserSearch is a component that allows for searching and displaying a list of users in an admin panel. 
+ * UserSearch is a component that allows for searching and displaying a list of users in an admin panel.
  * It includes a search field to filter users by name and a paginated table to display user details such as ID, name, username, email, points, and time spent.
  * The component fetches user data from an API and calculates average ratios for points to time spent, coloring table cells based on this ratio.
  *
@@ -41,7 +39,10 @@ function UserSearch() {
                     const data = await response.json();
                     setUsers(data);
                 } else {
-                    console.error("Failed to fetch users", await response.text());
+                    console.error(
+                        "Failed to fetch users",
+                        await response.text()
+                    );
                 }
             } catch (error) {
                 console.error("Error fetching users:", error);
@@ -52,14 +53,18 @@ function UserSearch() {
     }, []);
 
     const filteredUsers = users.filter((user) =>
-        user.firstName.toLowerCase().includes(searchTerm.toLowerCase()),
+        user.firstName.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     const indexOfLastUser = currentPage * usersPerPage;
     const indexOfFirstUser = indexOfLastUser - usersPerPage;
     const currentUsers = filteredUsers.slice(indexOfFirstUser, indexOfLastUser);
 
-    const averageRatio = users.reduce((total, user) => total + user.userPoints / user.timeSpent, 0) / users.length;
+    const averageRatio =
+        users.reduce(
+            (total, user) => total + user.userPoints / user.timeSpent,
+            0
+        ) / users.length;
 
     const columnStyle = (ratio) => {
         if (ratio < averageRatio) {
@@ -70,9 +75,6 @@ function UserSearch() {
             return styles.tableCell;
         }
     };
-
-
-
 
     return (
         <Container maxWidth="lg" className={styles.container}>
@@ -89,34 +91,63 @@ function UserSearch() {
                 <Table className={`${styles.minWFull} ${styles.divideY}`}>
                     <TableHead>
                         <TableRow>
-                            <TableCell className={styles.tableHeader}>ID</TableCell>
-                            <TableCell className={styles.tableHeader}>Name</TableCell>
-                            <TableCell className={styles.tableHeader}>Username</TableCell>
-                            <TableCell className={styles.tableHeader}>Email</TableCell>
-                            <TableCell className={styles.tableHeader}>Points</TableCell>
-                            <TableCell className={styles.tableHeader}>Time Spent</TableCell>
+                            <TableCell className={styles.tableHeader}>
+                                ID
+                            </TableCell>
+                            <TableCell className={styles.tableHeader}>
+                                Name
+                            </TableCell>
+                            <TableCell className={styles.tableHeader}>
+                                Username
+                            </TableCell>
+                            <TableCell className={styles.tableHeader}>
+                                Email
+                            </TableCell>
+                            <TableCell className={styles.tableHeader}>
+                                Points
+                            </TableCell>
+                            <TableCell className={styles.tableHeader}>
+                                Time Spent
+                            </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {currentUsers.map((user) => (
                             <TableRow key={user.id}>
-                                <TableCell className={`${styles.px6} ${styles.py2}`}>
+                                <TableCell
+                                    className={`${styles.px6} ${styles.py2}`}
+                                >
                                     {user.id}
                                 </TableCell>
-                                <TableCell className={`${styles.px6} ${styles.py2}`}>
+                                <TableCell
+                                    className={`${styles.px6} ${styles.py2}`}
+                                >
                                     {user.firstName}
                                 </TableCell>
-                                <TableCell className={`${styles.px6} ${styles.py2}`}>
+                                <TableCell
+                                    className={`${styles.px6} ${styles.py2}`}
+                                >
                                     {user.username}
                                 </TableCell>
-                                <TableCell className={`${styles.px6} ${styles.py2}`}>
+                                <TableCell
+                                    className={`${styles.px6} ${styles.py2}`}
+                                >
                                     {user.email}
                                 </TableCell>
-                                <TableCell className={`${styles.px6} ${styles.py2} ${columnStyle(user.userPoints / user.timeSpent)}`}>
+                                <TableCell
+                                    className={`${styles.px6} ${styles.py2
+                                        } ${columnStyle(
+                                            user.userPoints / user.timeSpent
+                                        )}`}
+                                >
                                     {user.userPoints}
-
                                 </TableCell>
-                                <TableCell className={`${styles.px6} ${styles.py2} ${columnStyle(user.userPoints / user.timeSpent)}`}>
+                                <TableCell
+                                    className={`${styles.px6} ${styles.py2
+                                        } ${columnStyle(
+                                            user.userPoints / user.timeSpent
+                                        )}`}
+                                >
                                     {user.timeSpent}
                                 </TableCell>
                             </TableRow>

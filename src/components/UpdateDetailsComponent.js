@@ -1,9 +1,9 @@
-import { UserProvider, useUser } from '@/utils/userContext';
-import styles from '../styles/UpdateDetailsComponent.module.scss';
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { UserProvider, useUser } from "@/utils/userContext";
+import styles from "../styles/UpdateDetailsComponent.module.scss";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { useRouter } from "next/router";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import { CircularProgress } from "@mui/material";
 
 /**
@@ -25,9 +25,7 @@ import { CircularProgress } from "@mui/material";
  * It provides an interactive interface for modifying user information, along with the functionality to delete the user account.
  */
 
-
 function UpdateDetailsComponent({ setUser }) {
-
     const { t } = useTranslation();
 
     const [isUpdateRowVisible, setUpdateRowVisible] = useState(false);
@@ -37,55 +35,60 @@ function UpdateDetailsComponent({ setUser }) {
     const [isFirstNameRowVisible, setFirstNameRowVisible] = useState(false);
     const [isAvatarRowVisible, setAvatarRowVisible] = useState(false);
     const [selectedAvatarId, setSelectedAvatarId] = useState(null);
-    const [newPassword, setNewPassword] = useState('');
-    const [newEmail, setNewEmail] = useState('');
-    const [newFirstName, setNewFirstName] = useState('');
-    const [newUsername, setNewUsername] = useState('');
-    const [newAvatar, setNewAvatar] = useState('');
+    const [newPassword, setNewPassword] = useState("");
+    const [newEmail, setNewEmail] = useState("");
+    const [newFirstName, setNewFirstName] = useState("");
+    const [newUsername, setNewUsername] = useState("");
+    const [newAvatar, setNewAvatar] = useState("");
     const { user, loading } = useUser();
     const [avatarHovered, setAvatarHovered] = useState(false);
     const [isDeleteModalVisible, setDeleteModalVisible] = useState(false);
     const router = useRouter();
 
     const avatars = [
-        { id: 1, src: 'avatars/avatar1.png' },
-        { id: 2, src: 'avatars/avatar2.png' },
-        { id: 3, src: 'avatars/avatar3.png' },
-        { id: 4, src: 'avatars/avatar4.png' },
+        { id: 1, src: "avatars/avatar1.png" },
+        { id: 2, src: "avatars/avatar2.png" },
+        { id: 3, src: "avatars/avatar3.png" },
+        { id: 4, src: "avatars/avatar4.png" },
     ];
 
     const updateUserDetails = async (data) => {
         try {
             data.avatarId = selectedAvatarId;
 
-            const response = await axios.post('/api/updateUser', data);
+            const response = await axios.post("/api/updateUser", data);
             if (response.status === 200) {
-                console.log('User details updated successfully.');
+                console.log("User details updated successfully.");
 
                 await fetchUserData();
             } else {
-                console.error('Failed to update user details.');
+                console.error("Failed to update user details.");
             }
         } catch (error) {
-            console.error('An error occurred while updating user details.', error);
+            console.error(
+                "An error occurred while updating user details.",
+                error
+            );
         }
     };
 
     const fetchUserData = async () => {
         try {
-            const response = await axios.get('/api/user');
+            const response = await axios.get("/api/user");
             setUser(response.data);
 
             setNewAvatar(response.data.avatarId);
         } catch (error) {
-            console.error('Error fetching user data:', error);
+            console.error("Error fetching user data:", error);
         }
     };
 
     if (loading) {
-        return <div className={styles.loading_container}>
-            <CircularProgress />
-        </div>;
+        return (
+            <div className={styles.loading_container}>
+                <CircularProgress />
+            </div>
+        );
     }
 
     if (!user) {
@@ -98,16 +101,16 @@ function UpdateDetailsComponent({ setUser }) {
 
     const handleSaveClick = async () => {
         const dataToUpdate = {};
-        if (newUsername !== '') {
+        if (newUsername !== "") {
             dataToUpdate.newUsername = newUsername;
         }
-        if (newPassword !== '') {
+        if (newPassword !== "") {
             dataToUpdate.newPassword = newPassword;
         }
-        if (newEmail !== '') {
+        if (newEmail !== "") {
             dataToUpdate.newEmail = newEmail;
         }
-        if (newFirstName !== '') {
+        if (newFirstName !== "") {
             dataToUpdate.newFirstName = newFirstName;
         }
 
@@ -123,7 +126,7 @@ function UpdateDetailsComponent({ setUser }) {
                 // Reload the page after successful update
                 window.location.reload();
             } catch (error) {
-                console.error('Failed to update user details.', error);
+                console.error("Failed to update user details.", error);
             }
         }
     };
@@ -137,16 +140,19 @@ function UpdateDetailsComponent({ setUser }) {
         setDeleteModalVisible(false);
 
         try {
-            const response = await axios.delete('/api/deleteUser');
+            const response = await axios.delete("/api/deleteUser");
 
             if (response.status === 200) {
                 // Account deleted successfully, navigate to a logout or home page
-                router.push('/MainPage'); // Replace with the URL of your logout or home page
+                router.push("/MainPage"); // Replace with the URL of your logout or home page
             } else {
-                console.error('Failed to delete user account.');
+                console.error("Failed to delete user account.");
             }
         } catch (error) {
-            console.error('An error occurred while deleting user account:', error);
+            console.error(
+                "An error occurred while deleting user account:",
+                error
+            );
         }
     };
 
@@ -155,15 +161,19 @@ function UpdateDetailsComponent({ setUser }) {
         setDeleteModalVisible(false);
     };
 
-
-
     return (
         <div id="section-container" className={styles.container}>
             <div id="currentDetails" className={styles.currentDetails}>
-                <h1 className={styles.welcome}>{t("UPwelcome", { username: user.username })}</h1>
+                <h1 className={styles.welcome}>
+                    {t("UPwelcome", { username: user.username })}
+                </h1>
                 <br />
-                <h2 className={styles.welcome}>{t("UPuserPoints", { userPoints: user.userPoints })}</h2>
-                <h2 className={styles.welcome}>{t("UPlevel", { lastLevel: user.lastLevel })}</h2>
+                <h2 className={styles.welcome}>
+                    {t("UPuserPoints", { userPoints: user.userPoints })}
+                </h2>
+                <h2 className={styles.welcome}>
+                    {t("UPlevel", { lastLevel: user.lastLevel })}
+                </h2>
                 <br />
                 <p> {t("UPcheckDetails")}</p>
                 <h3>{t("UPfirstName", { firstName: user.firstName })}</h3>
@@ -171,18 +181,20 @@ function UpdateDetailsComponent({ setUser }) {
                 <h3>{t("UPemail", { email: user.email })}</h3>
                 <h3>{t("UPlanguage")}</h3>
                 <h3>
-                    {t("UPavatar")}{' '}
+                    {t("UPavatar")}{" "}
                     <img
                         src={`avatars/avatar${user.avatarId}.png`}
                         alt={`${user.username} Avatar`}
-                        className={`${styles.avatar} ${avatarHovered ? styles.avatarHovered : ''}`}
+                        className={`${styles.avatar} ${avatarHovered ? styles.avatarHovered : ""
+                            }`}
                     />
                 </h3>
             </div>
             <button
                 id="adjust"
                 className={styles.adjustButton}
-                onClick={() => toggleVisibility(setUpdateRowVisible)}>
+                onClick={() => toggleVisibility(setUpdateRowVisible)}
+            >
                 {t("UPupdate")}
             </button>
             {isUpdateRowVisible && (
@@ -191,7 +203,10 @@ function UpdateDetailsComponent({ setUser }) {
                         <button
                             id="username"
                             className={styles.showButton}
-                            onClick={() => toggleVisibility(setUsernameRowVisible)}>
+                            onClick={() =>
+                                toggleVisibility(setUsernameRowVisible)
+                            }
+                        >
                             {t("UPupdateUsername")}
                         </button>
                         {isUsernameRowVisible && (
@@ -202,7 +217,9 @@ function UpdateDetailsComponent({ setUser }) {
                                     type="text"
                                     placeholder="Enter new username"
                                     value={newUsername}
-                                    onChange={(e) => setNewUsername(e.target.value)}
+                                    onChange={(e) =>
+                                        setNewUsername(e.target.value)
+                                    }
                                 />
                             </div>
                         )}
@@ -211,7 +228,10 @@ function UpdateDetailsComponent({ setUser }) {
                         <button
                             id="password"
                             className={styles.showButton}
-                            onClick={() => toggleVisibility(setPasswordRowVisible)}>
+                            onClick={() =>
+                                toggleVisibility(setPasswordRowVisible)
+                            }
+                        >
                             {t("UPchangePassword")}
                         </button>
                         {isPasswordRowVisible && (
@@ -222,7 +242,9 @@ function UpdateDetailsComponent({ setUser }) {
                                     type="password"
                                     placeholder="Enter new password"
                                     value={newPassword}
-                                    onChange={(e) => setNewPassword(e.target.value)}
+                                    onChange={(e) =>
+                                        setNewPassword(e.target.value)
+                                    }
                                 />
                             </div>
                         )}
@@ -231,7 +253,8 @@ function UpdateDetailsComponent({ setUser }) {
                         <button
                             id="email"
                             className={styles.showButton}
-                            onClick={() => toggleVisibility(setEmailRowVisible)}>
+                            onClick={() => toggleVisibility(setEmailRowVisible)}
+                        >
                             {t("UPupdateEmail")}
                         </button>
                         {isEmailRowVisible && (
@@ -242,7 +265,9 @@ function UpdateDetailsComponent({ setUser }) {
                                     type="email"
                                     placeholder="Enter new email"
                                     value={newEmail}
-                                    onChange={(e) => setNewEmail(e.target.value)}
+                                    onChange={(e) =>
+                                        setNewEmail(e.target.value)
+                                    }
                                 />
                             </div>
                         )}
@@ -251,7 +276,10 @@ function UpdateDetailsComponent({ setUser }) {
                         <button
                             id="firstname"
                             className={styles.showButton}
-                            onClick={() => toggleVisibility(setFirstNameRowVisible)}>
+                            onClick={() =>
+                                toggleVisibility(setFirstNameRowVisible)
+                            }
+                        >
                             {t("UPupdateFirstname")}
                         </button>
                         {isFirstNameRowVisible && (
@@ -262,16 +290,21 @@ function UpdateDetailsComponent({ setUser }) {
                                     type="text"
                                     placeholder="Enter new first name"
                                     value={newFirstName}
-                                    onChange={(e) => setNewFirstName(e.target.value)}
+                                    onChange={(e) =>
+                                        setNewFirstName(e.target.value)
+                                    }
                                 />
                             </div>
                         )}
                     </div>
-                    <div className={styles['update-section']}>
+                    <div className={styles["update-section"]}>
                         <button
                             id="avatarupdate"
                             className={styles.showButton}
-                            onClick={() => toggleVisibility(setAvatarRowVisible)}>
+                            onClick={() =>
+                                toggleVisibility(setAvatarRowVisible)
+                            }
+                        >
                             {t("UPupdateAvatar")}
                         </button>
                         {isAvatarRowVisible && (
@@ -281,9 +314,13 @@ function UpdateDetailsComponent({ setUser }) {
                                         <img
                                             src={avatar.src}
                                             alt="Avatar"
-                                            className={`${styles.avatarImage} ${selectedAvatarId === avatar.id ? styles.selectedAvatar : ''
+                                            className={`${styles.avatarImage} ${selectedAvatarId === avatar.id
+                                                    ? styles.selectedAvatar
+                                                    : ""
                                                 }`}
-                                            onClick={() => setSelectedAvatarId(avatar.id)}
+                                            onClick={() =>
+                                                setSelectedAvatarId(avatar.id)
+                                            }
                                         />
                                     </div>
                                 ))}
@@ -291,16 +328,21 @@ function UpdateDetailsComponent({ setUser }) {
                         )}
                     </div>
 
-                    <button className={styles.saveButton} id="saveButton" onClick={handleSaveClick}>
+                    <button
+                        className={styles.saveButton}
+                        id="saveButton"
+                        onClick={handleSaveClick}
+                    >
                         {t("save")}
                     </button>
                 </div>
-
             )}
-            <div className={styles.points}>
-            </div>
+            <div className={styles.points}></div>
             <div>
-                <button className={`${styles.deleteButton} ${styles.customDeleteButton}`} onClick={handleDeleteAccount}>
+                <button
+                    className={`${styles.deleteButton} ${styles.customDeleteButton}`}
+                    onClick={handleDeleteAccount}
+                >
                     {t("UPdelete")}
                 </button>
             </div>
@@ -308,16 +350,21 @@ function UpdateDetailsComponent({ setUser }) {
                 <div className={styles.deleteModal}>
                     <p>{t("UPconfirmDelete")}</p>
                     <div className={styles.deleteModalButtons}>
-                        <button className={styles.deleteModalButton} onClick={handleConfirmDelete}>
+                        <button
+                            className={styles.deleteModalButton}
+                            onClick={handleConfirmDelete}
+                        >
                             {t("yes")}
                         </button>
-                        <button className={styles.deleteModalButton} onClick={handleCancelDelete}>
+                        <button
+                            className={styles.deleteModalButton}
+                            onClick={handleCancelDelete}
+                        >
                             {t("no")}
                         </button>
                     </div>
                 </div>
             )}
-
         </div>
     );
 }
@@ -327,7 +374,8 @@ export default function UpdateDetails() {
 
     return (
         <UserProvider>
-            <UpdateDetailsComponent setUser={setUser} /> {/* Pass setUser as a prop */}
+            <UpdateDetailsComponent setUser={setUser} />{" "}
+            {/* Pass setUser as a prop */}
         </UserProvider>
     );
 }

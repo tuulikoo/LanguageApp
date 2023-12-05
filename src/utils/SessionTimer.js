@@ -4,7 +4,7 @@ import { useUser } from "./userContext";
  * SessionTimer is a React component that tracks and updates the session time for an authenticated user.
  * It uses the `useUser` hook to access the current user's information and manages the session time
  * both in local session storage and in the database.
- * 
+ *
  * Props:
  * @prop {React.ReactNode} children - Child components to be rendered within SessionTimer.
  *
@@ -16,15 +16,15 @@ import { useUser } from "./userContext";
  * A React useEffect hook is used to initialize and manage the session timer interval and visibility change
  * event listener. The interval updates the session time every 10 seconds and the visibility change event
  * listener updates the database when the tab becomes hidden.
- * 
+ *
  * Cleanup:
  * The useEffect hook also cleans up the interval and event listener when the component is unmounted or
  * when dependencies change.
- * 
+ *
  * @function updateDatabase - An asynchronous function that sends the current session time to the server.
  * It updates the database with the user's session time and resets the session time in the local state
  * and session storage.
- * 
+ *
  * @returns {React.ReactNode} The rendered child components.
  */
 function SessionTimer({ children }) {
@@ -53,13 +53,16 @@ function SessionTimer({ children }) {
                 }
             };
 
-            document.addEventListener("visibilitychange", handleVisibilityChange);
+            document.addEventListener(
+                "visibilitychange",
+                handleVisibilityChange
+            );
 
             return () => {
                 clearInterval(interval);
                 document.removeEventListener(
                     "visibilitychange",
-                    handleVisibilityChange,
+                    handleVisibilityChange
                 );
             };
         }

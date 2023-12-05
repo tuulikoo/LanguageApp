@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import styles from '../styles/flashcards.module.css'; // Import the CSS module
+import React, { useState } from "react";
+import styles from "../styles/flashcards.module.css"; // Import the CSS module
 /**
  * Flashcard component for displaying a flashcard with a word and its translated definition.
  * The card flips to reveal the definition when clicked.
@@ -13,7 +13,7 @@ import styles from '../styles/flashcards.module.css'; // Import the CSS module
  * const onNext = () => console.log("Next card");
  * const lang = "en";
  * return (
- *   <Flashcard word={word} definition={definition} isFlipped={isFlipped} 
+ *   <Flashcard word={word} definition={definition} isFlipped={isFlipped}
  *              onFlip={onFlip} onNext={onNext} lang={lang} />
  * )
  *
@@ -28,8 +28,6 @@ import styles from '../styles/flashcards.module.css'; // Import the CSS module
  * @returns {React.ReactElement} A React component that renders a single flashcard.
  */
 
-
-
 const Flashcard = ({ word, definition, onNext }) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
@@ -40,12 +38,18 @@ const Flashcard = ({ word, definition, onNext }) => {
     return (
         <div className={styles.flashcard}>
             <div
-                className={`${styles.card} ${isFlipped ? styles.flipped : ''}`} // Use CSS module class names
+                className={`${styles.card} ${isFlipped ? styles.flipped : ""}`} // Use CSS module class names
                 onClick={handleFlip}
             >
                 <h3>{isFlipped ? definition : word}</h3>
             </div>
-            <div className={styles.arrow} onClick={() => { setIsFlipped(false); onNext(); }}>
+            <div
+                className={styles.arrow}
+                onClick={() => {
+                    setIsFlipped(false);
+                    onNext();
+                }}
+            >
                 →
             </div>
         </div>

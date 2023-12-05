@@ -40,7 +40,6 @@ const getWordListKey = (points) => {
  * including word audio playback, input form for answers, and navigation controls.
  */
 
-
 const ExerciseComponent = () => {
     const { user } = useUser();
     const initialUserPoints = user ? user.userPoints : 0;

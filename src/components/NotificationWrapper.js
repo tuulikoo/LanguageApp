@@ -29,10 +29,9 @@ export const useNotification = () => {
  * @param {Object} props - The props for the NotificationWrapper component.
  * @param {React.ReactNode} props.children - Child components that will have access to the notification context.
  *
- * @returns {React.ReactElement} A React component that renders a notification context provider and displays 
+ * @returns {React.ReactElement} A React component that renders a notification context provider and displays
  * notifications based on the provided messages and user interaction within the application.
  */
-
 
 const NotificationWrapper = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -82,7 +81,10 @@ const NotificationWrapper = ({ children }) => {
             {isOpen && (
                 <div className={`${styles.toast} ${isOpen ? styles.show : ""}`}>
                     <div className={styles.icon}>{icon}</div>
-                    <button className={styles.close} onClick={() => setIsOpen(false)}>
+                    <button
+                        className={styles.close}
+                        onClick={() => setIsOpen(false)}
+                    >
                         &times;
                     </button>
                     <p>{message}</p>
