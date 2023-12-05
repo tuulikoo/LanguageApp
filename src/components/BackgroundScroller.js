@@ -1,3 +1,11 @@
+
+import { useEffect, useState } from "react";
+
+const svgList = [
+    "abstrakt-design-132.png",
+    "abstrakt-design-332.png",
+    "abstrakt-design-458.png",
+];
 /**
  * BackgroundScroller component for creating a parallax scrolling effect with SVG images.
  * It listens to the window scroll event and adjusts the position of SVG images accordingly.
@@ -12,13 +20,6 @@
  * container with a series of SVG images. The images move at different speeds as the user scrolls,
  * creating a parallax effect.
  */
-import { useEffect, useState } from "react";
-
-const svgList = [
-    "abstrakt-design-132.png",
-    "abstrakt-design-332.png",
-    "abstrakt-design-458.png",
-];
 
 const BackgroundScroller = () => {
     const [scrollY, setScrollY] = useState(0);

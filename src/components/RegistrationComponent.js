@@ -1,3 +1,9 @@
+import { useForm } from "react-hook-form";
+import { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
+import styles from "../styles/RegistrationForm.module.scss";
+import { useTranslation } from "react-i18next";
 /**
  * RegistrationForm is a component for user registration. It includes input fields for username, email, 
  * first name, password, and language selection. Users can also select an avatar from a modal window. 
@@ -14,12 +20,6 @@
  * The form also features language selection and avatar choice, enhancing user engagement and personalization.
  */
 
-import { useForm } from "react-hook-form";
-import { useState } from "react";
-import axios from "axios";
-import { useRouter } from "next/router";
-import styles from "../styles/RegistrationForm.module.scss";
-import { useTranslation } from "react-i18next";
 
 function RegistrationForm() {
     const { t } = useTranslation();

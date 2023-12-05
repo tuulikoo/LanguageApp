@@ -1,17 +1,4 @@
-/**
- * UserSearch is a component that allows for searching and displaying a list of users in an admin panel. 
- * It includes a search field to filter users by name and a paginated table to display user details such as ID, name, username, email, points, and time spent.
- * The component fetches user data from an API and calculates average ratios for points to time spent, coloring table cells based on this ratio.
- *
- * @component
- * @example
- * return (
- *   <UserSearch />
- * )
- *
- * @returns {React.ReactElement} A React component that renders a user search interface for an admin panel.
- * It provides functionality to search users and displays them in a paginated, styled table. Table cells are color-coded based on user performance metrics.
- */
+
 
 import { useEffect, useState } from "react";
 import {
@@ -26,7 +13,20 @@ import {
     TextField,
 } from "@mui/material";
 import styles from "../styles/AdminPanel.module.scss";
-
+/**
+ * UserSearch is a component that allows for searching and displaying a list of users in an admin panel. 
+ * It includes a search field to filter users by name and a paginated table to display user details such as ID, name, username, email, points, and time spent.
+ * The component fetches user data from an API and calculates average ratios for points to time spent, coloring table cells based on this ratio.
+ *
+ * @component
+ * @example
+ * return (
+ *   <UserSearch />
+ * )
+ *
+ * @returns {React.ReactElement} A React component that renders a user search interface for an admin panel.
+ * It provides functionality to search users and displays them in a paginated, styled table. Table cells are color-coded based on user performance metrics.
+ */
 function UserSearch() {
     const [users, setUsers] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");

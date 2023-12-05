@@ -1,3 +1,14 @@
+import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import { useRouter } from 'next/router';
+import styles from '../styles/login.module.scss';
+import { useUser } from '../utils/userContext';
+import { useTranslation } from 'react-i18next';
+import Cookies from 'js-cookie';
+
+const MAX_LOGIN_ATTEMPTS = 5;
+const TIMEOUT_DURATION = 6000;
 /**
  * Login is a component that provides a user login interface. It includes input fields for username and password,
  * submits login requests to an API, and handles responses. The component implements error handling for login attempts,
@@ -15,17 +26,6 @@
  * Successful logins redirect the user to the main page, while failed attempts display an error message.
  */
 
-import React, { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import axios from 'axios';
-import { useRouter } from 'next/router';
-import styles from '../styles/login.module.scss';
-import { useUser } from '../utils/userContext';
-import { useTranslation } from 'react-i18next';
-import Cookies from 'js-cookie';
-
-const MAX_LOGIN_ATTEMPTS = 5;
-const TIMEOUT_DURATION = 6000;
 
 export default function Login() {
     const { t } = useTranslation();

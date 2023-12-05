@@ -1,3 +1,7 @@
+import React from 'react';
+import { useTranslation } from "react-i18next";
+import styles from "../styles/Navbar.module.scss";
+import { useUser } from "@/utils/userContext";
 /**
  * UserMenu is a navigation component that displays different menu options based on user authentication status.
  * For unauthenticated users, it shows options to navigate to the main page, login, and registration pages.
@@ -18,10 +22,6 @@
  * adjusting its content based on the user's authentication status and role.
  */
 
-import React from 'react';
-import { useTranslation } from "react-i18next";
-import styles from "../styles/Navbar.module.scss";
-import { useUser } from "@/utils/userContext";
 
 function UserMenu({ router }) {
     const { t } = useTranslation();

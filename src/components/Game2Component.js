@@ -5,21 +5,6 @@ import styles from "../styles/Exec.module.scss";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useTranslation } from "react-i18next";
 
-/**
- * ExerciseComponent is a React component for language learning exercises.
- * It fetches a list of words based on the user's points and provides functionalities to play audio,
- * submit answers, and navigate through the words. It displays feedback and updates user points.
- *
- * @component
- * @example
- * return (
- *   <ExerciseComponent />
- * )
- *
- * @returns {React.ReactElement} A React component that renders the language learning exercise interface,
- * including word audio playback, input form for answers, and navigation controls.
- */
-
 const POINT_LEVELS = [
     { threshold: 10, key: "listening1.1" },
     { threshold: 20, key: "listening1.2" },
@@ -40,6 +25,21 @@ const getWordListKey = (points) => {
         }
     }
 };
+/**
+ * ExerciseComponent is a React component for language learning exercises.
+ * It fetches a list of words based on the user's points and provides functionalities to play audio,
+ * submit answers, and navigate through the words. It displays feedback and updates user points.
+ *
+ * @component
+ * @example
+ * return (
+ *   <ExerciseComponent />
+ * )
+ *
+ * @returns {React.ReactElement} A React component that renders the language learning exercise interface,
+ * including word audio playback, input form for answers, and navigation controls.
+ */
+
 
 const ExerciseComponent = () => {
     const { user } = useUser();

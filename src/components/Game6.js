@@ -1,3 +1,18 @@
+import React, { useState, useEffect } from "react";
+import {
+    Button,
+    Typography,
+    RadioGroup,
+    FormControlLabel,
+    Radio,
+    Container,
+} from "@mui/material";
+import stories from "@/utils/wordlists/stories.json";
+import { textToSpeech } from "@/utils/mimicApi";
+import styles from "../styles/Game6Component.module.scss";
+import updateUserPoints from "../helpers/PointAdder";
+import { useUser } from "@/utils/userContext";
+import { useTranslation } from "react-i18next";
 /**
  * GameStoryComponent is a language learning game component that presents users with stories and quizzes.
  * Users listen to stories read aloud and then answer comprehension questions. The component provides
@@ -14,22 +29,6 @@
  * present multiple-choice questions for comprehension, and provide feedback on user's answers.
  * Users can navigate between different stories and their respective quizzes.
  */
-
-import React, { useState, useEffect } from "react";
-import {
-    Button,
-    Typography,
-    RadioGroup,
-    FormControlLabel,
-    Radio,
-    Container,
-} from "@mui/material";
-import stories from "@/utils/wordlists/stories.json";
-import { textToSpeech } from "@/utils/mimicApi";
-import styles from "../styles/Game6Component.module.scss";
-import updateUserPoints from "../helpers/PointAdder";
-import { useUser } from "@/utils/userContext";
-import { useTranslation } from "react-i18next";
 
 function GameStoryComponent() {
     const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
@@ -155,4 +154,3 @@ function GameStoryComponent() {
     );
 }
 export default GameStoryComponent;
-

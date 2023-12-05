@@ -1,3 +1,8 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import styles from "../styles/UserPointsComponent.module.scss";
+import { useRouter } from "next/router"; // Import useRouter from Next.js
+import { useTranslation } from "react-i18next";
 /**
  * UserPointsComponent is a component that displays the user's accumulated points and provides functionality to view and select rewards.
  * It shows the total points, motivational messages based on points, and a grid of rewards that users can click to view in detail.
@@ -12,12 +17,6 @@
  * @returns {React.ReactElement} A React component that renders a display of the user's points, motivational messages, and a rewards grid.
  * Users can interact with the component to view their points, access practice sessions, and explore available rewards based on their points.
  */
-
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import styles from "../styles/UserPointsComponent.module.scss";
-import { useRouter } from "next/router"; // Import useRouter from Next.js
-import { useTranslation } from "react-i18next";
 
 function UserPointsComponent() {
     const [userPoints, setUserPoints] = useState(null);
@@ -154,13 +153,11 @@ function UserPointsComponent() {
                 {t("UPpoints")}
                 <div className={styles.pointsVisual}>
                     <div className={styles.starIcon}>
-                        <span role="img" aria-label="Star">
-                        </span>
+                        <span role="img" aria-label="Star"></span>
                     </div>
                     <div className={styles.pointsCount}>{userPoints}</div>
                     <div className={styles.starIcon}>
-                        <span role="img" aria-label="Star">
-                        </span>
+                        <span role="img" aria-label="Star"></span>
                     </div>
                 </div>
             </div>

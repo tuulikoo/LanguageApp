@@ -1,3 +1,11 @@
+import React, { useEffect, useState } from "react";
+import game4 from "../utils/wordlists/game4.json";
+import { useUser } from "../utils/userContext";
+import styles from "../styles/Game4Component.module.scss";
+import { textToSpeech } from "../utils/mimicApi";
+import { useRouter } from "next/router";
+import Cookies from "js-cookie";
+import { useTranslation } from "react-i18next";
 /**
  * Game4Component is a language learning game component that presents users with questions and options.
  * Users can listen to the pronunciation of words, select answers, and navigate through questions.
@@ -13,15 +21,6 @@
  * It displays images, plays audio for words, presents multiple choice questions, and provides
  * feedback on user's answers. Additionally, it manages user's progress through different levels and sections.
  */
-
-import React, { useEffect, useState } from "react";
-import game4 from "../utils/wordlists/game4.json";
-import { useUser } from "../utils/userContext";
-import styles from "../styles/Game4Component.module.scss";
-import { textToSpeech } from "../utils/mimicApi";
-import { useRouter } from "next/router";
-import Cookies from "js-cookie";
-import { useTranslation } from "react-i18next";
 
 function Game4Component() {
     // Pass onLevelCompletion as a prop

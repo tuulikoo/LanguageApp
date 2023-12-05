@@ -1,3 +1,11 @@
+import React from "react";
+import { useState, useEffect } from "react";
+import styles from "@/styles/Levels.module.scss";
+import Link from "next/link";
+import { useTranslation } from "react-i18next";
+import { useSelectedLanguage } from "@/utils/selectedLanguage";
+import levelsData from "../utils/wordlists/LevelsData";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 /**
  * Levels is a component that displays a list of language learning levels. Each level is represented by a title and 
  * description, and users can interact with each level to toggle through different available languages. The component 
@@ -14,14 +22,6 @@
  * The component supports multilingual display, adapting to the selected language preference of the user.
  */
 
-import React from "react";
-import { useState, useEffect } from "react";
-import styles from "@/styles/Levels.module.scss";
-import Link from "next/link";
-import { useTranslation } from "react-i18next";
-import { useSelectedLanguage } from "@/utils/selectedLanguage";
-import levelsData from "../utils/wordlists/LevelsData";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const Levels = () => {
     const selectedLanguage = useSelectedLanguage();

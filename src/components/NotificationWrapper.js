@@ -1,3 +1,17 @@
+import React, { useState, useEffect, useContext, createContext } from "react";
+import { useUser } from "../utils/userContext";
+import styles from "../styles/NotificationWrapper.module.scss";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import BookIcon from "@mui/icons-material/Book";
+import StarIcon from "@mui/icons-material/Star";
+import CoffeeIcon from "@mui/icons-material/LocalCafe";
+import { useTranslation } from "react-i18next";
+
+const NotificationContext = createContext();
+
+export const useNotification = () => {
+    return useContext(NotificationContext);
+};
 /**
  * NotificationWrapper is a component that provides notification functionality across the application.
  * It utilizes a context to allow child components to trigger notifications. Notifications include
@@ -19,20 +33,6 @@
  * notifications based on the provided messages and user interaction within the application.
  */
 
-import React, { useState, useEffect, useContext, createContext } from "react";
-import { useUser } from "../utils/userContext";
-import styles from "../styles/NotificationWrapper.module.scss";
-import ThumbUpIcon from "@mui/icons-material/ThumbUp";
-import BookIcon from "@mui/icons-material/Book";
-import StarIcon from "@mui/icons-material/Star";
-import CoffeeIcon from "@mui/icons-material/LocalCafe";
-import { useTranslation } from "react-i18next";
-
-const NotificationContext = createContext();
-
-export const useNotification = () => {
-    return useContext(NotificationContext);
-};
 
 const NotificationWrapper = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false);

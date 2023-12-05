@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+import styles from '../styles/flashcards.module.css'; // Import the CSS module
 /**
  * Flashcard component for displaying a flashcard with a word and its translated definition.
  * The card flips to reveal the definition when clicked.
@@ -26,8 +28,7 @@
  * @returns {React.ReactElement} A React component that renders a single flashcard.
  */
 
-import React, { useState } from 'react';
-import styles from '../styles/flashcards.module.css'; // Import the CSS module
+
 
 const Flashcard = ({ word, definition, onNext }) => {
     const [isFlipped, setIsFlipped] = useState(false);

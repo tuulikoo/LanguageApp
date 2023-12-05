@@ -1,3 +1,9 @@
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useUser } from "@/utils/userContext";
+import LanguageDropdown from './LanguageDropdown';
+import UserMenu from './UserMenu';
+import styles from "../styles/Navbar.module.scss";
 /**
  * Navbar is a component that provides navigation and language selection features for the application. 
  * It includes a LanguageDropdown for language switching and a UserMenu for user-related actions.
@@ -14,12 +20,6 @@
  * scrolling down past a specified threshold, enhancing the user interface experience.
  */
 
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { useUser } from "@/utils/userContext";
-import LanguageDropdown from './LanguageDropdown';
-import UserMenu from './UserMenu';
-import styles from "../styles/Navbar.module.scss";
 
 function Navbar() {
     const { user, loading, setUser } = useUser();

@@ -1,3 +1,13 @@
+import { useState } from "react";
+import styles from "@/styles/LevelSelector.module.scss";
+import Link from "next/link";
+import { RefreshOutlined } from "@mui/icons-material";
+import Image from "next/image";
+import { useSelectedLanguage } from "@/utils/selectedLanguage";
+import { useUser } from "@/utils/userContext";
+import { CircularProgress } from "@mui/material";
+import { useEffect } from "react";
+import levelsData2 from "@/utils/wordlists/levelsData2";
 /**
  * LevelSelector is a component that displays a list of language learning levels. 
  * Each level is represented by an image, title, and description, and can be interacted with to cycle through
@@ -15,16 +25,6 @@
  * Levels are unlocked based on the user's points, and unavailable levels are visually distinguished.
  */
 
-import { useState } from "react";
-import styles from "@/styles/LevelSelector.module.scss";
-import Link from "next/link";
-import { RefreshOutlined } from "@mui/icons-material";
-import Image from "next/image";
-import { useSelectedLanguage } from "@/utils/selectedLanguage";
-import { useUser } from "@/utils/userContext";
-import { CircularProgress } from "@mui/material";
-import { useEffect } from "react";
-import levelsData2 from "@/utils/wordlists/levelsData2";
 
 const LevelSelector = () => {
     const { user, loading } = useUser();

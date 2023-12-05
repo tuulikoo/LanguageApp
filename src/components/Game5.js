@@ -1,18 +1,3 @@
-/**
- * Game5 is a language learning game component that involves dragging and dropping words into the correct positions 
- * in a sentence. It displays feedback on correct or incorrect answers, and allows users to hear the sentence spoken aloud.
- *
- * @component
- * @example
- * return (
- *   <Game5 />
- * )
- *
- * @returns {React.ReactElement} A React component that renders a drag-and-drop sentence completion game.
- * It presents sentences with missing words, and users need to drag the correct words from a given set into these blanks.
- * Correct answers are validated, and users can listen to the complete sentence using text-to-speech functionality.
- */
-
 import React, { useState, useEffect } from "react";
 import {
     Container,
@@ -30,6 +15,20 @@ import styles from "../styles/Game5.module.scss";
 import updateUserPoints from "../helpers/PointAdder";
 import { useUser } from "@/utils/userContext";
 import { useTranslation } from "react-i18next";
+/**
+ * Game5 is a language learning game component that involves dragging and dropping words into the correct positions
+ * in a sentence. It displays feedback on correct or incorrect answers, and allows users to hear the sentence spoken aloud.
+ *
+ * @component
+ * @example
+ * return (
+ *   <Game5 />
+ * )
+ *
+ * @returns {React.ReactElement} A React component that renders a drag-and-drop sentence completion game.
+ * It presents sentences with missing words, and users need to drag the correct words from a given set into these blanks.
+ * Correct answers are validated, and users can listen to the complete sentence using text-to-speech functionality.
+ */
 
 function Game5() {
     const [currentPair, setCurrentPair] = useState(null);
@@ -55,7 +54,8 @@ function Game5() {
     };
 
     const loadNewQuestion = () => {
-        const randomPair = wordPairs[Math.floor(Math.random() * wordPairs.length)];
+        const randomPair =
+            wordPairs[Math.floor(Math.random() * wordPairs.length)];
         setCurrentPair(randomPair);
         setDroppedWords(new Array(randomPair.answers.length).fill(""));
         setIsCorrect(false);
@@ -68,7 +68,8 @@ function Game5() {
         setDroppedWords(newDroppedWords);
 
         if (
-            JSON.stringify(newDroppedWords) === JSON.stringify(currentPair.answers)
+            JSON.stringify(newDroppedWords) ===
+            JSON.stringify(currentPair.answers)
         ) {
             setIsCorrect(true);
             const pointsToAdd = 1;
@@ -85,7 +86,10 @@ function Game5() {
     const speakSentence = () => {
         let fullSentence = currentPair.sentence;
         currentPair.answers.forEach((answer, idx) => {
-            fullSentence = fullSentence.replace("____", droppedWords[idx] || answer);
+            fullSentence = fullSentence.replace(
+                "____",
+                droppedWords[idx] || answer
+            );
         });
         textToSpeech(fullSentence);
     };
@@ -106,33 +110,41 @@ function Game5() {
                                         onDrop={(e) => handleDrop(e, index)}
                                         onDragOver={(e) => e.preventDefault()}
                                         className={`${styles.dropBox} ${droppedWords[index]
-                                            ? droppedWords[index] === currentPair.answers[index]
-                                                ? styles.hasWord
-                                                : styles.wrongAnswer
-                                            : styles.empty
+                                                ? droppedWords[index] ===
+                                                    currentPair.answers[index]
+                                                    ? styles.hasWord
+                                                    : styles.wrongAnswer
+                                                : styles.empty
                                             }`}
                                     >
                                         {droppedWords[index]}
                                     </Box>
                                 </>
-                            ),
+                            )
                         )}
                     </Typography>
 
-                    <Grid container spacing={3} className={styles.wordsContainer}>
-                        {[...currentPair.answers, ...currentPair.distractors].map(
-                            (word, index) => (
-                                <Grid item key={index}>
-                                    <Paper
-                                        className={styles.wordCard}
-                                        draggable
-                                        onDragStart={(e) => handleDragStart(e, word)}
-                                    >
-                                        {word}
-                                    </Paper>
-                                </Grid>
-                            ),
-                        )}
+                    <Grid
+                        container
+                        spacing={3}
+                        className={styles.wordsContainer}
+                    >
+                        {[
+                            ...currentPair.answers,
+                            ...currentPair.distractors,
+                        ].map((word, index) => (
+                            <Grid item key={index}>
+                                <Paper
+                                    className={styles.wordCard}
+                                    draggable
+                                    onDragStart={(e) =>
+                                        handleDragStart(e, word)
+                                    }
+                                >
+                                    {word}
+                                </Paper>
+                            </Grid>
+                        ))}
                     </Grid>
 
                     <div className={styles.buttons}>

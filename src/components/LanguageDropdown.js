@@ -1,3 +1,8 @@
+import React, { useState, useRef, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import Cookies from "js-cookie";
+import styles from "../styles/Navbar.module.scss";
+import LanguageIcon from '@mui/icons-material/Language';
 /**
 * LanguageDropdown is a component that allows users to switch the application's language. 
 * It supports changing languages on the fly and updating user preferences accordingly.
@@ -20,11 +25,6 @@
 * Users can select a language from the dropdown to change the application's language setting.
 */
 
-import React, { useState, useRef, useEffect } from "react";
-import { useTranslation } from "react-i18next";
-import Cookies from "js-cookie";
-import styles from "../styles/Navbar.module.scss";
-import LanguageIcon from '@mui/icons-material/Language';
 
 function LanguageDropdown({ user, setUser }) {
     const [dropdownVisible, setDropdownVisible] = useState(false);
