@@ -1,7 +1,32 @@
-import { PrismaClient } from '@prisma/client';
+import prisma from '../../utils/prisma';
 import jwt from 'jsonwebtoken';
 
-const prisma = new PrismaClient();
+/**
+ * API endpoint to fetch authenticated user's details from the database.
+ *
+ * @param {object} req - The HTTP request object.
+ * @param {object} req.cookies - The cookies attached to the request.
+ * @param {string} req.cookies.token - The JWT token used for authentication, stored in cookies.
+ * @param {object} res - The HTTP response object.
+ *
+ * @description
+ * - This endpoint is specifically for handling GET requests to fetch user details.
+ * - It uses JWT for authentication, expecting a token in the request cookies.
+ * - The token is verified to authenticate the user.
+ * - Once authenticated, it retrieves detailed user information from the database.
+ * - The information includes id, firstName, username, email, avatarId, language, userPoints, lastLevel, timeSpent, and userRole.
+ * - Returns appropriate responses based on the success or failure of authentication and data retrieval.
+ * - Ensures the database connection is closed after the operation.
+ *
+ * @returns
+ * - Returns a 405 status code for non-GET requests.
+ * - Returns a 401 status code if the token is missing or invalid.
+ * - Returns a 404 status code if the authenticated user is not found in the database.
+ * - Returns a 200 status code with the user's details in JSON format upon successful data retrieval.
+ * - Returns a 500 status code with an error message in case of a server error.
+ */
+
+
 
 export default async function handle(req, res) {
     if (req.method !== 'GET') {

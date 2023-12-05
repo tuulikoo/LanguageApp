@@ -1,6 +1,31 @@
 import { join } from "path";
 import fs from "fs";
 
+/**
+ * API endpoint to handle GET, POST, and DELETE requests for managing JSON data in files.
+ *
+ * @param {object} req - The HTTP request object.
+ * @param {object} req.query - The query parameters attached to the request.
+ * @param {string} req.query.file - The name of the JSON file to be manipulated.
+ * @param {object} req.body - The body of the request, used for POST and DELETE operations.
+ * @param {object} res - The HTTP response object.
+ *
+ * @description
+ * - This endpoint supports three types of requests: GET, POST, and DELETE.
+ * - GET request: Retrieves data from a specified JSON file.
+ * - POST request: Adds a new item to the JSON file. Requires 'imageUrl', 'eng', and 'fin' in the request body.
+ * - DELETE request: Removes an item from the JSON file based on its 'id'.
+ * - The filename is specified in the query parameters and must end with '.json'.
+ * - The functions `readData` and `writeData` are used to interact with the file system.
+ * - Appropriate responses are returned for successful operations, invalid requests, and server errors.
+ *
+ * @returns
+ * - Returns a 400 status code for invalid or missing filename, or missing request body parameters.
+ * - Returns a 200 status code with the requested data for GET, the new item for POST, and a success message for DELETE.
+ * - Returns a 405 status code for unsupported request methods.
+ * - Returns a 500 status code with an error message in case of a server error.
+ */
+
 const getFilePath = (fileName) =>
     join(process.cwd(), "src", "utils", "wordlists", fileName);
 
@@ -10,7 +35,7 @@ const readData = (fileName) => {
         return JSON.parse(rawData);
     } catch (error) {
         throw new Error(
-            `Error reading the JSON data from ${fileName}: ${error.message}`,
+            `Error reading the JSON data from ${fileName}: ${error.message}`
         );
     }
 };
@@ -53,7 +78,7 @@ export default function handler(req, res) {
             }
             const highestId = data.reduce(
                 (maxId, item) => Math.max(maxId, item.id),
-                0,
+                0
             );
             const newItem = {
                 id: highestId + 1,

@@ -1,3 +1,4 @@
+import prisma from "../utils/prisma";
 /**
  * Script for importing and updating various sets of language learning data into a database using Prisma ORM.
  * It handles different categories of data such as game data, listening exercises, school and fruit level data, 
@@ -14,9 +15,7 @@
  * @function main - Main function that executes all data import functions and manages database connection.
  */
 
-const { PrismaClient } = require("@prisma/client");
 
-const prisma = new PrismaClient();
 
 async function importGameData() {
     try {
