@@ -65,7 +65,7 @@ function Game4Component() {
     useEffect(() => {
         if (currentQuestion >= data?.length) {
             if (user) {
-                if (user.lastLevel) {
+                if (user.lastLevel<6) {
                     const nextLevel = user.lastLevel + 1;
 
                     // Check if it's time to increment lastLevel
@@ -81,6 +81,34 @@ function Game4Component() {
                             body: JSON.stringify({
                                 userId: user.id,
                                 lastLevel: nextLevel,
+                            }),
+                        })
+                            .then((response) => response.json())
+                            .then((data) => {
+                                // Handle the response, if needed
+                            })
+                            .catch((error) => {
+                                console.error(
+                                    "Error updating lastLevel:",
+                                    error
+                                );
+                            });
+                        // Todo: Call the onLevelCompletion function to signal level completion
+                    }
+                }
+                else{
+                    const nextLevel = 1;
+
+                    // Check if it's time to increment lastLevel
+                    {
+                        fetch("/api/updateUser", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({
+                                userId: user.id,
+                                lastLevel: 1,
                             }),
                         })
                             .then((response) => response.json())
