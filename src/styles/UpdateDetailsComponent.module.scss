@@ -1,39 +1,59 @@
+
+@font-face {
+    font-family: "Dela Gothic One"; /* Specify the font family name */
+    src: url('../../public/fonts/DelaGothicOne-Regular.ttf') format('truetype'); /* Specify the path to your TTF font file */
+}
+
+.custom-font {
+    font-family: 'Dela Gothic One', sans-serif; /* Use the imported font family name */
+}
+
 .container {
-    font-family: "Karma Suture", sans-serif; /* Specify the font stack */
+    font-family: 'Karma Suture', sans-serif; /* Specify the font stack */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
 }
 
 .currentDetails {
-    border: 2px solid #2196f3;
-    padding: 20px;
+    border: 10px solid #ffec00;
+    padding: 30px;
     margin-bottom: 20px;
-    background-color: #e6e6fa;
+    background-color: rgba(252, 141, 15, 0.61);
     border-radius: 10px;
     margin-top: 30px;
+    font-family: "Dela Gothic One",Serif;
+    text-align: left;
+    font-size: 16px;
 }
 
 .currentDetails h2 {
-    font-size: 18px;
-    color: #333;
+    font-family: "Dela Gothic One" ;
+    font-size: 20px;
+    color: #000000;
+    background-color: #ffec00;
 }
 
 .welcome {
-    font-family: "Karma Future", sans-serif;
+    font-family: "Dela Gothic One";
     font-size: 36px;
+    color: #b4520c;
+    text-align: center;
 }
+
 
 .updateBox {
     margin: 10px;
-    font-family: "Karma Suture", sans-serif;
-    border: 2px solid #4caf50;
+    font-family: 'Dela Gothic One', sans-serif;
+    border: 2px solid #ffffff;
     padding: 20px;
-    background-color: #e0f2f1;
+    background-color: #edb157;
     border-radius: 10px;
     width: 70%;
-    max-width: 800px;
+    max-width: 400px;
+
 }
 
 .update-section {
@@ -41,21 +61,22 @@
 }
 
 .adjustButton {
-    font-family: "Karma Suture", sans-serif;
+    font-family: 'Dela Gothic One', sans-serif;
     color: black;
-    background-color: #4caf50;
+    background-color: #3f51b4;
     color: #fff;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 7px;
     font-size: 18px;
+    border: 2px solid darkblue;
 }
 
 .showButton {
     margin: 5px;
-    font-family: "Karma Suture", sans-serif;
-    background-color: yellow;
+    font-family: 'Dela Gothic One', sans-serif;
+    background-color: #b3520c;
     color: black;
     border: solid 2px black;
     padding: 10px 20px;
@@ -65,9 +86,9 @@
 }
 
 .saveButton {
-    font-family: "Karma Suture", sans-serif;
+    font-family: 'Dela Gothic One', sans-serif;
     margin: 3px;
-    background-color: #e6e6fa;
+    background-color: #E6E6FA;
     color: black;
     border: solid 1px darkblue;
     padding: 10px 20px;
@@ -76,10 +97,16 @@
     font-size: 14px;
 }
 
-.saveButton:hover,
-.adjustButton:hover,
+.saveButton:hover {
+    background-color: #a0a0ef;
+}
+
+.adjustButton:hover{
+    background-color: #00008a;
+}
+
 .showButton:hover {
-    background-color: #45a049;
+    background-color: #672e04;
 }
 
 .deleteModal {
@@ -118,15 +145,16 @@
 }
 
 .deleteModalButton:hover {
-    background-color: #ff3333; // Darker red on hover
+    background-color: #ff0000; // Darker red on hover
     border: 2px solid #cc0000; // Darker red border on hover
 }
 .customDeleteButton {
+    font-family: "Dela Gothic One";
     margin-top: 20px; // Add some space between the button and the rest of the content
     padding: 10px 20px;
     border: 2px solid #ff3333; // Red border
     background-color: #ff4d4d; // Red background color
-    color: white; // White text color
+    color: #000000; // White text color
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
@@ -137,9 +165,7 @@
     background-color: #ff3333; // Darker red on hover
     border: 2px solid #cc0000; // Darker red border on hover
 }
-#text,
-#email,
-#password {
+#text, #email, #password {
     width: 100%;
     padding: 10px;
     border: 2px solid darkblue;
@@ -155,7 +181,7 @@
     border-radius: 5px;
     margin-top: 5px;
     margin-bottom: 10px;
-    font-family: "Karma Future", sans-serif; /* Use Karma Future font */
+    font-family: 'Karma Future', sans-serif; /* Use Karma Future font */
     font-size: 16px; /* Increase font size */
 }
 
@@ -166,9 +192,13 @@
 }
 
 .avatar {
+    max-width:250px;
     cursor: pointer;
     border: 2px solid transparent;
     transition: border-color 0.3s;
+    &:hover {
+        transform: scale(1.4);
+    }
 }
 
 .avatar:hover {
@@ -179,14 +209,6 @@
     border-color: #4caf50;
 }
 
-.avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    object-fit: cover;
-    background-color: lightblue;
-    transition: transform 0.5s ease-in-out;
-}
 
 .avatarHovered {
     transform: scale(1.4);
@@ -194,10 +216,7 @@
 
 .avatarContainer {
     display: grid;
-    grid-template-columns: repeat(
-        2,
-        1fr
-    ); /* Adjust the number of columns as needed */
+    grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns as needed */
     gap: 1px; /* Reduce the gap between avatars */
     margin-top: 10px; /* Add margin to the top if needed */
 }
@@ -208,8 +227,8 @@
     border-radius: 50%;
     cursor: pointer;
     filter: grayscale(5%) opacity(0.8);
-    transition: transform 0.4s cubic-bezier(0.3, 0.2, 0.355, 1),
-        filter 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.300, 0.2, 0.355, 1),
+    filter 0.3s ease;
 
     &:hover {
         transform: scale(1.2); /* Adjust the scale factor as needed */
@@ -218,33 +237,56 @@
 }
 
 .selectedAvatar {
-    border: 3px solid #007bff;
+    border: 3px solid #007BFF;
     border-radius: 50%;
 }
 
 .avatarsGrid {
     display: grid;
-    grid-template-columns: repeat(
-        2,
-        1fr
-    ); /* Adjust the number of columns as needed */
+    grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns as needed */
     gap: 20px;
 }
 
 .selectedAvatar {
-    border: 3px solid #007bff;
+    border: 3px solid #007BFF;
     border-radius: 50%;
 }
 
-@media (min-width: 768px) {
-    .updateBox,
-    .currentDetails {
-        width: 100%;
+.omatTiedot {
+    font-size: 13px;
+
+    .avatarTiedot {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 25px;
+
+
+        h3 {
+            font-family: "Dela Gothic One"; /* Apply the custom font */
+            font-size: 18px; /* Adjust the font size as needed */
+            color: #b4520c; /* Set the text color to stand out */
+        }
+
+        .avatar {
+            width: 100px; /* Adjust the width as needed */
+            height: 100px; /* Adjust the height as needed */
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: lightblue;
+            transition: transform 0.5s ease-in-out;
+            margin: 10px auto; /* Center the avatar horizontally */
+
+            &:hover {
+                transform: scale(1.4);
+            }
+        }
     }
 }
-.loading_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+
+
+
+@media (min-width: 768px) {
+    .updateBox, .currentDetails {
+        width: 100%;
+    }
 }
