@@ -1,10 +1,11 @@
 import { UserProvider, useUser } from "@/utils/userContext";
 import styles from "../styles/UpdateDetailsComponent.module.scss";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
 import { CircularProgress } from "@mui/material";
+import Image from "next/image";
 
 /**
  * UpdateDetailsComponent is a component for updating user details, including username, email, password, first name, and avatar.
@@ -182,9 +183,11 @@ function UpdateDetailsComponent({ setUser }) {
                 <h3>{t("UPlanguage")}</h3>
                 <h3>
                     {t("UPavatar")}{" "}
-                    <img
-                        src={`avatars/avatar${user.avatarId}.png`}
+                    <Image
+                        src={`/avatars/avatar${user.avatarId}.png`}
                         alt={`${user.username} Avatar`}
+                        width={100}
+                        height={100}
                         className={`${styles.avatar} ${avatarHovered ? styles.avatarHovered : ""
                             }`}
                     />
@@ -314,9 +317,11 @@ function UpdateDetailsComponent({ setUser }) {
                                         <img
                                             src={avatar.src}
                                             alt="Avatar"
+                                            width={100}
+                                            height={100}
                                             className={`${styles.avatarImage} ${selectedAvatarId === avatar.id
-                                                    ? styles.selectedAvatar
-                                                    : ""
+                                                ? styles.selectedAvatar
+                                                : ""
                                                 }`}
                                             onClick={() =>
                                                 setSelectedAvatarId(avatar.id)

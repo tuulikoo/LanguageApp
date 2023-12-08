@@ -8,6 +8,12 @@ import i18n from "/i18n";
 function MyApp({ Component, pageProps }) {
     return (
         <div className="appContainer">
+            <link
+                rel="icon"
+                href="/icon.svg"
+                type="image/svg"
+                sizes="<generated>x<generated"
+            />
             <UserProvider>
                 <I18nextProvider i18n={i18n}>
                     <SessionTimer>
