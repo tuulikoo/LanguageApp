@@ -60,15 +60,15 @@
     { "Id": 10, "src": "professions/doctor.webp", "btn1": "Waiter", "btn2": "Doctor", "btn3": "Photographer", "btn4": "Sailor", "correctOption": "Doctor" }
   ],
   "6": [
-    { "Id": 1, "src": "weather/sunny.webp", "btn1": "Cold", "btn2": "Rainy", "btn3": "Sunny", "btn4": "Night", "correctOption": "Sunny" },
-    { "Id": 2, "src": "weather/cloudy.webp", "btn1": "Windy", "btn2": "Snowy", "btn3": "Cloudy", "btn4": "Foggy", "correctOption": "Cloudy" },
-    { "Id": 3, "src": "weather/rainy.webp", "btn1": "Hail", "btn2": "Thunderstorm", "btn3": "Rainy", "btn4": "Sleet", "correctOption": "Rainy" },
-    { "Id": 4, "src": "weather/snowy.webp", "btn1": "Sunny", "btn2": "Foggy", "btn3": "Snowy", "btn4": "Icy", "correctOption": "Snowy" },
-    { "Id": 5, "src": "weather/windy.webp", "btn1": "Tornado", "btn2": "Windy", "btn3": "Hurricane", "btn4": "Breezy", "correctOption": "Windy" },
-    { "Id": 6, "src": "weather/foggy.webp", "btn1": "Misty", "btn2": "Overcast", "btn3": "Foggy", "btn4": "Clear", "correctOption": "Foggy" },
-    { "Id": 7, "src": "weather/stormy.webp", "btn1": "Sunny", "btn2": "Thunderstorm", "btn3": "Stormy", "btn4": "Hail", "correctOption": "Stormy" },
-    { "Id": 8, "src": "weather/hail.webp", "btn1": "Hail", "btn2": "Tornado", "btn3": "Rainy", "btn4": "Sunny", "correctOption": "Hail" },
-    { "Id": 9, "src": "weather/tornado.webp", "btn1": "Blizzard", "btn2": "Tornado", "btn3": "Sleet", "btn4": "Foggy", "correctOption": "Tornado" },
-    { "Id": 10, "src": "weather/clear.webp", "btn1": "Overcast", "btn2": "Clear", "btn3": "Misty", "btn4": "Windy", "correctOption": "Clear" }
+    { "Id": 1, "src": "https://cdn.pixabay.com/photo/2018/02/05/23/05/death-valley-3133502_1280.jpg", "btn1": "Sunny", "btn2": "Rainy", "btn3": "Flower", "btn4": "Night", "correctOption": "Sunny" },
+    { "Id": 2, "src": "https://cdn.pixabay.com/photo/2020/07/04/06/41/clouds-5368444_1280.jpg", "btn1": "Moon", "btn2": "Snowy", "btn3": "Cloudy", "btn4": "Street", "correctOption": "Cloudy" },
+    { "Id": 3, "src": "https://media.istockphoto.com/id/1461681027/fi/valokuva/sade-vihreän-metsän-yli-karpaattien-sumuiset-vuoristovuoret-sateinen-päivä-kesällä.jpg?s=612x612&w=0&k=20&c=Zbks3O09CW8wz6dyKdFnBkkLrH4Qq7uGXm5bndJCtuM=", "btn1": "Sunny", "btn2": "Field", "btn3": "River", "btn4": "Rainy", "correctOption": "Rainy" },
+    { "Id": 4, "src": "https://cdn.pixabay.com/photo/2019/12/29/13/59/trees-4727156_1280.jpg", "btn1": "Grass", "btn2": "Foggy", "btn3": "Snowy", "btn4": "Wet", "correctOption": "Snowy" },
+    { "Id": 5, "src": "https://cdn.pixabay.com/photo/2019/01/26/18/41/trees-3956743_1280.jpg", "btn1": "Windy", "btn2": "Lightning", "btn3": "Snowing", "btn4": "Ocean", "correctOption": "Windy" },
+    { "Id": 6, "src": "https://cdn.pixabay.com/photo/2014/11/27/10/29/mountain-547363_1280.jpg", "btn1": "Cottage", "btn2": "Beach", "btn3": "Foggy", "btn4": "Clear", "correctOption": "Foggy" },
+    { "Id": 7, "src": "https://cdn.pixabay.com/photo/2022/09/17/20/31/ocean-7461792_1280.jpg", "btn1": "Castle", "btn2": "Sister", "btn3": "Cat", "btn4": "Stormy", "correctOption": "Stormy" },
+    { "Id": 8, "src": "https://cdn.pixabay.com/photo/2016/11/13/15/30/first-snow-1821255_1280.jpg", "btn1": "Hail", "btn2": "Tornado", "btn3": "Hot", "btn4": "Sunny", "correctOption": "Hail" },
+    { "Id": 9, "src": "https://cdn.pixabay.com/photo/2018/03/04/17/15/tornado-3198574_1280.jpg", "btn1": "Blizzard", "btn2": "Tornado", "btn3": "Sleet", "btn4": "Foggy", "correctOption": "Tornado" },
+    { "Id": 10, "src": "https://cdn.pixabay.com/photo/2016/03/27/22/06/sea-1284467_1280.jpg", "btn1": "Overcast", "btn2": "Clear", "btn3": "Misty", "btn4": "Windy", "correctOption": "Clear" }
   ]
 }
