@@ -1,79 +1,108 @@
 .footer {
-  padding: 40px 0;
-  background-color: #fff;
-  border-top: 1px solid #e5e5e5;
+    padding: 40px 0;
+    background-color: #fff;
+    border-top: 1px solid #e5e5e5;
 }
 
 .footer_container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.logo_container {
-  display: flex;
-  align-items: center;
-
-  .logo {
+.logo {
+    display: inline-block;
     font-size: 1.8rem;
     font-weight: 600;
     color: #333;
-    margin-right: 20px;
     text-decoration: none;
     text-transform: uppercase;
-  }
+    cursor: pointer;
+    position: relative;
+    line-height: 50px;
+    transition: all 0.3s ease;
 }
 
+.logo:after,
+.logo:before {
+    background: #333;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transform-origin: 0 0;
+    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    width: 100%;
+}
+
+.logo:before {
+    opacity: 0.5;
+    transform: translateZ(0) scaleX(0);
+    transform-origin: 100% 100%;
+    transition: transform 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.15s;
+}
+
+.logo:hover:after {
+    transform: translateZ(0) scaleX(0);
+    transform-origin: 100% 100%;
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Address List Styling */
 .address_list {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
+}
 
-  .address_item {
+.address_item {
     margin-bottom: 10px;
-
-    .address_link {
-      color: #888;
-      text-decoration: none;
-      transition: color 0.3s;
-
-      &:hover {
-        color: #555;
-      }
-    }
-  }
 }
 
+.address_link {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.address_link:hover {
+    color: #555;
+}
+
+/* Subscription Styling */
 .subscription {
-  display: flex;
-  z-index: 1;
-
-  .subscription_form {
     display: flex;
-
-    .email_input {
-      padding: 10px 15px;
-      border: 1px solid #e5e5e5;
-      border-right: none;
-      border-radius: 5px 0 0 5px;
-      outline: none;
-      font-size: 1rem;
-    }
-
-    .subscribe_btn {
-      padding: 10px 15px;
-      border: none;
-      background-color: #89e219;
-      color: #fff;
-      cursor: pointer;
-      border-radius: 0 5px 5px 0;
-      transition: background-color 0.3s;
-
-      &:hover {
-        background-color: #58cc02;
-      }
-    }
-  }
+    z-index: 1;
 }
+
+.subscription_form {
+    display: flex;
+}
+
+.email_input {
+    padding: 10px 15px;
+    border: 1px solid #e5e5e5;
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    font-size: 1rem;
+}
+
+.subscribe_btn {
+    padding: 10px 15px;
+    border: none;
+    background-color: #89e219;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    transition: background-color 0.3s;
+}
+
+.subscribe_btn:hover {
+    background-color: #58cc02;
+}
+

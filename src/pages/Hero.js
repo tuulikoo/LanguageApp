@@ -18,6 +18,7 @@ const Hero = () => {
                 <Button href="/Levels" className={styles.hero_button}>
                     {t('heroButton')}
                 </Button>
+
             </div>
         </div>
     );

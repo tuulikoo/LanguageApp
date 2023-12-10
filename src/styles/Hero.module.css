@@ -1,57 +1,78 @@
 .hero_container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
-
 .content_overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
 }
 
 .hero_title {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #ffd700;
-  margin-bottom: 1rem;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffd700;
+    margin-bottom: 1rem;
 }
 
 .primary_text {
-  display: block;
+    display: block;
 }
 
 .secondary_text {
-  color: #ffd700;
-  font-size: 4rem;
-  font-weight: 900;
+    color: #ffd700;
+    font-size: 4rem;
+    font-weight: 900;
 }
-
 .hero_button {
-    display: inline-block;
-  padding: 10px 20px;
-  border: none;
-  background-color: #ffd700;
-  color: #000;
-  font-weight: 600;
-  border-radius: 5px;
+  background: #fffcd5;
+  box-shadow: 4px 4px #ffe00b, 9px 9px #151515;
+  color: #151515;
+  text-transform: lowercase;
+  border: solid 2px #151515;
   text-decoration: none;
-  transition: background-color 0.3s ease;
-  transition: scale 0.3s ease;
-}
 
+  padding: 18px 32px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+  transition: 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  cursor: pointer;
+  overflow: hidden;
+  transition-delay: 0s !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px;
+  font-family: freight-sans-pro, sans-serif;
+}
+.hero_button::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  width: 0%;
+  height: 100%;
+  background: #151515;
+  z-index: -1;
+  transition: 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+.hero_button:hover::before {
+  width: 100%;
+  left: 0;
+  right: unset;
+}
 .hero_button:hover {
-  background-color: #ffc300;
-  scale: 1.1;
+  box-shadow: 0 0 #ffe00b, 0 0 #151515;
+    color: white;
 }
-
-
-
