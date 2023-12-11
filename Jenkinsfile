@@ -15,18 +15,10 @@ pipeline {
         stage('Setup Environment') {
             steps {
                 nodejs(nodeJSInstallationName: 'Node') {
-                    sh 'npm install'
+                    sh 'npm install -g bun'
+                    sh 'bun install'
+                    sh 'bun run test'
                 }
-            }
-        }
-        stage('Build') {
-            steps {
-                sh 'npm run build'
-            }
-        }
-        stage('Node.js Tests') {
-            steps {
-                sh 'npm test'
             }
         }
         stage('Setup Robot Framework') {
