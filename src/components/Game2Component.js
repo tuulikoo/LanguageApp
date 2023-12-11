@@ -282,8 +282,9 @@ const ExerciseForm = ({ t, inputWord, onInputChange, onSubmit }) => (
 const ResultDisplay = ({ result, t }) =>
     result && (
         <p
-            className={`${styles.result} ${result === t("G2correct") ? styles.correct : ""
-                }`}
+            className={`${styles.result} ${
+                result === t("G2correct") ? styles.correct : ""
+            }`}
         >
             {result}
         </p>
