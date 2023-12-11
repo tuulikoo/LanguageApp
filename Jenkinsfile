@@ -14,8 +14,7 @@ pipeline {
         }
         stage('Setup Environment') {
             steps {
-                nodejs(nodeJSInstallationName: 'Node20') {
-                    sh 'npm clean'
+                nodejs(nodeJSInstallationName: 'Node') {
                     sh 'npm install'
                 }
             }
@@ -25,7 +24,7 @@ pipeline {
                 sh 'npm run build'
             }
         }
-        stage(' Tests') {
+        stage('Node.js Tests') {
             steps {
                 sh 'npm test'
             }
