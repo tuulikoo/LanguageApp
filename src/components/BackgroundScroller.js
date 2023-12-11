@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 
 const svgList = [
@@ -44,7 +43,8 @@ const BackgroundScroller = () => {
         width: "100%",
         height: "100%",
         overflow: "hidden",
-        background: 'linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(240, 248, 255, 1) 100%)',
+        background:
+            "linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(240, 248, 255, 1) 100%)",
         zIndex: -2,
     };
 
