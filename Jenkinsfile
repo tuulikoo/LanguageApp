@@ -50,6 +50,7 @@ stages {
         }
         stage('Run Robot Tests') {
             steps {
+                nodejs(nodeJSInstallationName: 'Node') {
                 dir('robot') {
                     sh '''#!/bin/bash
                         source venv_robot/bin/activate
@@ -58,6 +59,7 @@ stages {
                 }
             }
         }
+    }
         stage('Build and Deploy') {
             steps {
                 sh 'docker-compose up -d --build'
