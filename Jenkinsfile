@@ -1,21 +1,21 @@
 pipeline {
-    agent any
-    environment {
-        NODE_ENV = 'dev'
-    }
-    triggers {
-        pollSCM('H H/5 * * *') // Poll SCM every 5 hours
-    }
-    stages {
-        stage('Checkout Code') {
-            steps {
-                git 'https://github.com/tuulikoo/LanguageApp.git'
-            }
+agent any
+environment {
+    NODE_ENV = 'dev'
+}
+triggers {
+    pollSCM('H H/5 * * *') // Poll SCM every 5 hours
+}
+stages {
+    stage('Checkout Code') {
+        steps {
+            git 'https://github.com/tuulikoo/LanguageApp.git'
         }
-        stage('Setup Environment') {
-            steps {
-                nodejs(nodeJSInstallationName: 'Node') {
-                    sh 'npm install -g bun'
+    }
+    stage('Setup Environment') {
+        steps {
+            nodejs(nodeJSInstallationName: 'Node') {
+                sh 'npm install -g bun'
                     sh 'bun install'
                     sh 'bun run test'
                 }
@@ -24,16 +24,22 @@ pipeline {
         stage('Setup Robot Framework') {
             steps {
                 dir('robot') {
-                    sh '''#!/bin/bash
-                        python3 -m venv venv_robot
-                        source venv_robot/bin/activate
-                        pip3 install robotframework robotframework-browser robotframework-seleniumlibrary
-                        rfbrowser init
-                    '''
+            // Use the same nodejs block to get the correct PATH
+                    nodejs(nodeJSInstallationName: 'Node') {
+                        sh '''#!/bin/bash
+                         python3 -m venv venv_robot
+                         source venv_robot/bin/activate
+
+                    # PATH is already correctly set by the nodejs block
+                         pip3 install robotframework robotframework-browser robotframework-seleniumlibrary
+                         rfbrowser init
+                        '''
+                    }
                 }
             }
         }
-        stage('Run Next.js App') {
+
+       stage('Run Next.js App') {
             steps {
                 sh '''
                     npm start > app.log 2>&1 &
