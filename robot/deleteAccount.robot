@@ -55,6 +55,7 @@ Verify That MainPage Is Visible
     Get Url    ==    ${MAINURL}
 
 Navigate to Userpage
+    Set Browser Timeout    3s
     Click    xpath=//button[contains(@class, 'avatarButton')]
 
 
