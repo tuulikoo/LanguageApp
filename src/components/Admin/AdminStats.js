@@ -1,7 +1,12 @@
+import React, { useState, useEffect } from "react";
+import { Container, Typography } from "@mui/material";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
+import Paper from "@mui/material/Paper";
+import styles from "../../styles/Adminstats.module.scss";
 /**
- * UserStats is a component for displaying statistical data of users in an admin panel. 
- * It visualizes the distribution of user points and time spent in the application using bar charts. 
- * The component fetches user data from an API, processes it to categorize into different ranges, 
+ * UserStats is a component for displaying statistical data of users in an admin panel.
+ * It visualizes the distribution of user points and time spent in the application using bar charts.
+ * The component fetches user data from an API, processes it to categorize into different ranges,
  * and then renders this data in a graphical format for easy comprehension and analysis.
  *
  * @component
@@ -13,12 +18,6 @@
  * @returns {React.ReactElement} A React component that renders statistical charts for user points and time spent.
  * It displays bar charts to show the distribution of users based on points they have earned and the time they have spent using the application.
  */
-
-import React, { useState, useEffect } from "react";
-import { Container, Typography } from "@mui/material";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
-import Paper from "@mui/material/Paper";
-import styles from "../../styles/Adminstats.module.scss";
 
 function UserStats() {
     const [tempBuckets, setBuckets] = useState([]);
@@ -105,10 +104,12 @@ function UserStats() {
                 );
                 setTimeBuckets(formattedTimeBuckets);
 
-                const formattedBuckets = Object.keys(tempBuckets).map((range) => ({
-                    range,
-                    count: tempBuckets[range],
-                }));
+                const formattedBuckets = Object.keys(tempBuckets).map(
+                    (range) => ({
+                        range,
+                        count: tempBuckets[range],
+                    })
+                );
 
                 setBuckets(formattedBuckets);
             } catch (error) {

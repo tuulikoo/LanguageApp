@@ -1,5 +1,8 @@
+import React, { useEffect, useState } from "react";
+import styles from "../../../styles/Admin.ExerciseBuilder.module.scss";
+
 /**
- * ImageExerciseBuilder is a component for creating and managing image-based language learning exercises. 
+ * ImageExerciseBuilder is a component for creating and managing image-based language learning exercises.
  * It allows administrators to select a file, add new image-based items with English and Finnish words, and view a list of existing items.
  * The component provides functionalities to submit new items to a database, preview images, and delete existing items.
  *
@@ -12,9 +15,6 @@
  * @returns {React.ReactElement} A React component that renders an interface for building and managing image-based exercises.
  * It includes a file selector, input fields for image URLs and words, and a list of current items with options to add new ones or delete existing ones.
  */
-
-import React, { useEffect, useState } from "react";
-import styles from "../../../styles/Admin.ExerciseBuilder.module.scss";
 
 const ImageExerciseBuilder = () => {
     const [imageUrl, setImageUrl] = useState("");
@@ -36,7 +36,9 @@ const ImageExerciseBuilder = () => {
             fetch(`/api/images?file=${selectedFile}`)
                 .then((response) => response.json())
                 .then((data) => setItems(data))
-                .catch((error) => console.error("Error fetching items:", error));
+                .catch((error) =>
+                    console.error("Error fetching items:", error)
+                );
         }
     }, [selectedFile]);
 
@@ -45,7 +47,7 @@ const ImageExerciseBuilder = () => {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ imageUrl, eng, fin }),
-        })
+        });
         fetch(`/api/addImgDB`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -74,11 +76,12 @@ const ImageExerciseBuilder = () => {
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ id }),
                 }),
-
             ]);
 
             if (dbResponse.ok && fileResponse.ok) {
-                setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+                setItems((prevItems) =>
+                    prevItems.filter((item) => item.id !== id)
+                );
             } else {
                 throw new Error("Error deleting item.");
             }
@@ -111,7 +114,11 @@ const ImageExerciseBuilder = () => {
                     />
                 </label>
                 {imageUrl && (
-                    <img src={imageUrl} alt="Preview" className={styles.imagePreview} />
+                    <img
+                        src={imageUrl}
+                        alt="Preview"
+                        className={styles.imagePreview}
+                    />
                 )}
             </div>
 
@@ -146,7 +153,9 @@ const ImageExerciseBuilder = () => {
                         <span>
                             {item.eng} / {item.fin}
                         </span>
-                        <button onClick={() => handleDelete(item.id)}>Delete</button>
+                        <button onClick={() => handleDelete(item.id)}>
+                            Delete
+                        </button>
                     </div>
                 ))}
             </div>

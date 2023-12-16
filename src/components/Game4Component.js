@@ -65,7 +65,7 @@ function Game4Component() {
     useEffect(() => {
         if (currentQuestion >= data?.length) {
             if (user) {
-                if (user.lastLevel<6) {
+                if (user.lastLevel < 6) {
                     const nextLevel = user.lastLevel + 1;
 
                     // Check if it's time to increment lastLevel
@@ -95,8 +95,7 @@ function Game4Component() {
                             });
                         // Todo: Call the onLevelCompletion function to signal level completion
                     }
-                }
-                else{
+                } else {
                     const nextLevel = 1;
 
                     // Check if it's time to increment lastLevel
@@ -303,12 +302,13 @@ function Game4Component() {
                                 </div>
                             </div>
                             <p
-                                className={`${styles.result} ${result === "Oikein!" ||
-                                        result === "その通りだ！!" ||
-                                        result === "Korrekt!"
+                                className={`${styles.result} ${
+                                    result === "Oikein!" ||
+                                    result === "その通りだ！!" ||
+                                    result === "Korrekt!"
                                         ? styles.correct
                                         : ""
-                                    }`}
+                                }`}
                             >
                                 {result}
                             </p>

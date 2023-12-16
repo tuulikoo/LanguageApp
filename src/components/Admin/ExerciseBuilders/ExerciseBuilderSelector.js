@@ -1,3 +1,8 @@
+import ExerciseBuilder from "./ExerciseBuilder";
+import ImageExerciseBuilder from "./ImageExerciseBuilder";
+import { Box } from "@mui/system";
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import styles from "../../../styles/ExerciseBuilderSelector.module.scss";
 /**
  * ExerciseBuilderSelector is a component that allows users to select and manage different types of exercises, such as listening and image-based exercises.
  * It provides a dropdown menu to choose an exercise type and dynamically renders the appropriate exercise builder component based on the selection.
@@ -13,13 +18,6 @@
  * Depending on the user's selection, it displays the corresponding exercise builder,
  * which provides specific functionalities for creating and managing exercises of that type.
  */
-
-import React, { useEffect, useState } from "react";
-import ExerciseBuilder from "./ExerciseBuilder";
-import ImageExerciseBuilder from "./ImageExerciseBuilder";
-import { Box } from "@mui/system";
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import styles from "../../../styles/ExerciseBuilderSelector.module.scss";
 
 const ExerciseBuilderSelector = () => {
     const [selectedExercise, setSelectedExercise] = useState("");

@@ -1,3 +1,7 @@
+import React, { useEffect, useState } from "react";
+import { MenuItem, Select } from "@mui/material";
+import { InputLabel } from "@mui/material";
+import styles from "../../../styles/Admin.ExerciseBuilder.module.scss";
 /**
  * ExerciseBuilder is a component designed for managing language learning exercises.
  * It allows administrators to choose a file and a category within that file, view and edit items in the category,
@@ -13,11 +17,6 @@
  * It includes functionalities to select files and categories, display items in the selected category,
  * and provides options to add or delete words. It interacts with server-side APIs to fetch and update exercise data.
  */
-
-import React, { useEffect, useState } from "react";
-import { MenuItem, Select } from "@mui/material";
-import { InputLabel } from "@mui/material";
-import styles from "../../../styles/Admin.ExerciseBuilder.module.scss";
 
 const ExerciseBuilder = () => {
     const [data, setData] = useState({});

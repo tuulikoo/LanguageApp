@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useContext, createContext } from "react";
-import { useUser } from "../utils/userContext";
-import styles from "../styles/NotificationWrapper.module.scss";
-import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import BookIcon from "@mui/icons-material/Book";
-import StarIcon from "@mui/icons-material/Star";
 import CoffeeIcon from "@mui/icons-material/LocalCafe";
+import StarIcon from "@mui/icons-material/Star";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import styles from "../styles/NotificationWrapper.module.scss";
+import { useUser } from "../utils/userContext";
 
 const NotificationContext = createContext();
 

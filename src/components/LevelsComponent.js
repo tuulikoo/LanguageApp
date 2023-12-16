@@ -7,8 +7,8 @@ import { useSelectedLanguage } from "@/utils/selectedLanguage";
 import levelsData from "../utils/wordlists/LevelsData";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 /**
- * Levels is a component that displays a list of language learning levels. Each level is represented by a title and 
- * description, and users can interact with each level to toggle through different available languages. The component 
+ * Levels is a component that displays a list of language learning levels. Each level is represented by a title and
+ * description, and users can interact with each level to toggle through different available languages. The component
  * dynamically updates language display based on user's selection and utilizes internationalization for multilingual support.
  *
  * @component
@@ -21,7 +21,6 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
  * It allows users to view and interact with different levels, changing the language of each level's title and description.
  * The component supports multilingual display, adapting to the selected language preference of the user.
  */
-
 
 const Levels = () => {
     const selectedLanguage = useSelectedLanguage();
@@ -49,6 +48,7 @@ const Levels = () => {
             )
         );
     };
+
     return (
         <div className={styles.levels_container}>
             <h1 className={styles.header}>{t("levelsTitle")}</h1>

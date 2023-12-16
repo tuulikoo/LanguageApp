@@ -23,7 +23,7 @@ i18n.use(HttpApi) // use http backend
         },
 
         backend: {
-            loadPath: function(lngs, namespaces) {
+            loadPath: function (lngs, namespaces) {
                 return `/locales/${lngs[0]}/${namespaces[0]}.json`;
             },
         },

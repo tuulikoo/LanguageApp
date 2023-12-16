@@ -7,6 +7,8 @@ export default defineConfig({
         include: ["test/*.test.js"], 
         
         exclude: ["test/playwright/**/*"],
+
+
     },
 });
 
